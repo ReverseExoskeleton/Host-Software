@@ -1,17 +1,38 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
+using System.Threading;
 
 public class Controller : MonoBehaviour {
   public SerialReader Reader;
-  //private bool _readerIsValid = true;
+  public ValueDisplay AccelDisplay;
+  public ValueDisplay GyroDisplay;
+  public ValueDisplay MagDisplay;
+  //private bool _first_update = true;
 
-  // Start is called before the first frame update
   void Start() {
-    Reader = new SerialReader();
+    try {
+      Reader = new SerialReader();
+    } catch(HardwareConfigurationException) {
+      throw;
+    }
+    Reader.WaitUntilReady();
   }
 
-  // Update is called once per frame
   void Update() {
     if (Reader == null) return;
-    ImuSample[] samples = Reader.GetImuSamples();
+    //if (_first_update) {
+    //  Debug.Log("Update tid =" + Thread.CurrentThread.ManagedThreadId);
+    //  _first_update = false;
+    //}
+
+    try {
+      ImuSample sample = Reader.GetImuSamples();
+      AccelDisplay.UpdateValue(sample.LinAccel);
+      GyroDisplay.UpdateValue(sample.AngVel);
+      MagDisplay.UpdateValue(sample.MagField);
+    } catch (PacketQueueEmptyException e) {
+      Debug.Log(e);
+    }
   }
+
 }
