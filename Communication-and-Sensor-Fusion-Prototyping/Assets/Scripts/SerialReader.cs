@@ -1,9 +1,45 @@
 ﻿using System;
+using System.Threading;
 using System.IO;
 using System.IO.Ports;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
+
+public class HardwareConfigurationException : Exception {
+  public HardwareConfigurationException() { }
+  public HardwareConfigurationException(string message) : base(message) { }
+  public HardwareConfigurationException(string message, Exception inner) :
+    base(message, inner) { }
+}
+
+public class InvalidDataStartPacketException  : Exception {
+  public InvalidDataStartPacketException () { }
+  public InvalidDataStartPacketException (string message) : base(message) { }
+  public InvalidDataStartPacketException (string message, Exception inner) :
+    base(message, inner) { }
+}
+
+public class ReaderBufferFullException : Exception {
+  public ReaderBufferFullException() { }
+  public ReaderBufferFullException(string message) : base(message) { }
+  public ReaderBufferFullException(string message, Exception inner) :
+    base(message, inner) { }
+}
+
+public class PacketQueueEmptyException : Exception {
+  public PacketQueueEmptyException() { }
+  public PacketQueueEmptyException(string message) : base(message) { }
+  public PacketQueueEmptyException(string message, Exception inner) :
+    base(message, inner) { }
+}
+
+public class PacketQueueFullException : Exception {
+  public PacketQueueFullException() { }
+  public PacketQueueFullException(string message) : base(message) { }
+  public PacketQueueFullException(string message, Exception inner) :
+    base(message, inner) { }
+}
+
 
 public readonly struct Measurement3D {
   public float X { get; }
@@ -23,10 +59,6 @@ public readonly struct ImuSample {
 
   public ImuSample(byte[] dataBuffer) {
     float[] dataArray = ConvertBufferToDataArr(dataBuffer);
-    // -------------------- Debugging --------------------
-    Debug.Log("Received Floats = " + dataArray.ToString());
-    // ---------------------------------------------------
-
     LinAccel = new Measurement3D(/*X=*/dataArray[0],
                                  /*Y=*/dataArray[1],
                                  /*Z=*/dataArray[2]);
@@ -38,6 +70,7 @@ public readonly struct ImuSample {
                                  /*Z=*/dataArray[8]);
   }
 
+  // Adapted from Mohsen Sarkars answer at https://stackoverflow.com/a/37761168
   private static float GetTwoByteFloat(byte HO, byte LO) {
     int intVal = BitConverter.ToInt32(new byte[] { HO, LO, 0, 0 }, 0);
 
@@ -71,66 +104,173 @@ public readonly struct ImuSample {
   }
 }
 
-public class HardwareConfigurationException : Exception {
-  public HardwareConfigurationException() { }
-  public HardwareConfigurationException(string message) : base(message) { }
-  public HardwareConfigurationException(string message, Exception inner) :
-    base(message, inner) { }
-}
-
 public class SerialReader {
   private const int _PacketNumBytes = 2 * 9; // 9 DOF each with 16-bit precision
-  private const int _BufferQueueCapacity = 10; // Arbitrary
-  private const int _MaxNumYieldsToReaderThread = 5;
+  private const int _curInputBufferCapacity = 50; // Arbitrary
+  private const int _PacketQueueCapacity = 100; // Arbitrary
+  // TODO: May also want to send message back to IMU once received so then it
+  // can start sending data packets
+  private const string _DataStartString = "Data Start"; // Arbitrary
+  private const int _MaxNumYieldsToReaderThread = 50;
 
   private SerialPort _serialPort;
-  private Queue<byte[]> _bufferQueue = new Queue<byte[]>(_BufferQueueCapacity);
+  private byte[] _curInputBuffer = new byte[0];
+  private Queue<byte[]> _packetQueue = new Queue<byte[]>(_PacketQueueCapacity);
+  private bool _waitingForDataStart = true;
+  private int _dataStartStrIdx = 0;
 
-  public SerialReader(string portName = "COM1", int baudRate = 19200,
+  public int i = 0;
+
+  public SerialReader(string portName = "COM3", int baudRate = 115200,
                       Parity parity = Parity.None, int dataBits = 8,
                       StopBits stopBits = StopBits.One) {
-      _serialPort = new SerialPort(portName, baudRate, parity, dataBits, stopBits) {
-        Handshake = Handshake.None
-      };
-    _serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+    _serialPort = new SerialPort(portName, baudRate, parity, dataBits, stopBits) {
+      Handshake = Handshake.None,
+    };
 
     try {
       _serialPort.Open();
     } catch (IOException e) {
-      throw new HardwareConfigurationException("Failed to configure serial " +
-                                                "interface: ", e);
+      throw new HardwareConfigurationException($@"Failed to configure serial 
+                                                 interface:{e}.");
     }
+
+    // Idea from https://www.sparxeng.com/blog/software/must-use-net-system-io-ports-serialport
+    byte[] buffer = new byte[_PacketNumBytes];
+    void kickoffRead() {
+      _ = _serialPort.BaseStream.BeginRead(buffer, 0, buffer.Length, delegate (IAsyncResult ar) {
+        try {
+          int actualLength = _serialPort.BaseStream.EndRead(ar);
+          byte[] received = new byte[actualLength];
+          Buffer.BlockCopy(buffer, 0, received, 0, actualLength);
+          HandleSerialDataEvent(received);
+        } catch (IOException e) {
+          Debug.Log(e); // TODO: Replace this with something to recover
+        } catch (InvalidDataStartPacketException e) {
+          Debug.Log(e); // TODO: Replace this with something to recover
+        } catch (ReaderBufferFullException e) {
+          Debug.Log(e); // TODO: Replace this with something to recover
+        } catch (PacketQueueFullException e) {
+          Debug.Log(e); // TODO: Replace this with something to recover
+        } catch (Exception e) {
+          Debug.LogError("Unknow Exception in kickoffRead: " + e);
+        }
+        kickoffRead();
+      }, null);
+    }
+    kickoffRead();
   }
 
-  public ImuSample[] GetImuSamples() {
-    ImuSample[] samples = { };
-    Assert.AreEqual(0, samples.Length);
+  public void WaitUntilReady() {
+    while (_waitingForDataStart) Thread.Yield();
+  }
 
+  public ImuSample GetImuSamples() {
     for (int i = 0; i < _MaxNumYieldsToReaderThread; i++) {
-      lock (_bufferQueue) {
-        if (_bufferQueue.Count <= 0) { break; }
-        samples = new ImuSample[_bufferQueue.Count];
+      ImuSample? sample = null;
+      lock (_packetQueue) {
+        Debug.Log($@"GetImuSamples got lock and there are 
+            {_packetQueue.Count} entries in q");
+        if (_packetQueue.Count <= 0) { break; }
+        sample = new ImuSample(_packetQueue.Dequeue());
       }
-      if (samples.Length > 0) { return samples; }
+      if (sample.HasValue) return sample.Value;
+      if (!Thread.Yield()) {
+        Debug.LogError("Failed to yield main thread.");
+      }
     }
-    throw new Exception("Did not receive serial packets after yielding main thread" +
-      _MaxNumYieldsToReaderThread + " times.");
+    throw new PacketQueueEmptyException($@"Did not receive serial data 
+        packets after yielding main thread {_MaxNumYieldsToReaderThread} times.");
   }
 
-  private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e) {
-    lock (_bufferQueue) {
-      if (_bufferQueue.Count >= _BufferQueueCapacity) {
-        Debug.LogError("Buffer queue with capacity " + _BufferQueueCapacity +
-          " reached limit. Dequeing 1st element in queue.");
-        _ = _bufferQueue.Dequeue();
+  private void HandleSerialDataEvent(byte[] inputBuffer) {
+    //Debug.Log("Read tid =" + Thread.CurrentThread.ManagedThreadId);
+    //Debug.Log(System.Text.Encoding.Default.GetString(inputBuffer));
+    //Debug.Log(inputBuffer.Length);
+
+    if (_waitingForDataStart) {
+      try {
+        HandleDataStartString(inputBuffer);
+      } catch (InvalidDataStartPacketException) {
+        throw;
       }
-      byte[] inBuffer = new byte[_PacketNumBytes];
-      int numBytesRead = _serialPort.Read(inBuffer, /*offset=*/0, _PacketNumBytes);
-      Assert.AreEqual(_PacketNumBytes, numBytesRead);
-      // -------------------- Debugging --------------------
-      Debug.Log("Received Bytes = " + inBuffer.ToString());
-      // ---------------------------------------------------
-      _bufferQueue.Enqueue(inBuffer);
+      return;
+    }
+
+    byte[] combinedInputBuffer;
+    try {
+      combinedInputBuffer = GetCombinedInputBuffer(inputBuffer);
+    } catch(ReaderBufferFullException) {
+      throw;
+    }
+
+    try {
+      UpdatePacketBufferAndQueue(combinedInputBuffer);
+    } catch (PacketQueueFullException) {
+      throw;
+    }
+  }
+
+  private void HandleDataStartString(byte[] inputBuffer) {
+    string inputStr = System.Text.Encoding.ASCII.GetString(inputBuffer);
+    Debug.Log($"Input string is '{inputStr}'");
+    int matchIdx = inputStr.IndexOf(_DataStartString[_dataStartStrIdx]);
+    if (matchIdx == -1) return;
+    int i = matchIdx;
+    do {
+      if (inputStr[i] == _DataStartString[_dataStartStrIdx]) {
+        i++;
+        _dataStartStrIdx++;
+      } else {
+        return;
+      }
+    } while (i < inputStr.Length && _dataStartStrIdx < _DataStartString.Length);
+
+    if (i == inputStr.Length && _dataStartStrIdx == _DataStartString.Length) {
+      _waitingForDataStart = false;
+      Debug.Log("Read through data start packet!!!");
+    } else if (i < inputStr.Length) {
+      throw new InvalidDataStartPacketException($@"Start data packet contains
+          both start string and data bytes: '{inputStr}'");
+    }
+  }
+
+  private byte[] GetCombinedInputBuffer(byte[] inputBuffer) {
+    if (_curInputBuffer.Length + inputBuffer.Length > _curInputBufferCapacity) {
+      throw new ReaderBufferFullException(
+        $"Serial reader buffer with capacity {_curInputBufferCapacity} is full."
+      );
+    }
+    byte[] combinedInputBuffer = new byte[_curInputBuffer.Length +
+                                              inputBuffer.Length];
+    System.Buffer.BlockCopy(_curInputBuffer, 0, combinedInputBuffer,
+                            0, _curInputBuffer.Length);
+    System.Buffer.BlockCopy(inputBuffer, 0, combinedInputBuffer,
+                            _curInputBuffer.Length, inputBuffer.Length);
+    return combinedInputBuffer;
+  }
+
+  private void UpdatePacketBufferAndQueue(byte[] combinedInputBuffer) {
+    if (combinedInputBuffer.Length > _PacketNumBytes) {
+      byte[] packetBuffer = new byte[_PacketNumBytes];
+      System.Buffer.BlockCopy(combinedInputBuffer, 0, packetBuffer,
+                              0, packetBuffer.Length);
+      _curInputBuffer = new byte[combinedInputBuffer.Length - _PacketNumBytes];
+      System.Buffer.BlockCopy(combinedInputBuffer, _PacketNumBytes,
+                              _curInputBuffer, 0, _curInputBuffer.Length);
+
+      lock (_packetQueue) {
+        Debug.Log($@"UpdatePacketBufferAndQueue got lock and there are
+            {_packetQueue.Count} entries in q");
+        _packetQueue.Enqueue(packetBuffer);
+        if (_packetQueue.Count >= _PacketQueueCapacity) {
+          _ = _packetQueue.Dequeue();
+          throw new PacketQueueFullException($@"Packet queue with capacity
+            {_PacketQueueCapacity} reached limit. Dequeing 1st element in queue.");
+        }
+      }
+    } else {
+      _curInputBuffer = combinedInputBuffer;
     }
   }
 }
