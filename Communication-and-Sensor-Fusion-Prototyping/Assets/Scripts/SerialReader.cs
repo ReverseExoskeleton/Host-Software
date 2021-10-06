@@ -70,7 +70,7 @@ public readonly struct ImuSample {
                                  /*Z=*/dataArray[8]);
   }
 
-  // Adapted from Mohsen Sarkars answer at https://stackoverflow.com/a/37761168
+  // Adapted from Mohsen Sarkars answer at https://stackoverflow.com/a/37761168 (CC BY-SA 3.0)
   private static float GetTwoByteFloat(byte HO, byte LO) {
     int intVal = BitConverter.ToInt32(new byte[] { HO, LO, 0, 0 }, 0);
 
