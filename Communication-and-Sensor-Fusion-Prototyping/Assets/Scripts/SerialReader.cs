@@ -118,6 +118,7 @@ public class SerialReader {
   private Queue<byte[]> _packetQueue = new Queue<byte[]>(_PacketQueueCapacity);
   private bool _waitingForDataStart = true;
   private int _dataStartStrIdx = 0;
+  private bool _firstSerialDataEvent = true;
 
   public int i = 0;
 
@@ -184,9 +185,10 @@ public class SerialReader {
   }
 
   private void HandleSerialDataEvent(byte[] inputBuffer) {
-    //Debug.Log("Read tid =" + Thread.CurrentThread.ManagedThreadId);
-    //Debug.Log(System.Text.Encoding.Default.GetString(inputBuffer));
-    //Debug.Log(inputBuffer.Length);
+    if (_firstSerialDataEvent) {
+      Debug.Log("Read tid =" + Thread.CurrentThread.ManagedThreadId);
+      _firstSerialDataEvent = false;
+    }
 
     if (_waitingForDataStart) {
       try {
