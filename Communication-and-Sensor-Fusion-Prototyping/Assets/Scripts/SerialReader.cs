@@ -5,6 +5,8 @@ using System.IO.Ports;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Vector3D = Madgwick.Impl.FusionVector3;
+
 public class HardwareConfigurationException : Exception {
   public HardwareConfigurationException() { }
   public HardwareConfigurationException(string message) : base(message) { }
@@ -40,34 +42,22 @@ public class PacketQueueFullException : Exception {
     base(message, inner) { }
 }
 
-
-public readonly struct Measurement3D {
-  public float X { get; }
-  public float Y { get; }
-  public float Z { get; }
-  public Measurement3D(float x, float y, float z) {
-    X = x;
-    Y = y;
-    Z = z;
-  }
-}
-
 public readonly struct ImuSample {
-  public Measurement3D LinAccel { get; }
-  public Measurement3D AngVel { get; }
-  public Measurement3D MagField { get; }
+  public Vector3D LinAccel { get; }
+  public Vector3D AngVel { get; }
+  public Vector3D MagField { get; }
 
   public ImuSample(byte[] dataBuffer) {
     float[] dataArray = ConvertBufferToDataArr(dataBuffer);
-    LinAccel = new Measurement3D(/*X=*/dataArray[0],
-                                 /*Y=*/dataArray[1],
-                                 /*Z=*/dataArray[2]);
-    AngVel = new Measurement3D(/*X=*/dataArray[3],
-                               /*Y=*/dataArray[4],
-                               /*Z=*/dataArray[5]);
-    MagField = new Measurement3D(/*X=*/dataArray[6],
-                                 /*Y=*/dataArray[7],
-                                 /*Z=*/dataArray[8]);
+    LinAccel = new Vector3D(/*X=*/dataArray[0],
+                            /*Y=*/dataArray[1],
+                            /*Z=*/dataArray[2]);
+    AngVel = new Vector3D(/*X=*/dataArray[3],
+                          /*Y=*/dataArray[4],
+                          /*Z=*/dataArray[5]);
+    MagField = new Vector3D(/*X=*/dataArray[6],
+                            /*Y=*/dataArray[7],
+                            /*Z=*/dataArray[8]);
   }
 
   // Adapted from Mohsen Sarkars answer at https://stackoverflow.com/a/37761168 (CC BY-SA 3.0)
@@ -111,16 +101,15 @@ public class SerialReader {
   // TODO: May also want to send message back to IMU once received so then it
   // can start sending data packets
   private const string _DataStartString = "Data Start"; // Arbitrary
-  private const int _MaxNumYieldsToReaderThread = 50;
+  private const int _MaxNumYieldsToReaderThread = 100;
 
   private SerialPort _serialPort;
   private byte[] _curInputBuffer = new byte[0];
   private Queue<byte[]> _packetQueue = new Queue<byte[]>(_PacketQueueCapacity);
   private bool _waitingForDataStart = true;
   private int _dataStartStrIdx = 0;
+  private bool _isRunning = true;
   private bool _firstSerialDataEvent = true;
-
-  public int i = 0;
 
   public SerialReader(string portName = "COM3", int baudRate = 115200,
                       Parity parity = Parity.None, int dataBits = 8,
@@ -156,7 +145,10 @@ public class SerialReader {
         } catch (Exception e) {
           Debug.LogError("Unknow Exception in kickoffRead: " + e);
         }
-        kickoffRead();
+
+        if (_isRunning) {
+          kickoffRead();
+        }
       }, null);
     }
     kickoffRead();
@@ -164,6 +156,10 @@ public class SerialReader {
 
   public void WaitUntilReady() {
     while (_waitingForDataStart) Thread.Yield();
+  }
+
+  public void StopReading() {
+    _isRunning = false;
   }
 
   public ImuSample GetImuSamples() {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Vector3D = Madgwick.Impl.FusionVector3;
+
 public class ValueDisplay : MonoBehaviour {
   public Text xText;
   public Text yText;
@@ -27,9 +29,9 @@ public class ValueDisplay : MonoBehaviour {
     }
   }
 
-  public void UpdateValue(Measurement3D sample) {
-    _x = sample.X.ToString("0.000");
-    _y = sample.Y.ToString("0.000");
-    _z = sample.Z.ToString("0.000");
+  public void UpdateValue(Vector3D sample) {
+    _x = sample.x.ToString("0.000");
+    _y = sample.y.ToString("0.000");
+    _z = sample.z.ToString("0.000");
   }
 }
