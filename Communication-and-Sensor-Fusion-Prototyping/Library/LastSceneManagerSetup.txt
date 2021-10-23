@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/imu_raw_data.unity
+- path: Assets/Scenes/madgwick_demo.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
