@@ -800,9 +800,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f96ddf8b198a445851ba607ac4df32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AccelDisplay: {fileID: 623143364}
-  GyroDisplay: {fileID: 74370527}
-  MagDisplay: {fileID: 3123469044014576459}
+  accelDisplay: {fileID: 623143364}
+  gyroDisplay: {fileID: 74370527}
+  magDisplay: {fileID: 3123469044014576459}
+  cubeTf: {fileID: 0}
+  isMadgwickDemo: 0
 --- !u!114 &623143364 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7615675515306395787, guid: e25cb75150c51974d9d38589e94f70cc,
