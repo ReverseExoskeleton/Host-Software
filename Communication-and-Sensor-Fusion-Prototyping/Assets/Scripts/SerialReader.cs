@@ -160,6 +160,7 @@ public class SerialReader {
 
   public void StopReading() {
     _isRunning = false;
+    _serialPort.Close();
   }
 
   public ImuSample GetImuSamples() {
@@ -211,7 +212,7 @@ public class SerialReader {
 
   private void HandleDataStartString(byte[] inputBuffer) {
     string inputStr = System.Text.Encoding.ASCII.GetString(inputBuffer);
-    Debug.Log($"Input string is '{inputStr}'");
+    // Debug.Log($"Input string is '{inputStr}'");
     int matchIdx = inputStr.IndexOf(_DataStartString[_dataStartStrIdx]);
     if (matchIdx == -1) return;
     int i = matchIdx;

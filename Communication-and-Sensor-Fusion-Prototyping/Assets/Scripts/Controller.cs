@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 using System.Threading;
+using AHRS;
 
 public enum Scenes {
   VALDISPLAY, CUBE, COMPASS
@@ -8,7 +9,8 @@ public enum Scenes {
 
 public class Controller : MonoBehaviour {
   public SerialReader reader;
-  public Madgwick fusion;
+  public xio_Fusion.FusionAhrs fusion;
+  public xio_Fusion.Fusion fusionInterface;
   public ValueDisplay accelDisplay;
   public ValueDisplay gyroDisplay;
   public ValueDisplay magDisplay;
@@ -24,7 +26,8 @@ public class Controller : MonoBehaviour {
       throw;
     }
     if (scene != Scenes.VALDISPLAY) {
-      fusion = new Madgwick();
+      fusionInterface = new xio_Fusion.Fusion();
+      fusion = fusionInterface.ahrs;
     }
     reader.WaitUntilReady();
   }
@@ -47,18 +50,24 @@ public class Controller : MonoBehaviour {
           break;
         }
         case Scenes.CUBE: {
-          fusion.AhrsUpdate(sample.AngVel, sample.LinAccel, 
-                        sample.MagField, _timeSinceLastPacketS);
+                        //fusion.Update(sample.AngVel.x * Mathf.Deg2Rad, sample.AngVel.y * Mathf.Deg2Rad, sample.AngVel.z * Mathf.Deg2Rad,
+                        //              sample.LinAccel.x, sample.LinAccel.y, sample.LinAccel.z,
+                        //              sample.MagField.x, sample.MagField.y, sample.MagField.z);
+          Vector3 angVel = new Vector3(sample.AngVel.x, sample.AngVel.y, sample.AngVel.z);
+          Vector3 linAcl = new Vector3(sample.LinAccel.x, sample.LinAccel.y, sample.LinAccel.z);
+          Vector3 magFld = new Vector3(sample.MagField.x, sample.MagField.y, sample.MagField.z);
+          
+          fusionInterface.FusionAhrsRawUpdate(fusion, angVel, linAcl, magFld, Time.deltaTime);
           _timeSinceLastPacketS = 0;
 
-          var q = fusion.GetQuaternion();
-          tf.rotation = new Quaternion(q.x, q.z, q.y, q.w);
-          Debug.LogWarning($"x={q.x}, y={q.z}, z={q.y}, w={q.w}");
+          var q = fusion.quaternion;
+          tf.rotation = new Quaternion(q[0], q[2], q[1], q[3]);
+          // Debug.LogWarning($"x={q.x}, y={q.z}, z={q.y}, w={q.w}");
           break;
         }
         case Scenes.COMPASS: {
-          tf.rotation = Quaternion.Euler(0, 0, fusion.CompassUpdate(
-              sample.LinAccel, sample.MagField));
+          //tf.rotation = Quaternion.Euler(0, 0, fusion.CompassUpdate(
+          //    sample.LinAccel, sample.MagField));
           break;
         }
         default: throw new System.Exception();
