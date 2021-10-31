@@ -1,0 +1,1215 @@
+Start of AhrsUpdate | x:0 y:0 z:0 w:1
+After integrate | x:-3.92237e-06 y:-0.0421887 z:0 w:1
+After normalize | x:-3.91241e-06 y:-0.0420816 z:0 w:0.997461
+After conjugate | x:3.91241e-06 y:0.0420816 z:-0 w:0.997461
+
+
+After conjugate | x:3.91241e-06 y:0.0420816 z:-0 w:0.997461
+
+
+Start of AhrsUpdate | x:-3.91241e-06 y:-0.0420816 z:0 w:0.997461
+After integrate | x:-4.63864e-06 y:-0.0617127 z:-4.66699e-08 w:0.996633
+After normalize | x:-4.63757e-06 y:-0.0616985 z:-4.66592e-08 w:0.996403
+After conjugate | x:4.63757e-06 y:0.0616985 z:4.66592e-08 w:0.996403
+
+
+After conjugate | x:4.63757e-06 y:0.0616985 z:4.66592e-08 w:0.996403
+
+
+Start of AhrsUpdate | x:-4.63757e-06 y:-0.0616985 z:-4.66592e-08 w:0.996403
+After integrate | x:0.0424219 y:-0.0616989 z:-0.00264927 w:0.996404
+After normalize | x:0.0423834 y:-0.0616429 z:-0.00264687 w:0.995499
+After conjugate | x:-0.0423834 y:0.0616429 z:0.00264687 w:0.995499
+
+
+After conjugate | x:-0.0423834 y:0.0616429 z:0.00264687 w:0.995499
+
+
+Start of AhrsUpdate | x:0.0423834 y:-0.0616429 z:-0.00264687 w:0.995499
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:0 y:0 z:0 w:1
+After integrate | x:0.0339504 y:-2.06858e-07 z:0 w:1
+After normalize | x:0.0338744 y:-2.06395e-07 z:0 w:0.997759
+After conjugate | x:-0.0338744 y:2.06395e-07 z:-0 w:0.997759
+
+
+After conjugate | x:-0.0338744 y:2.06395e-07 z:-0 w:0.997759
+
+
+Start of AhrsUpdate | x:0.0338744 y:-2.06395e-07 z:0 w:0.997759
+After integrate | x:0.0491788 y:-0.016463 z:0.000562662 w:0.997239
+After normalize | x:0.0491652 y:-0.0164584 z:0.000562506 w:0.996964
+After conjugate | x:-0.0491652 y:0.0164584 z:-0.000562506 w:0.996964
+
+
+After conjugate | x:-0.0491652 y:0.0164584 z:-0.000562506 w:0.996964
+
+
+Start of AhrsUpdate | x:0 y:0 z:0 w:1
+After integrate | x:-7.36617e-05 y:-0.0218946 z:0 w:1
+After normalize | x:-7.35202e-05 y:-0.0218525 z:0 w:0.998079
+After conjugate | x:7.35202e-05 y:0.0218525 z:-0 w:0.998079
+
+
+After conjugate | x:7.35202e-05 y:0.0218525 z:-0 w:0.998079
+
+
+Start of AhrsUpdate | x:-7.35202e-05 y:-0.0218525 z:0 w:0.998079
+After integrate | x:-7.35986e-05 y:-0.0651589 z:-3.20988e-06 w:0.997131
+After normalize | x:-7.35288e-05 y:-0.0650971 z:-3.20683e-06 w:0.996185
+After conjugate | x:7.35288e-05 y:0.0650971 z:3.20683e-06 w:0.996185
+
+
+After conjugate | x:7.35288e-05 y:0.0650971 z:3.20683e-06 w:0.996185
+
+
+Start of AhrsUpdate | x:-7.35288e-05 y:-0.0650971 z:-3.20683e-06 w:0.996185
+After integrate | x:-0.000231717 y:-0.0223205 z:1.03704e-05 w:0.99898
+After normalize | x:-0.000231504 y:-0.0223 z:1.03608e-05 w:0.998061
+After conjugate | x:0.000231504 y:0.0223 z:-1.03608e-05 w:0.998061
+
+
+After conjugate | x:0.000231504 y:0.0223 z:-1.03608e-05 w:0.998061
+
+
+Start of AhrsUpdate | x:-0.000231504 y:-0.0223 z:1.03608e-05 w:0.998061
+After integrate | x:-0.000230146 y:-0.108524 z:-9.82581e-06 w:0.996134
+After normalize | x:-0.000229313 y:-0.108131 z:-9.79022e-06 w:0.992527
+After conjugate | x:0.000229313 y:0.108131 z:9.79022e-06 w:0.992527
+
+
+After conjugate | x:0.000229313 y:0.108131 z:9.79022e-06 w:0.992527
+
+
+Start of AhrsUpdate | x:-0.000229313 y:-0.108131 z:-9.79022e-06 w:0.992527
+After integrate | x:-0.0409546 y:-0.0952222 z:0.00445859 w:0.993924
+After normalize | x:-0.040913 y:-0.0951255 z:0.00445406 w:0.992914
+After conjugate | x:0.040913 y:0.0951255 z:-0.00445406 w:0.992914
+
+
+After conjugate | x:0.040913 y:0.0951255 z:-0.00445406 w:0.992914
+
+
+Start of AhrsUpdate | x:-0.040913 y:-0.0951255 z:0.00445406 w:0.992914
+After integrate | x:-0.083534 y:-0.0949822 z:0.00856316 w:0.991154
+After normalize | x:-0.0834571 y:-0.0948948 z:0.00855528 w:0.990242
+After conjugate | x:0.0834571 y:0.0948948 z:-0.00855528 w:0.990242
+
+
+After conjugate | x:0.0834571 y:0.0948948 z:-0.00855528 w:0.990242
+
+
+Start of AhrsUpdate | x:-0.0834571 y:-0.0948948 z:0.00855528 w:0.990242
+After integrate | x:-0.226393 y:-0.0479714 z:0.026261 w:0.982539
+After normalize | x:-0.223917 y:-0.0474469 z:0.0259738 w:0.971795
+After conjugate | x:0.223917 y:0.0474469 z:-0.0259738 w:0.971795
+
+
+After conjugate | x:0.223917 y:0.0474469 z:-0.0259738 w:0.971795
+
+
+Start of AhrsUpdate | x:-0.223917 y:-0.0474469 z:0.0259738 w:0.971795
+After integrate | x:-0.395124 y:-0.0422276 z:0.0345308 w:0.932372
+After normalize | x:-0.389194 y:-0.0415938 z:0.0340125 w:0.918378
+After conjugate | x:0.389194 y:0.0415938 z:-0.0340125 w:0.918378
+
+
+After conjugate | x:0.389194 y:0.0415938 z:-0.0340125 w:0.918378
+
+
+Start of AhrsUpdate | x:-0.389194 y:-0.0415938 z:0.0340125 w:0.918378
+After integrate | x:-0.469946 y:-0.0603897 z:0.0283939 w:0.883513
+After normalize | x:-0.467835 y:-0.0601185 z:0.0282664 w:0.879546
+After conjugate | x:0.467835 y:0.0601185 z:-0.0282664 w:0.879546
+
+
+After conjugate | x:0.467835 y:0.0601185 z:-0.0282664 w:0.879546
+
+
+Start of AhrsUpdate | x:-0.467835 y:-0.0601185 z:0.0282664 w:0.879546
+After integrate | x:-0.479261 y:-0.15301 z:-0.0210157 w:0.868703
+After normalize | x:-0.47659 y:-0.152157 z:-0.0208985 w:0.863862
+After conjugate | x:0.47659 y:0.152157 z:0.0208985 w:0.863862
+
+
+After conjugate | x:0.47659 y:0.152157 z:0.0208985 w:0.863862
+
+
+Start of AhrsUpdate | x:-0.47659 y:-0.152157 z:-0.0208985 w:0.863862
+After integrate | x:-0.468428 y:-0.210544 z:-0.0545926 w:0.857265
+After normalize | x:-0.467271 y:-0.210024 z:-0.0544577 w:0.855146
+After conjugate | x:0.467271 y:0.210024 z:0.0544577 w:0.855146
+
+
+After conjugate | x:0.467271 y:0.210024 z:0.0544577 w:0.855146
+
+
+Start of AhrsUpdate | x:-0.467271 y:-0.210024 z:-0.0544577 w:0.855146
+After integrate | x:-0.490877 y:-0.204119 z:-0.0446836 w:0.84432
+After normalize | x:-0.490663 y:-0.204029 z:-0.044664 w:0.84395
+After conjugate | x:0.490663 y:0.204029 z:0.044664 w:0.84395
+
+
+After conjugate | x:0.490663 y:0.204029 z:0.044664 w:0.84395
+
+
+Start of AhrsUpdate | x:-0.490663 y:-0.204029 z:-0.044664 w:0.84395
+After integrate | x:-0.512128 y:-0.199323 z:-0.036108 w:0.833061
+After normalize | x:-0.511955 y:-0.199255 z:-0.0360958 w:0.83278
+After conjugate | x:0.511955 y:0.199255 z:0.0360958 w:0.83278
+
+
+After conjugate | x:0.511955 y:0.199255 z:0.0360958 w:0.83278
+
+
+Start of AhrsUpdate | x:-0.511955 y:-0.199255 z:-0.0360958 w:0.83278
+After integrate | x:-0.532629 y:-0.193551 z:-0.0271107 w:0.821825
+After normalize | x:-0.532452 y:-0.193487 z:-0.0271017 w:0.821553
+After conjugate | x:0.532452 y:0.193487 z:0.0271017 w:0.821553
+
+
+After conjugate | x:0.532452 y:0.193487 z:0.0271017 w:0.821553
+
+
+Start of AhrsUpdate | x:-0.532452 y:-0.193487 z:-0.0271017 w:0.821553
+After integrate | x:-0.55206 y:-0.181593 z:-0.0143783 w:0.812066
+After normalize | x:-0.551844 y:-0.181522 z:-0.0143727 w:0.811749
+After conjugate | x:0.551844 y:0.181522 z:0.0143727 w:0.811749
+
+
+After conjugate | x:0.551844 y:0.181522 z:0.0143727 w:0.811749
+
+
+Start of AhrsUpdate | x:-0.551844 y:-0.181522 z:-0.0143727 w:0.811749
+After integrate | x:-0.559051 y:-0.147343 z:0.0105868 w:0.814934
+After normalize | x:-0.558531 y:-0.147206 z:0.010577 w:0.814177
+After conjugate | x:0.558531 y:0.147206 z:-0.010577 w:0.814177
+
+
+After conjugate | x:0.558531 y:0.147206 z:-0.010577 w:0.814177
+
+
+Start of AhrsUpdate | x:-0.558531 y:-0.147206 z:0.010577 w:0.814177
+After integrate | x:-0.572122 y:-0.141574 z:0.0168319 w:0.805791
+After normalize | x:-0.572029 y:-0.141551 z:0.0168291 w:0.805661
+After conjugate | x:0.572029 y:0.141551 z:-0.0168291 w:0.805661
+
+
+After conjugate | x:0.572029 y:0.141551 z:-0.0168291 w:0.805661
+
+
+Start of AhrsUpdate | x:-0.572029 y:-0.141551 z:0.0168291 w:0.805661
+After integrate | x:-0.585356 y:-0.126026 z:0.030138 w:0.798648
+After normalize | x:-0.585167 y:-0.125985 z:0.0301283 w:0.79839
+After conjugate | x:0.585167 y:0.125985 z:-0.0301283 w:0.79839
+
+
+After conjugate | x:0.585167 y:0.125985 z:-0.0301283 w:0.79839
+
+
+Start of AhrsUpdate | x:-0.585167 y:-0.125985 z:0.0301283 w:0.79839
+After integrate | x:-0.596458 y:-0.120741 z:0.0355032 w:0.790739
+After normalize | x:-0.596386 y:-0.120726 z:0.0354989 w:0.790643
+After conjugate | x:0.596386 y:0.120726 z:-0.0354989 w:0.790643
+
+
+After conjugate | x:0.596386 y:0.120726 z:-0.0354989 w:0.790643
+
+
+Start of AhrsUpdate | x:-0.596386 y:-0.120726 z:0.0354989 w:0.790643
+After integrate | x:-0.594207 y:-0.154697 z:0.00925921 w:0.788277
+After normalize | x:-0.593654 y:-0.154553 z:0.00925059 w:0.787543
+After conjugate | x:0.593654 y:0.154553 z:-0.00925059 w:0.787543
+
+
+After conjugate | x:0.593654 y:0.154553 z:-0.00925059 w:0.787543
+
+
+Start of AhrsUpdate | x:-0.593654 y:-0.154553 z:0.00925059 w:0.787543
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+Start of AhrsUpdate | x:nan y:nan z:nan w:nan
+After integrate | x:nan y:nan z:nan w:nan
+After normalize | x:nan y:nan z:nan w:nan
+After conjugate | x:nan y:nan z:nan w:nan
+
+
+After conjugate | x:nan y:nan z:nan w:nan
+
+

@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/madgwick_demo.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
