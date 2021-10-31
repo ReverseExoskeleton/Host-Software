@@ -7,76 +7,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-using Vector3D = Madgwick.Impl.FusionVector3;
-public readonly struct RawImuSample {
-  public Vector3D LinAccel { get; }
-  public Vector3D AngVel { get; }
-  public Vector3D MagField { get; }
-
-  public RawImuSample(byte[] dataBuffer) {
-    float[] dataArray = ConvertBufferToDataArr(dataBuffer);
-    LinAccel = new Vector3D(/*X=*/dataArray[0],
-                            /*Y=*/dataArray[1],
-                            /*Z=*/dataArray[2]);
-    AngVel = new Vector3D(/*X=*/dataArray[3],
-                          /*Y=*/dataArray[4],
-                          /*Z=*/dataArray[5]);
-    MagField = new Vector3D(/*X=*/dataArray[6],
-                            /*Y=*/dataArray[7],
-                            /*Z=*/dataArray[8]);
-  }
-
-  private static float[] ConvertBufferToDataArr(byte[] dataBuffer) {
-    float[] dataArray = new float[dataBuffer.Length / 2];
-
-    //for (int i = dataArray.Length - 3; i < dataArray.Length; i++) {
-    //  dataArray[i] = 
-
-    //}
-
-
-    //((float)axis_val) * 0.15;
-
-    //switch (agmt.fss.a) {
-    //  case 0:
-    //    return (((float)axis_val) / 16.384);
-    //    break;
-    //  case 1:
-    //    return (((float)axis_val) / 8.192);
-    //    break;
-    //  case 2:
-    //    return (((float)axis_val) / 4.096);
-    //    break;
-    //  case 3:
-    //    return (((float)axis_val) / 2.048);
-    //    break;
-    //  default:
-    //    return 0;
-    //    break;
-    //}
-
-    //switch (agmt.fss.g) {
-    //  case 0:
-    //    return (((float)axis_val) / 131);
-    //    break;
-    //  case 1:
-    //    return (((float)axis_val) / 65.5);
-    //    break;
-    //  case 2:
-    //    return (((float)axis_val) / 32.8);
-    //    break;
-    //  case 3:
-    //    return (((float)axis_val) / 16.4);
-    //    break;
-    //  default:
-    //    return 0;
-    //    break;
-    //}
-
-    return dataArray;
-  }
-}
-
 public class Demo : MonoBehaviour {
   public bool isScanningDevices = false;
   public bool isScanningServices = false;
@@ -187,12 +117,10 @@ public class Demo : MonoBehaviour {
     if (isSubscribed) {
       BleApi.BLEData res = new BleApi.BLEData();
       while (BleApi.PollData(out res, false)) {
-        Debug.Log($"Received data = {BitConverter.ToString(res.buf)}");
-        Debug.Log($"Received data size = {res.size}");
+        Logger.Debug($"Received data = {BitConverter.ToString(res.buf)}");
+        Logger.Debug($"Received data size = {res.size}");
         subcribeText.text = BitConverter.ToString(res.buf, 0, res.size);
-        // subcribeText.text = Encoding.ASCII.GetString(res.buf, 0, res.size);
 
-        /*
         _timeSinceLastPacketS += Time.deltaTime;
         int _PacketNumBytes = 2 * 9;
         byte[] packetBuffer = new byte[_PacketNumBytes];
@@ -201,7 +129,7 @@ public class Demo : MonoBehaviour {
         if (packetBuffer.SequenceEqual(_lastPacketBuffer)) continue;
         _lastPacketBuffer = packetBuffer;
 
-        ImuSample sample = new ImuSample(packetBuffer);
+        RawImuSample sample = new RawImuSample(packetBuffer);
         fusion.AhrsUpdate(sample.AngVel, sample.LinAccel,
                       sample.MagField, _timeSinceLastPacketS);
         _timeSinceLastPacketS = 0;
@@ -210,7 +138,6 @@ public class Demo : MonoBehaviour {
         cubeTf.rotation = new Quaternion(q.x, q.z, q.y, q.w);
         Madgwick.Impl.FusionEulerAngles e = fusion.GetEulerAngles();
         Logger.Testing($"roll={e.pitch}, pitch={e.roll}, yaw={e.yaw}");
-        */
       }
     }
     {
