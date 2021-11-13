@@ -9,7 +9,7 @@ public abstract class Tranceiver : IDisposable {
 
   public abstract void CloseConnection();
 
-  public abstract List<SensorSample> GetSensorData();
+  public abstract bool TryGetSensorData(out List<SensorSample> samples);
 
   public abstract void SendHapticFeedback();
 

@@ -5,47 +5,6 @@ using System.IO;
 using System.IO.Ports;
 using System.Collections.Generic;
 
-public class HardwareConfigurationException : Exception {
-  public HardwareConfigurationException() { }
-  public HardwareConfigurationException(string message) : base(message) { }
-  public HardwareConfigurationException(string message, Exception inner) :
-    base(message, inner) { }
-}
-
-public class InvalidDataStartPacketException  : Exception {
-  public InvalidDataStartPacketException () { }
-  public InvalidDataStartPacketException (string message) : base(message) { }
-  public InvalidDataStartPacketException (string message, Exception inner) :
-    base(message, inner) { }
-}
-
-public class ReaderBufferFullException : Exception {
-  public ReaderBufferFullException() { }
-  public ReaderBufferFullException(string message) : base(message) { }
-  public ReaderBufferFullException(string message, Exception inner) :
-    base(message, inner) { }
-}
-
-public class PacketQueueEmptyException : Exception {
-  public PacketQueueEmptyException() { }
-  public PacketQueueEmptyException(string message) : base(message) { }
-  public PacketQueueEmptyException(string message, Exception inner) :
-    base(message, inner) { }
-}
-
-public class PacketQueueFullException : Exception {
-  public PacketQueueFullException() { }
-  public PacketQueueFullException(string message) : base(message) { }
-  public PacketQueueFullException(string message, Exception inner) :
-    base(message, inner) { }
-}
-
-public class FailedToCloseException : Exception {
-  public FailedToCloseException() { }
-  public FailedToCloseException(string message) : base(message) { }
-  public FailedToCloseException(string message, Exception inner) :
-    base(message, inner) { }
-}
 
 public class SerialReader : Tranceiver {
   private const int _curInputBufferCapacity = 50; // Arbitrary
@@ -53,7 +12,6 @@ public class SerialReader : Tranceiver {
   // TODO: May also want to send message back to IMU once received so then it
   // can start sending data packets
   private const string _DataStartString = "Data Start"; // Arbitrary
-  private const int _MaxNumYieldsToReaderThread = 500;
 
   private SerialPort _serialPort;
   private byte[] _curInputBuffer = new byte[0];
@@ -78,9 +36,42 @@ public class SerialReader : Tranceiver {
                                                  interface:{e}.");
     }
 
+    StartReading();
+  }
+
+  public override void EstablishConnection() {
+    while (_waitingForDataStart) Thread.Yield();
+  }
+
+  public override void CloseConnection() {
+    _isRunning = false;
+    Thread.Sleep(100); // ms
+    if (!_finished)
+      throw new FailedToCloseException($"Failed to close serial port.");
+  }
+
+  public override bool TryGetSensorData(out List<SensorSample> samples) {
+    samples = new List<SensorSample>();
+    lock (_packetQueue) {
+      Logger.Debug($@"GetImuSamples got lock and there are 
+          {_packetQueue.Count} entries in q");
+      if (_packetQueue.Count <= 0) return false;
+      samples = new List<SensorSample>(_packetQueue.Count);
+      while (_packetQueue.Count > 0) {
+        samples.Add(new SensorSample(_packetQueue.Dequeue()));
+      }
+      return true;
+    }
+  }
+
+  public override void SendHapticFeedback() {
+    throw new NotImplementedException();
+  }
+
+  private void StartReading() {
     // Idea from https://www.sparxeng.com/blog/software/must-use-net-system-io-ports-serialport
     byte[] buffer = new byte[SensorSample.NumBytes];
-    void kickoffRead() {
+    void _kickoffRead() {
       _ = _serialPort.BaseStream.BeginRead(buffer, 0, buffer.Length, delegate (IAsyncResult ar) {
         try {
           int actualLength = _serialPort.BaseStream.EndRead(ar);
@@ -100,50 +91,14 @@ public class SerialReader : Tranceiver {
         }
 
         if (_isRunning) {
-          kickoffRead();
+          _kickoffRead();
         } else {
           _serialPort.Close();
         }
       }, null);
     }
-    kickoffRead();
+    _kickoffRead();
     _finished = true;
-  }
-
-  public override void EstablishConnection() {
-    while (_waitingForDataStart) Thread.Yield();
-  }
-
-  public override void CloseConnection() {
-    _isRunning = false;
-    Thread.Sleep(100); // ms
-    if (!_finished)
-      throw new FailedToCloseException($"Failed to close serial port.");
-  }
-
-  public override List<SensorSample> GetSensorData() {
-    for (int i = 0; i < _MaxNumYieldsToReaderThread; i++) {
-      List<SensorSample> samples = null;
-      lock (_packetQueue) {
-        Logger.Debug($@"GetImuSamples got lock and there are 
-            {_packetQueue.Count} entries in q");
-        if (_packetQueue.Count <= 0) { break; }
-        samples = new List<SensorSample>(_packetQueue.Count);
-        while (_packetQueue.Count > 0) {
-          samples.Add(new SensorSample(_packetQueue.Dequeue()));
-        }
-      }
-      if (samples?.Any() ?? false) return samples;
-      if (!Thread.Yield()) {
-        Logger.Error("Failed to yield main thread.");
-      }
-    }
-    throw new PacketQueueEmptyException($@"Did not receive serial data 
-        packets after yielding main thread {_MaxNumYieldsToReaderThread} times.");
-  }
-
-  public override void SendHapticFeedback() {
-    throw new NotImplementedException();
   }
 
   private void HandleSerialDataEvent(byte[] inputBuffer) {
