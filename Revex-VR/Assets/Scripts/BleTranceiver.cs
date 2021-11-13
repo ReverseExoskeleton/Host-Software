@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Runtime.InteropServices;
 using System.Threading;
 using UnityEngine;
@@ -93,20 +94,133 @@ public class BleTranceiver : Tranceiver {
     public static extern void GetError(out ErrorMessage buf);
   }
 
+  public readonly string revexDeviceId = "";
+  public readonly string revexServiceId = "";
+  public readonly string sensorCharacteristicId = "";
+
+  private readonly string _OkStatus = "Ok";
+  private CancellationTokenSource _readCts = new CancellationTokenSource();
+  private ConcurrentQueue<SensorSample> _sampleQueue =
+                                          new ConcurrentQueue<SensorSample>();
+
   public override void EstablishConnection() {
-    throw new NotImplementedException();
+    // TODO(Issue 1): Catch and try to recover from thrown exceptions
+    ConnectToDevice(); 
+    ConnectToService(); 
+    ConnectToCharacteristic(); 
+    Subscribe();
+
+    Thread readThread = new Thread(ReadWorker);
   }
 
   public override void CloseConnection() {
-    throw new NotImplementedException();
+    _readCts.Cancel();
+    Impl.Quit();
+    Thread.Sleep(1000); // 1 sec
+    _readCts.Dispose();
   }
 
-  public override List<SensorSample> GetSensorData() {
-    throw new NotImplementedException();
+  public override bool TryGetSensorData(out List<SensorSample> samples) {
+    samples = new List<SensorSample>();
+    while (_sampleQueue.TryDequeue(out SensorSample smpl)) samples.Add(smpl);
+    return samples.Count > 0;
   }
 
   public override void SendHapticFeedback() {
     throw new NotImplementedException();
   }
 
+  private void ConnectToDevice() {
+    Impl.ScanStatus status;
+    Impl.DeviceUpdate device = new Impl.DeviceUpdate();
+    bool revexDeviceFound = false;
+
+    Impl.StartDeviceScan();
+    do {
+      status = Impl.PollDevice(ref device, block: false);
+      if (device.id == revexDeviceId) {
+        revexDeviceFound = true;
+        Impl.StopDeviceScan();
+      }
+    } while (!revexDeviceFound && status != Impl.ScanStatus.FINISHED);
+    if (!revexDeviceFound) {
+      throw new NotFoundException(@"Device scan finished.
+                                    Unable to find RevEx device.");
+    }
+    if (GetStatus() != _OkStatus)
+      throw new BleException($"ConnectToDevice failed: {GetStatus()}.");
+  }
+
+  private void ConnectToService() {
+    Impl.ScanStatus status;
+    bool revexServiceFound = false;
+
+    Impl.ScanServices(revexDeviceId);
+    do {
+      status = Impl.PollService(out Impl.Service service, block: false);
+      if (service.uuid == revexServiceId) {
+        revexServiceFound = true;
+      }
+    } while (!revexServiceFound && status != Impl.ScanStatus.FINISHED);
+    if (!revexServiceFound) {
+      throw new NotFoundException(@"Services scan finished.
+                                    Unable to find RevEx service.");
+    }
+    if (GetStatus() != _OkStatus)
+      throw new BleException($"ConnectToService failed: {GetStatus()}.");
+  }
+
+  private void ConnectToCharacteristic() {
+    Impl.ScanStatus status;
+    bool sensorCharacteristicFound = false;
+
+    Impl.ScanCharacteristics(revexDeviceId, revexServiceId);
+    do {
+      status = Impl.PollCharacteristic(out Impl.Characteristic characteristic,
+                                       block: false);
+      if (characteristic.uuid == sensorCharacteristicId) {
+        sensorCharacteristicFound = true;
+      }
+    } while (!sensorCharacteristicFound && status != Impl.ScanStatus.FINISHED);
+    if (!sensorCharacteristicFound) {
+      throw new NotFoundException(@"Characteristics scan finished.
+                                  Unable to find RevEx sensor characteristic.");
+    }
+    if (GetStatus() != _OkStatus)
+      throw new BleException($"ConnectToCharacteristic failed: {GetStatus()}.");
+  }
+
+  private void Subscribe() {
+    // TODO(Issue 2): May want to do this in a thread in case indefinite blocking
+    // Block so that we can know whether subscribe was successful.
+    bool res = Impl.SubscribeCharacteristic(revexDeviceId, revexServiceId,
+                                           sensorCharacteristicId, block: true);
+    if (GetStatus() != _OkStatus || !res) {
+      throw new BleException($@"Ble.SubscribeCharacteristic failed: 
+                                {GetStatus()}.");
+    }
+  }
+
+  private void ReadWorker() {
+    while (!_readCts.IsCancellationRequested) {
+      if (Impl.PollData(out Impl.BLEData receivedData, block: false)) {
+        if (GetStatus() != _OkStatus) {
+          throw new BleException($"Ble.PollData failed: {GetStatus()}.");
+        }
+        if (receivedData.size != SensorSample.NumBytes) {
+          throw new InvalidSensorPacketException($@"Sensor packet contained 
+             {receivedData.size} bytes. Expected {SensorSample.NumBytes}.");
+        }
+        _sampleQueue.Enqueue(new SensorSample(receivedData.buf));
+      }
+      Thread.Sleep(90); // ms
+    }
+  }
+
+  private static string GetStatus() {
+    Impl.ErrorMessage buf;
+    Impl.GetError(out buf);
+    return buf.msg;
+  }
 }
+
