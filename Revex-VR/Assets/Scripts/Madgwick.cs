@@ -186,26 +186,13 @@ public class Madgwick {
   private readonly Impl.FusionVector3 _LsbVec = new Impl.FusionVector3(_Lsb);
   private readonly Impl.FusionVector3 _Vec1k = new Impl.FusionVector3(1000);
 
-  // Dictionaries that map from sensor full-scale range to sensitivity
-  private readonly IDictionary<int, float> _GyroSensitivities = new Dictionary<int, float>(){
-    {250, 1/131F}, // dps, (dps/LSB)
-    {500, 1/65.5F},
-    {1000, 1/32.8F},
-    {2000, 1/16.4F}};
-  private readonly IDictionary<int, float> _AccelSensitivities = new Dictionary<int, float>(){
-    {2, 1/16384F}, // g, (g/LSB)
-    {4, 1/8192F},
-    {8, 1/4096F},
-    {16, 1/2048F}};
   // TODO: Get this value experimentally as right now this was a random guess
   private readonly Impl.FusionVector3
     _HardIronBias = new Impl.FusionVector3(100, 100, 0); // uT
 
   private const float _DesiredSamplePeriod = 0.01F; // sec
-  private const int _GyroFSRange = 500; // dps
-  private const int _AccelFSRange = 4; // G
   private const float _StationaryThreshold = 8f; // dps
-  private const float _Gain = 5f; 
+  private const float _Gain = 5f;
   private const float _MinMagField = 20f; // uT
   private const float _MaxMagField = 70f; // uT
   private Impl.FusionBias _bias = new Impl.FusionBias();
@@ -218,22 +205,6 @@ public class Madgwick {
     Impl.FusionAhrsInitialise(ref _ahrs, _Gain);
     // Set optional magnetic field limits
     Impl.FusionAhrsSetMagneticField(ref _ahrs, _MinMagField, _MaxMagField);
-  }
-
-  private Impl.FusionVector3 GetSensitivity(Sensor sensor) {
-    float sensitivity;
-    switch (sensor) {
-      case Sensor.GYRO: {
-          sensitivity = _GyroSensitivities[_GyroFSRange];
-          break;
-      }
-      case Sensor.ACCEL: {
-          sensitivity = _AccelSensitivities[_AccelFSRange];
-          break;
-      }
-      default: throw new InvalidEnumArgumentException();
-    }
-    return new Impl.FusionVector3(sensitivity, sensitivity, sensitivity);
   }
 
   public void AhrsUpdate(Vector3 rawGyro_   /*dps*/,
@@ -265,22 +236,6 @@ public class Madgwick {
 
     // Update AHRS algorithm
     Impl.FusionAhrsUpdate(ref _ahrs, calibGyro, calibAccel, calibMag, samplePeriod);
-  }
-  public float CompassUpdate(Vector3 rawAccel_ /*mg*/,
-                             Vector3 rawMag_   /*uT*/) {
-    // Convert to struct type expected by DLL
-    Impl.FusionVector3 rawAccel = new Impl.FusionVector3(rawAccel_);
-    Impl.FusionVector3 rawMag = new Impl.FusionVector3(rawMag_);
-
-    // Get calibrated value for each sensor
-    Impl.FusionVector3 calibAccel = Impl.FusionCalibrationInertial(
-        rawAccel / (_Vec1k * _LsbVec), Impl.FUSION_ROTATION_MATRIX_IDENTITY(),
-        GetSensitivity(Sensor.ACCEL), Impl.FUSION_VECTOR3_ZERO());
-    Impl.FusionVector3 calibMag = Impl.FusionCalibrationMagnetic(
-        rawMag, Impl.FUSION_ROTATION_MATRIX_IDENTITY(),
-        _HardIronBias);
-
-    return Impl.FusionCompassCalculateHeading(calibAccel, calibMag);
   }
 
   public Quaternion GetQuaternion() {

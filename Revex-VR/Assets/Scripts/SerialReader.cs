@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
-using System.Linq;
 using System.IO;
 using System.IO.Ports;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 
 
 public class SerialReader : Tranceiver {
@@ -15,7 +15,9 @@ public class SerialReader : Tranceiver {
 
   private SerialPort _serialPort;
   private byte[] _curInputBuffer = new byte[0];
-  private Queue<byte[]> _packetQueue = new Queue<byte[]>(_PacketQueueCapacity);
+  //private Queue<byte[]> _packetQueue = new Queue<byte[]>(_PacketQueueCapacity);
+  private ConcurrentQueue<SensorSample> _sampleQueue =
+                                         new ConcurrentQueue<SensorSample>();
   private bool _waitingForDataStart = true;
   private int _dataStartStrIdx = 0;
   private bool _isRunning = true;
@@ -52,16 +54,8 @@ public class SerialReader : Tranceiver {
 
   public override bool TryGetSensorData(out List<SensorSample> samples) {
     samples = new List<SensorSample>();
-    lock (_packetQueue) {
-      Logger.Debug($@"GetImuSamples got lock and there are 
-          {_packetQueue.Count} entries in q");
-      if (_packetQueue.Count <= 0) return false;
-      samples = new List<SensorSample>(_packetQueue.Count);
-      while (_packetQueue.Count > 0) {
-        samples.Add(new SensorSample(_packetQueue.Dequeue()));
-      }
-      return true;
-    }
+    while (_sampleQueue.TryDequeue(out SensorSample smpl)) samples.Add(smpl);
+    return samples.Count > 0;
   }
 
   public override void SendHapticFeedback(byte intensity) {
@@ -83,8 +77,6 @@ public class SerialReader : Tranceiver {
         } catch (InvalidDataStartPacketException e) {
           Logger.Debug(e); // TODO: Replace this with something to recover
         } catch (ReaderBufferFullException e) {
-          Logger.Debug(e); // TODO: Replace this with something to recover
-        } catch (PacketQueueFullException e) {
           Logger.Debug(e); // TODO: Replace this with something to recover
         } catch (Exception e) {
           Logger.Error("Unknow Exception in kickoffRead: " + e);
@@ -123,11 +115,7 @@ public class SerialReader : Tranceiver {
       throw;
     }
 
-    try {
-      UpdatePacketBufferAndQueue(combinedInputBuffer);
-    } catch (PacketQueueFullException) {
-      throw;
-    }
+    UpdatePacketBufferAndQueue(combinedInputBuffer);
   }
 
   private void HandleDataStartString(byte[] inputBuffer) {
@@ -177,17 +165,8 @@ public class SerialReader : Tranceiver {
       _curInputBuffer = new byte[combinedInputBuffer.Length - SensorSample.NumBytes];
       System.Buffer.BlockCopy(combinedInputBuffer, SensorSample.NumBytes,
                               _curInputBuffer, 0, _curInputBuffer.Length);
-
-      lock (_packetQueue) {
-        Logger.Debug($@"UpdatePacketBufferAndQueue got lock and there are
-            {_packetQueue.Count} entries in q");
-        _packetQueue.Enqueue(packetBuffer);
-        if (_packetQueue.Count >= _PacketQueueCapacity) {
-          _ = _packetQueue.Dequeue();
-          throw new PacketQueueFullException($@"Packet queue with capacity
-            {_PacketQueueCapacity} reached limit. Dequeing 1st element in queue.");
-        }
-      }
+      
+      _sampleQueue.Enqueue(new SensorSample(packetBuffer));
     } else {
       _curInputBuffer = combinedInputBuffer;
     }

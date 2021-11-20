@@ -22,13 +22,6 @@ public class ReaderBufferFullException : Exception {
     base(message, inner) { }
 }
 
-public class PacketQueueFullException : Exception {
-  public PacketQueueFullException() { }
-  public PacketQueueFullException(string message) : base(message) { }
-  public PacketQueueFullException(string message, Exception inner) :
-    base(message, inner) { }
-}
-
 public class FailedToCloseException : Exception {
   public FailedToCloseException() { }
   public FailedToCloseException(string message) : base(message) { }

@@ -40,13 +40,7 @@ public class Controller : MonoBehaviour {
     }
     cubeTf.rotation = fusion.GetQuaternion();
     Vector3 eulerAng = fusion.GetEulerAngles();
-    Logger.Testing($"roll={eulerAng.x}, pitch={eulerAng.y}, yaw={eulerAng.z}");
-    // --------------- TODO: Remove this later after debugging ------------
-    //Madgwick.Impl.FusionQuaternion q = fusion.GetQuaternion();
-    //tf.rotation = new Quaternion(q.x, q.z, q.y, q.w);
-    //Madgwick.Impl.FusionEulerAngles e = fusion.GetEulerAngles();
-    //Logger.Testing($"roll={e.pitch}, pitch={e.roll}, yaw={e.yaw}");
-    // --------------------------------------------------------------------
+    Logger.Testing($"roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
   }
 
   private void OnApplicationQuit() {

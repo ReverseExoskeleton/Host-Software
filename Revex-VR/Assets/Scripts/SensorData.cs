@@ -6,7 +6,7 @@ public readonly struct SensorSample {
   public readonly struct ImuSample {
     private const float _MagScale = 1 / 0.15f; // constant from getMagUT
     private const float _AccelScale = 16.384f; // default setting gpm2 (ICM_20948_ACCEL_CONFIG_FS_SEL_e)
-    private const float _GyroScale = 16.384f; // default setting dps250 (ICM_20948_GYRO_CONFIG_1_FS_SEL_e)
+    private const float _GyroScale = 131f; // default setting dps250 (ICM_20948_GYRO_CONFIG_1_FS_SEL_e)
     private const int _NumBytes = ImuSampleNumBytes;
 
     public Vector3 LinAccel { get; }
@@ -29,7 +29,7 @@ public readonly struct SensorSample {
     private static float[] ConvertBufferToDataArr(byte[] dataBuffer) {
       float[] dataArray = new float[dataBuffer.Length / 2];
 
-      for (int i = 0; i < dataArray.Length; i += 2) {
+      for (int i = 0; i < dataBuffer.Length; i += 2) {
         float curFloat = GetFloatFromTwoBytes(dataBuffer, offset: i);
 
         if (i < _NumBytes / 3) {
@@ -42,6 +42,7 @@ public readonly struct SensorSample {
           throw new Exception("Packet range calculations were wrong. Oops.");
         }
       }
+      Logger.Debug($"Data array recovered = { String.Join(", ", dataArray) }");
       return dataArray;
     }
   }
@@ -76,16 +77,8 @@ public readonly struct SensorSample {
   }
 
   private static float GetFloatFromTwoBytes(byte[] dataBuffer, int offset) {
-    Debug.Assert(offset > 0 && offset <= dataBuffer.Length - 2);
-    // ----------------- TODO: Remove this later after debugging --------------
-    byte[] float16Bytes = { dataBuffer[offset], dataBuffer[offset + 1] };
-    Logger.Debug($"Original bytes = " +
-                 $"{BitConverter.ToString(float16Bytes).Replace("-", "")}");
-    // ------------------------------------------------------------------------
+    Debug.Assert(offset >= 0 && offset <= dataBuffer.Length - 2);
     short rawInt = BitConverter.ToInt16(dataBuffer, offset);
-    // ----------------- TODO: Remove this later after debugging --------------
-    Logger.Debug($"Int recovered bytes = { BitConverter.GetBytes(rawInt) }");
-    // ------------------------------------------------------------------------
     return rawInt;
   }
 }
