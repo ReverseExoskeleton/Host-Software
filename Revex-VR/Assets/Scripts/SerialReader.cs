@@ -64,7 +64,7 @@ public class SerialReader : Tranceiver {
     }
   }
 
-  public override void SendHapticFeedback() {
+  public override void SendHapticFeedback(byte intensity) {
     throw new NotImplementedException();
   }
 

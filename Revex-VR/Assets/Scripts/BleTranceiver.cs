@@ -97,11 +97,19 @@ public class BleTranceiver : Tranceiver {
   public readonly string revexDeviceId = "";
   public readonly string revexServiceId = "";
   public readonly string sensorCharacteristicId = "";
+  public readonly string hapticCharacteristicId = "";
 
   private readonly string _OkStatus = "Ok";
+  private Dictionary<string, string> _characteristicIds;
   private CancellationTokenSource _readCts = new CancellationTokenSource();
   private ConcurrentQueue<SensorSample> _sampleQueue =
                                           new ConcurrentQueue<SensorSample>();
+  public BleTranceiver() {
+    _characteristicIds = new Dictionary<string, string>{
+      {"sensor", sensorCharacteristicId },
+      {"haptic", hapticCharacteristicId },
+    };
+  }
 
   public override void EstablishConnection() {
     // TODO(Issue 1): Catch and try to recover from thrown exceptions
@@ -126,8 +134,20 @@ public class BleTranceiver : Tranceiver {
     return samples.Count > 0;
   }
 
-  public override void SendHapticFeedback() {
-    throw new NotImplementedException();
+  public override void SendHapticFeedback(byte intensity) {
+    Impl.BLEData payload = new Impl.BLEData();
+    payload.buf = new byte[1];
+    payload.buf[0] = intensity;
+    payload.size = 1;
+    payload.deviceId = revexDeviceId;
+    payload.serviceUuid = revexServiceId;
+    payload.characteristicUuid = hapticCharacteristicId;
+    // TODO(Issue 2): May want to do this in a thread in case indefinite blocking
+    // Block so that we can know whether write was successful.
+    bool res = Impl.SendData(payload,block: true);
+    if (GetStatus() != _OkStatus || !res) {
+      throw new BleException($"Ble.SendData failed: {GetStatus()}.");
+    }
   }
 
   private void ConnectToDevice() {
@@ -172,19 +192,21 @@ public class BleTranceiver : Tranceiver {
 
   private void ConnectToCharacteristic() {
     Impl.ScanStatus status;
-    bool sensorCharacteristicFound = false;
 
     Impl.ScanCharacteristics(revexDeviceId, revexServiceId);
-    do {
-      status = Impl.PollCharacteristic(out Impl.Characteristic characteristic,
-                                       block: false);
-      if (characteristic.uuid == sensorCharacteristicId) {
-        sensorCharacteristicFound = true;
+    foreach (KeyValuePair<string, string> characteristicId in _characteristicIds) {
+      bool sensorCharacteristicFound = false;
+      do {
+        status = Impl.PollCharacteristic(out Impl.Characteristic characteristic,
+                                         block: false);
+        if (characteristic.uuid == characteristicId.Value) {
+          sensorCharacteristicFound = true;
+        }
+      } while (!sensorCharacteristicFound && status != Impl.ScanStatus.FINISHED);
+      if (!sensorCharacteristicFound) {
+        throw new NotFoundException($@"Characteristics scan finished. Unable to
+                                  find {characteristicId.Key} characteristic.");
       }
-    } while (!sensorCharacteristicFound && status != Impl.ScanStatus.FINISHED);
-    if (!sensorCharacteristicFound) {
-      throw new NotFoundException(@"Characteristics scan finished.
-                                  Unable to find RevEx sensor characteristic.");
     }
     if (GetStatus() != _OkStatus)
       throw new BleException($"ConnectToCharacteristic failed: {GetStatus()}.");

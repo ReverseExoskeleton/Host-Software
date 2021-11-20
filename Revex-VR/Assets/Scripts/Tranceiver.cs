@@ -11,7 +11,7 @@ public abstract class Tranceiver : IDisposable {
 
   public abstract bool TryGetSensorData(out List<SensorSample> samples);
 
-  public abstract void SendHapticFeedback();
+  public abstract void SendHapticFeedback(byte intensity);
 
   // Implement IDisposable.
   // A derived class should not be able to override this method.
