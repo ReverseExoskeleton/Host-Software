@@ -8,21 +8,18 @@ using System.Collections.Concurrent;
 
 public class SerialReader : Tranceiver {
   private const int _curInputBufferCapacity = 50; // Arbitrary
-  private const int _PacketQueueCapacity = 100; // Arbitrary
   // TODO: May also want to send message back to IMU once received so then it
   // can start sending data packets
-  private const string _DataStartString = "Data Start"; // Arbitrary
+  private const string _DataStartString = "Here comes the data bitch"; // Arbitrary
 
   private SerialPort _serialPort;
   private byte[] _curInputBuffer = new byte[0];
-  //private Queue<byte[]> _packetQueue = new Queue<byte[]>(_PacketQueueCapacity);
   private ConcurrentQueue<SensorSample> _sampleQueue =
                                          new ConcurrentQueue<SensorSample>();
   private bool _waitingForDataStart = true;
   private int _dataStartStrIdx = 0;
   private bool _isRunning = true;
   private bool _finished = false;
-  private bool _firstSerialDataEvent = true;
 
   public SerialReader(string portName = "COM3", int baudRate = 115200,
                       Parity parity = Parity.None, int dataBits = 8,
@@ -50,6 +47,7 @@ public class SerialReader : Tranceiver {
     Thread.Sleep(100); // ms
     if (!_finished)
       throw new FailedToCloseException($"Failed to close serial port.");
+    Logger.Debug("Successfully closed serial port.");
   }
 
   public override bool TryGetSensorData(out List<SensorSample> samples) {
@@ -86,19 +84,14 @@ public class SerialReader : Tranceiver {
           _kickoffRead();
         } else {
           _serialPort.Close();
+          _finished = true;
         }
       }, null);
     }
     _kickoffRead();
-    _finished = true;
   }
 
   private void HandleSerialDataEvent(byte[] inputBuffer) {
-    if (_firstSerialDataEvent) {
-      Logger.Debug("Read tid =" + Thread.CurrentThread.ManagedThreadId);
-      _firstSerialDataEvent = false;
-    }
-
     if (_waitingForDataStart) {
       try {
         HandleDataStartString(inputBuffer);

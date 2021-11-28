@@ -144,6 +144,13 @@ public class Madgwick {
                                                FusionVector3 magnetometer,
                                                float samplePeriod);
 
+    [DllImport("MadgwickDll.dll", EntryPoint = "FusionAhrsIsInitialising", CharSet = CharSet.Unicode)]
+    public static extern bool FusionAhrsIsInitialising(ref FusionAhrs fusionAhrs);
+
+    [DllImport("MadgwickDll.dll", EntryPoint = "FusionAhrsSetYaw", CharSet = CharSet.Unicode)]
+    public static extern void FusionAhrsSetYaw(ref FusionAhrs fusionAhrs, float yaw);
+
+
     [DllImport("MadgwickDll.dll", EntryPoint = "FusionAhrsGetQuaternion", CharSet = CharSet.Unicode)]
     public static extern FusionQuaternion FusionAhrsGetQuaternion(ref FusionAhrs fusionAhrs);
 
@@ -182,18 +189,21 @@ public class Madgwick {
     GYRO, ACCEL, MAG
   }
 
-  private const float  _Lsb = 65535;
-  private readonly Impl.FusionVector3 _LsbVec = new Impl.FusionVector3(_Lsb);
   private readonly Impl.FusionVector3 _Vec1k = new Impl.FusionVector3(1000);
 
-  // TODO: Get this value experimentally as right now this was a random guess
   private readonly Impl.FusionVector3
-    _HardIronBias = new Impl.FusionVector3(100, 100, 0); // uT
+    _GyroSens = new Impl.FusionVector3(1 / SensorSample.GyroScale); // dps/LSB
+  private readonly Impl.FusionVector3
+    _AccelSens = new Impl.FusionVector3(1 / SensorSample.AccelScaleG); // g/LSB
+  private readonly Impl.FusionVector3
+    _HardIronBias = new Impl.FusionVector3(-55.425f, 25.35f, 25.35f); // uT
+  //private readonly Impl.FusionVector3
+  //  _HardIronBias = new Impl.FusionVector3(100, 0, 0); // uT
 
   private const float _DesiredSamplePeriod = 0.01F; // sec
   private const float _StationaryThreshold = 8f; // dps
-  private const float _Gain = 5f;
-  private const float _MinMagField = 20f; // uT
+  private const float _Gain = 0.001f;
+  private const float _MinMagField = 0f; // uT
   private const float _MaxMagField = 70f; // uT
   private Impl.FusionBias _bias = new Impl.FusionBias();
   private Impl.FusionAhrs _ahrs = new Impl.FusionAhrs();
@@ -224,7 +234,7 @@ public class Madgwick {
 
     _bias.samplePeriod = samplePeriod;
     Impl.FusionVector3 calibGyro = Impl.FusionBiasUpdate(ref _bias, rawGyro);
-    Impl.FusionVector3 calibAccel = rawAccel / _Vec1k;
+    Impl.FusionVector3 calibAccel = rawAccel / _Vec1k; // g
     Impl.FusionVector3 calibMag = Impl.FusionCalibrationMagnetic(
         rawMag, Impl.FUSION_ROTATION_MATRIX_IDENTITY(), _HardIronBias);
 
@@ -236,7 +246,26 @@ public class Madgwick {
 
     // Update AHRS algorithm
     Impl.FusionAhrsUpdate(ref _ahrs, calibGyro, calibAccel, calibMag, samplePeriod);
+
+    //if (!Impl.FusionAhrsIsInitialising(ref _ahrs) && !_yawCorrected) {
+    //  YawCorrection(ref _ahrs, calibMag);
+    //  _yawCorrected = true;
+    //}
   }
+
+  //private void YawCorrection(ref Impl.FusionAhrs ahrs, Impl.FusionVector3 mag) {
+  //  Vector3 eulerAng = GetEulerAngles();
+  //  double roll = eulerAng.z * (Math.PI / 180);
+  //  double pitch = eulerAng.x * (Math.PI / 180);;
+
+  //  double corrected_mag_x = (mag.x * Math.Cos(pitch)) +
+  //                           (mag.y * Math.Sin(roll) * Math.Sin(pitch)) +
+  //                           (mag.z * Math.Cos(roll) * Math.Sin(pitch));
+  //  double corrected_mag_y = (mag.y * Math.Cos(roll)) - (mag.z * Math.Sin(roll));
+  //  float yaw = (float)(180 / Math.PI * 
+  //                      Math.Atan2(-corrected_mag_y, corrected_mag_x));
+  //  Impl.FusionAhrsSetYaw(ref ahrs, yaw);
+  //}
 
   public Quaternion GetQuaternion() {
     Impl.FusionQuaternion q = Impl.FusionAhrsGetQuaternion(ref _ahrs);

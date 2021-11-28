@@ -4,9 +4,6 @@ using UnityEngine;
 
 public readonly struct SensorSample {
   public readonly struct ImuSample {
-    private const float _MagScale = 1 / 0.15f; // constant from getMagUT
-    private const float _AccelScale = 16.384f; // default setting gpm2 (ICM_20948_ACCEL_CONFIG_FS_SEL_e)
-    private const float _GyroScale = 131f; // default setting dps250 (ICM_20948_GYRO_CONFIG_1_FS_SEL_e)
     private const int _NumBytes = ImuSampleNumBytes;
 
     public Vector3 LinAccel { get; }
@@ -33,11 +30,11 @@ public readonly struct SensorSample {
         float curFloat = GetFloatFromTwoBytes(dataBuffer, offset: i);
 
         if (i < _NumBytes / 3) {
-          dataArray[i / 2] = curFloat / _AccelScale;
+          dataArray[i / 2] = curFloat / AccelScale;
         } else if (_NumBytes / 3 <= i && i < 2 * _NumBytes / 3) {
-          dataArray[i / 2] = curFloat / _GyroScale;
+          dataArray[i / 2] = curFloat / GyroScale;
         } else if (2 * _NumBytes / 3 <= i && i < _NumBytes) {
-          dataArray[i / 2] = curFloat / _MagScale;
+          dataArray[i / 2] = curFloat / MagScale;
         } else {
           throw new Exception("Packet range calculations were wrong. Oops.");
         }
@@ -55,6 +52,17 @@ public readonly struct SensorSample {
   //   One 16-bit float.
   public const int ElbowAngNumBytes = 2; 
   public const int NumBytes = ImuSampleNumBytes + ElbowAngNumBytes;
+
+  // --------------- Scaling constants --------------- 
+  // constant from getMagUT
+  // Arduino Library: https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary/blob/74d9c1e4103d2ca11d1645489108a152095d15e7/src/ICM_20948.cpp#L163
+  public const float MagScale = 1 / 0.15f; // LSB / uT
+  // Arduino Library default setting gpm2 (ICM_20948_ACCEL_CONFIG_FS_SEL_e): https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary/blob/74d9c1e4103d2ca11d1645489108a152095d15e7/src/ICM_20948.cpp#L887
+  public const float AccelScale = 16.384f; // LSB / mg   <-- gravity g's not grams
+  public const float AccelScaleG = 16384f; // LSB / g   <-- gravity g's not grams
+  // Arduino Library default setting dps250 (ICM_20948_GYRO_CONFIG_1_FS_SEL_e): https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary/blob/74d9c1e4103d2ca11d1645489108a152095d15e7/src/ICM_20948.cpp#L888
+  public const float GyroScale = 131f; // LSB / dps
+  // -------------------------------------------------
 
   public ImuSample Imu { get; }
   public float ElbowAngleDeg { get; }

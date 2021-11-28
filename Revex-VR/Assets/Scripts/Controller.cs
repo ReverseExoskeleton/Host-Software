@@ -1,17 +1,35 @@
-﻿using UnityEngine;
-using System.Threading;
+﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
+
+enum Status {
+  Connecting,
+  CalibrateShoulder,
+  CalibrateArmLength,
+  ArmEstimation,
+}
+
 
 public class Controller : MonoBehaviour {
+  private Status _status = Status.Connecting;
   // --------------- Communication ---------------
   public Tranceiver tranceiver;
-
-  private bool _firstUpdate = true;
   private float _timeSinceLastPacketS = 0; // sec
 
   // --------------- Arm Estimation ---------------
   public Madgwick fusion;
-  public Transform cubeTf;
+  public MovingAvg elbowEma = new MovingAvg();
+
+  public Transform controllerTf;
+  public Transform headsetTf;
+
+  public Transform shoulderTf;
+  public Transform imuTf;
+  public Transform elbowTf;
+  public Transform wristTf;
+
+  // Ratio of upper arm to forearm is 1.2 : 1
+  private float _upperArmPercent = 0.545F;
 
   // -------------- Haptic Feedback --------------
 
@@ -19,31 +37,104 @@ public class Controller : MonoBehaviour {
     tranceiver = new SerialReader();
     fusion = new Madgwick();
     tranceiver.EstablishConnection();
+    _status = Status.CalibrateShoulder;
   }
 
   void Update() {
-    if (tranceiver == null) return;
-    if (_firstUpdate) {
-      Logger.Debug("Update tid =" + Thread.CurrentThread.ManagedThreadId);
-      _firstUpdate = false;
+    if (!UpdateSensorData()) return;
+
+    switch (_status) {
+      case Status.CalibrateShoulder:
+        ShoulderCalibrate();
+        break;
+      case Status.CalibrateArmLength:
+        ArmLengthCalibrate();
+        break;
+      case Status.ArmEstimation:
+        UpdateTransforms();
+        break;
+      default:
+        Logger.Error("Unknown case in Controller::Update");
+        break;
     }
+  }
+
+  private bool UpdateSensorData() {
     _timeSinceLastPacketS += Time.deltaTime;
 
-    List<SensorSample> samples;
-    if (!tranceiver.TryGetSensorData(out samples)) return;
+    List<SensorSample> samples = new List<SensorSample>();
+    if (tranceiver?.TryGetSensorData(out samples) == false) return false;
     float samplePeriod = _timeSinceLastPacketS / samples.Count;
     _timeSinceLastPacketS = 0;
 
     foreach (SensorSample sample in samples) {
       fusion.AhrsUpdate(sample.Imu.AngVel, sample.Imu.LinAccel,
                         sample.Imu.MagField, samplePeriod);
+
+      elbowEma.Update(sample.ElbowAngleDeg);
     }
-    cubeTf.rotation = fusion.GetQuaternion();
+
+    return true;
+  }
+
+  private void ShoulderCalibrate() {
+    bool userInDesiredPosition = false;
+
+    // TODO: Add the things here needed to instruct the user to move their
+    //       arm to the desired position. Once they do, set the flag below
+    //       to true, otherwise false.
+    userInDesiredPosition = true;
+
+    if (userInDesiredPosition) {
+      shoulderTf.position = new Vector3(
+        controllerTf.position.x, controllerTf.position.y, headsetTf.position.z);
+      _status = Status.CalibrateArmLength;
+    }
+  }
+
+  private void ArmLengthCalibrate() {
+    bool userInDesiredPosition = false;
+
+    // TODO: Add the things here needed to instruct the user to move their
+    //       arm to the desired position. Once they do, set the flag below
+    //       to true, otherwise false.
+    userInDesiredPosition = true;
+
+    if (!userInDesiredPosition) return;
+
+    float headToShoulderDist = Vector3.Distance(
+      headsetTf.position, shoulderTf.position);
+    float headToControllerDist = Vector3.Distance(
+      headsetTf.position, controllerTf.position);
+    float armLength = (float)Math.Sqrt(
+      Math.Pow(headToShoulderDist, 2) + Math.Pow(headToControllerDist, 2));
+    float upperArmLength = armLength * _upperArmPercent;
+    float forearmLength = armLength - upperArmLength;
+
+    elbowTf.position = shoulderTf.position + new Vector3(upperArmLength, 0, 0);
+    wristTf.position = elbowTf.position + new Vector3(forearmLength, 0, 0);
+
+    _status = Status.ArmEstimation;
+  }
+
+  private void UpdateTransforms() {
+    // TODO: Verify this with Matthew...
+    // --> If we have a tf parent structure like
+    //     headset -> IMU -> shoulder -> elbow -> wrist
+    //     then if we set the rotation of the IMU and we have a defined
+    //     static transform between IMU and shoulder given by the way
+    //     we set up the objects in the UI, then should this work?
+    imuTf.rotation = fusion.GetQuaternion();
     Vector3 eulerAng = fusion.GetEulerAngles();
-    Logger.Testing($"roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
+    Logger.Testing($"IMU: roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
+
+    // TODO: Verify we want localEulerAngles and not eulerAngles
+    elbowTf.localEulerAngles = new Vector3(elbowEma.Current(), 0, 0);
+    Logger.Testing($"Elbow Angle (EMA) = {elbowEma.Current()}");
   }
 
   private void OnApplicationQuit() {
     tranceiver?.Dispose();
   }
 }
+

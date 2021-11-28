@@ -241,7 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 452534447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94db093b4f74b4247940f8c0b6569ce8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d93cf5b0bc590645b784ddc33040a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cubeTf: {fileID: 399829010}
