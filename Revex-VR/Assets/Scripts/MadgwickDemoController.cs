@@ -13,7 +13,8 @@ public class MadgwickDemoController : MonoBehaviour {
   public Transform cubeTf;
 
   void Start() {
-    tranceiver = new SerialReader();
+    //tranceiver = new SerialReader();
+    tranceiver = new BleTranceiver();
     fusion = new Madgwick();
     tranceiver.EstablishConnection();
   }

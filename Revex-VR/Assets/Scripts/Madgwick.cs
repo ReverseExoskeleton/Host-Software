@@ -246,26 +246,7 @@ public class Madgwick {
 
     // Update AHRS algorithm
     Impl.FusionAhrsUpdate(ref _ahrs, calibGyro, calibAccel, calibMag, samplePeriod);
-
-    //if (!Impl.FusionAhrsIsInitialising(ref _ahrs) && !_yawCorrected) {
-    //  YawCorrection(ref _ahrs, calibMag);
-    //  _yawCorrected = true;
-    //}
   }
-
-  //private void YawCorrection(ref Impl.FusionAhrs ahrs, Impl.FusionVector3 mag) {
-  //  Vector3 eulerAng = GetEulerAngles();
-  //  double roll = eulerAng.z * (Math.PI / 180);
-  //  double pitch = eulerAng.x * (Math.PI / 180);;
-
-  //  double corrected_mag_x = (mag.x * Math.Cos(pitch)) +
-  //                           (mag.y * Math.Sin(roll) * Math.Sin(pitch)) +
-  //                           (mag.z * Math.Cos(roll) * Math.Sin(pitch));
-  //  double corrected_mag_y = (mag.y * Math.Cos(roll)) - (mag.z * Math.Sin(roll));
-  //  float yaw = (float)(180 / Math.PI * 
-  //                      Math.Atan2(-corrected_mag_y, corrected_mag_x));
-  //  Impl.FusionAhrsSetYaw(ref ahrs, yaw);
-  //}
 
   public Quaternion GetQuaternion() {
     Impl.FusionQuaternion q = Impl.FusionAhrsGetQuaternion(ref _ahrs);
