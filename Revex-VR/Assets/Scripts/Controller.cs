@@ -52,6 +52,7 @@ public class Controller : MonoBehaviour {
         break;
       case Status.ArmEstimation:
         UpdateTransforms();
+        tranceiver.SendHapticFeedback(GetHapticFeedback());
         break;
       default:
         Logger.Error("Unknown case in Controller::Update");
@@ -79,11 +80,11 @@ public class Controller : MonoBehaviour {
 
   private void ShoulderCalibrate() {
     bool userInDesiredPosition = false;
-
     // TODO: Add the things here needed to instruct the user to move their
     //       arm to the desired position. Once they do, set the flag below
     //       to true, otherwise false.
-    userInDesiredPosition = true;
+    userInDesiredPosition = Input.GetKeyUp(KeyCode.D);
+    // ------------------------------------------------------------------
 
     if (userInDesiredPosition) {
       shoulderTf.position = new Vector3(
@@ -94,11 +95,11 @@ public class Controller : MonoBehaviour {
 
   private void ArmLengthCalibrate() {
     bool userInDesiredPosition = false;
-
     // TODO: Add the things here needed to instruct the user to move their
     //       arm to the desired position. Once they do, set the flag below
     //       to true, otherwise false.
-    userInDesiredPosition = true;
+    userInDesiredPosition = Input.GetKeyUp(KeyCode.D);
+    // ------------------------------------------------------------------
 
     if (!userInDesiredPosition) return;
 
@@ -128,6 +129,11 @@ public class Controller : MonoBehaviour {
 
     elbowTf.localEulerAngles = new Vector3(elbowEma.Current(), 0, 0);
     Logger.Testing($"Elbow Angle (EMA) = {elbowEma.Current()}");
+  }
+
+  private HapticFeedback GetHapticFeedback() {
+    // TODO: Come back to after VR simulation is complete.
+    return new HapticFeedback(dutyCyclePercent:0, frequencyPercent:0);
   }
 
   private void OnApplicationQuit() {

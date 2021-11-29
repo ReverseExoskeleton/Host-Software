@@ -134,20 +134,21 @@ public class BleTranceiver : Tranceiver {
     return samples.Count > 0;
   }
 
-  public override void SendHapticFeedback(byte intensity) {
+  public override void SendHapticFeedback(HapticFeedback feedback) {
     Impl.BLEData payload = new Impl.BLEData();
     payload.buf = new byte[1];
-    payload.buf[0] = intensity;
+    payload.buf[0] = feedback.Payload;
     payload.size = 1;
     payload.deviceId = revexDeviceId;
     payload.serviceUuid = revexServiceId;
     payload.characteristicUuid = hapticCharacteristicId;
-    // TODO(Issue 2): May want to do this in a thread in case indefinite blocking
     // Block so that we can know whether write was successful.
-    bool res = Impl.SendData(in payload,block: true);
-    if (GetStatus() != _OkStatus || !res) {
-      throw new BleException($"Ble.SendData failed: {GetStatus()}.");
-    }
+    new Thread(() => {
+      bool res = Impl.SendData(in payload,block: true);
+      if (GetStatus() != _OkStatus || !res) {
+        throw new BleException($"Ble.SendData failed: {GetStatus()}.");
+      }
+    }).Start();
   }
 
   private void ConnectToDevice() {

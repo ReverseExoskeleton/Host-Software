@@ -44,7 +44,7 @@ public class SerialReader : Tranceiver {
 
   public override void CloseConnection() {
     _isRunning = false;
-    Thread.Sleep(100); // ms
+    Thread.Sleep(1000); // ms
     if (!_finished)
       throw new FailedToCloseException($"Failed to close serial port.");
     Logger.Debug("Successfully closed serial port.");
@@ -56,7 +56,7 @@ public class SerialReader : Tranceiver {
     return samples.Count > 0;
   }
 
-  public override void SendHapticFeedback(byte intensity) {
+  public override void SendHapticFeedback(HapticFeedback feedback) {
     throw new NotImplementedException();
   }
 

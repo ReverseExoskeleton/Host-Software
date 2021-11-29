@@ -196,7 +196,8 @@ public class Madgwick {
   private readonly Impl.FusionVector3
     _AccelSens = new Impl.FusionVector3(1 / SensorSample.AccelScaleG); // g/LSB
   private readonly Impl.FusionVector3
-    _HardIronBias = new Impl.FusionVector3(-55.425f, 25.35f, 25.35f); // uT
+    _HardIronBias = new Impl.FusionVector3(-43.2f, 27.75f, 27.75f); // uT
+    //_HardIronBias = new Impl.FusionVector3(-55.425f, 25.35f, 25.35f); // uT
   //private readonly Impl.FusionVector3
   //  _HardIronBias = new Impl.FusionVector3(100, 0, 0); // uT
 

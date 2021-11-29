@@ -13,8 +13,8 @@ public class MadgwickDemoController : MonoBehaviour {
   public Transform cubeTf;
 
   void Start() {
-    //tranceiver = new SerialReader();
-    tranceiver = new BleTranceiver();
+    tranceiver = new SerialReader();
+    //tranceiver = new BleTranceiver();
     fusion = new Madgwick();
     tranceiver.EstablishConnection();
   }
@@ -22,6 +22,7 @@ public class MadgwickDemoController : MonoBehaviour {
   void Update() {
     if (!UpdateSensorData()) return;
     UpdateTransforms();
+    //tranceiver.SendHapticFeedback(GetHapticFeedback());
   }
 
   private bool UpdateSensorData() {
@@ -43,7 +44,12 @@ public class MadgwickDemoController : MonoBehaviour {
   private void UpdateTransforms() {
     cubeTf.rotation = fusion.GetQuaternion();
     Vector3 eulerAng = fusion.GetEulerAngles();
-    Logger.Testing($"roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
+    //Logger.Testing($"roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
+  }
+
+  private HapticFeedback GetHapticFeedback() {
+    // TODO: Come back to after VR simulation is complete.
+    return new HapticFeedback(dutyCyclePercent:0, frequencyPercent:0);
   }
 
   private void OnApplicationQuit() {
