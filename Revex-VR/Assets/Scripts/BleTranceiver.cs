@@ -94,10 +94,10 @@ public class BleTranceiver : Tranceiver {
     public static extern void GetError(out ErrorMessage buf);
   }
 
-  public readonly string revexDeviceId = "";
-  public readonly string revexServiceId = "";
-  public readonly string sensorCharacteristicId = "";
-  public readonly string hapticCharacteristicId = "";
+  public readonly string revexDeviceId = "BluetoothLE#BluetoothLE04:33:c2:80:5e:25-00:1e:c0:31:64:be";
+  public readonly string revexServiceId = "12345678-9012-3456-7890-1234567890ff";
+  public readonly string sensorCharacteristicId = "12345678-9012-3456-7890-123456789011";
+  public readonly string hapticCharacteristicId = "12345678-9012-3456-7890-123456789022";
 
   private readonly string _OkStatus = "Ok";
   private Dictionary<string, string> _characteristicIds;
@@ -144,7 +144,7 @@ public class BleTranceiver : Tranceiver {
     payload.characteristicUuid = hapticCharacteristicId;
     // TODO(Issue 2): May want to do this in a thread in case indefinite blocking
     // Block so that we can know whether write was successful.
-    bool res = Impl.SendData(payload,block: true);
+    bool res = Impl.SendData(in payload,block: true);
     if (GetStatus() != _OkStatus || !res) {
       throw new BleException($"Ble.SendData failed: {GetStatus()}.");
     }
