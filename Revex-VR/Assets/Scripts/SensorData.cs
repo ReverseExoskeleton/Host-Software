@@ -12,10 +12,10 @@ public readonly struct SensorSample {
 
     public ImuSample(byte[] dataBuffer) {
       float[] dataArray = ConvertBufferToDataArr(dataBuffer);
-      LinAccel = new Vector3(x: dataArray[0],
+      AngVel = new Vector3(x: dataArray[0],
                              y: dataArray[1],
                              z: dataArray[2]);
-      AngVel = new Vector3(x: dataArray[3],
+      LinAccel = new Vector3(x: dataArray[3],
                            y: dataArray[4],
                            z: dataArray[5]);
       MagField = new Vector3(x: dataArray[6],
@@ -30,9 +30,9 @@ public readonly struct SensorSample {
         float curFloat = GetFloatFromTwoBytes(dataBuffer, offset: i);
 
         if (i < _NumBytes / 3) {
-          dataArray[i / 2] = curFloat / AccelScale;
-        } else if (_NumBytes / 3 <= i && i < 2 * _NumBytes / 3) {
           dataArray[i / 2] = curFloat / GyroScale;
+        } else if (_NumBytes / 3 <= i && i < 2 * _NumBytes / 3) {
+          dataArray[i / 2] = curFloat / AccelScale;
         } else if (2 * _NumBytes / 3 <= i && i < _NumBytes) {
           dataArray[i / 2] = curFloat / MagScale;
         } else {
@@ -70,11 +70,11 @@ public readonly struct SensorSample {
   public SensorSample(byte[] dataBuffer) {
     Debug.Assert(dataBuffer.Length == NumBytes);
 
-    byte[] imuBytes = new byte[ImuSampleNumBytes];
     byte[] elbowAngBytes = new byte[ElbowAngNumBytes];
-    System.Buffer.BlockCopy(dataBuffer, 0, imuBytes, 0, ImuSampleNumBytes);
-    System.Buffer.BlockCopy(dataBuffer, ImuSampleNumBytes, elbowAngBytes,
-                            0, ElbowAngNumBytes);
+    byte[] imuBytes = new byte[ImuSampleNumBytes];
+    System.Buffer.BlockCopy(dataBuffer, 0, elbowAngBytes, 0, ElbowAngNumBytes);
+    System.Buffer.BlockCopy(dataBuffer, ElbowAngNumBytes, imuBytes,
+                            0, ImuSampleNumBytes);
 
     Imu = new ImuSample(imuBytes);
     ElbowAngleDeg = GetElbowAngleFromBuffer(elbowAngBytes);
