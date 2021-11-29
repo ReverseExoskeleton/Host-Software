@@ -1213,3 +1213,4710 @@ After conjugate | x:nan y:nan z:nan w:nan
 After conjugate | x:nan y:nan z:nan w:nan
 
 
+Start of AhrsUpdate | x:0 y:0 z:0 w:1
+After integrate | x:-0.00932049 y:0.0108672 z:0 w:1
+After normalize | x:-0.0093038 y:0.0108478 z:0 w:0.99821
+After conjugate | x:0.0093038 y:-0.0108478 z:-0 w:0.99821
+
+
+After conjugate | x:0.0093038 y:-0.0108478 z:-0 w:0.99821
+
+
+Start of AhrsUpdate | x:-0.0093038 y:0.0108478 z:0 w:0.99821
+After integrate | x:-0.0482999 y:0.056935 z:-5.77679e-06 w:0.997345
+After normalize | x:-0.0482118 y:0.0568312 z:-5.76626e-06 w:0.995528
+After conjugate | x:0.0482118 y:-0.0568312 z:5.76626e-06 w:0.995528
+
+
+After conjugate | x:0.0482118 y:-0.0568312 z:5.76626e-06 w:0.995528
+
+
+Start of AhrsUpdate | x:-0.0482118 y:0.0568312 z:-5.76626e-06 w:0.995528
+After integrate | x:-0.0875643 y:0.103343 z:-6.14163e-05 w:0.990967
+After normalize | x:-0.087401 y:0.10315 z:-6.13017e-05 w:0.989118
+After conjugate | x:0.087401 y:-0.10315 z:6.13017e-05 w:0.989118
+
+
+After conjugate | x:0.087401 y:-0.10315 z:6.13017e-05 w:0.989118
+
+
+Start of AhrsUpdate | x:-0.087401 y:0.10315 z:-6.13017e-05 w:0.989118
+After integrate | x:-0.143322 y:0.169257 z:-0.00021594 w:0.977283
+After normalize | x:-0.142789 y:0.168627 z:-0.000215136 w:0.973647
+After conjugate | x:0.142789 y:-0.168627 z:0.000215136 w:0.973647
+
+
+After conjugate | x:0.142789 y:-0.168627 z:0.000215136 w:0.973647
+
+
+Start of AhrsUpdate | x:-0.142789 y:0.168627 z:-0.000215136 w:0.973647
+After integrate | x:-0.209788 y:0.247865 z:-0.000545775 w:0.950098
+After normalize | x:-0.208624 y:0.24649 z:-0.000542747 w:0.944828
+After conjugate | x:0.208624 y:-0.24649 z:0.000542747 w:0.944828
+
+
+After conjugate | x:0.208624 y:-0.24649 z:0.000542747 w:0.944828
+
+
+Start of AhrsUpdate | x:-0.208624 y:0.24649 z:-0.000542747 w:0.944828
+After integrate | x:-0.272036 y:0.321566 z:-0.00106798 w:0.91124
+After normalize | x:-0.270574 y:0.319838 z:-0.00106224 w:0.906343
+After conjugate | x:0.270574 y:-0.319838 z:0.00106224 w:0.906343
+
+
+After conjugate | x:0.270574 y:-0.319838 z:0.00106224 w:0.906343
+
+
+Start of AhrsUpdate | x:-0.270574 y:0.319838 z:-0.00106224 w:0.906343
+After integrate | x:-0.318973 y:0.377266 z:-0.00169435 w:0.871627
+After normalize | x:-0.317856 y:0.375945 z:-0.00168841 w:0.868574
+After conjugate | x:0.317856 y:-0.375945 z:0.00168841 w:0.868574
+
+
+After conjugate | x:0.317856 y:-0.375945 z:0.00168841 w:0.868574
+
+
+Start of AhrsUpdate | x:0 y:0 z:0 w:1
+After integrate | x:-0.0128489 y:0.0149812 z:0 w:1
+After normalize | x:-0.0128248 y:0.014953 z:0 w:0.998122
+After conjugate | x:0.0128248 y:-0.014953 z:-0 w:0.998122
+
+
+After conjugate | x:0.0128248 y:-0.014953 z:-0 w:0.998122
+
+
+Start of AhrsUpdate | x:0 y:0 z:0 w:1
+After integrate | x:-0.0144778 y:0.0168804 z:0 w:1
+After normalize | x:-0.0144499 y:0.0168478 z:0 w:0.998072
+After conjugate | x:0.0144499 y:-0.0168478 z:-0 w:0.998072
+
+
+After conjugate | x:0.0144499 y:-0.0168478 z:-0 w:0.998072
+
+
+Start of AhrsUpdate | x:0 y:0 z:0 w:1
+After integrate | x:-0.0122127 y:0.0142394 z:0 w:1
+After normalize | x:-0.01219 y:0.0142129 z:0 w:0.99814
+After conjugate | x:0.01219 y:-0.0142129 z:-0 w:0.99814
+
+
+After conjugate | x:0.01219 y:-0.0142129 z:-0 w:0.99814
+
+
+Start of AhrsUpdate | x:-0.01219 y:0.0142129 z:0 w:0.99814
+After integrate | x:-0.0242272 y:0.0282477 z:-7.27596e-11 w:0.997793
+After normalize | x:-0.024223 y:0.0282428 z:-7.27468e-11 w:0.997618
+After conjugate | x:0.024223 y:-0.0282428 z:7.27468e-11 w:0.997618
+
+
+After conjugate | x:0.024223 y:-0.0282428 z:7.27468e-11 w:0.997618
+
+
+Start of AhrsUpdate | x:0 y:0 z:0 w:1
+After integrate | x:0.0172931 y:-0.00748285 z:0 w:1
+After normalize | x:0.0172609 y:-0.00746892 z:0 w:0.998138
+After conjugate | x:-0.0172609 y:0.00746892 z:-0 w:0.998138
+
+
+After conjugate | x:-0.0172609 y:0.00746892 z:-0 w:0.998138
+
+
+Start of AhrsUpdate | x:0 y:0 z:0 w:1
+After integrate | x:0.0010396 y:0.0157774 z:0 w:1
+After normalize | x:0.00103771 y:0.0157488 z:0 w:0.998188
+After conjugate | x:-0.00103771 y:-0.0157488 z:-0 w:0.998188
+
+
+After conjugate | x:-0.00103771 y:-0.0157488 z:-0 w:0.998188
+
+
+Start of AhrsUpdate | x:0.00103771 y:0.0157488 z:0 w:0.998188
+After integrate | x:0.00205918 y:0.0312902 z:1.11042e-05 w:0.997942
+After normalize | x:0.00205892 y:0.0312864 z:1.11029e-05 w:0.99782
+After conjugate | x:-0.00205892 y:-0.0312864 z:-1.11029e-05 w:0.99782
+
+
+After conjugate | x:-0.00205892 y:-0.0312864 z:-1.11029e-05 w:0.99782
+
+
+Start of AhrsUpdate | x:0.00205892 y:0.0312864 z:1.11029e-05 w:0.99782
+After integrate | x:0.00449361 y:0.0683563 z:6.53656e-05 w:0.996652
+After normalize | x:0.00449049 y:0.0683089 z:6.53202e-05 w:0.99596
+After conjugate | x:-0.00449049 y:-0.0683089 z:-6.53202e-05 w:0.99596
+
+
+After conjugate | x:-0.00449049 y:-0.0683089 z:-6.53202e-05 w:0.99596
+
+
+Start of AhrsUpdate | x:0.00449049 y:0.0683089 z:6.53202e-05 w:0.99596
+After integrate | x:0.00543078 y:0.0826429 z:0.000115226 w:0.994973
+After normalize | x:0.00543022 y:0.0826344 z:0.000115214 w:0.994871
+After conjugate | x:-0.00543022 y:-0.0826344 z:-0.000115214 w:0.994871
+
+
+After conjugate | x:-0.00543022 y:-0.0826344 z:-0.000115214 w:0.994871
+
+
+Start of AhrsUpdate | x:0.00543022 y:0.0826344 z:0.000115214 w:0.994871
+After integrate | x:0.00657073 y:0.100042 z:0.000191136 w:0.993419
+After normalize | x:0.00656972 y:0.100027 z:0.000191107 w:0.993266
+After conjugate | x:-0.00656972 y:-0.100027 z:-0.000191107 w:0.993266
+
+
+After conjugate | x:-0.00656972 y:-0.100027 z:-0.000191107 w:0.993266
+
+
+Start of AhrsUpdate | x:0.00656972 y:0.100027 z:0.000191107 w:0.993266
+After integrate | x:0.00757484 y:0.115396 z:0.000275897 w:0.991712
+After normalize | x:0.00757393 y:0.115382 z:0.000275864 w:0.991593
+After conjugate | x:-0.00757393 y:-0.115382 z:-0.000275864 w:0.991593
+
+
+After conjugate | x:-0.00757393 y:-0.115382 z:-0.000275864 w:0.991593
+
+
+Start of AhrsUpdate | x:0.00757393 y:0.115382 z:0.000275864 w:0.991593
+After integrate | x:0.00830096 y:0.12652 z:0.000349665 w:0.990291
+After normalize | x:0.00830044 y:0.126512 z:0.000349643 w:0.990229
+After conjugate | x:-0.00830044 y:-0.126512 z:-0.000349643 w:0.990229
+
+
+After conjugate | x:-0.00830044 y:-0.126512 z:-0.000349643 w:0.990229
+
+
+Start of AhrsUpdate | x:0.00830044 y:0.126512 z:0.000349643 w:0.990229
+After integrate | x:0.00908918 y:0.138618 z:0.000440247 w:0.988675
+After normalize | x:0.00908849 y:0.138608 z:0.000440214 w:0.988601
+After conjugate | x:-0.00908849 y:-0.138608 z:-0.000440214 w:0.988601
+
+
+After conjugate | x:-0.00908849 y:-0.138608 z:-0.000440214 w:0.988601
+
+
+Start of AhrsUpdate | x:0.00908849 y:0.138608 z:0.000440214 w:0.988601
+After integrate | x:0.00980476 y:0.149626 z:0.000533611 w:0.98705
+After normalize | x:0.00980415 y:0.149617 z:0.000533578 w:0.986988
+After conjugate | x:-0.00980415 y:-0.149617 z:-0.000533578 w:0.986988
+
+
+After conjugate | x:-0.00980415 y:-0.149617 z:-0.000533578 w:0.986988
+
+
+Start of AhrsUpdate | x:0.00980415 y:0.149617 z:0.000533578 w:0.986988
+After integrate | x:0.0105019 y:0.160376 z:0.000635104 w:0.98535
+After normalize | x:0.0105013 y:0.160366 z:0.000635067 w:0.985291
+After conjugate | x:-0.0105013 y:-0.160366 z:-0.000635067 w:0.985291
+
+
+After conjugate | x:-0.0105013 y:-0.160366 z:-0.000635067 w:0.985291
+
+
+Start of AhrsUpdate | x:0.0105013 y:0.160366 z:0.000635067 w:0.985291
+After integrate | x:0.0130009 y:0.19904 z:0.0010375 w:0.97897
+After normalize | x:0.0129908 y:0.198885 z:0.00103669 w:0.978212
+After conjugate | x:-0.0129908 y:-0.198885 z:-0.00103669 w:0.978212
+
+
+After conjugate | x:-0.0129908 y:-0.198885 z:-0.00103669 w:0.978212
+
+
+Start of AhrsUpdate | x:0.0129908 y:0.198885 z:0.00103669 w:0.978212
+After integrate | x:0.0135582 y:0.20776 z:0.00116559 w:0.9764
+After normalize | x:0.0135577 y:0.207752 z:0.00116554 w:0.976361
+After conjugate | x:-0.0135577 y:-0.207752 z:-0.00116554 w:0.976361
+
+
+After conjugate | x:-0.0135577 y:-0.207752 z:-0.00116554 w:0.976361
+
+
+Start of AhrsUpdate | x:0.0135577 y:0.207752 z:0.00116554 w:0.976361
+After integrate | x:0.0147626 y:0.226675 z:0.0014604 w:0.972318
+After normalize | x:0.0147598 y:0.226632 z:0.00146012 w:0.972134
+After conjugate | x:-0.0147598 y:-0.226632 z:-0.00146012 w:0.972134
+
+
+After conjugate | x:-0.0147598 y:-0.226632 z:-0.00146012 w:0.972134
+
+
+Start of AhrsUpdate | x:0.0147598 y:0.226632 z:0.00146012 w:0.972134
+After integrate | x:0.0154199 y:0.23709 z:0.00164917 w:0.969686
+After normalize | x:0.015419 y:0.237076 z:0.00164908 w:0.96963
+After conjugate | x:-0.015419 y:-0.237076 z:-0.00164908 w:0.96963
+
+
+After conjugate | x:-0.015419 y:-0.237076 z:-0.00164908 w:0.96963
+
+
+Start of AhrsUpdate | x:0.015419 y:0.237076 z:0.00164908 w:0.96963
+After integrate | x:0.0159191 y:0.245047 z:0.00180514 w:0.967673
+After normalize | x:0.0159185 y:0.245039 z:0.00180508 w:0.96764
+After conjugate | x:-0.0159185 y:-0.245039 z:-0.00180508 w:0.96764
+
+
+After conjugate | x:-0.0159185 y:-0.245039 z:-0.00180508 w:0.96764
+
+
+Start of AhrsUpdate | x:0.0159185 y:0.245039 z:0.00180508 w:0.96764
+After integrate | x:0.0164305 y:0.253242 z:0.00197555 w:0.965554
+After normalize | x:0.0164299 y:0.253233 z:0.00197548 w:0.965519
+After conjugate | x:-0.0164299 y:-0.253233 z:-0.00197548 w:0.965519
+
+
+After conjugate | x:-0.0164299 y:-0.253233 z:-0.00197548 w:0.965519
+
+
+Start of AhrsUpdate | x:0.0164299 y:0.253233 z:0.00197548 w:0.965519
+After integrate | x:0.0170486 y:0.263203 z:0.00219556 w:0.962893
+After normalize | x:0.0170477 y:0.263189 z:0.00219544 w:0.962841
+After conjugate | x:-0.0170477 y:-0.263189 z:-0.00219544 w:0.962841
+
+
+After conjugate | x:-0.0170477 y:-0.263189 z:-0.00219544 w:0.962841
+
+
+Start of AhrsUpdate | x:0.0170477 y:0.263189 z:0.00219544 w:0.962841
+After integrate | x:0.0176177 y:0.272445 z:0.00241521 w:0.960301
+After normalize | x:0.0176169 y:0.272433 z:0.0024151 w:0.960256
+After conjugate | x:-0.0176169 y:-0.272433 z:-0.0024151 w:0.960256
+
+
+After conjugate | x:-0.0176169 y:-0.272433 z:-0.0024151 w:0.960256
+
+
+Start of AhrsUpdate | x:0.0176169 y:0.272433 z:0.0024151 w:0.960256
+After integrate | x:0.0181104 y:0.280512 z:0.0026202 w:0.957954
+After normalize | x:0.0181098 y:0.280502 z:0.00262011 w:0.95792
+After conjugate | x:-0.0181098 y:-0.280502 z:-0.00262011 w:0.95792
+
+
+After conjugate | x:-0.0181098 y:-0.280502 z:-0.00262011 w:0.95792
+
+
+Start of AhrsUpdate | x:0.0181098 y:0.280502 z:0.00262011 w:0.95792
+After integrate | x:0.0185458 y:0.287693 z:0.00281355 w:0.955806
+After normalize | x:0.0185453 y:0.287685 z:0.00281347 w:0.955779
+After conjugate | x:-0.0185453 y:-0.287685 z:-0.00281347 w:0.955779
+
+
+After conjugate | x:-0.0185453 y:-0.287685 z:-0.00281347 w:0.955779
+
+
+Start of AhrsUpdate | x:0.0185453 y:0.287685 z:0.00281347 w:0.955779
+After integrate | x:0.0189618 y:0.294606 z:0.00300937 w:0.953687
+After normalize | x:0.0189613 y:0.294598 z:0.00300929 w:0.953662
+After conjugate | x:-0.0189613 y:-0.294598 z:-0.00300929 w:0.953662
+
+
+After conjugate | x:-0.0189613 y:-0.294598 z:-0.00300929 w:0.953662
+
+
+Start of AhrsUpdate | x:0.0189613 y:0.294598 z:0.00300929 w:0.953662
+After integrate | x:0.0193983 y:0.301914 z:0.0032267 w:0.951393
+After normalize | x:0.0193977 y:0.301905 z:0.0032266 w:0.951364
+After conjugate | x:-0.0193977 y:-0.301905 z:-0.0032266 w:0.951364
+
+
+After conjugate | x:-0.0193977 y:-0.301905 z:-0.0032266 w:0.951364
+
+
+Start of AhrsUpdate | x:0.0193977 y:0.301905 z:0.0032266 w:0.951364
+After integrate | x:0.0199668 y:0.311518 z:0.0035271 w:0.948301
+After normalize | x:0.0199657 y:0.311502 z:0.00352692 w:0.948252
+After conjugate | x:-0.0199657 y:-0.311502 z:-0.00352692 w:0.948252
+
+
+After conjugate | x:-0.0199657 y:-0.311502 z:-0.00352692 w:0.948252
+
+
+Start of AhrsUpdate | x:0.0199657 y:0.311502 z:0.00352692 w:0.948252
+After integrate | x:0.0203252 y:0.317651 z:0.00373252 w:0.946224
+After normalize | x:0.0203248 y:0.317644 z:0.00373244 w:0.946204
+After conjugate | x:-0.0203248 y:-0.317644 z:-0.00373244 w:0.946204
+
+
+After conjugate | x:-0.0203248 y:-0.317644 z:-0.00373244 w:0.946204
+
+
+Start of AhrsUpdate | x:0.0203248 y:0.317644 z:0.00373244 w:0.946204
+After integrate | x:0.0207112 y:0.324311 z:0.00396501 w:0.943957
+After normalize | x:0.0207107 y:0.324303 z:0.00396491 w:0.943933
+After conjugate | x:-0.0207107 y:-0.324303 z:-0.00396491 w:0.943933
+
+
+After conjugate | x:-0.0207107 y:-0.324303 z:-0.00396491 w:0.943933
+
+
+Start of AhrsUpdate | x:0.0207107 y:0.324303 z:0.00396491 w:0.943933
+After integrate | x:0.0210658 y:0.330493 z:0.00419096 w:0.941798
+After normalize | x:0.0210653 y:0.330486 z:0.00419087 w:0.941778
+After conjugate | x:-0.0210653 y:-0.330486 z:-0.00419087 w:0.941778
+
+
+After conjugate | x:-0.0210653 y:-0.330486 z:-0.00419087 w:0.941778
+
+
+Start of AhrsUpdate | x:0.0210653 y:0.330486 z:0.00419087 w:0.941778
+After integrate | x:0.0214124 y:0.336599 z:0.00442371 w:0.939624
+After normalize | x:0.0214119 y:0.336592 z:0.00442362 w:0.939604
+After conjugate | x:-0.0214119 y:-0.336592 z:-0.00442362 w:0.939604
+
+
+After conjugate | x:-0.0214119 y:-0.336592 z:-0.00442362 w:0.939604
+
+
+Start of AhrsUpdate | x:0.0214119 y:0.336592 z:0.00442362 w:0.939604
+After integrate | x:0.0217325 y:0.342298 z:0.00465022 w:0.937551
+After normalize | x:0.0217321 y:0.342292 z:0.00465014 w:0.937534
+After conjugate | x:-0.0217321 y:-0.342292 z:-0.00465014 w:0.937534
+
+
+After conjugate | x:-0.0217321 y:-0.342292 z:-0.00465014 w:0.937534
+
+
+Start of AhrsUpdate | x:0.0217321 y:0.342292 z:0.00465014 w:0.937534
+After integrate | x:0.0221013 y:0.348936 z:0.00492429 w:0.935098
+After normalize | x:0.0221007 y:0.348927 z:0.00492416 w:0.935075
+After conjugate | x:-0.0221007 y:-0.348927 z:-0.00492416 w:0.935075
+
+
+After conjugate | x:-0.0221007 y:-0.348927 z:-0.00492416 w:0.935075
+
+
+Start of AhrsUpdate | x:0.0221007 y:0.348927 z:0.00492416 w:0.935075
+After integrate | x:0.0224173 y:0.354701 z:0.00517335 w:0.932911
+After normalize | x:0.0224168 y:0.354695 z:0.00517325 w:0.932893
+After conjugate | x:-0.0224168 y:-0.354695 z:-0.00517325 w:0.932893
+
+
+After conjugate | x:-0.0224168 y:-0.354695 z:-0.00517325 w:0.932893
+
+
+Start of AhrsUpdate | x:0.0224168 y:0.354695 z:0.00517325 w:0.932893
+After integrate | x:0.0227038 y:0.359995 z:0.00541105 w:0.93087
+After normalize | x:0.0227034 y:0.359989 z:0.00541096 w:0.930855
+After conjugate | x:-0.0227034 y:-0.359989 z:-0.00541096 w:0.930855
+
+
+After conjugate | x:-0.0227034 y:-0.359989 z:-0.00541096 w:0.930855
+
+
+Start of AhrsUpdate | x:0.0227034 y:0.359989 z:0.00541096 w:0.930855
+After integrate | x:0.0229769 y:0.365102 z:0.00564859 w:0.928869
+After normalize | x:0.0229765 y:0.365097 z:0.00564851 w:0.928855
+After conjugate | x:-0.0229765 y:-0.365097 z:-0.00564851 w:0.928855
+
+
+After conjugate | x:-0.0229765 y:-0.365097 z:-0.00564851 w:0.928855
+
+
+Start of AhrsUpdate | x:0.0229765 y:0.365097 z:0.00564851 w:0.928855
+After integrate | x:0.0235948 y:0.376809 z:0.00621041 w:0.924233
+After normalize | x:0.0235929 y:0.376779 z:0.00620992 w:0.924159
+After conjugate | x:-0.0235929 y:-0.376779 z:-0.00620992 w:0.924159
+
+
+After conjugate | x:-0.0235929 y:-0.376779 z:-0.00620992 w:0.924159
+
+
+Start of AhrsUpdate | x:0.0235929 y:0.376779 z:0.00620992 w:0.924159
+After integrate | x:0.0238912 y:0.382608 z:0.0065126 w:0.921773
+After normalize | x:0.0238907 y:0.3826 z:0.00651247 w:0.921754
+After conjugate | x:-0.0238907 y:-0.3826 z:-0.00651247 w:0.921754
+
+
+After conjugate | x:-0.0238907 y:-0.3826 z:-0.00651247 w:0.921754
+
+
+Start of AhrsUpdate | x:0.0238907 y:0.3826 z:0.00651247 w:0.921754
+After integrate | x:0.0242073 y:0.388897 z:0.00685208 w:0.91913
+After normalize | x:0.0242067 y:0.388888 z:0.00685192 w:0.919109
+After conjugate | x:-0.0242067 y:-0.388888 z:-0.00685192 w:0.919109
+
+
+After conjugate | x:-0.0242067 y:-0.388888 z:-0.00685192 w:0.919109
+
+
+Start of AhrsUpdate | x:0.0242067 y:0.388888 z:0.00685192 w:0.919109
+After integrate | x:0.0245 y:0.39484 z:0.00718642 w:0.91658
+After normalize | x:0.0244995 y:0.394831 z:0.00718627 w:0.916561
+After conjugate | x:-0.0244995 y:-0.394831 z:-0.00718627 w:0.916561
+
+
+After conjugate | x:-0.0244995 y:-0.394831 z:-0.00718627 w:0.916561
+
+
+Start of AhrsUpdate | x:0.0244995 y:0.394831 z:0.00718627 w:0.916561
+After integrate | x:0.0248798 y:0.402712 z:0.00764617 w:0.913152
+After normalize | x:0.0248788 y:0.402697 z:0.00764588 w:0.913118
+After conjugate | x:-0.0248788 y:-0.402697 z:-0.00764588 w:0.913118
+
+
+After conjugate | x:-0.0248788 y:-0.402697 z:-0.00764588 w:0.913118
+
+
+Start of AhrsUpdate | x:0.0248788 y:0.402697 z:0.00764588 w:0.913118
+After integrate | x:0.0250954 y:0.407319 z:0.00793001 w:0.911072
+After normalize | x:0.025095 y:0.407313 z:0.00792991 w:0.91106
+After conjugate | x:-0.025095 y:-0.407313 z:-0.00792991 w:0.91106
+
+
+After conjugate | x:-0.025095 y:-0.407313 z:-0.00792991 w:0.91106
+
+
+Start of AhrsUpdate | x:0.025095 y:0.407313 z:0.00792991 w:0.91106
+After integrate | x:0.0253245 y:0.412304 z:0.00824587 w:0.90882
+After normalize | x:0.0253241 y:0.412298 z:0.00824574 w:0.908806
+After conjugate | x:-0.0253241 y:-0.412298 z:-0.00824574 w:0.908806
+
+
+After conjugate | x:-0.0253241 y:-0.412298 z:-0.00824574 w:0.908806
+
+
+Start of AhrsUpdate | x:0.0253241 y:0.412298 z:0.00824574 w:0.908806
+After integrate | x:0.0255343 y:0.416971 z:0.00855116 w:0.906678
+After normalize | x:0.025534 y:0.416965 z:0.00855105 w:0.906665
+After conjugate | x:-0.025534 y:-0.416965 z:-0.00855105 w:0.906665
+
+
+After conjugate | x:-0.025534 y:-0.416965 z:-0.00855105 w:0.906665
+
+
+Start of AhrsUpdate | x:0.025534 y:0.416965 z:0.00855105 w:0.906665
+After integrate | x:0.0257609 y:0.422121 z:0.00889805 w:0.904285
+After normalize | x:0.0257605 y:0.422115 z:0.0088979 w:0.90427
+After conjugate | x:-0.0257605 y:-0.422115 z:-0.0088979 w:0.90427
+
+
+After conjugate | x:-0.0257605 y:-0.422115 z:-0.0088979 w:0.90427
+
+
+Start of AhrsUpdate | x:0.0257605 y:0.422115 z:0.0088979 w:0.90427
+After integrate | x:0.0259685 y:0.42696 z:0.00923479 w:0.901999
+After normalize | x:0.0259681 y:0.426954 z:0.00923465 w:0.901986
+After conjugate | x:-0.0259681 y:-0.426954 z:-0.00923465 w:0.901986
+
+
+After conjugate | x:-0.0259681 y:-0.426954 z:-0.00923465 w:0.901986
+
+
+Start of AhrsUpdate | x:0.0259681 y:0.426954 z:0.00923465 w:0.901986
+After integrate | x:0.0261668 y:0.431704 z:0.00957508 w:0.899728
+After normalize | x:0.0261664 y:0.431698 z:0.00957494 w:0.899716
+After conjugate | x:-0.0261664 y:-0.431698 z:-0.00957494 w:0.899716
+
+
+After conjugate | x:-0.0261664 y:-0.431698 z:-0.00957494 w:0.899716
+
+
+Start of AhrsUpdate | x:0.0261664 y:0.431698 z:0.00957494 w:0.899716
+After integrate | x:0.0263491 y:0.436184 z:0.0099061 w:0.897554
+After normalize | x:0.0263488 y:0.436178 z:0.00990598 w:0.897543
+After conjugate | x:-0.0263488 y:-0.436178 z:-0.00990598 w:0.897543
+
+
+After conjugate | x:-0.0263488 y:-0.436178 z:-0.00990598 w:0.897543
+
+
+Start of AhrsUpdate | x:0.0263488 y:0.436178 z:0.00990598 w:0.897543
+After integrate | x:0.0265717 y:0.4418 z:0.0103324 w:0.8948
+After normalize | x:0.0265712 y:0.441792 z:0.0103322 w:0.894782
+After conjugate | x:-0.0265712 y:-0.441792 z:-0.0103322 w:0.894782
+
+
+After conjugate | x:-0.0265712 y:-0.441792 z:-0.0103322 w:0.894782
+
+
+Start of AhrsUpdate | x:0.0265712 y:0.441792 z:0.0103322 w:0.894782
+After integrate | x:0.0267243 y:0.445794 z:0.0106467 w:0.892798
+After normalize | x:0.026724 y:0.445789 z:0.0106466 w:0.892789
+After conjugate | x:-0.026724 y:-0.445789 z:-0.0106466 w:0.892789
+
+
+After conjugate | x:-0.026724 y:-0.445789 z:-0.0106466 w:0.892789
+
+
+Start of AhrsUpdate | x:0.026724 y:0.445789 z:0.0106466 w:0.892789
+After integrate | x:0.0268848 y:0.450111 z:0.0109944 w:0.890622
+After normalize | x:0.0268845 y:0.450106 z:0.0109943 w:0.890611
+After conjugate | x:-0.0268845 y:-0.450106 z:-0.0109943 w:0.890611
+
+
+After conjugate | x:-0.0268845 y:-0.450106 z:-0.0109943 w:0.890611
+
+
+Start of AhrsUpdate | x:0.0268845 y:0.450106 z:0.0109943 w:0.890611
+After integrate | x:0.0270208 y:0.453887 z:0.0113068 w:0.888693
+After normalize | x:0.0270205 y:0.453883 z:0.0113067 w:0.888685
+After conjugate | x:-0.0270205 y:-0.453883 z:-0.0113067 w:0.888685
+
+
+After conjugate | x:-0.0270205 y:-0.453883 z:-0.0113067 w:0.888685
+
+
+Start of AhrsUpdate | x:0.0270205 y:0.453883 z:0.0113067 w:0.888685
+After integrate | x:0.0271736 y:0.458255 z:0.0116762 w:0.886442
+After normalize | x:0.0271732 y:0.458249 z:0.0116761 w:0.886431
+After conjugate | x:-0.0271732 y:-0.458249 z:-0.0116761 w:0.886431
+
+
+After conjugate | x:-0.0271732 y:-0.458249 z:-0.0116761 w:0.886431
+
+
+Start of AhrsUpdate | x:0.0271732 y:0.458249 z:0.0116761 w:0.886431
+After integrate | x:0.0273551 y:0.463637 z:0.0121431 w:0.883635
+After normalize | x:0.0273546 y:0.463628 z:0.0121429 w:0.883618
+After conjugate | x:-0.0273546 y:-0.463628 z:-0.0121429 w:0.883618
+
+
+After conjugate | x:-0.0273546 y:-0.463628 z:-0.0121429 w:0.883618
+
+
+Start of AhrsUpdate | x:0.0273546 y:0.463628 z:0.0121429 w:0.883618
+After integrate | x:0.0274923 y:0.467907 z:0.0125261 w:0.881364
+After normalize | x:0.0274919 y:0.467901 z:0.012526 w:0.881353
+After conjugate | x:-0.0274919 y:-0.467901 z:-0.012526 w:0.881353
+
+
+After conjugate | x:-0.0274919 y:-0.467901 z:-0.012526 w:0.881353
+
+
+Start of AhrsUpdate | x:0.0274919 y:0.467901 z:0.012526 w:0.881353
+After integrate | x:0.0276388 y:0.472658 z:0.0129627 w:0.878817
+After normalize | x:0.0276384 y:0.472651 z:0.0129625 w:0.878804
+After conjugate | x:-0.0276384 y:-0.472651 z:-0.0129625 w:0.878804
+
+
+After conjugate | x:-0.0276384 y:-0.472651 z:-0.0129625 w:0.878804
+
+
+Start of AhrsUpdate | x:0.0276384 y:0.472651 z:0.0129625 w:0.878804
+After integrate | x:0.0277781 y:0.477408 z:0.0134114 w:0.876235
+After normalize | x:0.0277777 y:0.477401 z:0.0134112 w:0.876222
+After conjugate | x:-0.0277777 y:-0.477401 z:-0.0134112 w:0.876222
+
+
+After conjugate | x:-0.0277777 y:-0.477401 z:-0.0134112 w:0.876222
+
+
+Start of AhrsUpdate | x:0.0277777 y:0.477401 z:0.0134112 w:0.876222
+After integrate | x:0.0280192 y:0.486072 z:0.01425 w:0.871477
+After normalize | x:0.0280178 y:0.486048 z:0.0142493 w:0.871434
+After conjugate | x:-0.0280178 y:-0.486048 z:-0.0142493 w:0.871434
+
+
+After conjugate | x:-0.0280178 y:-0.486048 z:-0.0142493 w:0.871434
+
+
+Start of AhrsUpdate | x:0.0280178 y:0.486048 z:0.0142493 w:0.871434
+After integrate | x:0.0281244 y:0.490326 z:0.0146852 w:0.869037
+After normalize | x:0.0281241 y:0.49032 z:0.014685 w:0.869026
+After conjugate | x:-0.0281241 y:-0.49032 z:-0.014685 w:0.869026
+
+
+After conjugate | x:-0.0281241 y:-0.49032 z:-0.014685 w:0.869026
+
+
+Start of AhrsUpdate | x:0.0281241 y:0.49032 z:0.014685 w:0.869026
+After integrate | x:0.0282164 y:0.494268 z:0.0150971 w:0.866789
+After normalize | x:0.0282161 y:0.494263 z:0.015097 w:0.86678
+After conjugate | x:-0.0282161 y:-0.494263 z:-0.015097 w:0.86678
+
+
+After conjugate | x:-0.0282161 y:-0.494263 z:-0.015097 w:0.86678
+
+
+Start of AhrsUpdate | x:0.0282161 y:0.494263 z:0.015097 w:0.86678
+After integrate | x:0.0283011 y:0.498131 z:0.0155097 w:0.864564
+After normalize | x:0.0283008 y:0.498126 z:0.0155096 w:0.864556
+After conjugate | x:-0.0283008 y:-0.498126 z:-0.0155096 w:0.864556
+
+
+After conjugate | x:-0.0283008 y:-0.498126 z:-0.0155096 w:0.864556
+
+
+Start of AhrsUpdate | x:0.0283008 y:0.498126 z:0.0155096 w:0.864556
+After integrate | x:0.0283849 y:0.502221 z:0.0159558 w:0.862186
+After normalize | x:0.0283846 y:0.502215 z:0.0159556 w:0.862176
+After conjugate | x:-0.0283846 y:-0.502215 z:-0.0159556 w:0.862176
+
+
+After conjugate | x:-0.0283846 y:-0.502215 z:-0.0159556 w:0.862176
+
+
+Start of AhrsUpdate | x:0.0283846 y:0.502215 z:0.0159556 w:0.862176
+After integrate | x:0.0284545 y:0.505902 z:0.0163665 w:0.860018
+After normalize | x:0.0284542 y:0.505897 z:0.0163664 w:0.860011
+After conjugate | x:-0.0284542 y:-0.505897 z:-0.0163664 w:0.860011
+
+
+After conjugate | x:-0.0284542 y:-0.505897 z:-0.0163664 w:0.860011
+
+
+Start of AhrsUpdate | x:0.0284542 y:0.505897 z:0.0163664 w:0.860011
+After integrate | x:0.0285158 y:0.509408 z:0.0167655 w:0.857936
+After normalize | x:0.0285156 y:0.509403 z:0.0167653 w:0.857929
+After conjugate | x:-0.0285156 y:-0.509403 z:-0.0167653 w:0.857929
+
+
+After conjugate | x:-0.0285156 y:-0.509403 z:-0.0167653 w:0.857929
+
+
+Start of AhrsUpdate | x:0.0285156 y:0.509403 z:0.0167653 w:0.857929
+After integrate | x:0.0285746 y:0.51306 z:0.0171888 w:0.855747
+After normalize | x:0.0285743 y:0.513055 z:0.0171887 w:0.855739
+After conjugate | x:-0.0285743 y:-0.513055 z:-0.0171887 w:0.855739
+
+
+After conjugate | x:-0.0285743 y:-0.513055 z:-0.0171887 w:0.855739
+
+
+Start of AhrsUpdate | x:0.0285743 y:0.513055 z:0.0171887 w:0.855739
+After integrate | x:0.0286279 y:0.51671 z:0.0176202 w:0.853538
+After normalize | x:0.0286276 y:0.516705 z:0.0176201 w:0.85353
+After conjugate | x:-0.0286276 y:-0.516705 z:-0.0176201 w:0.85353
+
+
+After conjugate | x:-0.0286276 y:-0.516705 z:-0.0176201 w:0.85353
+
+
+Start of AhrsUpdate | x:0.0286276 y:0.516705 z:0.0176201 w:0.85353
+After integrate | x:0.0286711 y:0.52001 z:0.0180179 w:0.85152
+After normalize | x:0.0286709 y:0.520006 z:0.0180177 w:0.851513
+After conjugate | x:-0.0286709 y:-0.520006 z:-0.0180177 w:0.851513
+
+
+After conjugate | x:-0.0286709 y:-0.520006 z:-0.0180177 w:0.851513
+
+
+Start of AhrsUpdate | x:0.0286709 y:0.520006 z:0.0180177 w:0.851513
+After integrate | x:0.0287099 y:0.523322 z:0.0184238 w:0.849478
+After normalize | x:0.0287096 y:0.523318 z:0.0184237 w:0.849471
+After conjugate | x:-0.0287096 y:-0.523318 z:-0.0184237 w:0.849471
+
+
+After conjugate | x:-0.0287096 y:-0.523318 z:-0.0184237 w:0.849471
+
+
+Start of AhrsUpdate | x:0.0287096 y:0.523318 z:0.0184237 w:0.849471
+After integrate | x:0.0287602 y:0.528198 z:0.0190307 w:0.84645
+After normalize | x:0.0287597 y:0.52819 z:0.0190303 w:0.846436
+After conjugate | x:-0.0287597 y:-0.52819 z:-0.0190303 w:0.846436
+
+
+After conjugate | x:-0.0287597 y:-0.52819 z:-0.0190303 w:0.846436
+
+
+Start of AhrsUpdate | x:0.0287597 y:0.52819 z:0.0190303 w:0.846436
+After integrate | x:0.0287906 y:0.531949 z:0.01951 w:0.844079
+After normalize | x:0.0287904 y:0.531943 z:0.0195098 w:0.84407
+After conjugate | x:-0.0287904 y:-0.531943 z:-0.0195098 w:0.84407
+
+
+After conjugate | x:-0.0287904 y:-0.531943 z:-0.0195098 w:0.84407
+
+
+Start of AhrsUpdate | x:0.0287904 y:0.531943 z:0.0195098 w:0.84407
+After integrate | x:0.0288144 y:0.535612 z:0.0199867 w:0.841746
+After normalize | x:0.0288141 y:0.535607 z:0.0199865 w:0.841738
+After conjugate | x:-0.0288141 y:-0.535607 z:-0.0199865 w:0.841738
+
+
+After conjugate | x:-0.0288141 y:-0.535607 z:-0.0199865 w:0.841738
+
+
+Start of AhrsUpdate | x:0.0288141 y:0.535607 z:0.0199865 w:0.841738
+After integrate | x:0.0288301 y:0.538891 z:0.0204214 w:0.839638
+After normalize | x:0.0288299 y:0.538887 z:0.0204212 w:0.839631
+After conjugate | x:-0.0288299 y:-0.538887 z:-0.0204212 w:0.839631
+
+
+After conjugate | x:-0.0288299 y:-0.538887 z:-0.0204212 w:0.839631
+
+
+Start of AhrsUpdate | x:0.0288299 y:0.538887 z:0.0204212 w:0.839631
+After integrate | x:0.0288412 y:0.542247 z:0.0208732 w:0.837463
+After normalize | x:0.028841 y:0.542242 z:0.0208731 w:0.837456
+After conjugate | x:-0.028841 y:-0.542242 z:-0.0208731 w:0.837456
+
+
+After conjugate | x:-0.028841 y:-0.542242 z:-0.0208731 w:0.837456
+
+
+Start of AhrsUpdate | x:0.028841 y:0.542242 z:0.0208731 w:0.837456
+After integrate | x:0.0288478 y:0.54602 z:0.0213894 w:0.834997
+After normalize | x:0.0288475 y:0.546015 z:0.0213892 w:0.834989
+After conjugate | x:-0.0288475 y:-0.546015 z:-0.0213892 w:0.834989
+
+
+After conjugate | x:-0.0288475 y:-0.546015 z:-0.0213892 w:0.834989
+
+
+Start of AhrsUpdate | x:0.0288475 y:0.546015 z:0.0213892 w:0.834989
+After integrate | x:0.0288475 y:0.549654 z:0.0218957 w:0.832596
+After normalize | x:0.0288472 y:0.549649 z:0.0218955 w:0.832588
+After conjugate | x:-0.0288472 y:-0.549649 z:-0.0218955 w:0.832588
+
+
+After conjugate | x:-0.0288472 y:-0.549649 z:-0.0218955 w:0.832588
+
+
+Start of AhrsUpdate | x:0.0288472 y:0.549649 z:0.0218955 w:0.832588
+After integrate | x:0.0288417 y:0.552817 z:0.022344 w:0.830485
+After normalize | x:0.0288415 y:0.552813 z:0.0223439 w:0.830479
+After conjugate | x:-0.0288415 y:-0.552813 z:-0.0223439 w:0.830479
+
+
+After conjugate | x:-0.0288415 y:-0.552813 z:-0.0223439 w:0.830479
+
+
+Start of AhrsUpdate | x:0.0288415 y:0.552813 z:0.0223439 w:0.830479
+After integrate | x:0.0288229 y:0.558551 z:0.0231666 w:0.826637
+After normalize | x:0.0288222 y:0.558538 z:0.023166 w:0.826617
+After conjugate | x:-0.0288222 y:-0.558538 z:-0.023166 w:0.826617
+
+
+After conjugate | x:-0.0288222 y:-0.558538 z:-0.023166 w:0.826617
+
+
+Start of AhrsUpdate | x:0.0288222 y:0.558538 z:0.023166 w:0.826617
+After integrate | x:0.0287766 y:0.566093 z:0.024276 w:0.821483
+After normalize | x:0.0287754 y:0.566069 z:0.024275 w:0.821448
+After conjugate | x:-0.0287754 y:-0.566069 z:-0.024275 w:0.821448
+
+
+After conjugate | x:-0.0287754 y:-0.566069 z:-0.024275 w:0.821448
+
+
+Start of AhrsUpdate | x:0.0287754 y:0.566069 z:0.024275 w:0.821448
+After integrate | x:0.028733 y:0.570333 z:0.0249247 w:0.818491
+After normalize | x:0.0287326 y:0.570325 z:0.0249243 w:0.81848
+After conjugate | x:-0.0287326 y:-0.570325 z:-0.0249243 w:0.81848
+
+
+After conjugate | x:-0.0287326 y:-0.570325 z:-0.0249243 w:0.81848
+
+
+Start of AhrsUpdate | x:0.0287326 y:0.570325 z:0.0249243 w:0.81848
+After integrate | x:0.0286804 y:0.574626 z:0.0255918 w:0.815465
+After normalize | x:0.02868 y:0.574618 z:0.0255914 w:0.815453
+After conjugate | x:-0.02868 y:-0.574618 z:-0.0255914 w:0.815453
+
+
+After conjugate | x:-0.02868 y:-0.574618 z:-0.0255914 w:0.815453
+
+
+Start of AhrsUpdate | x:0.02868 y:0.574618 z:0.0255914 w:0.815453
+After integrate | x:0.0286275 y:0.578263 z:0.026168 w:0.812868
+After normalize | x:0.0286272 y:0.578258 z:0.0261677 w:0.81286
+After conjugate | x:-0.0286272 y:-0.578258 z:-0.0261677 w:0.81286
+
+
+After conjugate | x:-0.0286272 y:-0.578258 z:-0.0261677 w:0.81286
+
+
+Start of AhrsUpdate | x:0.0286272 y:0.578258 z:0.0261677 w:0.81286
+After integrate | x:0.0285698 y:0.581766 z:0.0267312 w:0.810348
+After normalize | x:0.0285695 y:0.58176 z:0.0267309 w:0.81034
+After conjugate | x:-0.0285695 y:-0.58176 z:-0.0267309 w:0.81034
+
+
+After conjugate | x:-0.0285695 y:-0.58176 z:-0.0267309 w:0.81034
+
+
+Start of AhrsUpdate | x:0.0285695 y:0.58176 z:0.0267309 w:0.81034
+After integrate | x:0.0285095 y:0.585047 z:0.0272665 w:0.807966
+After normalize | x:0.0285093 y:0.585042 z:0.0272663 w:0.807959
+After conjugate | x:-0.0285093 y:-0.585042 z:-0.0272663 w:0.807959
+
+
+After conjugate | x:-0.0285093 y:-0.585042 z:-0.0272663 w:0.807959
+
+
+Start of AhrsUpdate | x:0.0285093 y:0.585042 z:0.0272663 w:0.807959
+After integrate | x:0.0284381 y:0.588595 z:0.0278531 w:0.805368
+After normalize | x:0.0284378 y:0.58859 z:0.0278528 w:0.80536
+After conjugate | x:-0.0284378 y:-0.58859 z:-0.0278528 w:0.80536
+
+
+After conjugate | x:-0.0284378 y:-0.58859 z:-0.0278528 w:0.80536
+
+
+Start of AhrsUpdate | x:0.0284378 y:0.58859 z:0.0278528 w:0.80536
+After integrate | x:0.0283189 y:0.594017 z:0.0287604 w:0.801367
+After normalize | x:0.0283182 y:0.594003 z:0.0287597 w:0.801348
+After conjugate | x:-0.0283182 y:-0.594003 z:-0.0287597 w:0.801348
+
+
+After conjugate | x:-0.0283182 y:-0.594003 z:-0.0287597 w:0.801348
+
+
+Start of AhrsUpdate | x:0.0283182 y:0.594003 z:0.0287597 w:0.801348
+After integrate | x:0.0282355 y:0.597311 z:0.0293259 w:0.798878
+After normalize | x:0.0282353 y:0.597306 z:0.0293257 w:0.798871
+After conjugate | x:-0.0282353 y:-0.597306 z:-0.0293257 w:0.798871
+
+
+After conjugate | x:-0.0282353 y:-0.597306 z:-0.0293257 w:0.798871
+
+
+Start of AhrsUpdate | x:0.0282353 y:0.597306 z:0.0293257 w:0.798871
+After integrate | x:0.0281434 y:0.600728 z:0.0299188 w:0.796294
+After normalize | x:0.0281432 y:0.600723 z:0.0299185 w:0.796287
+After conjugate | x:-0.0281432 y:-0.600723 z:-0.0299185 w:0.796287
+
+
+After conjugate | x:-0.0281432 y:-0.600723 z:-0.0299185 w:0.796287
+
+
+Start of AhrsUpdate | x:0.0281432 y:0.600723 z:0.0299185 w:0.796287
+After integrate | x:0.0279488 y:0.607508 z:0.0311063 w:0.79113
+After normalize | x:0.0279477 y:0.607485 z:0.0311051 w:0.791101
+After conjugate | x:-0.0279477 y:-0.607485 z:-0.0311051 w:0.791101
+
+
+After conjugate | x:-0.0279477 y:-0.607485 z:-0.0311051 w:0.791101
+
+
+Start of AhrsUpdate | x:0.0279477 y:0.607485 z:0.0311051 w:0.791101
+After integrate | x:0.0278459 y:0.610604 z:0.0316669 w:0.788687
+After normalize | x:0.0278457 y:0.610599 z:0.0316666 w:0.788681
+After conjugate | x:-0.0278457 y:-0.610599 z:-0.0316666 w:0.788681
+
+
+After conjugate | x:-0.0278457 y:-0.610599 z:-0.0316666 w:0.788681
+
+
+Start of AhrsUpdate | x:0.0278457 y:0.610599 z:0.0316666 w:0.788681
+After integrate | x:0.0277321 y:0.613899 z:0.0322677 w:0.786106
+After normalize | x:0.0277318 y:0.613894 z:0.0322674 w:0.786099
+After conjugate | x:-0.0277318 y:-0.613894 z:-0.0322674 w:0.786099
+
+
+After conjugate | x:-0.0277318 y:-0.613894 z:-0.0322674 w:0.786099
+
+
+Start of AhrsUpdate | x:0.0277318 y:0.613894 z:0.0322674 w:0.786099
+After integrate | x:0.0276092 y:0.617268 z:0.0328892 w:0.783443
+After normalize | x:0.0276089 y:0.617262 z:0.0328889 w:0.783436
+After conjugate | x:-0.0276089 y:-0.617262 z:-0.0328889 w:0.783436
+
+
+After conjugate | x:-0.0276089 y:-0.617262 z:-0.0328889 w:0.783436
+
+
+Start of AhrsUpdate | x:0.0276089 y:0.617262 z:0.0328889 w:0.783436
+After integrate | x:0.0274726 y:0.620821 z:0.0335526 w:0.780608
+After normalize | x:0.0274723 y:0.620815 z:0.0335522 w:0.7806
+After conjugate | x:-0.0274723 y:-0.620815 z:-0.0335522 w:0.7806
+
+
+After conjugate | x:-0.0274723 y:-0.620815 z:-0.0335522 w:0.7806
+
+
+Start of AhrsUpdate | x:0.0274723 y:0.620815 z:0.0335522 w:0.7806
+After integrate | x:0.0273272 y:0.624404 z:0.0342298 w:0.777722
+After normalize | x:0.0273269 y:0.624397 z:0.0342294 w:0.777713
+After conjugate | x:-0.0273269 y:-0.624397 z:-0.0342294 w:0.777713
+
+
+After conjugate | x:-0.0273269 y:-0.624397 z:-0.0342294 w:0.777713
+
+
+Start of AhrsUpdate | x:0.0273269 y:0.624397 z:0.0342294 w:0.777713
+After integrate | x:0.0270294 y:0.631418 z:0.035567 w:0.772028
+After normalize | x:0.0270283 y:0.631391 z:0.0355655 w:0.771995
+After conjugate | x:-0.0270283 y:-0.631391 z:-0.0355655 w:0.771995
+
+
+After conjugate | x:-0.0270283 y:-0.631391 z:-0.0355655 w:0.771995
+
+
+Start of AhrsUpdate | x:0.0270283 y:0.631391 z:0.0355655 w:0.771995
+After integrate | x:0.0268581 y:0.635037 z:0.0362785 w:0.768987
+After normalize | x:0.0268578 y:0.635029 z:0.0362781 w:0.768978
+After conjugate | x:-0.0268578 y:-0.635029 z:-0.0362781 w:0.768978
+
+
+After conjugate | x:-0.0268578 y:-0.635029 z:-0.0362781 w:0.768978
+
+
+Start of AhrsUpdate | x:0.0268578 y:0.635029 z:0.0362781 w:0.768978
+After integrate | x:0.0265103 y:0.642162 z:0.0376855 w:0.763034
+After normalize | x:0.0265092 y:0.642134 z:0.0376838 w:0.763
+After conjugate | x:-0.0265092 y:-0.642134 z:-0.0376838 w:0.763
+
+
+After conjugate | x:-0.0265092 y:-0.642134 z:-0.0376838 w:0.763
+
+
+Start of AhrsUpdate | x:0.0265092 y:0.642134 z:0.0376838 w:0.763
+After integrate | x:0.0263333 y:0.645441 z:0.0383537 w:0.760189
+After normalize | x:0.026333 y:0.645435 z:0.0383533 w:0.760182
+After conjugate | x:-0.026333 y:-0.645435 z:-0.0383533 w:0.760182
+
+
+After conjugate | x:-0.026333 y:-0.645435 z:-0.0383533 w:0.760182
+
+
+Start of AhrsUpdate | x:0.026333 y:0.645435 z:0.0383533 w:0.760182
+After integrate | x:0.0261364 y:0.648999 z:0.0390824 w:0.757126
+After normalize | x:0.0261361 y:0.648992 z:0.0390819 w:0.757117
+After conjugate | x:-0.0261361 y:-0.648992 z:-0.0390819 w:0.757117
+
+
+After conjugate | x:-0.0261361 y:-0.648992 z:-0.0390819 w:0.757117
+
+
+Start of AhrsUpdate | x:0.0261361 y:0.648992 z:0.0390819 w:0.757117
+After integrate | x:0.0259259 y:0.652657 z:0.0398397 w:0.753944
+After normalize | x:0.0259256 y:0.652649 z:0.0398392 w:0.753935
+After conjugate | x:-0.0259256 y:-0.652649 z:-0.0398392 w:0.753935
+
+
+After conjugate | x:-0.0259256 y:-0.652649 z:-0.0398392 w:0.753935
+
+
+Start of AhrsUpdate | x:0.0259256 y:0.652649 z:0.0398392 w:0.753935
+After integrate | x:0.0257245 y:0.656024 z:0.0405449 w:0.750983
+After normalize | x:0.0257242 y:0.656017 z:0.0405445 w:0.750975
+After conjugate | x:-0.0257242 y:-0.656017 z:-0.0405445 w:0.750975
+
+
+After conjugate | x:-0.0257242 y:-0.656017 z:-0.0405445 w:0.750975
+
+
+Start of AhrsUpdate | x:0.0257242 y:0.656017 z:0.0405445 w:0.750975
+After integrate | x:0.0254628 y:0.660258 z:0.0414395 w:0.747231
+After normalize | x:0.0254624 y:0.660247 z:0.0414388 w:0.747219
+After conjugate | x:-0.0254624 y:-0.660247 z:-0.0414388 w:0.747219
+
+
+After conjugate | x:-0.0254624 y:-0.660247 z:-0.0414388 w:0.747219
+
+
+Start of AhrsUpdate | x:0.0254624 y:0.660247 z:0.0414388 w:0.747219
+After integrate | x:0.025227 y:0.663907 z:0.0422212 w:0.743949
+After normalize | x:0.0252267 y:0.663899 z:0.0422207 w:0.74394
+After conjugate | x:-0.0252267 y:-0.663899 z:-0.0422207 w:0.74394
+
+
+After conjugate | x:-0.0252267 y:-0.663899 z:-0.0422207 w:0.74394
+
+
+Start of AhrsUpdate | x:0.0252267 y:0.663899 z:0.0422207 w:0.74394
+After integrate | x:0.0250044 y:0.667239 z:0.0429423 w:0.740926
+After normalize | x:0.0250041 y:0.667232 z:0.0429419 w:0.740918
+After conjugate | x:-0.0250041 y:-0.667232 z:-0.0429419 w:0.740918
+
+
+After conjugate | x:-0.0250041 y:-0.667232 z:-0.0429419 w:0.740918
+
+
+Start of AhrsUpdate | x:0.0250041 y:0.667232 z:0.0429419 w:0.740918
+After integrate | x:0.0247837 y:0.670442 z:0.0436419 w:0.737995
+After normalize | x:0.0247835 y:0.670435 z:0.0436415 w:0.737987
+After conjugate | x:-0.0247835 y:-0.670435 z:-0.0436415 w:0.737987
+
+
+After conjugate | x:-0.0247835 y:-0.670435 z:-0.0436415 w:0.737987
+
+
+Start of AhrsUpdate | x:0.0247835 y:0.670435 z:0.0436415 w:0.737987
+After integrate | x:0.0245417 y:0.673858 z:0.0443945 w:0.734842
+After normalize | x:0.0245414 y:0.67385 z:0.044394 w:0.734834
+After conjugate | x:-0.0245414 y:-0.67385 z:-0.044394 w:0.734834
+
+
+After conjugate | x:-0.0245414 y:-0.67385 z:-0.044394 w:0.734834
+
+
+Start of AhrsUpdate | x:0.0245414 y:0.67385 z:0.044394 w:0.734834
+After integrate | x:0.024232 y:0.678103 z:0.0453377 w:0.730887
+After normalize | x:0.0242316 y:0.678091 z:0.0453369 w:0.730875
+After conjugate | x:-0.0242316 y:-0.678091 z:-0.0453369 w:0.730875
+
+
+After conjugate | x:-0.0242316 y:-0.678091 z:-0.0453369 w:0.730875
+
+
+Start of AhrsUpdate | x:0.0242316 y:0.678091 z:0.0453369 w:0.730875
+After integrate | x:0.0239541 y:0.68177 z:0.0461632 w:0.727419
+After normalize | x:0.0239537 y:0.681761 z:0.0461625 w:0.72741
+After conjugate | x:-0.0239537 y:-0.681761 z:-0.0461625 w:0.72741
+
+
+After conjugate | x:-0.0239537 y:-0.681761 z:-0.0461625 w:0.72741
+
+
+Start of AhrsUpdate | x:0.0239537 y:0.681761 z:0.0461625 w:0.72741
+After integrate | x:0.0236756 y:0.685337 z:0.0469736 w:0.724015
+After normalize | x:0.0236753 y:0.685329 z:0.0469731 w:0.724006
+After conjugate | x:-0.0236753 y:-0.685329 z:-0.0469731 w:0.724006
+
+
+After conjugate | x:-0.0236753 y:-0.685329 z:-0.0469731 w:0.724006
+
+
+Start of AhrsUpdate | x:0.0236753 y:0.685329 z:0.0469731 w:0.724006
+After integrate | x:0.0233871 y:0.68893 z:0.0477974 w:0.720553
+After normalize | x:0.0233868 y:0.688921 z:0.0477968 w:0.720544
+After conjugate | x:-0.0233868 y:-0.688921 z:-0.0477968 w:0.720544
+
+
+After conjugate | x:-0.0233868 y:-0.688921 z:-0.0477968 w:0.720544
+
+
+Start of AhrsUpdate | x:0.0233868 y:0.688921 z:0.0477968 w:0.720544
+After integrate | x:0.0230553 y:0.69295 z:0.0487272 w:0.716641
+After normalize | x:0.0230549 y:0.692939 z:0.0487264 w:0.716629
+After conjugate | x:-0.0230549 y:-0.692939 z:-0.0487264 w:0.716629
+
+
+After conjugate | x:-0.0230549 y:-0.692939 z:-0.0487264 w:0.716629
+
+
+Start of AhrsUpdate | x:0.0230549 y:0.692939 z:0.0487264 w:0.716629
+After integrate | x:0.0227148 y:0.696947 z:0.0496615 w:0.712701
+After normalize | x:0.0227145 y:0.696935 z:0.0496607 w:0.71269
+After conjugate | x:-0.0227145 y:-0.696935 z:-0.0496607 w:0.71269
+
+
+After conjugate | x:-0.0227145 y:-0.696935 z:-0.0496607 w:0.71269
+
+
+Start of AhrsUpdate | x:0.0227145 y:0.696935 z:0.0496607 w:0.71269
+After integrate | x:0.0223756 y:0.700812 z:0.0505742 w:0.708846
+After normalize | x:0.0223753 y:0.700801 z:0.0505734 w:0.708835
+After conjugate | x:-0.0223753 y:-0.700801 z:-0.0505734 w:0.708835
+
+
+After conjugate | x:-0.0223753 y:-0.700801 z:-0.0505734 w:0.708835
+
+
+Start of AhrsUpdate | x:0.0223753 y:0.700801 z:0.0505734 w:0.708835
+After integrate | x:0.0218566 y:0.706577 z:0.0519458 w:0.703043
+After normalize | x:0.0218558 y:0.706553 z:0.051944 w:0.703018
+After conjugate | x:-0.0218558 y:-0.706553 z:-0.051944 w:0.703018
+
+
+After conjugate | x:-0.0218558 y:-0.706553 z:-0.051944 w:0.703018
+
+
+Start of AhrsUpdate | x:0.0218558 y:0.706553 z:0.051944 w:0.703018
+After integrate | x:0.0214875 y:0.710488 z:0.0528934 w:0.699004
+After normalize | x:0.0214872 y:0.710477 z:0.0528925 w:0.698993
+After conjugate | x:-0.0214872 y:-0.710477 z:-0.0528925 w:0.698993
+
+
+After conjugate | x:-0.0214872 y:-0.710477 z:-0.0528925 w:0.698993
+
+
+Start of AhrsUpdate | x:0.0214872 y:0.710477 z:0.0528925 w:0.698993
+After integrate | x:0.0210212 y:0.715327 z:0.0540728 w:0.693988
+After normalize | x:0.0210207 y:0.715309 z:0.0540714 w:0.693971
+After conjugate | x:-0.0210207 y:-0.715309 z:-0.0540714 w:0.693971
+
+
+After conjugate | x:-0.0210207 y:-0.715309 z:-0.0540714 w:0.693971
+
+
+Start of AhrsUpdate | x:0.0210207 y:0.715309 z:0.0540714 w:0.693971
+After integrate | x:0.0205928 y:0.71962 z:0.0551329 w:0.689457
+After normalize | x:0.0205924 y:0.719606 z:0.0551317 w:0.689443
+After conjugate | x:-0.0205924 y:-0.719606 z:-0.0551317 w:0.689443
+
+
+After conjugate | x:-0.0205924 y:-0.719606 z:-0.0551317 w:0.689443
+
+
+Start of AhrsUpdate | x:0.0205924 y:0.719606 z:0.0551317 w:0.689443
+After integrate | x:0.0194857 y:0.730483 z:0.0578243 w:0.677907
+After normalize | x:0.0194832 y:0.730388 z:0.0578167 w:0.677819
+After conjugate | x:-0.0194832 y:-0.730388 z:-0.0578167 w:0.677819
+
+
+After conjugate | x:-0.0194832 y:-0.730388 z:-0.0578167 w:0.677819
+
+
+Start of AhrsUpdate | x:0.0194832 y:0.730388 z:0.0578167 w:0.677819
+After integrate | x:0.0180303 y:0.743755 z:0.0612024 w:0.663167
+After normalize | x:0.0180266 y:0.743603 z:0.0611898 w:0.663032
+After conjugate | x:-0.0180266 y:-0.743603 z:-0.0611898 w:0.663032
+
+
+After conjugate | x:-0.0180266 y:-0.743603 z:-0.0611898 w:0.663032
+
+
+Start of AhrsUpdate | x:0.0180266 y:0.743603 z:0.0611898 w:0.663032
+After integrate | x:0.0174719 y:0.748312 z:0.0624246 w:0.657652
+After normalize | x:0.0174714 y:0.748292 z:0.0624229 w:0.657635
+After conjugate | x:-0.0174714 y:-0.748292 z:-0.0624229 w:0.657635
+
+
+After conjugate | x:-0.0174714 y:-0.748292 z:-0.0624229 w:0.657635
+
+
+Start of AhrsUpdate | x:0.0174714 y:0.748292 z:0.0624229 w:0.657635
+After integrate | x:0.0169675 y:0.752456 z:0.0635263 w:0.652807
+After normalize | x:0.0169672 y:0.75244 z:0.063525 w:0.652793
+After conjugate | x:-0.0169672 y:-0.75244 z:-0.063525 w:0.652793
+
+
+After conjugate | x:-0.0169672 y:-0.75244 z:-0.063525 w:0.652793
+
+
+Start of AhrsUpdate | x:0.0169672 y:0.75244 z:0.063525 w:0.652793
+After integrate | x:0.0163163 y:0.757697 z:0.0649297 w:0.646613
+After normalize | x:0.0163157 y:0.757671 z:0.0649274 w:0.646591
+After conjugate | x:-0.0163157 y:-0.757671 z:-0.0649274 w:0.646591
+
+
+After conjugate | x:-0.0163157 y:-0.757671 z:-0.0649274 w:0.646591
+
+
+Start of AhrsUpdate | x:0.0163157 y:0.757671 z:0.0649274 w:0.646591
+After integrate | x:0.0144949 y:0.772003 z:0.0687794 w:0.629457
+After normalize | x:0.0144911 y:0.771802 z:0.0687615 w:0.629293
+After conjugate | x:-0.0144911 y:-0.771802 z:-0.0687615 w:0.629293
+
+
+After conjugate | x:-0.0144911 y:-0.771802 z:-0.0687615 w:0.629293
+
+
+Start of AhrsUpdate | x:0.0144911 y:0.771802 z:0.0687615 w:0.629293
+After integrate | x:0.0137802 y:0.776981 z:0.0702034 w:0.622801
+After normalize | x:0.0137797 y:0.776953 z:0.070201 w:0.622779
+After conjugate | x:-0.0137797 y:-0.776953 z:-0.070201 w:0.622779
+
+
+After conjugate | x:-0.0137797 y:-0.776953 z:-0.070201 w:0.622779
+
+
+Start of AhrsUpdate | x:0.0137797 y:0.776953 z:0.070201 w:0.622779
+After integrate | x:0.0129763 y:0.782652 z:0.0718047 w:0.615506
+After normalize | x:0.0129757 y:0.782617 z:0.0718015 w:0.615479
+After conjugate | x:-0.0129757 y:-0.782617 z:-0.0718015 w:0.615479
+
+
+After conjugate | x:-0.0129757 y:-0.782617 z:-0.0718015 w:0.615479
+
+
+Start of AhrsUpdate | x:0.0129757 y:0.782617 z:0.0718015 w:0.615479
+After integrate | x:0.0123271 y:0.787085 z:0.0730749 w:0.609662
+After normalize | x:0.0123268 y:0.787063 z:0.0730729 w:0.609645
+After conjugate | x:-0.0123268 y:-0.787063 z:-0.0730729 w:0.609645
+
+
+After conjugate | x:-0.0123268 y:-0.787063 z:-0.0730729 w:0.609645
+
+
+Start of AhrsUpdate | x:0.0123268 y:0.787063 z:0.0730729 w:0.609645
+After integrate | x:0.0104987 y:0.799399 z:0.0766078 w:0.593332
+After normalize | x:0.0104964 y:0.799225 z:0.0765911 w:0.593203
+After conjugate | x:-0.0104964 y:-0.799225 z:-0.0765911 w:0.593203
+
+
+After conjugate | x:-0.0104964 y:-0.799225 z:-0.0765911 w:0.593203
+
+
+Start of AhrsUpdate | x:0.0104964 y:0.799225 z:0.0765911 w:0.593203
+After integrate | x:0.00968915 y:0.804344 z:0.0781022 w:0.586125
+After normalize | x:0.00968877 y:0.804313 z:0.0780992 w:0.586102
+After conjugate | x:-0.00968877 y:-0.804313 z:-0.0780992 w:0.586102
+
+
+After conjugate | x:-0.00968877 y:-0.804313 z:-0.0780992 w:0.586102
+
+
+Start of AhrsUpdate | x:0.00968877 y:0.804313 z:0.0780992 w:0.586102
+After integrate | x:0.00800898 y:0.814711 z:0.0811952 w:0.571447
+After normalize | x:0.00800763 y:0.814574 z:0.0811815 w:0.571351
+After conjugate | x:-0.00800763 y:-0.814574 z:-0.0811815 w:0.571351
+
+
+After conjugate | x:-0.00800763 y:-0.814574 z:-0.0811815 w:0.571351
+
+
+Start of AhrsUpdate | x:0.00800763 y:0.814574 z:0.0811815 w:0.571351
+After integrate | x:0.00722073 y:0.8192 z:0.0825944 w:0.564565
+After normalize | x:0.00722048 y:0.819172 z:0.0825915 w:0.564546
+After conjugate | x:-0.00722048 y:-0.819172 z:-0.0825915 w:0.564546
+
+
+After conjugate | x:-0.00722048 y:-0.819172 z:-0.0825915 w:0.564546
+
+
+Start of AhrsUpdate | x:0.00722048 y:0.819172 z:0.0825915 w:0.564546
+After integrate | x:0.00635989 y:0.824118 z:0.0841178 w:0.557155
+After normalize | x:0.00635963 y:0.824085 z:0.0841143 w:0.557132
+After conjugate | x:-0.00635963 y:-0.824085 z:-0.0841143 w:0.557132
+
+
+After conjugate | x:-0.00635963 y:-0.824085 z:-0.0841143 w:0.557132
+
+
+Start of AhrsUpdate | x:0.00635963 y:0.824085 z:0.0841143 w:0.557132
+After integrate | x:0.00544144 y:0.829236 z:0.0857217 w:0.54928
+After normalize | x:0.00544119 y:0.829198 z:0.0857177 w:0.549255
+After conjugate | x:-0.00544119 y:-0.829198 z:-0.0857177 w:0.549255
+
+
+After conjugate | x:-0.00544119 y:-0.829198 z:-0.0857177 w:0.549255
+
+
+Start of AhrsUpdate | x:0.00544119 y:0.829198 z:0.0857177 w:0.549255
+After integrate | x:0.00343974 y:0.840156 z:0.0891695 w:0.532192
+After normalize | x:0.003439 y:0.839976 z:0.0891503 w:0.532078
+After conjugate | x:-0.003439 y:-0.839976 z:-0.0891503 w:0.532078
+
+
+After conjugate | x:-0.003439 y:-0.839976 z:-0.0891503 w:0.532078
+
+
+Start of AhrsUpdate | x:0.003439 y:0.839976 z:0.0891503 w:0.532078
+After integrate | x:0.00247605 y:0.844968 z:0.0907683 w:0.523932
+After normalize | x:0.00247593 y:0.844929 z:0.090764 w:0.523907
+After conjugate | x:-0.00247593 y:-0.844929 z:-0.090764 w:0.523907
+
+
+After conjugate | x:-0.00247593 y:-0.844929 z:-0.090764 w:0.523907
+
+
+Start of AhrsUpdate | x:0.00247593 y:0.844929 z:0.090764 w:0.523907
+After integrate | x:0.00163601 y:0.849175 z:0.0921578 w:0.516821
+After normalize | x:0.00163596 y:0.849145 z:0.0921546 w:0.516803
+After conjugate | x:-0.00163596 y:-0.849145 z:-0.0921546 w:0.516803
+
+
+After conjugate | x:-0.00163596 y:-0.849145 z:-0.0921546 w:0.516803
+
+
+Start of AhrsUpdate | x:0.00163596 y:0.849145 z:0.0921546 w:0.516803
+After integrate | x:0.000322713 y:0.855644 z:0.0943092 w:0.505744
+After normalize | x:0.000322685 y:0.855571 z:0.0943011 w:0.505701
+After conjugate | x:-0.000322685 y:-0.855571 z:-0.0943011 w:0.505701
+
+
+After conjugate | x:-0.000322685 y:-0.855571 z:-0.0943011 w:0.505701
+
+
+Start of AhrsUpdate | x:0.000322685 y:0.855571 z:0.0943011 w:0.505701
+After integrate | x:-0.000674359 y:0.860342 z:0.0959113 w:0.497329
+After normalize | x:-0.000674326 y:0.860301 z:0.0959067 w:0.497304
+After conjugate | x:0.000674326 y:-0.860301 z:-0.0959067 w:0.497304
+
+
+After conjugate | x:0.000674326 y:-0.860301 z:-0.0959067 w:0.497304
+
+
+Start of AhrsUpdate | x:-0.000674326 y:0.860301 z:0.0959067 w:0.497304
+After integrate | x:-0.00163486 y:0.864784 z:0.0974395 w:0.489252
+After normalize | x:-0.00163479 y:0.864746 z:0.0974352 w:0.48923
+After conjugate | x:0.00163479 y:-0.864746 z:-0.0974352 w:0.48923
+
+
+After conjugate | x:0.00163479 y:-0.864746 z:-0.0974352 w:0.48923
+
+
+Start of AhrsUpdate | x:-0.00163479 y:0.864746 z:0.0974352 w:0.48923
+After integrate | x:-0.00270147 y:0.869607 z:0.0991181 w:0.480299
+After normalize | x:-0.00270133 y:0.86956 z:0.0991128 w:0.480273
+After conjugate | x:0.00270133 y:-0.86956 z:-0.0991128 w:0.480273
+
+
+After conjugate | x:0.00270133 y:-0.86956 z:-0.0991128 w:0.480273
+
+
+Start of AhrsUpdate | x:-0.00270133 y:0.86956 z:0.0991128 w:0.480273
+After integrate | x:-0.00400548 y:0.875349 z:0.101145 w:0.469365
+After normalize | x:-0.00400516 y:0.87528 z:0.101137 w:0.469327
+After conjugate | x:0.00400516 y:-0.87528 z:-0.101137 w:0.469327
+
+
+After conjugate | x:0.00400516 y:-0.87528 z:-0.101137 w:0.469327
+
+
+Start of AhrsUpdate | x:-0.00400516 y:0.87528 z:0.101137 w:0.469327
+After integrate | x:-0.00508374 y:0.879916 z:0.102793 w:0.460315
+After normalize | x:-0.00508347 y:0.879869 z:0.102788 w:0.46029
+After conjugate | x:0.00508347 y:-0.879869 z:-0.102788 w:0.46029
+
+
+After conjugate | x:0.00508347 y:-0.879869 z:-0.102788 w:0.46029
+
+
+Start of AhrsUpdate | x:-0.00508347 y:0.879869 z:0.102788 w:0.46029
+After integrate | x:-0.00613857 y:0.884285 z:0.10439 w:0.451479
+After normalize | x:-0.00613826 y:0.884241 z:0.104384 w:0.451456
+After conjugate | x:0.00613826 y:-0.884241 z:-0.104384 w:0.451456
+
+
+After conjugate | x:0.00613826 y:-0.884241 z:-0.104384 w:0.451456
+
+
+Start of AhrsUpdate | x:-0.00613826 y:0.884241 z:0.104384 w:0.451456
+After integrate | x:-0.00779014 y:0.890979 z:0.106862 w:0.437661
+After normalize | x:-0.00778918 y:0.89087 z:0.106849 w:0.437607
+After conjugate | x:0.00778918 y:-0.89087 z:-0.106849 w:0.437607
+
+
+After conjugate | x:0.00778918 y:-0.89087 z:-0.106849 w:0.437607
+
+
+Start of AhrsUpdate | x:-0.00778918 y:0.89087 z:0.106849 w:0.437607
+After integrate | x:-0.00912758 y:0.896112 z:0.108823 w:0.42643
+After normalize | x:-0.00912686 y:0.896041 z:0.108814 w:0.426397
+After conjugate | x:0.00912686 y:-0.896041 z:-0.108814 w:0.426397
+
+
+After conjugate | x:0.00912686 y:-0.896041 z:-0.108814 w:0.426397
+
+
+Start of AhrsUpdate | x:-0.00912686 y:0.896041 z:0.108814 w:0.426397
+After integrate | x:-0.0103682 y:0.900744 z:0.11062 w:0.416026
+After normalize | x:-0.0103675 y:0.900683 z:0.110613 w:0.415998
+After conjugate | x:0.0103675 y:-0.900683 z:-0.110613 w:0.415998
+
+
+After conjugate | x:0.0103675 y:-0.900683 z:-0.110613 w:0.415998
+
+
+Start of AhrsUpdate | x:-0.0103675 y:0.900683 z:0.110613 w:0.415998
+After integrate | x:-0.0116114 y:0.905252 z:0.1124 w:0.405599
+After normalize | x:-0.0116106 y:0.905191 z:0.112393 w:0.405572
+After conjugate | x:0.0116106 y:-0.905191 z:-0.112393 w:0.405572
+
+
+After conjugate | x:0.0116106 y:-0.905191 z:-0.112393 w:0.405572
+
+
+Start of AhrsUpdate | x:-0.0116106 y:0.905191 z:0.112393 w:0.405572
+After integrate | x:-0.0128995 y:0.90978 z:0.114222 w:0.394788
+After normalize | x:-0.0128986 y:0.909715 z:0.114214 w:0.39476
+After conjugate | x:0.0128986 y:-0.909715 z:-0.114214 w:0.39476
+
+
+After conjugate | x:0.0128986 y:-0.909715 z:-0.114214 w:0.39476
+
+
+Start of AhrsUpdate | x:-0.0128986 y:0.909715 z:0.114214 w:0.39476
+After integrate | x:-0.0143326 y:0.914655 z:0.116223 w:0.382747
+After normalize | x:-0.0143313 y:0.914575 z:0.116213 w:0.382714
+After conjugate | x:0.0143313 y:-0.914575 z:-0.116213 w:0.382714
+
+
+After conjugate | x:0.0143313 y:-0.914575 z:-0.116213 w:0.382714
+
+
+Start of AhrsUpdate | x:-0.0143313 y:0.914575 z:0.116213 w:0.382714
+After integrate | x:-0.0160399 y:0.920246 z:0.118573 w:0.368379
+After normalize | x:-0.0160379 y:0.920133 z:0.118559 w:0.368334
+After conjugate | x:0.0160379 y:-0.920133 z:-0.118559 w:0.368334
+
+
+After conjugate | x:0.0160379 y:-0.920133 z:-0.118559 w:0.368334
+
+
+Start of AhrsUpdate | x:-0.0160379 y:0.920133 z:0.118559 w:0.368334
+After integrate | x:-0.0175285 y:0.924862 z:0.120585 w:0.355802
+After normalize | x:-0.0175268 y:0.924776 z:0.120574 w:0.355769
+After conjugate | x:0.0175268 y:-0.924776 z:-0.120574 w:0.355769
+
+
+After conjugate | x:0.0175268 y:-0.924776 z:-0.120574 w:0.355769
+
+
+Start of AhrsUpdate | x:-0.0175268 y:0.924776 z:0.120574 w:0.355769
+After integrate | x:-0.019417 y:0.930536 z:0.123107 w:0.339844
+After normalize | x:-0.0194141 y:0.930397 z:0.123088 w:0.339794
+After conjugate | x:0.0194141 y:-0.930397 z:-0.123088 w:0.339794
+
+
+After conjugate | x:0.0194141 y:-0.930397 z:-0.123088 w:0.339794
+
+
+Start of AhrsUpdate | x:-0.0194141 y:0.930397 z:0.123088 w:0.339794
+After integrate | x:-0.0213434 y:0.935975 z:0.125628 w:0.323491
+After normalize | x:-0.0213401 y:0.935831 z:0.125609 w:0.323441
+After conjugate | x:0.0213401 y:-0.935831 z:-0.125609 w:0.323441
+
+
+After conjugate | x:0.0213401 y:-0.935831 z:-0.125609 w:0.323441
+
+
+Start of AhrsUpdate | x:-0.0213401 y:0.935831 z:0.125609 w:0.323441
+After integrate | x:-0.0238043 y:0.942568 z:0.128793 w:0.302549
+After normalize | x:-0.0237984 y:0.942332 z:0.128761 w:0.302473
+After conjugate | x:0.0237984 y:-0.942332 z:-0.128761 w:0.302473
+
+
+After conjugate | x:0.0237984 y:-0.942332 z:-0.128761 w:0.302473
+
+
+Start of AhrsUpdate | x:-0.0237984 y:0.942332 z:0.128761 w:0.302473
+After integrate | x:-0.0258784 y:0.947608 z:0.13139 w:0.284755
+After normalize | x:-0.0258739 y:0.947441 z:0.131366 w:0.284704
+After conjugate | x:0.0258739 y:-0.947441 z:-0.131366 w:0.284704
+
+
+After conjugate | x:0.0258739 y:-0.947441 z:-0.131366 w:0.284704
+
+
+Start of AhrsUpdate | x:-0.0258739 y:0.947441 z:0.131366 w:0.284704
+After integrate | x:-0.0281928 y:0.95294 z:0.13424 w:0.264866
+After normalize | x:-0.0281866 y:0.952731 z:0.134211 w:0.264808
+After conjugate | x:0.0281866 y:-0.952731 z:-0.134211 w:0.264808
+
+
+After conjugate | x:0.0281866 y:-0.952731 z:-0.134211 w:0.264808
+
+
+Start of AhrsUpdate | x:-0.0281866 y:0.952731 z:0.134211 w:0.264808
+After integrate | x:-0.0302652 y:0.957282 z:0.136732 w:0.246933
+After normalize | x:-0.0302599 y:0.957114 z:0.136708 w:0.24689
+After conjugate | x:0.0302599 y:-0.957114 z:-0.136708 w:0.24689
+
+
+After conjugate | x:0.0302599 y:-0.957114 z:-0.136708 w:0.24689
+
+
+Start of AhrsUpdate | x:-0.0302599 y:0.957114 z:0.136708 w:0.24689
+After integrate | x:-0.0320426 y:0.960729 z:0.13883 w:0.231484
+After normalize | x:-0.0320385 y:0.960604 z:0.138812 w:0.231454
+After conjugate | x:0.0320385 y:-0.960604 z:-0.138812 w:0.231454
+
+
+After conjugate | x:0.0320385 y:-0.960604 z:-0.138812 w:0.231454
+
+
+Start of AhrsUpdate | x:-0.0320385 y:0.960604 z:0.138812 w:0.231454
+After integrate | x:-0.0347539 y:0.965733 z:0.141987 w:0.207887
+After normalize | x:-0.0347434 y:0.965443 z:0.141944 w:0.207824
+After conjugate | x:0.0347434 y:-0.965443 z:-0.141944 w:0.207824
+
+
+After conjugate | x:0.0347434 y:-0.965443 z:-0.141944 w:0.207824
+
+
+Start of AhrsUpdate | x:-0.0347434 y:0.965443 z:0.141944 w:0.207824
+After integrate | x:-0.0366868 y:0.968704 z:0.14416 w:0.190838
+After normalize | x:-0.0366811 y:0.968554 z:0.144137 w:0.190809
+After conjugate | x:0.0366811 y:-0.968554 z:-0.144137 w:0.190809
+
+
+After conjugate | x:0.0366811 y:-0.968554 z:-0.144137 w:0.190809
+
+
+Start of AhrsUpdate | x:-0.0366811 y:0.968554 z:0.144137 w:0.190809
+After integrate | x:-0.0387738 y:0.971749 z:0.146478 w:0.172421
+After normalize | x:-0.0387668 y:0.971575 z:0.146452 w:0.17239
+After conjugate | x:0.0387668 y:-0.971575 z:-0.146452 w:0.17239
+
+
+After conjugate | x:0.0387668 y:-0.971575 z:-0.146452 w:0.17239
+
+
+Start of AhrsUpdate | x:-0.0387668 y:0.971575 z:0.146452 w:0.17239
+After integrate | x:-0.0412665 y:0.974982 z:0.14919 w:0.150298
+After normalize | x:-0.0412559 y:0.974731 z:0.149151 w:0.150259
+After conjugate | x:0.0412559 y:-0.974731 z:-0.149151 w:0.150259
+
+
+After conjugate | x:0.0412559 y:-0.974731 z:-0.149151 w:0.150259
+
+
+Start of AhrsUpdate | x:-0.0412559 y:0.974731 z:0.149151 w:0.150259
+After integrate | x:-0.0437906 y:0.977688 z:0.151858 w:0.127693
+After normalize | x:-0.043779 y:0.977427 z:0.151818 w:0.127659
+After conjugate | x:0.043779 y:-0.977427 z:-0.151818 w:0.127659
+
+
+After conjugate | x:0.043779 y:-0.977427 z:-0.151818 w:0.127659
+
+
+Start of AhrsUpdate | x:-0.043779 y:0.977427 z:0.151818 w:0.127659
+After integrate | x:-0.0460287 y:0.979599 z:0.154158 w:0.107475
+After normalize | x:-0.046019 y:0.979392 z:0.154126 w:0.107453
+After conjugate | x:0.046019 y:-0.979392 z:-0.154126 w:0.107453
+
+
+After conjugate | x:0.046019 y:-0.979392 z:-0.154126 w:0.107453
+
+
+Start of AhrsUpdate | x:-0.046019 y:0.979392 z:0.154126 w:0.107453
+After integrate | x:-0.048628 y:0.981438 z:0.156774 w:0.0838805
+After normalize | x:-0.048614 y:0.981156 z:0.156729 w:0.0838564
+After conjugate | x:0.048614 y:-0.981156 z:-0.156729 w:0.0838564
+
+
+After conjugate | x:0.048614 y:-0.981156 z:-0.156729 w:0.0838564
+
+
+Start of AhrsUpdate | x:-0.048614 y:0.981156 z:0.156729 w:0.0838564
+After integrate | x:-0.0510742 y:0.982562 z:0.159156 w:0.061438
+After normalize | x:-0.051061 y:0.982308 z:0.159114 w:0.0614221
+After conjugate | x:0.051061 y:-0.982308 z:-0.159114 w:0.0614221
+
+
+After conjugate | x:0.051061 y:-0.982308 z:-0.159114 w:0.0614221
+
+
+Start of AhrsUpdate | x:-0.051061 y:0.982308 z:0.159114 w:0.0614221
+After integrate | x:-0.0533183 y:0.983137 z:0.161278 w:0.0406808
+After normalize | x:-0.0533065 y:0.98292 z:0.161243 w:0.0406718
+After conjugate | x:0.0533065 y:-0.98292 z:-0.161243 w:0.0406718
+
+
+After conjugate | x:0.0533065 y:-0.98292 z:-0.161243 w:0.0406718
+
+
+Start of AhrsUpdate | x:-0.0533065 y:0.98292 z:0.161243 w:0.0406718
+After integrate | x:-0.0558582 y:0.983369 z:0.163623 w:0.0170401
+After normalize | x:-0.0558422 y:0.983087 z:0.163576 w:0.0170352
+After conjugate | x:0.0558422 y:-0.983087 z:-0.163576 w:0.0170352
+
+
+After conjugate | x:0.0558422 y:-0.983087 z:-0.163576 w:0.0170352
+
+
+Start of AhrsUpdate | x:-0.0558422 y:0.983087 z:0.163576 w:0.0170352
+After integrate | x:-0.058461 y:0.982969 z:0.16594 w:-0.00744275
+After normalize | x:-0.0584431 y:0.982668 z:0.165889 w:-0.00744046
+After conjugate | x:0.0584431 y:-0.982668 z:-0.165889 w:-0.00744046
+
+
+After conjugate | x:0.0584431 y:-0.982668 z:-0.165889 w:-0.00744046
+
+
+Start of AhrsUpdate | x:-0.0584431 y:0.982668 z:0.165889 w:-0.00744046
+After integrate | x:-0.0609477 y:0.981971 z:0.168073 w:-0.0310832
+After normalize | x:-0.0609302 y:0.98169 z:0.168024 w:-0.0310743
+After conjugate | x:0.0609302 y:-0.98169 z:-0.168024 w:-0.0310743
+
+
+After conjugate | x:0.0609302 y:-0.98169 z:-0.168024 w:-0.0310743
+
+
+Start of AhrsUpdate | x:-0.0609302 y:0.98169 z:0.168024 w:-0.0310743
+After integrate | x:-0.0639386 y:0.980163 z:0.170554 w:-0.0597483
+After normalize | x:-0.0639116 y:0.97975 z:0.170482 w:-0.0597232
+After conjugate | x:0.0639116 y:-0.97975 z:-0.170482 w:-0.0597232
+
+
+After conjugate | x:0.0639116 y:-0.97975 z:-0.170482 w:-0.0597232
+
+
+Start of AhrsUpdate | x:-0.0639116 y:0.97975 z:0.170482 w:-0.0597232
+After integrate | x:-0.0676916 y:0.976752 z:0.173517 w:-0.0961915
+After normalize | x:-0.0676453 y:0.976084 z:0.173398 w:-0.0961258
+After conjugate | x:0.0676453 y:-0.976084 z:-0.173398 w:-0.0961258
+
+
+After conjugate | x:0.0676453 y:-0.976084 z:-0.173398 w:-0.0961258
+
+
+Start of AhrsUpdate | x:-0.0676453 y:0.976084 z:0.173398 w:-0.0961258
+After integrate | x:-0.0769511 y:0.96522 z:0.180384 w:-0.187295
+After normalize | x:-0.0766314 y:0.961209 z:0.179634 w:-0.186517
+After conjugate | x:0.0766314 y:-0.961209 z:-0.179634 w:-0.186517
+
+
+After conjugate | x:0.0766314 y:-0.961209 z:-0.179634 w:-0.186517
+
+
+Start of AhrsUpdate | x:-0.0766314 y:0.961209 z:0.179634 w:-0.186517
+After integrate | x:-0.0794647 y:0.955022 z:0.181395 w:-0.215541
+After normalize | x:-0.0794201 y:0.954486 z:0.181293 w:-0.21542
+After conjugate | x:0.0794201 y:-0.954486 z:-0.181293 w:-0.21542
+
+
+After conjugate | x:0.0794201 y:-0.954486 z:-0.181293 w:-0.21542
+
+
+Start of AhrsUpdate | x:-0.0794201 y:0.954486 z:0.181293 w:-0.21542
+After integrate | x:-0.0820573 y:0.94779 z:0.182808 w:-0.242843
+After normalize | x:-0.0820241 y:0.947407 z:0.182734 w:-0.242745
+After conjugate | x:0.0820241 y:-0.947407 z:-0.182734 w:-0.242745
+
+
+After conjugate | x:0.0820241 y:-0.947407 z:-0.182734 w:-0.242745
+
+
+Start of AhrsUpdate | x:-0.0820241 y:0.947407 z:0.182734 w:-0.242745
+After integrate | x:-0.0856137 y:0.937025 z:0.184631 w:-0.280626
+After normalize | x:-0.0855467 y:0.936291 z:0.184487 w:-0.280407
+After conjugate | x:0.0855467 y:-0.936291 z:-0.184487 w:-0.280407
+
+
+After conjugate | x:0.0855467 y:-0.936291 z:-0.184487 w:-0.280407
+
+
+Start of AhrsUpdate | x:-0.0855467 y:0.936291 z:0.184487 w:-0.280407
+After integrate | x:-0.0889436 y:0.9247 z:0.186053 w:-0.317042
+After normalize | x:-0.0888772 y:0.92401 z:0.185914 w:-0.316805
+After conjugate | x:0.0888772 y:-0.92401 z:-0.185914 w:-0.316805
+
+
+After conjugate | x:0.0888772 y:-0.92401 z:-0.185914 w:-0.316805
+
+
+Start of AhrsUpdate | x:-0.0888772 y:0.92401 z:0.185914 w:-0.316805
+After integrate | x:-0.0915968 y:0.913249 z:0.186978 w:-0.346805
+After normalize | x:-0.0915498 y:0.91278 z:0.186882 w:-0.346627
+After conjugate | x:0.0915498 y:-0.91278 z:-0.186882 w:-0.346627
+
+
+After conjugate | x:0.0915498 y:-0.91278 z:-0.186882 w:-0.346627
+
+
+Start of AhrsUpdate | x:-0.0915498 y:0.91278 z:0.186882 w:-0.346627
+After integrate | x:-0.0946512 y:0.899013 z:0.187901 w:-0.381512
+After normalize | x:-0.0945839 y:0.898374 z:0.187768 w:-0.381241
+After conjugate | x:0.0945839 y:-0.898374 z:-0.187768 w:-0.381241
+
+
+After conjugate | x:0.0945839 y:-0.898374 z:-0.187768 w:-0.381241
+
+
+Start of AhrsUpdate | x:-0.0945839 y:0.898374 z:0.187768 w:-0.381241
+After integrate | x:-0.0971368 y:0.885484 z:0.188407 w:-0.410667
+After normalize | x:-0.0970863 y:0.885023 z:0.188309 w:-0.410453
+After conjugate | x:0.0970863 y:-0.885023 z:-0.188309 w:-0.410453
+
+
+After conjugate | x:0.0970863 y:-0.885023 z:-0.188309 w:-0.410453
+
+
+Start of AhrsUpdate | x:-0.0970863 y:0.885023 z:0.188309 w:-0.410453
+After integrate | x:-0.100091 y:0.868162 z:0.188843 w:-0.445855
+After normalize | x:-0.100013 y:0.867488 z:0.188696 w:-0.445509
+After conjugate | x:0.100013 y:-0.867488 z:-0.188696 w:-0.445509
+
+
+After conjugate | x:0.100013 y:-0.867488 z:-0.188696 w:-0.445509
+
+
+Start of AhrsUpdate | x:-0.100013 y:0.867488 z:0.188696 w:-0.445509
+After integrate | x:-0.102636 y:0.850806 z:0.18891 w:-0.477313
+After normalize | x:-0.10257 y:0.850253 z:0.188788 w:-0.477003
+After conjugate | x:0.10257 y:-0.850253 z:-0.188788 w:-0.477003
+
+
+After conjugate | x:0.10257 y:-0.850253 z:-0.188788 w:-0.477003
+
+
+Start of AhrsUpdate | x:-0.10257 y:0.850253 z:0.188788 w:-0.477003
+After integrate | x:-0.105161 y:0.831818 z:0.188748 w:-0.509323
+After normalize | x:-0.105088 y:0.831238 z:0.188617 w:-0.508968
+After conjugate | x:0.105088 y:-0.831238 z:-0.188617 w:-0.508968
+
+
+After conjugate | x:0.105088 y:-0.831238 z:-0.188617 w:-0.508968
+
+
+Start of AhrsUpdate | x:-0.105088 y:0.831238 z:0.188617 w:-0.508968
+After integrate | x:-0.10768 y:0.810559 z:0.18829 w:-0.542325
+After normalize | x:-0.107596 y:0.80993 z:0.188144 w:-0.541905
+After conjugate | x:0.107596 y:-0.80993 z:-0.188144 w:-0.541905
+
+
+After conjugate | x:0.107596 y:-0.80993 z:-0.188144 w:-0.541905
+
+
+Start of AhrsUpdate | x:-0.107596 y:0.80993 z:0.188144 w:-0.541905
+After integrate | x:-0.110776 y:0.781332 z:0.187325 w:-0.584301
+After normalize | x:-0.11063 y:0.780303 z:0.187078 w:-0.583532
+After conjugate | x:0.11063 y:-0.780303 z:-0.187078 w:-0.583532
+
+
+After conjugate | x:0.11063 y:-0.780303 z:-0.187078 w:-0.583532
+
+
+Start of AhrsUpdate | x:-0.11063 y:0.780303 z:0.187078 w:-0.583532
+After integrate | x:-0.114923 y:0.735096 z:0.185121 w:-0.643797
+After normalize | x:-0.114602 y:0.733042 z:0.184603 w:-0.641998
+After conjugate | x:0.114602 y:-0.733042 z:-0.184603 w:-0.641998
+
+
+After conjugate | x:0.114602 y:-0.733042 z:-0.184603 w:-0.641998
+
+
+Start of AhrsUpdate | x:-0.114602 y:0.733042 z:0.184603 w:-0.641998
+After integrate | x:-0.116417 y:0.708661 z:0.183104 w:-0.669943
+After normalize | x:-0.116331 y:0.708135 z:0.182968 w:-0.669446
+After conjugate | x:0.116331 y:-0.708135 z:-0.182968 w:-0.669446
+
+
+After conjugate | x:0.116331 y:-0.708135 z:-0.182968 w:-0.669446
+
+
+Start of AhrsUpdate | x:-0.116331 y:0.708135 z:0.182968 w:-0.669446
+After integrate | x:-0.118098 y:0.681229 z:0.181099 w:-0.698111
+After normalize | x:-0.118006 y:0.680699 z:0.180958 w:-0.697567
+After conjugate | x:0.118006 y:-0.680699 z:-0.180958 w:-0.697567
+
+
+After conjugate | x:0.118006 y:-0.680699 z:-0.180958 w:-0.697567
+
+
+Start of AhrsUpdate | x:-0.118006 y:0.680699 z:0.180958 w:-0.697567
+After integrate | x:-0.11953 y:0.653983 z:0.178894 w:-0.723915
+After normalize | x:-0.119445 y:0.65352 z:0.178767 w:-0.723402
+After conjugate | x:0.119445 y:-0.65352 z:-0.178767 w:-0.723402
+
+
+After conjugate | x:0.119445 y:-0.65352 z:-0.178767 w:-0.723402
+
+
+Start of AhrsUpdate | x:-0.119445 y:0.65352 z:0.178767 w:-0.723402
+After integrate | x:-0.120589 y:0.630346 z:0.176817 w:-0.744631
+After normalize | x:-0.120529 y:0.630032 z:0.176729 w:-0.744261
+After conjugate | x:0.120529 y:-0.630032 z:-0.176729 w:-0.744261
+
+
+After conjugate | x:0.120529 y:-0.630032 z:-0.176729 w:-0.744261
+
+
+Start of AhrsUpdate | x:-0.120529 y:0.630032 z:0.176729 w:-0.744261
+After integrate | x:-0.12167 y:0.60371 z:0.174369 w:-0.766918
+After normalize | x:-0.121596 y:0.603343 z:0.174263 w:-0.766452
+After conjugate | x:0.121596 y:-0.603343 z:-0.174263 w:-0.766452
+
+
+After conjugate | x:0.121596 y:-0.603343 z:-0.174263 w:-0.766452
+
+
+Start of AhrsUpdate | x:-0.121596 y:0.603343 z:0.174263 w:-0.766452
+After integrate | x:-0.122499 y:0.578945 z:0.171937 w:-0.786043
+After normalize | x:-0.122439 y:0.578659 z:0.171852 w:-0.785655
+After conjugate | x:0.122439 y:-0.578659 z:-0.171852 w:-0.785655
+
+
+After conjugate | x:0.122439 y:-0.578659 z:-0.171852 w:-0.785655
+
+
+Start of AhrsUpdate | x:-0.122439 y:0.578659 z:0.171852 w:-0.785655
+After integrate | x:-0.123514 y:0.54472 z:0.168449 w:-0.811229
+After normalize | x:-0.123401 y:0.544223 z:0.168295 w:-0.810489
+After conjugate | x:0.123401 y:-0.544223 z:-0.168295 w:-0.810489
+
+
+After conjugate | x:0.123401 y:-0.544223 z:-0.168295 w:-0.810489
+
+
+Start of AhrsUpdate | x:-0.123401 y:0.544223 z:0.168295 w:-0.810489
+After integrate | x:-0.124086 y:0.516498 z:0.165339 w:-0.829615
+After normalize | x:-0.124015 y:0.516202 z:0.165245 w:-0.829141
+After conjugate | x:0.124015 y:-0.516202 z:-0.165245 w:-0.829141
+
+
+After conjugate | x:0.124015 y:-0.516202 z:-0.165245 w:-0.829141
+
+
+Start of AhrsUpdate | x:-0.124015 y:0.516202 z:0.165245 w:-0.829141
+After integrate | x:-0.124503 y:0.491161 z:0.162455 w:-0.845214
+After normalize | x:-0.124447 y:0.490941 z:0.162382 w:-0.844835
+After conjugate | x:0.124447 y:-0.490941 z:-0.162382 w:-0.844835
+
+
+After conjugate | x:0.124447 y:-0.490941 z:-0.162382 w:-0.844835
+
+
+Start of AhrsUpdate | x:-0.124447 y:0.490941 z:0.162382 w:-0.844835
+After integrate | x:-0.124817 y:0.466328 z:0.159539 w:-0.859631
+After normalize | x:-0.124765 y:0.466133 z:0.159473 w:-0.859272
+After conjugate | x:0.124765 y:-0.466133 z:-0.159473 w:-0.859272
+
+
+After conjugate | x:0.124765 y:-0.466133 z:-0.159473 w:-0.859272
+
+
+Start of AhrsUpdate | x:-0.124765 y:0.466133 z:0.159473 w:-0.859272
+After integrate | x:-0.125138 y:0.432057 z:0.155406 w:-0.878457
+After normalize | x:-0.12504 y:0.431722 z:0.155286 w:-0.877776
+After conjugate | x:0.12504 y:-0.431722 z:-0.155286 w:-0.877776
+
+
+After conjugate | x:0.12504 y:-0.431722 z:-0.155286 w:-0.877776
+
+
+Start of AhrsUpdate | x:-0.12504 y:0.431722 z:0.155286 w:-0.877776
+After integrate | x:-0.125194 y:0.403695 z:0.151799 w:-0.892155
+After normalize | x:-0.125131 y:0.403492 z:0.151723 w:-0.891707
+After conjugate | x:0.125131 y:-0.403492 z:-0.151723 w:-0.891707
+
+
+After conjugate | x:0.125131 y:-0.403492 z:-0.151723 w:-0.891707
+
+
+Start of AhrsUpdate | x:-0.125131 y:0.403492 z:0.151723 w:-0.891707
+After integrate | x:-0.125167 y:0.374896 z:0.148053 w:-0.905266
+After normalize | x:-0.125104 y:0.374705 z:0.147977 w:-0.904805
+After conjugate | x:0.125104 y:-0.374705 z:-0.147977 w:-0.904805
+
+
+After conjugate | x:0.125104 y:-0.374705 z:-0.147977 w:-0.904805
+
+
+Start of AhrsUpdate | x:-0.125104 y:0.374705 z:0.147977 w:-0.904805
+After integrate | x:-0.125032 y:0.349749 z:0.144677 w:-0.91569
+After normalize | x:-0.124985 y:0.349617 z:0.144623 w:-0.915345
+After conjugate | x:0.124985 y:-0.349617 z:-0.144623 w:-0.915345
+
+
+After conjugate | x:0.124985 y:-0.349617 z:-0.144623 w:-0.915345
+
+
+Start of AhrsUpdate | x:-0.124985 y:0.349617 z:0.144623 w:-0.915345
+After integrate | x:-0.124837 y:0.326251 z:0.141456 w:-0.92479
+After normalize | x:-0.124797 y:0.326146 z:0.14141 w:-0.924491
+After conjugate | x:0.124797 y:-0.326146 z:-0.14141 w:-0.924491
+
+
+After conjugate | x:0.124797 y:-0.326146 z:-0.14141 w:-0.924491
+
+
+Start of AhrsUpdate | x:-0.124797 y:0.326146 z:0.14141 w:-0.924491
+After integrate | x:-0.124459 y:0.29017 z:0.136426 w:-0.937991
+After normalize | x:-0.124365 y:0.289952 z:0.136324 w:-0.937284
+After conjugate | x:0.124365 y:-0.289952 z:-0.136324 w:-0.937284
+
+
+After conjugate | x:0.124365 y:-0.289952 z:-0.136324 w:-0.937284
+
+
+Start of AhrsUpdate | x:-0.124365 y:0.289952 z:0.136324 w:-0.937284
+After integrate | x:-0.124029 y:0.266148 z:0.132919 w:-0.945187
+After normalize | x:-0.12399 y:0.266063 z:0.132876 w:-0.944885
+After conjugate | x:0.12399 y:-0.266063 z:-0.132876 w:-0.944885
+
+
+After conjugate | x:0.12399 y:-0.266063 z:-0.132876 w:-0.944885
+
+
+Start of AhrsUpdate | x:-0.12399 y:0.266063 z:0.132876 w:-0.944885
+After integrate | x:-0.123599 y:0.243181 z:0.129536 w:-0.951849
+After normalize | x:-0.123562 y:0.243109 z:0.129499 w:-0.95157
+After conjugate | x:0.123562 y:-0.243109 z:-0.129499 w:-0.95157
+
+
+After conjugate | x:0.123562 y:-0.243109 z:-0.129499 w:-0.95157
+
+
+Start of AhrsUpdate | x:-0.123562 y:0.243109 z:0.129499 w:-0.95157
+After integrate | x:-0.123049 y:0.217271 z:0.125656 w:-0.958761
+After normalize | x:-0.123004 y:0.217191 z:0.12561 w:-0.958408
+After conjugate | x:0.123004 y:-0.217191 z:-0.12561 w:-0.958408
+
+
+After conjugate | x:0.123004 y:-0.217191 z:-0.12561 w:-0.958408
+
+
+Start of AhrsUpdate | x:-0.123004 y:0.217191 z:0.12561 w:-0.958408
+After integrate | x:-0.12249 y:0.194841 z:0.122217 w:-0.963984
+After normalize | x:-0.122456 y:0.194788 z:0.122183 w:-0.963722
+After conjugate | x:0.122456 y:-0.194788 z:-0.122183 w:-0.963722
+
+
+After conjugate | x:0.122456 y:-0.194788 z:-0.122183 w:-0.963722
+
+
+Start of AhrsUpdate | x:-0.122456 y:0.194788 z:0.122183 w:-0.963722
+After integrate | x:-0.121822 y:0.169987 z:0.118353 w:-0.969301
+After normalize | x:-0.121781 y:0.169931 z:0.118314 w:-0.968979
+After conjugate | x:0.121781 y:-0.169931 z:-0.118314 w:-0.968979
+
+
+After conjugate | x:0.121781 y:-0.169931 z:-0.118314 w:-0.968979
+
+
+Start of AhrsUpdate | x:-0.121781 y:0.169931 z:0.118314 w:-0.968979
+After integrate | x:-0.121118 y:0.146624 z:0.114646 w:-0.973598
+After normalize | x:-0.121082 y:0.146581 z:0.114613 w:-0.973315
+After conjugate | x:0.121082 y:-0.146581 z:-0.114613 w:-0.973315
+
+
+After conjugate | x:0.121082 y:-0.146581 z:-0.114613 w:-0.973315
+
+
+Start of AhrsUpdate | x:-0.121082 y:0.146581 z:0.114613 w:-0.973315
+After integrate | x:-0.120456 y:0.126475 z:0.111393 w:-0.9768
+After normalize | x:-0.12043 y:0.126448 z:0.11137 w:-0.976591
+After conjugate | x:0.12043 y:-0.126448 z:-0.11137 w:-0.976591
+
+
+After conjugate | x:0.12043 y:-0.126448 z:-0.11137 w:-0.976591
+
+
+Start of AhrsUpdate | x:-0.12043 y:0.126448 z:0.11137 w:-0.976591
+After integrate | x:-0.119777 y:0.10689 z:0.108192 w:-0.979567
+After normalize | x:-0.119753 y:0.106868 z:0.10817 w:-0.979369
+After conjugate | x:0.119753 y:-0.106868 z:-0.10817 w:-0.979369
+
+
+After conjugate | x:0.119753 y:-0.106868 z:-0.10817 w:-0.979369
+
+
+Start of AhrsUpdate | x:-0.119753 y:0.106868 z:0.10817 w:-0.979369
+After integrate | x:-0.119058 y:0.0873411 z:0.104953 w:-0.98194
+After normalize | x:-0.119034 y:0.0873237 z:0.104932 w:-0.981744
+After conjugate | x:0.119034 y:-0.0873237 z:-0.104932 w:-0.981744
+
+
+After conjugate | x:0.119034 y:-0.0873237 z:-0.104932 w:-0.981744
+
+
+Start of AhrsUpdate | x:-0.119034 y:0.0873237 z:0.104932 w:-0.981744
+After integrate | x:-0.118339 y:0.0689209 z:0.101857 w:-0.983794
+After normalize | x:-0.118318 y:0.0689087 z:0.101839 w:-0.98362
+After conjugate | x:0.118318 y:-0.0689087 z:-0.101839 w:-0.98362
+
+
+After conjugate | x:0.118318 y:-0.0689087 z:-0.101839 w:-0.98362
+
+
+Start of AhrsUpdate | x:-0.118318 y:0.0689087 z:0.101839 w:-0.98362
+After integrate | x:-0.117548 y:0.0495408 z:0.0985614 w:-0.985409
+After normalize | x:-0.117525 y:0.0495311 z:0.0985421 w:-0.985216
+After conjugate | x:0.117525 y:-0.0495311 z:-0.0985421 w:-0.985216
+
+
+After conjugate | x:0.117525 y:-0.0495311 z:-0.0985421 w:-0.985216
+
+
+Start of AhrsUpdate | x:-0.117525 y:0.0495311 z:0.0985421 w:-0.985216
+After integrate | x:-0.11674 y:0.0307818 z:0.0953254 w:-0.986574
+After normalize | x:-0.116718 y:0.0307762 z:0.095308 w:-0.986394
+After conjugate | x:0.116718 y:-0.0307762 z:-0.095308 w:-0.986394
+
+
+After conjugate | x:0.116718 y:-0.0307762 z:-0.095308 w:-0.986394
+
+
+Start of AhrsUpdate | x:-0.116718 y:0.0307762 z:0.095308 w:-0.986394
+After integrate | x:-0.115936 y:0.0129676 z:0.0922123 w:-0.987341
+After normalize | x:-0.115917 y:0.0129654 z:0.0921972 w:-0.987179
+After conjugate | x:0.115917 y:-0.0129654 z:-0.0921972 w:-0.987179
+
+
+After conjugate | x:0.115917 y:-0.0129654 z:-0.0921972 w:-0.987179
+
+
+Start of AhrsUpdate | x:-0.115917 y:0.0129654 z:0.0921972 w:-0.987179
+After integrate | x:-0.114984 y:-0.00737252 z:0.088618 w:-0.98789
+After normalize | x:-0.114959 y:-0.00737093 z:0.0885989 w:-0.987677
+After conjugate | x:0.114959 y:0.00737093 z:-0.0885989 w:-0.987677
+
+
+After conjugate | x:0.114959 y:0.00737093 z:-0.0885989 w:-0.987677
+
+
+Start of AhrsUpdate | x:-0.114959 y:-0.00737093 z:0.0885989 w:-0.987677
+After integrate | x:-0.114235 y:-0.0224329 z:0.0859102 w:-0.987891
+After normalize | x:-0.114221 y:-0.0224302 z:0.0859001 w:-0.987775
+After conjugate | x:0.114221 y:0.0224302 z:-0.0859001 w:-0.987775
+
+
+After conjugate | x:0.114221 y:0.0224302 z:-0.0859001 w:-0.987775
+
+
+Start of AhrsUpdate | x:-0.114221 y:-0.0224302 z:0.0859001 w:-0.987775
+After integrate | x:-0.113519 y:-0.0365518 z:0.0833526 w:-0.987757
+After normalize | x:-0.113507 y:-0.0365481 z:0.083344 w:-0.987654
+After conjugate | x:0.113507 y:0.0365481 z:-0.083344 w:-0.987654
+
+
+After conjugate | x:0.113507 y:0.0365481 z:-0.083344 w:-0.987654
+
+
+Start of AhrsUpdate | x:-0.113507 y:-0.0365481 z:0.083344 w:-0.987654
+After integrate | x:-0.112743 y:-0.0514377 z:0.0806314 w:-0.98742
+After normalize | x:-0.11273 y:-0.0514318 z:0.0806221 w:-0.987306
+After conjugate | x:0.11273 y:0.0514318 z:-0.0806221 w:-0.987306
+
+
+After conjugate | x:0.11273 y:0.0514318 z:-0.0806221 w:-0.987306
+
+
+Start of AhrsUpdate | x:-0.11273 y:-0.0514318 z:0.0806221 w:-0.987306
+After integrate | x:-0.111764 y:-0.0696958 z:0.0772601 w:-0.98674
+After normalize | x:-0.111745 y:-0.0696837 z:0.0772467 w:-0.986568
+After conjugate | x:0.111745 y:0.0696837 z:-0.0772467 w:-0.986568
+
+
+After conjugate | x:0.111745 y:0.0696837 z:-0.0772467 w:-0.986568
+
+
+Start of AhrsUpdate | x:-0.111745 y:-0.0696837 z:0.0772467 w:-0.986568
+After integrate | x:-0.110719 y:-0.0883759 z:0.0737615 w:-0.985637
+After normalize | x:-0.110699 y:-0.0883598 z:0.073748 w:-0.985457
+After conjugate | x:0.110699 y:0.0883598 z:-0.073748 w:-0.985457
+
+
+After conjugate | x:0.110699 y:0.0883598 z:-0.073748 w:-0.985457
+
+
+Start of AhrsUpdate | x:-0.110699 y:-0.0883598 z:0.073748 w:-0.985457
+After integrate | x:-0.10996 y:-0.101322 z:0.0712985 w:-0.984561
+After normalize | x:-0.109951 y:-0.101313 z:0.0712923 w:-0.984475
+After conjugate | x:0.109951 y:0.101313 z:-0.0712923 w:-0.984475
+
+
+After conjugate | x:0.109951 y:0.101313 z:-0.0712923 w:-0.984475
+
+
+Start of AhrsUpdate | x:-0.109951 y:-0.101313 z:0.0712923 w:-0.984475
+After integrate | x:-0.104717 y:-0.192621 z:0.0539245 w:-0.976921
+After normalize | x:-0.104274 y:-0.191806 z:0.0536963 w:-0.972787
+After conjugate | x:0.104274 y:0.191806 z:-0.0536963 w:-0.972787
+
+
+After conjugate | x:0.104274 y:0.191806 z:-0.0536963 w:-0.972787
+
+
+Start of AhrsUpdate | x:-0.104274 y:-0.191806 z:0.0536963 w:-0.972787
+After integrate | x:-0.103472 y:-0.203444 z:0.0513198 w:-0.970709
+After normalize | x:-0.103452 y:-0.203405 z:0.0513101 w:-0.970524
+After conjugate | x:0.103452 y:0.203405 z:-0.0513101 w:-0.970524
+
+
+After conjugate | x:0.103452 y:0.203405 z:-0.0513101 w:-0.970524
+
+
+Start of AhrsUpdate | x:-0.103452 y:-0.203405 z:0.0513101 w:-0.970524
+After integrate | x:-0.102726 y:-0.213742 z:0.0491807 w:-0.968548
+After normalize | x:-0.10272 y:-0.21373 z:0.0491778 w:-0.968492
+After conjugate | x:0.10272 y:0.21373 z:-0.0491778 w:-0.968492
+
+
+After conjugate | x:0.10272 y:0.21373 z:-0.0491778 w:-0.968492
+
+
+Start of AhrsUpdate | x:-0.10272 y:-0.21373 z:0.0491778 w:-0.968492
+After integrate | x:-0.101977 y:-0.224118 z:0.0470204 w:-0.966388
+After normalize | x:-0.101971 y:-0.224104 z:0.0470177 w:-0.966331
+After conjugate | x:0.101971 y:0.224104 z:-0.0470177 w:-0.966331
+
+
+After conjugate | x:0.101971 y:0.224104 z:-0.0470177 w:-0.966331
+
+
+Start of AhrsUpdate | x:-0.101971 y:-0.224104 z:0.0470177 w:-0.966331
+After integrate | x:-0.101212 y:-0.234531 z:0.0448343 w:-0.964099
+After normalize | x:-0.101206 y:-0.234517 z:0.0448316 w:-0.964042
+After conjugate | x:0.101206 y:0.234517 z:-0.0448316 w:-0.964042
+
+
+After conjugate | x:0.101206 y:0.234517 z:-0.0448316 w:-0.964042
+
+
+Start of AhrsUpdate | x:-0.101206 y:-0.234517 z:0.0448316 w:-0.964042
+After integrate | x:-0.100463 y:-0.244537 z:0.0427158 w:-0.961781
+After normalize | x:-0.100458 y:-0.244524 z:0.0427135 w:-0.961727
+After conjugate | x:0.100458 y:0.244524 z:-0.0427135 w:-0.961727
+
+
+After conjugate | x:0.100458 y:0.244524 z:-0.0427135 w:-0.961727
+
+
+Start of AhrsUpdate | x:-0.100458 y:-0.244524 z:0.0427135 w:-0.961727
+After integrate | x:-0.0997394 y:-0.254051 z:0.0406852 w:-0.95947
+After normalize | x:-0.0997344 y:-0.254038 z:0.0406832 w:-0.959422
+After conjugate | x:0.0997344 y:0.254038 z:-0.0406832 w:-0.959422
+
+
+After conjugate | x:0.0997344 y:0.254038 z:-0.0406832 w:-0.959422
+
+
+Start of AhrsUpdate | x:-0.0997344 y:-0.254038 z:0.0406832 w:-0.959422
+After integrate | x:-0.0988998 y:-0.264933 z:0.0383459 w:-0.956723
+After normalize | x:-0.0988933 y:-0.264915 z:0.0383433 w:-0.956659
+After conjugate | x:0.0988933 y:0.264915 z:-0.0383433 w:-0.956659
+
+
+After conjugate | x:0.0988933 y:0.264915 z:-0.0383433 w:-0.956659
+
+
+Start of AhrsUpdate | x:-0.0988933 y:-0.264915 z:0.0383433 w:-0.956659
+After integrate | x:-0.0982165 y:-0.273582 z:0.0364667 w:-0.954404
+After normalize | x:-0.0982124 y:-0.273571 z:0.0364651 w:-0.954364
+After conjugate | x:0.0982124 y:0.273571 z:-0.0364651 w:-0.954364
+
+
+After conjugate | x:0.0982124 y:0.273571 z:-0.0364651 w:-0.954364
+
+
+Start of AhrsUpdate | x:-0.0982124 y:-0.273571 z:0.0364651 w:-0.954364
+After integrate | x:-0.0974459 y:-0.283245 z:0.0343552 w:-0.951751
+After normalize | x:-0.0974408 y:-0.28323 z:0.0343534 w:-0.9517
+After conjugate | x:0.0974408 y:0.28323 z:-0.0343534 w:-0.9517
+
+
+After conjugate | x:0.0974408 y:0.28323 z:-0.0343534 w:-0.9517
+
+
+Start of AhrsUpdate | x:-0.0974408 y:-0.28323 z:0.0343534 w:-0.9517
+After integrate | x:-0.0967375 y:-0.29196 z:0.0324335 w:-0.949243
+After normalize | x:-0.0967333 y:-0.291947 z:0.0324321 w:-0.949202
+After conjugate | x:0.0967333 y:0.291947 z:-0.0324321 w:-0.949202
+
+
+After conjugate | x:0.0967333 y:0.291947 z:-0.0324321 w:-0.949202
+
+
+Start of AhrsUpdate | x:-0.0967333 y:-0.291947 z:0.0324321 w:-0.949202
+After integrate | x:-0.0958722 y:-0.302484 z:0.0300979 w:-0.946129
+After normalize | x:-0.0958661 y:-0.302465 z:0.030096 w:-0.946069
+After conjugate | x:0.0958661 y:0.302465 z:-0.030096 w:-0.946069
+
+
+After conjugate | x:0.0958661 y:0.302465 z:-0.030096 w:-0.946069
+
+
+Start of AhrsUpdate | x:-0.0958661 y:-0.302465 z:0.030096 w:-0.946069
+After integrate | x:-0.0951398 y:-0.311189 z:0.0281453 w:-0.943415
+After normalize | x:-0.0951356 y:-0.311175 z:0.028144 w:-0.943374
+After conjugate | x:0.0951356 y:0.311175 z:-0.028144 w:-0.943374
+
+
+After conjugate | x:0.0951356 y:0.311175 z:-0.028144 w:-0.943374
+
+
+Start of AhrsUpdate | x:-0.0951356 y:-0.311175 z:0.028144 w:-0.943374
+After integrate | x:-0.0943792 y:-0.320125 z:0.0261272 w:-0.940558
+After normalize | x:-0.0943748 y:-0.32011 z:0.026126 w:-0.940515
+After conjugate | x:0.0943748 y:0.32011 z:-0.026126 w:-0.940515
+
+
+After conjugate | x:0.0943748 y:0.32011 z:-0.026126 w:-0.940515
+
+
+Start of AhrsUpdate | x:-0.0943748 y:-0.32011 z:0.026126 w:-0.940515
+After integrate | x:-0.0936784 y:-0.328222 z:0.0242833 w:-0.937875
+After normalize | x:-0.0936748 y:-0.328209 z:0.0242823 w:-0.937839
+After conjugate | x:0.0936748 y:0.328209 z:-0.0242823 w:-0.937839
+
+
+After conjugate | x:0.0936748 y:0.328209 z:-0.0242823 w:-0.937839
+
+
+Start of AhrsUpdate | x:-0.0936748 y:-0.328209 z:0.0242823 w:-0.937839
+After integrate | x:-0.0930102 y:-0.33584 z:0.022536 w:-0.93528
+After normalize | x:-0.0930071 y:-0.335828 z:0.0225352 w:-0.935248
+After conjugate | x:0.0930071 y:0.335828 z:-0.0225352 w:-0.935248
+
+
+After conjugate | x:0.0930071 y:0.335828 z:-0.0225352 w:-0.935248
+
+
+Start of AhrsUpdate | x:-0.0930071 y:-0.335828 z:0.0225352 w:-0.935248
+After integrate | x:-0.0922968 y:-0.343878 z:0.0206803 w:-0.932473
+After normalize | x:-0.0922932 y:-0.343865 z:0.0206795 w:-0.932437
+After conjugate | x:0.0922932 y:0.343865 z:-0.0206795 w:-0.932437
+
+
+After conjugate | x:0.0922932 y:0.343865 z:-0.0206795 w:-0.932437
+
+
+Start of AhrsUpdate | x:-0.0922932 y:-0.343865 z:0.0206795 w:-0.932437
+After integrate | x:-0.0915846 y:-0.351781 z:0.0188415 w:-0.929628
+After normalize | x:-0.0915812 y:-0.351768 z:0.0188408 w:-0.929594
+After conjugate | x:0.0915812 y:0.351768 z:-0.0188408 w:-0.929594
+
+
+After conjugate | x:0.0915812 y:0.351768 z:-0.0188408 w:-0.929594
+
+
+Start of AhrsUpdate | x:-0.0915812 y:-0.351768 z:0.0188408 w:-0.929594
+After integrate | x:-0.0908814 y:-0.359478 z:0.0170375 w:-0.926782
+After normalize | x:-0.0908781 y:-0.359465 z:0.0170369 w:-0.926749
+After conjugate | x:0.0908781 y:0.359465 z:-0.0170369 w:-0.926749
+
+
+After conjugate | x:0.0908781 y:0.359465 z:-0.0170369 w:-0.926749
+
+
+Start of AhrsUpdate | x:-0.0908781 y:-0.359465 z:0.0170369 w:-0.926749
+After integrate | x:-0.090256 y:-0.366223 z:0.0154446 w:-0.924218
+After normalize | x:-0.0902535 y:-0.366213 z:0.0154442 w:-0.924192
+After conjugate | x:0.0902535 y:0.366213 z:-0.0154442 w:-0.924192
+
+
+After conjugate | x:0.0902535 y:0.366213 z:-0.0154442 w:-0.924192
+
+
+Start of AhrsUpdate | x:-0.0902535 y:-0.366213 z:0.0154442 w:-0.924192
+After integrate | x:-0.089511 y:-0.374185 z:0.013554 w:-0.921138
+After normalize | x:-0.0895076 y:-0.37417 z:0.0135534 w:-0.921102
+After conjugate | x:0.0895076 y:0.37417 z:-0.0135534 w:-0.921102
+
+
+After conjugate | x:0.0895076 y:0.37417 z:-0.0135534 w:-0.921102
+
+
+Start of AhrsUpdate | x:-0.0895076 y:-0.37417 z:0.0135534 w:-0.921102
+After integrate | x:-0.0886988 y:-0.382732 z:0.0115081 w:-0.917733
+After normalize | x:-0.0886949 y:-0.382714 z:0.0115076 w:-0.917692
+After conjugate | x:0.0886949 y:0.382714 z:-0.0115076 w:-0.917692
+
+
+After conjugate | x:0.0886949 y:0.382714 z:-0.0115076 w:-0.917692
+
+
+Start of AhrsUpdate | x:-0.0886949 y:-0.382714 z:0.0115076 w:-0.917692
+After integrate | x:-0.0873333 y:-0.39694 z:0.00808419 w:-0.911934
+After normalize | x:-0.0873224 y:-0.39689 z:0.00808317 w:-0.911819
+After conjugate | x:0.0873224 y:0.39689 z:-0.00808317 w:-0.911819
+
+
+After conjugate | x:0.0873224 y:0.39689 z:-0.00808317 w:-0.911819
+
+
+Start of AhrsUpdate | x:-0.0873224 y:-0.39689 z:0.00808317 w:-0.911819
+After integrate | x:-0.0858775 y:-0.411599 z:0.00449379 w:-0.905587
+After normalize | x:-0.0858659 y:-0.411544 z:0.00449318 w:-0.905464
+After conjugate | x:0.0858659 y:0.411544 z:-0.00449318 w:-0.905464
+
+
+After conjugate | x:0.0858659 y:0.411544 z:-0.00449318 w:-0.905464
+
+
+Start of AhrsUpdate | x:-0.0858659 y:-0.411544 z:0.00449318 w:-0.905464
+After integrate | x:-0.0845974 y:-0.424095 z:0.00138367 w:-0.899895
+After normalize | x:-0.084589 y:-0.424053 z:0.00138353 w:-0.899805
+After conjugate | x:0.084589 y:0.424053 z:-0.00138353 w:-0.899805
+
+
+After conjugate | x:0.084589 y:0.424053 z:-0.00138353 w:-0.899805
+
+
+Start of AhrsUpdate | x:-0.084589 y:-0.424053 z:0.00138353 w:-0.899805
+After integrate | x:-0.08377 y:-0.431949 z:-0.000599714 w:-0.896164
+After normalize | x:-0.0837666 y:-0.431932 z:-0.00059969 w:-0.896128
+After conjugate | x:0.0837666 y:0.431932 z:0.00059969 w:-0.896128
+
+
+After conjugate | x:0.0837666 y:0.431932 z:0.00059969 w:-0.896128
+
+
+Start of AhrsUpdate | x:-0.0837666 y:-0.431932 z:-0.00059969 w:-0.896128
+After integrate | x:-0.0830709 y:-0.438533 z:-0.00227184 w:-0.89301
+After normalize | x:-0.0830686 y:-0.438521 z:-0.00227177 w:-0.892985
+After conjugate | x:0.0830686 y:0.438521 z:0.00227177 w:-0.892985
+
+
+After conjugate | x:0.0830686 y:0.438521 z:0.00227177 w:-0.892985
+
+
+Start of AhrsUpdate | x:-0.0830686 y:-0.438521 z:-0.00227177 w:-0.892985
+After integrate | x:-0.0823313 y:-0.445429 z:-0.00403339 w:-0.889656
+After normalize | x:-0.0823287 y:-0.445415 z:-0.00403326 w:-0.889629
+After conjugate | x:0.0823287 y:0.445415 z:0.00403326 w:-0.889629
+
+
+After conjugate | x:0.0823287 y:0.445415 z:0.00403326 w:-0.889629
+
+
+Start of AhrsUpdate | x:-0.0823287 y:-0.445415 z:-0.00403326 w:-0.889629
+After integrate | x:-0.0817057 y:-0.451169 z:-0.00551181 w:-0.886799
+After normalize | x:-0.0817039 y:-0.451159 z:-0.00551169 w:-0.886779
+After conjugate | x:0.0817039 y:0.451159 z:0.00551169 w:-0.886779
+
+
+After conjugate | x:0.0817039 y:0.451159 z:0.00551169 w:-0.886779
+
+
+Start of AhrsUpdate | x:-0.0817039 y:-0.451159 z:-0.00551169 w:-0.886779
+After integrate | x:-0.0810256 y:-0.457354 z:-0.00711292 w:-0.88368
+After normalize | x:-0.0810235 y:-0.457342 z:-0.00711273 w:-0.883658
+After conjugate | x:0.0810235 y:0.457342 z:0.00711273 w:-0.883658
+
+
+After conjugate | x:0.0810235 y:0.457342 z:0.00711273 w:-0.883658
+
+
+Start of AhrsUpdate | x:-0.0810235 y:-0.457342 z:-0.00711273 w:-0.883658
+After integrate | x:-0.0803248 y:-0.463644 z:-0.00875237 w:-0.880447
+After normalize | x:-0.0803227 y:-0.463631 z:-0.00875214 w:-0.880423
+After conjugate | x:0.0803227 y:0.463631 z:0.00875214 w:-0.880423
+
+
+After conjugate | x:0.0803227 y:0.463631 z:0.00875214 w:-0.880423
+
+
+Start of AhrsUpdate | x:-0.0803227 y:-0.463631 z:-0.00875214 w:-0.880423
+After integrate | x:-0.0796209 y:-0.46988 z:-0.0103891 w:-0.87718
+After normalize | x:-0.0796188 y:-0.469868 z:-0.0103888 w:-0.877157
+After conjugate | x:0.0796188 y:0.469868 z:0.0103888 w:-0.877157
+
+
+After conjugate | x:0.0796188 y:0.469868 z:0.0103888 w:-0.877157
+
+
+Start of AhrsUpdate | x:-0.0796188 y:-0.469868 z:-0.0103888 w:-0.877157
+After integrate | x:-0.0789204 y:-0.476007 z:-0.0120077 w:-0.873913
+After normalize | x:-0.0789184 y:-0.475994 z:-0.0120074 w:-0.87389
+After conjugate | x:0.0789184 y:0.475994 z:0.0120074 w:-0.87389
+
+
+After conjugate | x:0.0789184 y:0.475994 z:0.0120074 w:-0.87389
+
+
+Start of AhrsUpdate | x:-0.0789184 y:-0.475994 z:-0.0120074 w:-0.87389
+After integrate | x:-0.0782951 y:-0.481402 z:-0.0134432 w:-0.870982
+After normalize | x:-0.0782935 y:-0.481392 z:-0.013443 w:-0.870964
+After conjugate | x:0.0782935 y:0.481392 z:0.013443 w:-0.870964
+
+
+After conjugate | x:0.0782935 y:0.481392 z:0.013443 w:-0.870964
+
+
+Start of AhrsUpdate | x:-0.0782935 y:-0.481392 z:-0.013443 w:-0.870964
+After integrate | x:-0.0776316 y:-0.487071 z:-0.0149597 w:-0.867861
+After normalize | x:-0.0776298 y:-0.48706 z:-0.0149594 w:-0.867842
+After conjugate | x:0.0776298 y:0.48706 z:0.0149594 w:-0.867842
+
+
+After conjugate | x:0.0776298 y:0.48706 z:0.0149594 w:-0.867842
+
+
+Start of AhrsUpdate | x:-0.0776298 y:-0.48706 z:-0.0149594 w:-0.867842
+After integrate | x:-0.0766331 y:-0.495521 z:-0.0172312 w:-0.863144
+After normalize | x:-0.0766292 y:-0.495496 z:-0.0172304 w:-0.8631
+After conjugate | x:0.0766292 y:0.495496 z:0.0172304 w:-0.8631
+
+
+After conjugate | x:0.0766292 y:0.495496 z:0.0172304 w:-0.8631
+
+
+Start of AhrsUpdate | x:-0.0766292 y:-0.495496 z:-0.0172304 w:-0.8631
+After integrate | x:-0.075878 y:-0.501751 z:-0.018927 w:-0.859542
+After normalize | x:-0.0758759 y:-0.501738 z:-0.0189265 w:-0.859518
+After conjugate | x:0.0758759 y:0.501738 z:0.0189265 w:-0.859518
+
+
+After conjugate | x:0.0758759 y:0.501738 z:0.0189265 w:-0.859518
+
+
+Start of AhrsUpdate | x:-0.0758759 y:-0.501738 z:-0.0189265 w:-0.859518
+After integrate | x:-0.075228 y:-0.507058 z:-0.0203798 w:-0.856438
+After normalize | x:-0.0752265 y:-0.507048 z:-0.0203794 w:-0.85642
+After conjugate | x:0.0752265 y:0.507048 z:0.0203794 w:-0.85642
+
+
+After conjugate | x:0.0752265 y:0.507048 z:0.0203794 w:-0.85642
+
+
+Start of AhrsUpdate | x:-0.0752265 y:-0.507048 z:-0.0203794 w:-0.85642
+After integrate | x:-0.0745364 y:-0.51265 z:-0.0219186 w:-0.853128
+After normalize | x:-0.0745348 y:-0.512638 z:-0.0219181 w:-0.853108
+After conjugate | x:0.0745348 y:0.512638 z:0.0219181 w:-0.853108
+
+
+After conjugate | x:0.0745348 y:0.512638 z:0.0219181 w:-0.853108
+
+
+Start of AhrsUpdate | x:-0.0745348 y:-0.512638 z:-0.0219181 w:-0.853108
+After integrate | x:-0.073754 y:-0.518901 z:-0.0236493 w:-0.849369
+After normalize | x:-0.0737519 y:-0.518886 z:-0.0236486 w:-0.849344
+After conjugate | x:0.0737519 y:0.518886 z:0.0236486 w:-0.849344
+
+
+After conjugate | x:0.0737519 y:0.518886 z:0.0236486 w:-0.849344
+
+
+Start of AhrsUpdate | x:-0.0737519 y:-0.518886 z:-0.0236486 w:-0.849344
+After integrate | x:-0.0730939 y:-0.524088 z:-0.0250972 w:-0.846183
+After normalize | x:-0.0730925 y:-0.524078 z:-0.0250967 w:-0.846166
+After conjugate | x:0.0730925 y:0.524078 z:0.0250967 w:-0.846166
+
+
+After conjugate | x:0.0730925 y:0.524078 z:0.0250967 w:-0.846166
+
+
+Start of AhrsUpdate | x:-0.0730925 y:-0.524078 z:-0.0250967 w:-0.846166
+After integrate | x:-0.0724338 y:-0.529225 z:-0.0265385 w:-0.842992
+After normalize | x:-0.0724324 y:-0.529215 z:-0.026538 w:-0.842976
+After conjugate | x:0.0724324 y:0.529215 z:0.026538 w:-0.842976
+
+
+After conjugate | x:0.0724324 y:0.529215 z:0.026538 w:-0.842976
+
+
+Start of AhrsUpdate | x:-0.0724324 y:-0.529215 z:-0.026538 w:-0.842976
+After integrate | x:-0.0709141 y:-0.540978 z:-0.029845 w:-0.835617
+After normalize | x:-0.0709068 y:-0.540923 z:-0.029842 w:-0.835531
+After conjugate | x:0.0709068 y:0.540923 z:0.029842 w:-0.835531
+
+
+After conjugate | x:0.0709068 y:0.540923 z:0.029842 w:-0.835531
+
+
+Start of AhrsUpdate | x:-0.0709068 y:-0.540923 z:-0.029842 w:-0.835531
+After integrate | x:-0.0701368 y:-0.546715 z:-0.0314954 w:-0.831787
+After normalize | x:-0.0701351 y:-0.546701 z:-0.0314946 w:-0.831766
+After conjugate | x:0.0701351 y:0.546701 z:0.0314946 w:-0.831766
+
+
+After conjugate | x:0.0701351 y:0.546701 z:0.0314946 w:-0.831766
+
+
+Start of AhrsUpdate | x:-0.0701351 y:-0.546701 z:-0.0314946 w:-0.831766
+After integrate | x:-0.0694484 y:-0.551797 z:-0.0329591 w:-0.828419
+After normalize | x:-0.069447 y:-0.551786 z:-0.0329585 w:-0.828403
+After conjugate | x:0.069447 y:0.551786 z:0.0329585 w:-0.828403
+
+
+After conjugate | x:0.069447 y:0.551786 z:0.0329585 w:-0.828403
+
+
+Start of AhrsUpdate | x:-0.069447 y:-0.551786 z:-0.0329585 w:-0.828403
+After integrate | x:-0.0687872 y:-0.556623 z:-0.034357 w:-0.82518
+After normalize | x:-0.068786 y:-0.556613 z:-0.0343564 w:-0.825165
+After conjugate | x:0.068786 y:0.556613 z:0.0343564 w:-0.825165
+
+
+After conjugate | x:0.068786 y:0.556613 z:0.0343564 w:-0.825165
+
+
+Start of AhrsUpdate | x:-0.068786 y:-0.556613 z:-0.0343564 w:-0.825165
+After integrate | x:-0.0681048 y:-0.561551 z:-0.0357919 w:-0.821831
+After normalize | x:-0.0681035 y:-0.56154 z:-0.0357912 w:-0.821816
+After conjugate | x:0.0681035 y:0.56154 z:0.0357912 w:-0.821816
+
+
+After conjugate | x:0.0681035 y:0.56154 z:0.0357912 w:-0.821816
+
+
+Start of AhrsUpdate | x:-0.0681035 y:-0.56154 z:-0.0357912 w:-0.821816
+After integrate | x:-0.0674168 y:-0.566461 z:-0.0372298 w:-0.818448
+After normalize | x:-0.0674155 y:-0.56645 z:-0.037229 w:-0.818432
+After conjugate | x:0.0674155 y:0.56645 z:0.037229 w:-0.818432
+
+
+After conjugate | x:0.0674155 y:0.56645 z:0.037229 w:-0.818432
+
+
+Start of AhrsUpdate | x:-0.0674155 y:-0.56645 z:-0.037229 w:-0.818432
+After integrate | x:-0.0667262 y:-0.571331 z:-0.0386642 w:-0.815045
+After normalize | x:-0.0667249 y:-0.57132 z:-0.0386635 w:-0.81503
+After conjugate | x:0.0667249 y:0.57132 z:0.0386635 w:-0.81503
+
+
+After conjugate | x:0.0667249 y:0.57132 z:0.0386635 w:-0.81503
+
+
+Start of AhrsUpdate | x:-0.0667249 y:-0.57132 z:-0.0386635 w:-0.81503
+After integrate | x:-0.0659173 y:-0.576974 z:-0.0403348 w:-0.811053
+After normalize | x:-0.0659156 y:-0.576959 z:-0.0403338 w:-0.811033
+After conjugate | x:0.0659156 y:0.576959 z:0.0403338 w:-0.811033
+
+
+After conjugate | x:0.0659156 y:0.576959 z:0.0403338 w:-0.811033
+
+
+Start of AhrsUpdate | x:-0.0659156 y:-0.576959 z:-0.0403338 w:-0.811033
+After integrate | x:-0.0639658 y:-0.590471 z:-0.0443424 w:-0.80138
+After normalize | x:-0.0639563 y:-0.590383 z:-0.0443358 w:-0.801261
+After conjugate | x:0.0639563 y:0.590383 z:0.0443358 w:-0.801261
+
+
+After conjugate | x:0.0639563 y:0.590383 z:0.0443358 w:-0.801261
+
+
+Start of AhrsUpdate | x:-0.0639563 y:-0.590383 z:-0.0443358 w:-0.801261
+After integrate | x:-0.0632081 y:-0.595382 z:-0.0458471 w:-0.797553
+After normalize | x:-0.0632068 y:-0.59537 z:-0.0458461 w:-0.797537
+After conjugate | x:0.0632068 y:0.59537 z:0.0458461 w:-0.797537
+
+
+After conjugate | x:0.0632068 y:0.59537 z:0.0458461 w:-0.797537
+
+
+Start of AhrsUpdate | x:-0.0632068 y:-0.59537 z:-0.0458461 w:-0.797537
+After integrate | x:-0.0624606 y:-0.600294 z:-0.0473435 w:-0.793834
+After normalize | x:-0.0624593 y:-0.600282 z:-0.0473426 w:-0.793818
+After conjugate | x:0.0624593 y:0.600282 z:0.0473426 w:-0.793818
+
+
+After conjugate | x:0.0624593 y:0.600282 z:0.0473426 w:-0.793818
+
+
+Start of AhrsUpdate | x:-0.0624593 y:-0.600282 z:-0.0473426 w:-0.793818
+After integrate | x:-0.0616193 y:-0.605759 z:-0.0490172 w:-0.789643
+After normalize | x:-0.0616178 y:-0.605743 z:-0.049016 w:-0.789622
+After conjugate | x:0.0616178 y:0.605743 z:0.049016 w:-0.789622
+
+
+After conjugate | x:0.0616178 y:0.605743 z:0.049016 w:-0.789622
+
+
+Start of AhrsUpdate | x:-0.0616178 y:-0.605743 z:-0.049016 w:-0.789622
+After integrate | x:-0.0594911 y:-0.619465 z:-0.0532256 w:-0.779
+After normalize | x:-0.0594814 y:-0.619365 z:-0.0532169 w:-0.778874
+After conjugate | x:0.0594814 y:0.619365 z:0.0532169 w:-0.778874
+
+
+After conjugate | x:0.0594814 y:0.619365 z:0.0532169 w:-0.778874
+
+
+Start of AhrsUpdate | x:-0.0594814 y:-0.619365 z:-0.0532169 w:-0.778874
+After integrate | x:-0.0587185 y:-0.624103 z:-0.0546991 w:-0.775063
+After normalize | x:-0.0587174 y:-0.624091 z:-0.0546981 w:-0.775048
+After conjugate | x:0.0587174 y:0.624091 z:0.0546981 w:-0.775048
+
+
+After conjugate | x:0.0587174 y:0.624091 z:0.0546981 w:-0.775048
+
+
+Start of AhrsUpdate | x:-0.0587174 y:-0.624091 z:-0.0546981 w:-0.775048
+After integrate | x:-0.0578115 y:-0.629651 z:-0.0564466 w:-0.770516
+After normalize | x:-0.0578099 y:-0.629633 z:-0.056445 w:-0.770494
+After conjugate | x:0.0578099 y:0.629633 z:0.056445 w:-0.770494
+
+
+After conjugate | x:0.0578099 y:0.629633 z:0.056445 w:-0.770494
+
+
+Start of AhrsUpdate | x:-0.0578099 y:-0.629633 z:-0.056445 w:-0.770494
+After integrate | x:-0.0570038 y:-0.634509 z:-0.0579888 w:-0.766458
+After normalize | x:-0.0570026 y:-0.634495 z:-0.0579876 w:-0.766441
+After conjugate | x:0.0570026 y:0.634495 z:0.0579876 w:-0.766441
+
+
+After conjugate | x:0.0570026 y:0.634495 z:0.0579876 w:-0.766441
+
+
+Start of AhrsUpdate | x:-0.0570026 y:-0.634495 z:-0.0579876 w:-0.766441
+After integrate | x:-0.0550439 y:-0.646223 z:-0.0617126 w:-0.756596
+After normalize | x:-0.0550369 y:-0.646141 z:-0.0617048 w:-0.7565
+After conjugate | x:0.0550369 y:0.646141 z:0.0617048 w:-0.7565
+
+
+After conjugate | x:0.0550369 y:0.646141 z:0.0617048 w:-0.7565
+
+
+Start of AhrsUpdate | x:-0.0550369 y:-0.646141 z:-0.0617048 w:-0.7565
+After integrate | x:-0.0540581 y:-0.651812 z:-0.0635358 w:-0.751578
+After normalize | x:-0.0540565 y:-0.651792 z:-0.0635339 w:-0.751556
+After conjugate | x:0.0540565 y:0.651792 z:0.0635339 w:-0.751556
+
+
+After conjugate | x:0.0540565 y:0.651792 z:0.0635339 w:-0.751556
+
+
+Start of AhrsUpdate | x:-0.0540565 y:-0.651792 z:-0.0635339 w:-0.751556
+After integrate | x:-0.0531515 y:-0.656957 z:-0.0652131 w:-0.747
+After normalize | x:-0.0531501 y:-0.65694 z:-0.0652114 w:-0.746981
+After conjugate | x:0.0531501 y:0.65694 z:0.0652114 w:-0.746981
+
+
+After conjugate | x:0.0531501 y:0.65694 z:0.0652114 w:-0.746981
+
+
+Start of AhrsUpdate | x:-0.0531501 y:-0.65694 z:-0.0652114 w:-0.746981
+After integrate | x:-0.052179 y:-0.662406 z:-0.0669994 w:-0.742087
+After normalize | x:-0.0521775 y:-0.662386 z:-0.0669975 w:-0.742065
+After conjugate | x:0.0521775 y:0.662386 z:0.0669975 w:-0.742065
+
+
+After conjugate | x:0.0521775 y:0.662386 z:0.0669975 w:-0.742065
+
+
+Start of AhrsUpdate | x:-0.0521775 y:-0.662386 z:-0.0669975 w:-0.742065
+After integrate | x:-0.050403 y:-0.672243 z:-0.0702377 w:-0.733099
+After normalize | x:-0.0503982 y:-0.672178 z:-0.0702309 w:-0.733029
+After conjugate | x:0.0503982 y:0.672178 z:0.0702309 w:-0.733029
+
+
+After conjugate | x:0.0503982 y:0.672178 z:0.0702309 w:-0.733029
+
+
+Start of AhrsUpdate | x:-0.0503982 y:-0.672178 z:-0.0702309 w:-0.733029
+After integrate | x:-0.0494552 y:-0.67727 z:-0.0719283 w:-0.728262
+After normalize | x:-0.0494539 y:-0.677253 z:-0.0719264 w:-0.728243
+After conjugate | x:0.0494539 y:0.677253 z:0.0719264 w:-0.728243
+
+
+After conjugate | x:0.0494539 y:0.677253 z:0.0719264 w:-0.728243
+
+
+Start of AhrsUpdate | x:-0.0494539 y:-0.677253 z:-0.0719264 w:-0.728243
+After integrate | x:-0.0484809 y:-0.682434 z:-0.0736644 w:-0.723318
+After normalize | x:-0.0484796 y:-0.682415 z:-0.0736624 w:-0.723298
+After conjugate | x:0.0484796 y:0.682415 z:0.0736624 w:-0.723298
+
+
+After conjugate | x:0.0484796 y:0.682415 z:0.0736624 w:-0.723298
+
+
+Start of AhrsUpdate | x:-0.0484796 y:-0.682415 z:-0.0736624 w:-0.723298
+After integrate | x:-0.0466808 y:-0.69187 z:-0.0768489 w:-0.714174
+After normalize | x:-0.0466764 y:-0.691806 z:-0.0768417 w:-0.714107
+After conjugate | x:0.0466764 y:0.691806 z:0.0768417 w:-0.714107
+
+
+After conjugate | x:0.0466764 y:0.691806 z:0.0768417 w:-0.714107
+
+
+Start of AhrsUpdate | x:-0.0466764 y:-0.691806 z:-0.0768417 w:-0.714107
+After integrate | x:-0.0440709 y:-0.705161 z:-0.081389 w:-0.70085
+After normalize | x:-0.0440625 y:-0.705026 z:-0.0813734 w:-0.700716
+After conjugate | x:0.0440625 y:0.705026 z:0.0813734 w:-0.700716
+
+
+After conjugate | x:0.0440625 y:0.705026 z:0.0813734 w:-0.700716
+
+
+Start of AhrsUpdate | x:-0.0440625 y:-0.705026 z:-0.0813734 w:-0.700716
+After integrate | x:-0.0430937 y:-0.709797 z:-0.0830312 w:-0.695783
+After normalize | x:-0.0430926 y:-0.709779 z:-0.0830291 w:-0.695766
+After conjugate | x:0.0430926 y:0.709779 z:0.0830291 w:-0.695766
+
+
+After conjugate | x:0.0430926 y:0.709779 z:0.0830291 w:-0.695766
+
+
+Start of AhrsUpdate | x:-0.0430926 y:-0.709779 z:-0.0830291 w:-0.695766
+After integrate | x:-0.0420156 y:-0.715012 z:-0.0848581 w:-0.690276
+After normalize | x:-0.0420143 y:-0.714989 z:-0.0848554 w:-0.690255
+After conjugate | x:0.0420143 y:0.714989 z:0.0848554 w:-0.690255
+
+
+After conjugate | x:0.0420143 y:0.714989 z:0.0848554 w:-0.690255
+
+
+Start of AhrsUpdate | x:-0.0420143 y:-0.714989 z:-0.0848554 w:-0.690255
+After integrate | x:-0.0409779 y:-0.719949 z:-0.0866009 w:-0.684967
+After normalize | x:-0.0409768 y:-0.719928 z:-0.0865984 w:-0.684947
+After conjugate | x:0.0409768 y:0.719928 z:0.0865984 w:-0.684947
+
+
+After conjugate | x:0.0409768 y:0.719928 z:0.0865984 w:-0.684947
+
+
+Start of AhrsUpdate | x:-0.0409768 y:-0.719928 z:-0.0865984 w:-0.684947
+After integrate | x:-0.0383303 y:-0.732433 z:-0.0910158 w:-0.671403
+After normalize | x:-0.0383233 y:-0.732298 z:-0.090999 w:-0.671279
+After conjugate | x:0.0383233 y:0.732298 z:0.090999 w:-0.671279
+
+
+After conjugate | x:0.0383233 y:0.732298 z:0.090999 w:-0.671279
+
+
+Start of AhrsUpdate | x:-0.0383233 y:-0.732298 z:-0.090999 w:-0.671279
+After integrate | x:-0.0370716 y:-0.73799 z:-0.0930485 w:-0.664864
+After normalize | x:-0.0370702 y:-0.737961 z:-0.0930448 w:-0.664838
+After conjugate | x:0.0370702 y:0.737961 z:0.0930448 w:-0.664838
+
+
+After conjugate | x:0.0370702 y:0.737961 z:0.0930448 w:-0.664838
+
+
+Start of AhrsUpdate | x:-0.0370702 y:-0.737961 z:-0.0930448 w:-0.664838
+After integrate | x:-0.0359713 y:-0.742872 z:-0.0948277 w:-0.659199
+After normalize | x:-0.0359702 y:-0.742849 z:-0.0948249 w:-0.659179
+After conjugate | x:0.0359702 y:0.742849 z:0.0948249 w:-0.659179
+
+
+After conjugate | x:0.0359702 y:0.742849 z:0.0948249 w:-0.659179
+
+
+Start of AhrsUpdate | x:-0.0359702 y:-0.742849 z:-0.0948249 w:-0.659179
+After integrate | x:-0.0348744 y:-0.747674 z:-0.0965883 w:-0.653548
+After normalize | x:-0.0348734 y:-0.747652 z:-0.0965854 w:-0.653529
+After conjugate | x:0.0348734 y:0.747652 z:0.0965854 w:-0.653529
+
+
+After conjugate | x:0.0348734 y:0.747652 z:0.0965854 w:-0.653529
+
+
+Start of AhrsUpdate | x:-0.0348734 y:-0.747652 z:-0.0965854 w:-0.653529
+After integrate | x:-0.03371 y:-0.752698 z:-0.0984427 w:-0.647542
+After normalize | x:-0.0337088 y:-0.752674 z:-0.0984394 w:-0.647521
+After conjugate | x:0.0337088 y:0.752674 z:0.0984394 w:-0.647521
+
+
+After conjugate | x:0.0337088 y:0.752674 z:0.0984394 w:-0.647521
+
+
+Start of AhrsUpdate | x:-0.0337088 y:-0.752674 z:-0.0984394 w:-0.647521
+After integrate | x:-0.0313525 y:-0.762747 z:-0.102166 w:-0.635368
+After normalize | x:-0.0313482 y:-0.762644 z:-0.102152 w:-0.635282
+After conjugate | x:0.0313482 y:0.762644 z:0.102152 w:-0.635282
+
+
+After conjugate | x:0.0313482 y:0.762644 z:0.102152 w:-0.635282
+
+
+Start of AhrsUpdate | x:-0.0313482 y:-0.762644 z:-0.102152 w:-0.635282
+After integrate | x:-0.0301978 y:-0.767403 z:-0.103943 w:-0.629337
+After normalize | x:-0.0301969 y:-0.76738 z:-0.10394 w:-0.629318
+After conjugate | x:0.0301969 y:0.76738 z:0.10394 w:-0.629318
+
+
+After conjugate | x:0.0301969 y:0.76738 z:0.10394 w:-0.629318
+
+
+Start of AhrsUpdate | x:-0.0301969 y:-0.76738 z:-0.10394 w:-0.629318
+After integrate | x:-0.0275522 y:-0.778167 z:-0.108018 w:-0.615617
+After normalize | x:-0.0275477 y:-0.778039 z:-0.108 w:-0.615515
+After conjugate | x:0.0275477 y:0.778039 z:0.108 w:-0.615515
+
+
+After conjugate | x:0.0275477 y:0.778039 z:0.108 w:-0.615515
+
+
+Start of AhrsUpdate | x:-0.0275477 y:-0.778039 z:-0.108 w:-0.615515
+After integrate | x:-0.0259454 y:-0.784344 z:-0.110427 w:-0.607191
+After normalize | x:-0.0259439 y:-0.784298 z:-0.11042 w:-0.607156
+After conjugate | x:0.0259439 y:0.784298 z:0.11042 w:-0.607156
+
+
+After conjugate | x:0.0259439 y:0.784298 z:0.11042 w:-0.607156
+
+
+Start of AhrsUpdate | x:-0.0259439 y:-0.784298 z:-0.11042 w:-0.607156
+After integrate | x:-0.0245104 y:-0.78982 z:-0.112568 w:-0.599694
+After normalize | x:-0.0245093 y:-0.789783 z:-0.112563 w:-0.599666
+After conjugate | x:0.0245093 y:0.789783 z:0.112563 w:-0.599666
+
+
+After conjugate | x:0.0245093 y:0.789783 z:0.112563 w:-0.599666
+
+
+Start of AhrsUpdate | x:-0.0245093 y:-0.789783 z:-0.112563 w:-0.599666
+After integrate | x:-0.0229997 y:-0.795489 z:-0.114802 w:-0.591792
+After normalize | x:-0.0229986 y:-0.795448 z:-0.114797 w:-0.591762
+After conjugate | x:0.0229986 y:0.795448 z:0.114797 w:-0.591762
+
+
+After conjugate | x:0.0229986 y:0.795448 z:0.114797 w:-0.591762
+
+
+Start of AhrsUpdate | x:-0.0229986 y:-0.795448 z:-0.114797 w:-0.591762
+After integrate | x:-0.0212467 y:-0.801941 z:-0.117369 w:-0.582604
+After normalize | x:-0.0212452 y:-0.801886 z:-0.117361 w:-0.582564
+After conjugate | x:0.0212452 y:0.801886 z:0.117361 w:-0.582564
+
+
+After conjugate | x:0.0212452 y:0.801886 z:0.117361 w:-0.582564
+
+
+Start of AhrsUpdate | x:-0.0212452 y:-0.801886 z:-0.117361 w:-0.582564
+After integrate | x:-0.0196462 y:-0.807676 z:-0.119681 w:-0.574185
+After normalize | x:-0.0196451 y:-0.807631 z:-0.119674 w:-0.574153
+After conjugate | x:0.0196451 y:0.807631 z:0.119674 w:-0.574153
+
+
+After conjugate | x:0.0196451 y:0.807631 z:0.119674 w:-0.574153
+
+
+Start of AhrsUpdate | x:-0.0196451 y:-0.807631 z:-0.119674 w:-0.574153
+After integrate | x:-0.0168351 y:-0.817601 z:-0.123705 w:-0.559385
+After normalize | x:-0.0168322 y:-0.81746 z:-0.123684 w:-0.559289
+After conjugate | x:0.0168322 y:0.81746 z:0.123684 w:-0.559289
+
+
+After conjugate | x:0.0168322 y:0.81746 z:0.123684 w:-0.559289
+
+
+Start of AhrsUpdate | x:-0.0168322 y:-0.81746 z:-0.123684 w:-0.559289
+After integrate | x:-0.0151695 y:-0.823141 z:-0.126027 w:-0.550519
+After normalize | x:-0.0151686 y:-0.823092 z:-0.12602 w:-0.550486
+After conjugate | x:0.0151686 y:0.823092 z:0.12602 w:-0.550486
+
+
+After conjugate | x:0.0151686 y:0.823092 z:0.12602 w:-0.550486
+
+
+Start of AhrsUpdate | x:-0.0151686 y:-0.823092 z:-0.12602 w:-0.550486
+After integrate | x:-0.0137082 y:-0.827973 z:-0.128056 w:-0.542763
+After normalize | x:-0.0137075 y:-0.827936 z:-0.12805 w:-0.542739
+After conjugate | x:0.0137075 y:0.827936 z:0.12805 w:-0.542739
+
+
+After conjugate | x:0.0137075 y:0.827936 z:0.12805 w:-0.542739
+
+
+Start of AhrsUpdate | x:-0.0137075 y:-0.827936 z:-0.12805 w:-0.542739
+After integrate | x:-0.0122055 y:-0.832858 z:-0.130124 w:-0.534778
+After normalize | x:-0.0122049 y:-0.832819 z:-0.130118 w:-0.534752
+After conjugate | x:0.0122049 y:0.832819 z:0.130118 w:-0.534752
+
+
+After conjugate | x:0.0122049 y:0.832819 z:0.130118 w:-0.534752
+
+
+Start of AhrsUpdate | x:-0.0122049 y:-0.832819 z:-0.130118 w:-0.534752
+After integrate | x:-0.0103614 y:-0.838742 z:-0.132639 w:-0.524957
+After normalize | x:-0.0103607 y:-0.838683 z:-0.132629 w:-0.52492
+After conjugate | x:0.0103607 y:0.838683 z:0.132629 w:-0.52492
+
+
+After conjugate | x:0.0103607 y:0.838683 z:0.132629 w:-0.52492
+
+
+Start of AhrsUpdate | x:-0.0103607 y:-0.838683 z:-0.132629 w:-0.52492
+After integrate | x:-0.00688601 y:-0.849579 z:-0.137319 w:-0.506395
+After normalize | x:-0.0068843 y:-0.849367 z:-0.137285 w:-0.506268
+After conjugate | x:0.0068843 y:0.849367 z:0.137285 w:-0.506268
+
+
+After conjugate | x:0.0068843 y:0.849367 z:0.137285 w:-0.506268
+
+
+Start of AhrsUpdate | x:-0.0068843 y:-0.849367 z:-0.137285 w:-0.506268
+After integrate | x:-0.00465602 y:-0.856029 z:-0.140229 w:-0.494323
+After normalize | x:-0.00465555 y:-0.855943 z:-0.140215 w:-0.494274
+After conjugate | x:0.00465555 y:0.855943 z:0.140215 w:-0.494274
+
+
+After conjugate | x:0.00465555 y:0.855943 z:0.140215 w:-0.494274
+
+
+Start of AhrsUpdate | x:-0.00465555 y:-0.855943 z:-0.140215 w:-0.494274
+After integrate | x:-0.0028289 y:-0.861239 z:-0.142596 w:-0.484445
+After normalize | x:-0.00282871 y:-0.861181 z:-0.142586 w:-0.484413
+After conjugate | x:0.00282871 y:0.861181 z:0.142586 w:-0.484413
+
+
+After conjugate | x:0.00282871 y:0.861181 z:0.142586 w:-0.484413
+
+
+Start of AhrsUpdate | x:-0.00282871 y:-0.861181 z:-0.142586 w:-0.484413
+After integrate | x:-0.00107123 y:-0.866148 z:-0.144851 w:-0.474927
+After normalize | x:-0.00107117 y:-0.866094 z:-0.144842 w:-0.474897
+After conjugate | x:0.00107117 y:0.866094 z:0.144842 w:-0.474897
+
+
+After conjugate | x:0.00107117 y:0.866094 z:0.144842 w:-0.474897
+
+
+Start of AhrsUpdate | x:-0.00107117 y:-0.866094 z:-0.144842 w:-0.474897
+After integrate | x:0.00066665 y:-0.870885 z:-0.147056 w:-0.465489
+After normalize | x:0.00066661 y:-0.870833 z:-0.147047 w:-0.465461
+After conjugate | x:-0.00066661 y:0.870833 z:0.147047 w:-0.465461
+
+
+After conjugate | x:-0.00066661 y:0.870833 z:0.147047 w:-0.465461
+
+
+Start of AhrsUpdate | x:0.00066661 y:-0.870833 z:-0.147047 w:-0.465461
+After integrate | x:0.00249871 y:-0.87576 z:-0.149357 w:-0.455511
+After normalize | x:0.00249854 y:-0.875702 z:-0.149347 w:-0.455481
+After conjugate | x:-0.00249854 y:0.875702 z:0.149347 w:-0.455481
+
+
+After conjugate | x:-0.00249854 y:0.875702 z:0.149347 w:-0.455481
+
+
+Start of AhrsUpdate | x:0.00249854 y:-0.875702 z:-0.149347 w:-0.455481
+After integrate | x:0.00439948 y:-0.88068 z:-0.151715 w:-0.445123
+After normalize | x:0.00439917 y:-0.880617 z:-0.151705 w:-0.445091
+After conjugate | x:-0.00439917 y:0.880617 z:0.151705 w:-0.445091
+
+
+After conjugate | x:-0.00439917 y:0.880617 z:0.151705 w:-0.445091
+
+
+Start of AhrsUpdate | x:0.00439917 y:-0.880617 z:-0.151705 w:-0.445091
+After integrate | x:0.00653577 y:-0.886058 z:-0.154335 w:-0.433409
+After normalize | x:0.00653519 y:-0.885979 z:-0.154321 w:-0.43337
+After conjugate | x:-0.00653519 y:0.885979 z:0.154321 w:-0.43337
+
+
+After conjugate | x:-0.00653519 y:0.885979 z:0.154321 w:-0.43337
+
+
+Start of AhrsUpdate | x:0.00653519 y:-0.885979 z:-0.154321 w:-0.43337
+After integrate | x:0.00850942 y:-0.890848 z:-0.15672 w:-0.422533
+After normalize | x:0.00850878 y:-0.89078 z:-0.156708 w:-0.422502
+After conjugate | x:-0.00850878 y:0.89078 z:0.156708 w:-0.422502
+
+
+After conjugate | x:-0.00850878 y:0.89078 z:0.156708 w:-0.422502
+
+
+Start of AhrsUpdate | x:0.00850878 y:-0.89078 z:-0.156708 w:-0.422502
+After integrate | x:0.0107941 y:-0.896248 z:-0.15945 w:-0.409911
+After normalize | x:0.010793 y:-0.896158 z:-0.159434 w:-0.409869
+After conjugate | x:-0.010793 y:0.896158 z:0.159434 w:-0.409869
+
+
+After conjugate | x:-0.010793 y:0.896158 z:0.159434 w:-0.409869
+
+
+Start of AhrsUpdate | x:0.010793 y:-0.896158 z:-0.159434 w:-0.409869
+After integrate | x:0.0129902 y:-0.90123 z:-0.162034 w:-0.397711
+After normalize | x:0.012989 y:-0.901146 z:-0.162018 w:-0.397674
+After conjugate | x:-0.012989 y:0.901146 z:0.162018 w:-0.397674
+
+
+After conjugate | x:-0.012989 y:0.901146 z:0.162018 w:-0.397674
+
+
+Start of AhrsUpdate | x:0.012989 y:-0.901146 z:-0.162018 w:-0.397674
+After integrate | x:0.0152088 y:-0.906092 z:-0.164608 w:-0.385339
+After normalize | x:0.0152074 y:-0.906006 z:-0.164593 w:-0.385303
+After conjugate | x:-0.0152074 y:0.906006 z:0.164593 w:-0.385303
+
+
+After conjugate | x:-0.0152074 y:0.906006 z:0.164593 w:-0.385303
+
+
+Start of AhrsUpdate | x:0.0152074 y:-0.906006 z:-0.164593 w:-0.385303
+After integrate | x:0.017574 y:-0.911089 z:-0.167316 w:-0.372095
+After normalize | x:0.0175722 y:-0.910991 z:-0.167298 w:-0.372055
+After conjugate | x:-0.0175722 y:0.910991 z:0.167298 w:-0.372055
+
+
+After conjugate | x:-0.0175722 y:0.910991 z:0.167298 w:-0.372055
+
+
+Start of AhrsUpdate | x:0.0175722 y:-0.910991 z:-0.167298 w:-0.372055
+After integrate | x:0.0198114 y:-0.915609 z:-0.169836 w:-0.3595
+After normalize | x:0.0198095 y:-0.915522 z:-0.16982 w:-0.359466
+After conjugate | x:-0.0198095 y:0.915522 z:0.16982 w:-0.359466
+
+
+After conjugate | x:-0.0198095 y:0.915522 z:0.16982 w:-0.359466
+
+
+Start of AhrsUpdate | x:0.0198095 y:-0.915522 z:-0.16982 w:-0.359466
+After integrate | x:0.0221613 y:-0.920184 z:-0.172448 w:-0.346221
+After normalize | x:0.022159 y:-0.920087 z:-0.17243 w:-0.346185
+After conjugate | x:-0.022159 y:0.920087 z:0.17243 w:-0.346185
+
+
+After conjugate | x:-0.022159 y:0.920087 z:0.17243 w:-0.346185
+
+
+Start of AhrsUpdate | x:0.022159 y:-0.920087 z:-0.17243 w:-0.346185
+After integrate | x:0.0246067 y:-0.924734 z:-0.175124 w:-0.332334
+After normalize | x:0.0246039 y:-0.924629 z:-0.175104 w:-0.332297
+After conjugate | x:-0.0246039 y:0.924629 z:0.175104 w:-0.332297
+
+
+After conjugate | x:-0.0246039 y:0.924629 z:0.175104 w:-0.332297
+
+
+Start of AhrsUpdate | x:0.0246039 y:-0.924629 z:-0.175104 w:-0.332297
+After integrate | x:0.0293572 y:-0.933243 z:-0.180247 w:-0.305266
+After normalize | x:0.0293446 y:-0.932843 z:-0.18017 w:-0.305135
+After conjugate | x:-0.0293446 y:0.932843 z:0.18017 w:-0.305135
+
+
+After conjugate | x:-0.0293446 y:0.932843 z:0.18017 w:-0.305135
+
+
+Start of AhrsUpdate | x:0.0293446 y:-0.932843 z:-0.18017 w:-0.305135
+After integrate | x:0.03533 y:-0.942686 z:-0.186444 w:-0.270761
+After normalize | x:0.035306 y:-0.942046 z:-0.186318 w:-0.270577
+After conjugate | x:-0.035306 y:0.942046 z:0.186318 w:-0.270577
+
+
+After conjugate | x:-0.035306 y:0.942046 z:0.186318 w:-0.270577
+
+
+Start of AhrsUpdate | x:0.035306 y:-0.942046 z:-0.186318 w:-0.270577
+After integrate | x:0.0418623 y:-0.951448 z:-0.192918 w:-0.232443
+After normalize | x:0.0418281 y:-0.950671 z:-0.19276 w:-0.232253
+After conjugate | x:-0.0418281 y:0.950671 z:0.19276 w:-0.232253
+
+
+After conjugate | x:-0.0418281 y:0.950671 z:0.19276 w:-0.232253
+
+
+Start of AhrsUpdate | x:0.0418281 y:-0.950671 z:-0.19276 w:-0.232253
+After integrate | x:0.0445157 y:-0.953902 z:-0.195349 w:-0.216393
+After normalize | x:0.0445096 y:-0.953772 z:-0.195323 w:-0.216364
+After conjugate | x:-0.0445096 y:0.953772 z:0.195323 w:-0.216364
+
+
+After conjugate | x:-0.0445096 y:0.953772 z:0.195323 w:-0.216364
+
+
+Start of AhrsUpdate | x:0.0445096 y:-0.953772 z:-0.195323 w:-0.216364
+After integrate | x:0.0471724 y:-0.956719 z:-0.197839 w:-0.200555
+After normalize | x:0.047166 y:-0.956589 z:-0.197812 w:-0.200527
+After conjugate | x:-0.047166 y:0.956589 z:0.197812 w:-0.200527
+
+
+After conjugate | x:-0.047166 y:0.956589 z:0.197812 w:-0.200527
+
+
+Start of AhrsUpdate | x:0.047166 y:-0.956589 z:-0.197812 w:-0.200527
+After integrate | x:0.0503233 y:-0.959782 z:-0.200735 w:-0.181669
+After normalize | x:0.0503136 y:-0.959596 z:-0.200697 w:-0.181634
+After conjugate | x:-0.0503136 y:0.959596 z:0.200697 w:-0.181634
+
+
+After conjugate | x:-0.0503136 y:0.959596 z:0.200697 w:-0.181634
+
+
+Start of AhrsUpdate | x:0.0503136 y:-0.959596 z:-0.200697 w:-0.181634
+After integrate | x:0.0533503 y:-0.962321 z:-0.203442 w:-0.163363
+After normalize | x:0.0533408 y:-0.962149 z:-0.203405 w:-0.163334
+After conjugate | x:-0.0533408 y:0.962149 z:0.203405 w:-0.163334
+
+
+After conjugate | x:-0.0533408 y:0.962149 z:0.203405 w:-0.163334
+
+
+Start of AhrsUpdate | x:0.0533408 y:-0.962149 z:-0.203405 w:-0.163334
+After integrate | x:0.0565346 y:-0.964661 z:-0.206224 w:-0.143981
+After normalize | x:0.0565233 y:-0.964468 z:-0.206183 w:-0.143952
+After conjugate | x:-0.0565233 y:0.964468 z:0.206183 w:-0.143952
+
+
+After conjugate | x:-0.0565233 y:0.964468 z:0.206183 w:-0.143952
+
+
+Start of AhrsUpdate | x:0.0565233 y:-0.964468 z:-0.206183 w:-0.143952
+After integrate | x:0.0600087 y:-0.966799 z:-0.20918 w:-0.122671
+After normalize | x:0.0599942 y:-0.966567 z:-0.20913 w:-0.122641
+After conjugate | x:-0.0599942 y:0.966567 z:0.20913 w:-0.122641
+
+
+After conjugate | x:-0.0599942 y:0.966567 z:0.20913 w:-0.122641
+
+
+Start of AhrsUpdate | x:0.0599942 y:-0.966567 z:-0.20913 w:-0.122641
+After integrate | x:0.0638184 y:-0.968626 z:-0.212322 w:-0.0990936
+After normalize | x:0.0637997 y:-0.968343 z:-0.212259 w:-0.0990646
+After conjugate | x:-0.0637997 y:0.968343 z:0.212259 w:-0.0990646
+
+
+After conjugate | x:-0.0637997 y:0.968343 z:0.212259 w:-0.0990646
+
+
+Start of AhrsUpdate | x:0.0637997 y:-0.968343 z:-0.212259 w:-0.0990646
+After integrate | x:0.0715137 y:-0.971377 z:-0.218473 w:-0.0511248
+After normalize | x:0.0714273 y:-0.970204 z:-0.218209 w:-0.0510631
+After conjugate | x:-0.0714273 y:0.970204 z:0.218209 w:-0.0510631
+
+
+After conjugate | x:-0.0714273 y:0.970204 z:0.218209 w:-0.0510631
+
+
+Start of AhrsUpdate | x:0.0714273 y:-0.970204 z:-0.218209 w:-0.0510631
+After integrate | x:0.075025 y:-0.970533 z:-0.220905 w:-0.0282513
+After normalize | x:0.0750048 y:-0.970273 z:-0.220846 w:-0.0282437
+After conjugate | x:-0.0750048 y:0.970273 z:0.220846 w:-0.0282437
+
+
+After conjugate | x:-0.0750048 y:0.970273 z:0.220846 w:-0.0282437
+
+
+Start of AhrsUpdate | x:0.0750048 y:-0.970273 z:-0.220846 w:-0.0282437
+After integrate | x:0.0791761 y:-0.970043 z:-0.223856 w:-0.00153977
+After normalize | x:0.0791468 y:-0.969683 z:-0.223773 w:-0.0015392
+After conjugate | x:-0.0791468 y:0.969683 z:0.223773 w:-0.0015392
+
+
+After conjugate | x:-0.0791468 y:0.969683 z:0.223773 w:-0.0015392
+
+
+Start of AhrsUpdate | x:0.0791468 y:-0.969683 z:-0.223773 w:-0.0015392
+After integrate | x:0.082719 y:-0.96886 z:-0.226233 w:0.021595
+After normalize | x:0.082696 y:-0.968591 z:-0.22617 w:0.021589
+After conjugate | x:-0.082696 y:0.968591 z:0.22617 w:0.021589
+
+
+After conjugate | x:-0.082696 y:0.968591 z:0.22617 w:0.021589
+
+
+Start of AhrsUpdate | x:0.082696 y:-0.968591 z:-0.22617 w:0.021589
+After integrate | x:0.0870793 y:-0.966903 z:-0.229059 w:0.0502622
+After normalize | x:0.087042 y:-0.966489 z:-0.228961 w:0.0502407
+After conjugate | x:-0.087042 y:0.966489 z:0.228961 w:0.0502407
+
+
+After conjugate | x:-0.087042 y:0.966489 z:0.228961 w:0.0502407
+
+
+Start of AhrsUpdate | x:0.087042 y:-0.966489 z:-0.228961 w:0.0502407
+After integrate | x:0.0915737 y:-0.963852 z:-0.231781 w:0.0802676
+After normalize | x:0.0915307 y:-0.963399 z:-0.231672 w:0.0802299
+After conjugate | x:-0.0915307 y:0.963399 z:0.231672 w:0.0802299
+
+
+After conjugate | x:-0.0915307 y:0.963399 z:0.231672 w:0.0802299
+
+
+Start of AhrsUpdate | x:0.0915307 y:-0.963399 z:-0.231672 w:0.0802299
+After integrate | x:0.0962326 y:-0.959664 z:-0.234409 w:0.111817
+After normalize | x:0.0961824 y:-0.959163 z:-0.234286 w:0.111759
+After conjugate | x:-0.0961824 y:0.959163 z:0.234286 w:0.111759
+
+
+After conjugate | x:-0.0961824 y:0.959163 z:0.234286 w:0.111759
+
+
+Start of AhrsUpdate | x:0.0961824 y:-0.959163 z:-0.234286 w:0.111759
+After integrate | x:0.100891 y:-0.954329 z:-0.236823 w:0.143871
+After normalize | x:0.100837 y:-0.953811 z:-0.236695 w:0.143793
+After conjugate | x:-0.100837 y:0.953811 z:0.236695 w:0.143793
+
+
+After conjugate | x:-0.100837 y:0.953811 z:0.236695 w:0.143793
+
+
+Start of AhrsUpdate | x:0.100837 y:-0.953811 z:-0.236695 w:0.143793
+After integrate | x:0.104504 y:-0.949144 z:-0.238503 w:0.169203
+After normalize | x:0.104468 y:-0.948819 z:-0.238421 w:0.169145
+After conjugate | x:-0.104468 y:0.948819 z:0.238421 w:0.169145
+
+
+After conjugate | x:-0.104468 y:0.948819 z:0.238421 w:0.169145
+
+
+Start of AhrsUpdate | x:0.104468 y:-0.948819 z:-0.238421 w:0.169145
+After integrate | x:0.108331 y:-0.94312 z:-0.240179 w:0.196251
+After normalize | x:0.108288 y:-0.942748 z:-0.240084 w:0.196174
+After conjugate | x:-0.108288 y:0.942748 z:0.240084 w:0.196174
+
+
+After conjugate | x:-0.108288 y:0.942748 z:0.240084 w:0.196174
+
+
+Start of AhrsUpdate | x:0.108288 y:-0.942748 z:-0.240084 w:0.196174
+After integrate | x:0.111887 y:-0.936625 z:-0.241571 w:0.221794
+After normalize | x:0.111848 y:-0.936292 z:-0.241485 w:0.221715
+After conjugate | x:-0.111848 y:0.936292 z:0.241485 w:0.221715
+
+
+After conjugate | x:-0.111848 y:0.936292 z:0.241485 w:0.221715
+
+
+Start of AhrsUpdate | x:0.111848 y:-0.936292 z:-0.241485 w:0.221715
+After integrate | x:0.116048 y:-0.928209 z:-0.243045 w:0.252031
+After normalize | x:0.115989 y:-0.927742 z:-0.242923 w:0.251904
+After conjugate | x:-0.115989 y:0.927742 z:0.242923 w:0.251904
+
+
+After conjugate | x:-0.115989 y:0.927742 z:0.242923 w:0.251904
+
+
+Start of AhrsUpdate | x:0.115989 y:-0.927742 z:-0.242923 w:0.251904
+After integrate | x:0.119493 y:-0.920023 z:-0.244044 w:0.277635
+After normalize | x:0.119449 y:-0.919684 z:-0.243954 w:0.277532
+After conjugate | x:-0.119449 y:0.919684 z:0.243954 w:0.277532
+
+
+After conjugate | x:-0.119449 y:0.919684 z:0.243954 w:0.277532
+
+
+Start of AhrsUpdate | x:0 y:0 z:0 w:1
+After integrate | x:0.0347075 y:0.00894162 z:0 w:1
+After normalize | x:0.0346276 y:0.00892102 z:0 w:0.997696
+After conjugate | x:-0.0346276 y:-0.00892102 z:-0 w:0.997696
+
+
+After conjugate | x:-0.0346276 y:-0.00892102 z:-0 w:0.997696
+
+
+Start of AhrsUpdate | x:0 y:0 z:0 w:1
+After integrate | x:0.045828 y:-0.0165183 z:0 w:1
+After normalize | x:0.0456988 y:-0.0164717 z:0 w:0.997179
+After conjugate | x:-0.0456988 y:0.0164717 z:-0 w:0.997179
+
+
+After conjugate | x:-0.0456988 y:0.0164717 z:-0 w:0.997179
+
+
+Start of AhrsUpdate | x:0.0456988 y:-0.0164717 z:0 w:0.997179
+After integrate | x:1.37974 y:-0.486699 z:0.0438735 w:0.928275
+After normalize | x:0.795356 y:-0.28056 z:0.0252911 w:0.535108
+After conjugate | x:-0.795356 y:0.28056 z:-0.0252911 w:0.535108
+
+
+After conjugate | x:-0.795356 y:0.28056 z:-0.0252911 w:0.535108
+
+
+Start of AhrsUpdate | x:0.795356 y:-0.28056 z:0.0252911 w:0.535108
+After integrate | x:0.820018 y:-0.287702 z:0.0562433 w:0.493244
+After normalize | x:0.817985 y:-0.286988 z:0.0561038 w:0.492021
+After conjugate | x:-0.817985 y:0.286988 z:-0.0561038 w:0.492021
+
+
+After conjugate | x:-0.817985 y:0.286988 z:-0.0561038 w:0.492021
+
+
+Start of AhrsUpdate | x:0.817985 y:-0.286988 z:0.0561038 w:0.492021
+After integrate | x:0.904666 y:-0.30387 z:0.178999 w:0.324053
+After normalize | x:0.883079 y:-0.296619 z:0.174727 w:0.31632
+After conjugate | x:-0.883079 y:0.296619 z:-0.174727 w:0.31632
+
+
+After conjugate | x:-0.883079 y:0.296619 z:-0.174727 w:0.31632
+
+
+Start of AhrsUpdate | x:0.883079 y:-0.296619 z:0.174727 w:0.31632
+After integrate | x:0.898204 y:-0.288739 z:0.214205 w:0.259679
+After normalize | x:0.895208 y:-0.287776 z:0.21349 w:0.258813
+After conjugate | x:-0.895208 y:0.287776 z:-0.21349 w:0.258813
+
+
+After conjugate | x:-0.895208 y:0.287776 z:-0.21349 w:0.258813
+
+
+Start of AhrsUpdate | x:0.895208 y:-0.287776 z:0.21349 w:0.258813
+After integrate | x:0.952144 y:-0.226725 z:0.408151 w:-0.0308109
+After normalize | x:0.897392 y:-0.213687 z:0.384681 w:-0.0290391
+After conjugate | x:-0.897392 y:0.213687 z:-0.384681 w:-0.0290391
+
+
+After conjugate | x:-0.897392 y:0.213687 z:-0.384681 w:-0.0290391
+
+
+Start of AhrsUpdate | x:0.897392 y:-0.213687 z:0.384681 w:-0.0290391
+After integrate | x:0.892142 y:-0.192111 z:0.405943 w:-0.0683985
+After normalize | x:0.88966 y:-0.191577 z:0.404814 w:-0.0682082
+After conjugate | x:-0.88966 y:0.191577 z:-0.404814 w:-0.0682082
+
+
+After conjugate | x:-0.88966 y:0.191577 z:-0.404814 w:-0.0682082
+
+
+Start of AhrsUpdate | x:0.88966 y:-0.191577 z:0.404814 w:-0.0682082
+After integrate | x:0.876178 y:-0.147266 z:0.442787 w:-0.143133
+After normalize | x:0.872233 y:-0.146603 z:0.440793 w:-0.142488
+After conjugate | x:-0.872233 y:0.146603 z:-0.440793 w:-0.142488
+
+
+After conjugate | x:-0.872233 y:0.146603 z:-0.440793 w:-0.142488
+
+
+Start of AhrsUpdate | x:0.872233 y:-0.146603 z:0.440793 w:-0.142488
+After integrate | x:0.862988 y:-0.123593 z:0.455711 w:-0.176607
+After normalize | x:0.862009 y:-0.123453 z:0.455194 w:-0.176407
+After conjugate | x:-0.862009 y:0.123453 z:-0.455194 w:-0.176407
+
+
+After conjugate | x:-0.862009 y:0.123453 z:-0.455194 w:-0.176407
+
+
+Start of AhrsUpdate | x:0.862009 y:-0.123453 z:0.455194 w:-0.176407
+After integrate | x:0.824479 y:-0.0385789 z:0.50302 w:-0.295783
+After normalize | x:0.814642 y:-0.0381186 z:0.497018 w:-0.292254
+After conjugate | x:-0.814642 y:0.0381186 z:-0.497018 w:-0.292254
+
+
+After conjugate | x:-0.814642 y:0.0381186 z:-0.497018 w:-0.292254
+
+
+Start of AhrsUpdate | x:0.814642 y:-0.0381186 z:0.497018 w:-0.292254
+After integrate | x:0.796061 y:-0.00526155 z:0.507174 w:-0.331059
+After normalize | x:0.794499 y:-0.00525122 z:0.506178 w:-0.330409
+After conjugate | x:-0.794499 y:0.00525122 z:-0.506178 w:-0.330409
+
+
+After conjugate | x:-0.794499 y:0.00525122 z:-0.506178 w:-0.330409
+
+
+Start of AhrsUpdate | x:0.794499 y:-0.00525122 z:0.506178 w:-0.330409
+After integrate | x:0.724441 y:0.110099 z:0.53274 w:-0.460011
+After normalize | x:0.712253 y:0.108247 z:0.523777 w:-0.452272
+After conjugate | x:-0.712253 y:-0.108247 z:-0.523777 w:-0.452272
+
+
+After conjugate | x:-0.712253 y:-0.108247 z:-0.523777 w:-0.452272
+
+
+Start of AhrsUpdate | x:0.712253 y:0.108247 z:0.523777 w:-0.452272
+After integrate | x:0.693001 y:0.134219 z:0.523295 w:-0.476932
+After normalize | x:0.691978 y:0.134021 z:0.522523 w:-0.476228
+After conjugate | x:-0.691978 y:-0.134021 z:-0.522523 w:-0.476228
+
+
+After conjugate | x:-0.691978 y:-0.134021 z:-0.522523 w:-0.476228
+
+
+Start of AhrsUpdate | x:0.691978 y:0.134021 z:0.522523 w:-0.476228
+After integrate | x:0.487254 y:0.398138 z:0.503615 w:-0.720118
+After normalize | x:0.450826 y:0.368373 z:0.465964 w:-0.666281
+After conjugate | x:-0.450826 y:-0.368373 z:-0.465964 w:-0.666281
+
+
+After conjugate | x:-0.450826 y:-0.368373 z:-0.465964 w:-0.666281
+
+
+Start of AhrsUpdate | x:0.450826 y:0.368373 z:0.465964 w:-0.666281
+After integrate | x:0.416764 y:0.398861 z:0.447154 w:-0.685627
+After normalize | x:0.415501 y:0.397653 z:0.4458 w:-0.683549
+After conjugate | x:-0.415501 y:-0.397653 z:-0.4458 w:-0.683549
+
+
+After conjugate | x:-0.415501 y:-0.397653 z:-0.4458 w:-0.683549
+
+
+Start of AhrsUpdate | x:0.415501 y:0.397653 z:0.4458 w:-0.683549
+After integrate | x:0.224451 y:0.557457 z:0.332327 w:-0.78072
+After normalize | x:0.215781 y:0.535923 z:0.31949 w:-0.750562
+After conjugate | x:-0.215781 y:-0.535923 z:-0.31949 w:-0.750562
+
+
+After conjugate | x:-0.215781 y:-0.535923 z:-0.31949 w:-0.750562
+
+
+Start of AhrsUpdate | x:0.215781 y:0.535923 z:0.31949 w:-0.750562
+After integrate | x:0.180323 y:0.556006 z:0.29135 w:-0.758395
+After normalize | x:0.179872 y:0.554613 z:0.290621 w:-0.756496
+After conjugate | x:-0.179872 y:-0.554613 z:-0.290621 w:-0.756496
+
+
+After conjugate | x:-0.179872 y:-0.554613 z:-0.290621 w:-0.756496
+
+
+Start of AhrsUpdate | x:0.179872 y:0.554613 z:0.290621 w:-0.756496
+After integrate | x:-0.108869 y:0.702918 z:0.0543076 w:-0.807206
+After normalize | x:-0.101061 y:0.652504 z:0.0504125 w:-0.749311
+After conjugate | x:0.101061 y:-0.652504 z:-0.0504125 w:-0.749311
+
+
+After conjugate | x:0.101061 y:-0.652504 z:-0.0504125 w:-0.749311
+
+
+Start of AhrsUpdate | x:-0.101061 y:0.652504 z:0.0504125 w:-0.749311
+After integrate | x:-0.148104 y:0.658533 z:0.00302435 w:-0.740904
+After normalize | x:-0.147534 y:0.655996 z:0.0030127 w:-0.73805
+After conjugate | x:0.147534 y:-0.655996 z:-0.0030127 w:-0.73805
+
+
+After conjugate | x:0.147534 y:-0.655996 z:-0.0030127 w:-0.73805
+
+
+Start of AhrsUpdate | x:-0.147534 y:0.655996 z:0.0030127 w:-0.73805
+After integrate | x:-0.211173 y:0.65928 z:-0.062415 w:-0.722677
+After normalize | x:-0.210274 y:0.656474 z:-0.0621494 w:-0.719601
+After conjugate | x:0.210274 y:-0.656474 z:0.0621494 w:-0.719601
+
+
+After conjugate | x:0.210274 y:-0.656474 z:0.0621494 w:-0.719601
+
+
+Start of AhrsUpdate | x:-0.210274 y:0.656474 z:-0.0621494 w:-0.719601
+After integrate | x:-0.238798 y:0.654904 z:-0.0922505 w:-0.710099
+After normalize | x:-0.238552 y:0.654231 z:-0.0921556 w:-0.709368
+After conjugate | x:0.238552 y:-0.654231 z:0.0921556 w:-0.709368
+
+
+After conjugate | x:0.238552 y:-0.654231 z:0.0921556 w:-0.709368
+
+
+Start of AhrsUpdate | x:-0.238552 y:0.654231 z:-0.0921556 w:-0.709368
+After integrate | x:-0.507323 y:0.625714 z:-0.37869 w:-0.60806
+After normalize | x:-0.470621 y:0.580447 z:-0.351294 w:-0.564071
+After conjugate | x:0.470621 y:-0.580447 z:0.351294 w:-0.564071
+
+
+After conjugate | x:0.470621 y:-0.580447 z:0.351294 w:-0.564071
+
+
+Start of AhrsUpdate | x:-0.470621 y:0.580447 z:-0.351294 w:-0.564071
+After integrate | x:-0.493117 y:0.565225 z:-0.377999 w:-0.544334
+After normalize | x:-0.491854 y:0.563777 z:-0.377031 w:-0.54294
+After conjugate | x:0.491854 y:-0.563777 z:0.377031 w:-0.54294
+
+
+After conjugate | x:0.491854 y:-0.563777 z:0.377031 w:-0.54294
+
+
+Start of AhrsUpdate | x:-0.491854 y:0.563777 z:-0.377031 w:-0.54294
+After integrate | x:-0.812575 y:0.320553 z:-0.761087 w:-0.238256
+After normalize | x:-0.686342 y:0.270756 z:-0.642853 w:-0.201243
+After conjugate | x:0.686342 y:-0.270756 z:0.642853 w:-0.201243
+
+
+After conjugate | x:0.686342 y:-0.270756 z:0.642853 w:-0.201243
+
+
+Start of AhrsUpdate | x:-0.686342 y:0.270756 z:-0.642853 w:-0.201243
+After integrate | x:-0.694561 y:0.241388 z:-0.655563 w:-0.172123
+After normalize | x:-0.693361 y:0.240971 z:-0.654431 w:-0.171826
+After conjugate | x:0.693361 y:-0.240971 z:0.654431 w:-0.171826
+
+
+After conjugate | x:0.693361 y:-0.240971 z:0.654431 w:-0.171826
+
+
+Start of AhrsUpdate | x:-0.693361 y:0.240971 z:-0.654431 w:-0.171826
+After integrate | x:-0.700799 y:0.209102 z:-0.666531 w:-0.14042
+After normalize | x:-0.700026 y:0.208872 z:-0.665795 w:-0.140265
+After conjugate | x:0.700026 y:-0.208872 z:0.665795 w:-0.140265
+
+
+After conjugate | x:0.700026 y:-0.208872 z:0.665795 w:-0.140265
+
+
+Start of AhrsUpdate | x:-0.700026 y:0.208872 z:-0.665795 w:-0.140265
+After integrate | x:-0.877159 y:-0.741626 z:-0.974178 w:0.792151
+After normalize | x:-0.514824 y:-0.435277 z:-0.571767 w:0.464931
+After conjugate | x:0.514824 y:0.435277 z:0.571767 w:0.464931
+
+
+After conjugate | x:0.514824 y:0.435277 z:0.571767 w:0.464931
+
+
+Start of AhrsUpdate | x:-0.514824 y:-0.435277 z:-0.571767 w:0.464931
+After integrate | x:-0.494489 y:-0.461712 z:-0.551226 w:0.487961
+After normalize | x:-0.493738 y:-0.461011 z:-0.550389 w:0.48722
+After conjugate | x:0.493738 y:0.461011 z:0.550389 w:0.48722
+
+
+After conjugate | x:0.493738 y:0.461011 z:0.550389 w:0.48722
+
+
+Start of AhrsUpdate | x:-0.493738 y:-0.461011 z:-0.550389 w:0.48722
+After integrate | x:-0.458721 y:-0.502642 z:-0.514816 w:0.523497
+After normalize | x:-0.457474 y:-0.501275 z:-0.513417 w:0.522073
+After conjugate | x:0.457474 y:0.501275 z:0.513417 w:0.522073
+
+
+After conjugate | x:0.457474 y:0.501275 z:0.513417 w:0.522073
+
+
+Start of AhrsUpdate | x:-0.457474 y:-0.501275 z:-0.513417 w:0.522073
+After integrate | x:-0.434861 y:-0.524549 z:-0.49024 w:0.542334
+After normalize | x:-0.434405 y:-0.523998 z:-0.489725 w:0.541764
+After conjugate | x:0.434405 y:0.523998 z:0.489725 w:0.541764
+
+
+After conjugate | x:0.434405 y:0.523998 z:0.489725 w:0.541764
+
+
+Start of AhrsUpdate | x:-0.434405 y:-0.523998 z:-0.489725 w:0.541764
+After integrate | x:0.543876 y:-1.44542 z:0.515465 w:1.34361
+After normalize | x:0.257606 y:-0.684622 z:0.24415 w:0.636402
+After conjugate | x:-0.257606 y:0.684622 z:-0.24415 w:0.636402
+
+
+After conjugate | x:-0.257606 y:0.684622 z:-0.24415 w:0.636402
+
+
+Start of AhrsUpdate | x:0.257606 y:-0.684622 z:0.24415 w:0.636402
+After integrate | x:0.3563 y:-0.643935 z:0.351748 w:0.598942
+After normalize | x:0.35167 y:-0.635567 z:0.347177 w:0.591159
+After conjugate | x:-0.35167 y:0.635567 z:-0.347177 w:0.591159
+
+
+After conjugate | x:-0.35167 y:0.635567 z:-0.347177 w:0.591159
+
+
+Start of AhrsUpdate | x:0.35167 y:-0.635567 z:0.347177 w:0.591159
+After integrate | x:0.374341 y:-0.62161 z:0.371708 w:0.578271
+After normalize | x:0.373877 y:-0.62084 z:0.371248 w:0.577554
+After conjugate | x:-0.373877 y:0.62084 z:-0.371248 w:0.577554
+
+
+After conjugate | x:-0.373877 y:0.62084 z:-0.371248 w:0.577554
+
+
+Start of AhrsUpdate | x:0.373877 y:-0.62084 z:0.371248 w:0.577554
+After integrate | x:0.487956 y:-0.544273 z:0.494515 w:0.506775
+After normalize | x:0.478999 y:-0.534282 z:0.485437 w:0.497473
+After conjugate | x:-0.478999 y:0.534282 z:-0.485437 w:0.497473
+
+
+After conjugate | x:-0.478999 y:0.534282 z:-0.485437 w:0.497473
+
+
+Start of AhrsUpdate | x:0.478999 y:-0.534282 z:0.485437 w:0.497473
+After integrate | x:0.526638 y:-0.486672 z:0.536364 w:0.453041
+After normalize | x:0.523966 y:-0.484203 z:0.533643 w:0.450743
+After conjugate | x:-0.523966 y:0.484203 z:-0.533643 w:0.450743
+
+
+After conjugate | x:-0.523966 y:0.484203 z:-0.533643 w:0.450743
+
+
+Start of AhrsUpdate | x:0.523966 y:-0.484203 z:0.533643 w:0.450743
+After integrate | x:0.542425 y:-0.461954 z:0.553312 w:0.429901
+After normalize | x:0.541889 y:-0.461498 z:0.552765 w:0.429476
+After conjugate | x:-0.541889 y:0.461498 z:-0.552765 w:0.429476
+
+
+After conjugate | x:-0.541889 y:0.461498 z:-0.552765 w:0.429476
+
+
+Start of AhrsUpdate | x:0.541889 y:-0.461498 z:0.552765 w:0.429476
+After integrate | x:0.576469 y:-0.416294 z:0.589566 w:0.387053
+After normalize | x:0.574667 y:-0.414993 z:0.587723 w:0.385843
+After conjugate | x:-0.574667 y:0.414993 z:-0.587723 w:0.385843
+
+
+After conjugate | x:-0.574667 y:0.414993 z:-0.587723 w:0.385843
+
+
+Start of AhrsUpdate | x:0.574667 y:-0.414993 z:0.587723 w:0.385843
+After integrate | x:0.669538 y:-0.268958 z:0.688377 w:0.248295
+After normalize | x:0.651056 y:-0.261534 z:0.669374 w:0.241441
+After conjugate | x:-0.651056 y:0.261534 z:-0.669374 w:0.241441
+
+
+After conjugate | x:-0.651056 y:0.261534 z:-0.669374 w:0.241441
+
+
+Start of AhrsUpdate | x:0.651056 y:-0.261534 z:0.669374 w:0.241441
+After integrate | x:0.700691 y:-0.125026 z:0.721259 w:0.111618
+After normalize | x:0.686685 y:-0.122527 z:0.706842 w:0.109387
+After conjugate | x:-0.686685 y:0.122527 z:-0.706842 w:0.109387
+
+
+After conjugate | x:-0.686685 y:0.122527 z:-0.706842 w:0.109387
+
+
+Start of AhrsUpdate | x:0.686685 y:-0.122527 z:0.706842 w:0.109387
+After integrate | x:0.690978 y:-0.0957904 z:0.71127 w:0.0837784
+After normalize | x:0.689964 y:-0.0956499 z:0.710226 w:0.0836555
+After conjugate | x:-0.689964 y:0.0956499 z:-0.710226 w:0.0836555
+
+
+After conjugate | x:-0.689964 y:0.0956499 z:-0.710226 w:0.0836555
+
+
+Start of AhrsUpdate | x:0.689964 y:-0.0956499 z:0.710226 w:0.0836555
+After integrate | x:0.696897 y:-0.0394541 z:0.717407 w:0.0297641
+After normalize | x:0.694797 y:-0.0393352 z:0.715244 w:0.0296744
+After conjugate | x:-0.694797 y:0.0393352 z:-0.715244 w:0.0296744
+
+
+After conjugate | x:-0.694797 y:0.0393352 z:-0.715244 w:0.0296744
+
+
+Start of AhrsUpdate | x:0.694797 y:-0.0393352 z:0.715244 w:0.0296744
+After integrate | x:0.696662 y:-0.000145216 z:0.71715 w:-0.00800514
+After normalize | x:0.695585 y:-0.000144991 z:0.716042 w:-0.00799276
+After conjugate | x:-0.695585 y:0.000144991 z:-0.716042 w:-0.00799276
+
+
+After conjugate | x:-0.695585 y:0.000144991 z:-0.716042 w:-0.00799276
+
+
+Start of AhrsUpdate | x:0.695585 y:-0.000144991 z:0.716042 w:-0.00799276
+After integrate | x:0.695293 y:0.0597301 z:0.715694 w:-0.0656616
+After normalize | x:0.69295 y:0.0595289 z:0.713283 w:-0.0654404
+After conjugate | x:-0.69295 y:-0.0595289 z:-0.713283 w:-0.0654404
+
+
+After conjugate | x:-0.69295 y:-0.0595289 z:-0.713283 w:-0.0654404
+
+
+Start of AhrsUpdate | x:0.69295 y:0.0595289 z:0.713283 w:-0.0654404
+After integrate | x:0.685756 y:0.143886 z:0.705758 w:-0.146894
+After normalize | x:0.681144 y:0.142918 z:0.701011 w:-0.145906
+After conjugate | x:-0.681144 y:-0.142918 z:-0.701011 w:-0.145906
+
+
+After conjugate | x:-0.681144 y:-0.142918 z:-0.701011 w:-0.145906
+
+
+Start of AhrsUpdate | x:0.681144 y:0.142918 z:0.701011 w:-0.145906
+After integrate | x:0.663626 y:0.229774 z:0.682809 w:-0.23006
+After normalize | x:0.658627 y:0.228043 z:0.677667 w:-0.228328
+After conjugate | x:-0.658627 y:-0.228043 z:-0.677667 w:-0.228328
+
+
+After conjugate | x:-0.658627 y:-0.228043 z:-0.677667 w:-0.228328
+
+
+Start of AhrsUpdate | x:0.658627 y:0.228043 z:0.677667 w:-0.228328
+After integrate | x:0.647856 y:0.260587 z:0.666524 w:-0.259967
+After normalize | x:0.646935 y:0.260216 z:0.665576 w:-0.259598
+After conjugate | x:-0.646935 y:-0.260216 z:-0.665576 w:-0.259598
+
+
+After conjugate | x:-0.646935 y:-0.260216 z:-0.665576 w:-0.259598
+
+
+Start of AhrsUpdate | x:0.646935 y:0.260216 z:0.665576 w:-0.259598
+After integrate | x:0.632145 y:0.298674 z:0.650312 w:-0.29704
+After normalize | x:0.63109 y:0.298175 z:0.649227 w:-0.296545
+After conjugate | x:-0.63109 y:-0.298175 z:-0.649227 w:-0.296545
+
+
+After conjugate | x:-0.63109 y:-0.298175 z:-0.649227 w:-0.296545
+
+
+Start of AhrsUpdate | x:0.63109 y:0.298175 z:0.649227 w:-0.296545
+After integrate | x:0.6204 y:0.321839 z:0.638211 w:-0.319617
+After normalize | x:0.619989 y:0.321626 z:0.637789 w:-0.319406
+After conjugate | x:-0.619989 y:-0.321626 z:-0.637789 w:-0.319406
+
+
+After conjugate | x:-0.619989 y:-0.321626 z:-0.637789 w:-0.319406
+
+
+Start of AhrsUpdate | x:0.619989 y:0.321626 z:0.637789 w:-0.319406
+After integrate | x:0.565734 y:0.430984 z:0.581933 w:-0.426132
+After normalize | x:0.557865 y:0.424989 z:0.573838 w:-0.420205
+After conjugate | x:-0.557865 y:-0.424989 z:-0.573838 w:-0.420205
+
+
+After conjugate | x:-0.557865 y:-0.424989 z:-0.573838 w:-0.420205
+
+
+Start of AhrsUpdate | x:0.557865 y:0.424989 z:0.573838 w:-0.420205
+After integrate | x:0.54226 y:0.446387 z:0.557808 w:-0.441173
+After normalize | x:0.541589 y:0.445835 z:0.557118 w:-0.440627
+After conjugate | x:-0.541589 y:-0.445835 z:-0.557118 w:-0.440627
+
+
+After conjugate | x:-0.541589 y:-0.445835 z:-0.557118 w:-0.440627
+
+
+Start of AhrsUpdate | x:0.541589 y:0.445835 z:0.557118 w:-0.440627
+After integrate | x:0.374747 y:0.65726 z:0.386026 w:-0.648099
+After normalize | x:0.35074 y:0.615155 z:0.361296 w:-0.606581
+After conjugate | x:-0.35074 y:-0.615155 z:-0.361296 w:-0.606581
+
+
+After conjugate | x:-0.35074 y:-0.615155 z:-0.361296 w:-0.606581
+
+
+Start of AhrsUpdate | x:0.35074 y:0.615155 z:0.361296 w:-0.606581
+After integrate | x:0.326038 y:0.629776 z:0.33606 w:-0.621068
+After normalize | x:0.325241 y:0.628237 z:0.335239 w:-0.61955
+After conjugate | x:-0.325241 y:-0.628237 z:-0.335239 w:-0.61955
+
+
+After conjugate | x:-0.325241 y:-0.628237 z:-0.335239 w:-0.61955
+
+
+Start of AhrsUpdate | x:0.325241 y:0.628237 z:0.335239 w:-0.61955
+After integrate | x:0.0560835 y:0.772439 z:0.0607624 w:-0.763142
+After normalize | x:0.0515006 y:0.709319 z:0.0557972 w:-0.700781
+After conjugate | x:-0.0515006 y:-0.709319 z:-0.0557972 w:-0.700781
+
+
+After conjugate | x:-0.0515006 y:-0.709319 z:-0.0557972 w:-0.700781
+
+
+Start of AhrsUpdate | x:0.0515006 y:0.709319 z:0.0557972 w:-0.700781
+After integrate | x:0.0225922 y:0.711461 z:0.026471 w:-0.703072
+After normalize | x:0.0225357 y:0.709682 z:0.0264048 w:-0.701314
+After conjugate | x:-0.0225357 y:-0.709682 z:-0.0264048 w:-0.701314
+
+
+After conjugate | x:-0.0225357 y:-0.709682 z:-0.0264048 w:-0.701314
+
+
+Start of AhrsUpdate | x:0.0225357 y:0.709682 z:0.0264048 w:-0.701314
+After integrate | x:-0.0589439 y:0.712219 z:-0.056208 w:-0.704476
+After normalize | x:-0.0585603 y:0.707583 z:-0.0558421 w:-0.69989
+After conjugate | x:0.0585603 y:-0.707583 z:0.0558421 w:-0.69989
+
+
+After conjugate | x:0.0585603 y:-0.707583 z:0.0558421 w:-0.69989
+
+
+Start of AhrsUpdate | x:-0.0585603 y:0.707583 z:-0.0558421 w:-0.69989
+After integrate | x:-0.113441 y:0.702859 z:-0.111413 w:-0.695641
+After normalize | x:-0.113076 y:0.700598 z:-0.111055 w:-0.693403
+After conjugate | x:0.113076 y:-0.700598 z:0.111055 w:-0.693403
+
+
+After conjugate | x:0.113076 y:-0.700598 z:0.111055 w:-0.693403
+
+
+Start of AhrsUpdate | x:-0.113076 y:0.700598 z:-0.111055 w:-0.693403
+After integrate | x:-0.144392 y:0.695386 z:-0.142743 w:-0.688487
+After normalize | x:-0.144234 y:0.694627 z:-0.142587 w:-0.687736
+After conjugate | x:0.144234 y:-0.694627 z:0.142587 w:-0.687736
+
+
+After conjugate | x:0.144234 y:-0.694627 z:0.142587 w:-0.687736
+
+
+Start of AhrsUpdate | x:-0.144234 y:0.694627 z:-0.142587 w:-0.687736
+After integrate | x:-0.176984 y:0.687631 z:-0.175712 w:-0.681066
+After normalize | x:-0.176784 y:0.686851 z:-0.175513 w:-0.680293
+After conjugate | x:0.176784 y:-0.686851 z:0.175513 w:-0.680293
+
+
+After conjugate | x:0.176784 y:-0.686851 z:0.175513 w:-0.680293
+
+
+Start of AhrsUpdate | x:-0.176784 y:0.686851 z:-0.175513 w:-0.680293
+After integrate | x:-0.313156 y:0.650821 z:-0.313392 w:-0.64566
+After normalize | x:-0.30726 y:0.638569 z:-0.307492 w:-0.633505
+After conjugate | x:0.30726 y:-0.638569 z:0.307492 w:-0.633505
+
+
+After conjugate | x:0.30726 y:-0.638569 z:0.307492 w:-0.633505
+
+
+Start of AhrsUpdate | x:-0.30726 y:0.638569 z:-0.307492 w:-0.633505
+After integrate | x:-0.335078 y:0.624915 z:-0.335558 w:-0.620154
+After normalize | x:-0.334513 y:0.623861 z:-0.334992 w:-0.619109
+After conjugate | x:0.334513 y:-0.623861 z:0.334992 w:-0.619109
+
+
+After conjugate | x:0.334513 y:-0.623861 z:0.334992 w:-0.619109
+
+
+Start of AhrsUpdate | x:-0.334513 y:0.623861 z:-0.334992 w:-0.619109
+After integrate | x:-0.429105 y:0.572114 z:-0.430444 w:-0.568496
+After normalize | x:-0.424355 y:0.565782 z:-0.425679 w:-0.562204
+After conjugate | x:0.424355 y:-0.565782 z:0.425679 w:-0.562204
+
+
+After conjugate | x:0.424355 y:-0.565782 z:0.425679 w:-0.562204
+
+
+Start of AhrsUpdate | x:-0.424355 y:0.565782 z:-0.425679 w:-0.562204
+After integrate | x:-0.44654 y:0.54886 z:-0.448035 w:-0.54556
+After normalize | x:-0.446004 y:0.548201 z:-0.447497 w:-0.544906
+After conjugate | x:0.446004 y:-0.548201 z:0.447497 w:-0.544906
+
+
+After conjugate | x:0.446004 y:-0.548201 z:0.447497 w:-0.544906
+
+
+Start of AhrsUpdate | x:-0.446004 y:0.548201 z:-0.447497 w:-0.544906
+After integrate | x:-0.468688 y:0.529436 z:-0.47036 w:-0.526442
+After normalize | x:-0.468282 y:0.528978 z:-0.469952 w:-0.525986
+After conjugate | x:0.468282 y:-0.528978 z:0.469952 w:-0.525986
+
+
+After conjugate | x:0.468282 y:-0.528978 z:0.469952 w:-0.525986
+
+
+Start of AhrsUpdate | x:-0.468282 y:0.528978 z:-0.469952 w:-0.525986
+After integrate | x:-0.512403 y:0.489288 z:-0.514412 w:-0.486898
+After normalize | x:-0.510648 y:0.487611 z:-0.512649 w:-0.48523
+After conjugate | x:0.510648 y:-0.487611 z:0.512649 w:-0.48523
+
+
+After conjugate | x:0.510648 y:-0.487611 z:0.512649 w:-0.48523
+
+
+Start of AhrsUpdate | x:-0.510648 y:0.487611 z:-0.512649 w:-0.48523
+After integrate | x:-0.773277 y:0.208525 z:-0.777155 w:-0.209848
+After normalize | x:-0.680748 y:0.183573 z:-0.684161 w:-0.184738
+After conjugate | x:0.680748 y:-0.183573 z:0.684161 w:-0.184738
+
+
+After conjugate | x:0.680748 y:-0.183573 z:0.684161 w:-0.184738
+
+
+Start of AhrsUpdate | x:-0.680748 y:0.183573 z:-0.684161 w:-0.184738
+After integrate | x:-0.687469 y:0.15863 z:-0.690859 w:-0.159951
+After normalize | x:-0.686094 y:0.158312 z:-0.689477 w:-0.159631
+After conjugate | x:0.686094 y:-0.158312 z:0.689477 w:-0.159631
+
+
+After conjugate | x:0.686094 y:-0.158312 z:0.689477 w:-0.159631
+
+
+Start of AhrsUpdate | x:-0.686094 y:0.158312 z:-0.689477 w:-0.159631
+After integrate | x:-0.732222 y:-0.0421316 z:-0.735715 w:0.039553
+After normalize | x:-0.704045 y:-0.0405103 z:-0.707403 w:0.0380309
+After conjugate | x:0.704045 y:0.0405103 z:0.707403 w:0.0380309
+
+
+After conjugate | x:0.704045 y:0.0405103 z:0.707403 w:0.0380309
+
+
+Start of AhrsUpdate | x:-0.704045 y:-0.0405103 z:-0.707403 w:0.0380309
+After integrate | x:-0.702276 y:-0.0729837 z:-0.705565 w:0.0703865
+After normalize | x:-0.700655 y:-0.0728152 z:-0.703937 w:0.070224
+After conjugate | x:0.700655 y:0.0728152 z:0.703937 w:0.070224
+
+
+After conjugate | x:0.700655 y:0.0728152 z:0.703937 w:0.070224
+
+
+Start of AhrsUpdate | x:-0.700655 y:-0.0728152 z:-0.703937 w:0.070224
+After integrate | x:-0.69772 y:-0.101768 z:-0.700983 w:0.0990883
+After normalize | x:-0.697111 y:-0.10168 z:-0.70037 w:0.0990018
+After conjugate | x:0.697111 y:0.10168 z:0.70037 w:0.0990018
+
+
+After conjugate | x:0.697111 y:0.10168 z:0.70037 w:0.0990018
+
+
+Start of AhrsUpdate | x:-0.697111 y:-0.10168 z:-0.70037 w:0.0990018
+After integrate | x:-0.693352 y:-0.12796 z:-0.696592 w:0.125209
+After normalize | x:-0.692863 y:-0.12787 z:-0.696102 w:0.125121
+After conjugate | x:0.692863 y:0.12787 z:0.696102 w:0.125121
+
+
+After conjugate | x:0.692863 y:0.12787 z:0.696102 w:0.125121
+
+
+Start of AhrsUpdate | x:-0.692863 y:-0.12787 z:-0.696102 w:0.125121
+After integrate | x:-0.686042 y:-0.165449 z:-0.68925 w:0.162609
+After normalize | x:-0.685041 y:-0.165207 z:-0.688244 w:0.162371
+After conjugate | x:0.685041 y:0.165207 z:0.688244 w:0.162371
+
+
+After conjugate | x:0.685041 y:0.165207 z:0.688244 w:0.162371
+
+
+Start of AhrsUpdate | x:-0.685041 y:-0.165207 z:-0.688244 w:0.162371
+After integrate | x:-0.675321 y:-0.206075 z:-0.678487 w:0.203156
+After normalize | x:-0.674132 y:-0.205712 z:-0.677293 w:0.202798
+After conjugate | x:0.674132 y:0.205712 z:0.677293 w:0.202798
+
+
+After conjugate | x:0.674132 y:0.205712 z:0.677293 w:0.202798
+
+
+Start of AhrsUpdate | x:-0.674132 y:-0.205712 z:-0.677293 w:0.202798
+After integrate | x:-0.627169 y:-0.36146 z:-0.630169 w:0.358303
+After normalize | x:-0.611728 y:-0.352561 z:-0.614654 w:0.349481
+After conjugate | x:0.611728 y:0.352561 z:0.614654 w:0.349481
+
+
+After conjugate | x:0.611728 y:0.352561 z:0.614654 w:0.349481
+
+
+Start of AhrsUpdate | x:-0.611728 y:-0.352561 z:-0.614654 w:0.349481
+After integrate | x:-0.591756 y:-0.387534 z:-0.594592 w:0.384444
+After normalize | x:-0.590277 y:-0.386566 z:-0.593107 w:0.383483
+After conjugate | x:0.590277 y:0.386566 z:0.593107 w:0.383483
+
+
+After conjugate | x:0.590277 y:0.386566 z:0.593107 w:0.383483
+
+
+Start of AhrsUpdate | x:-0.590277 y:-0.386566 z:-0.593107 w:0.383483
+After integrate | x:-0.575087 y:-0.409929 z:-0.577879 w:0.406865
+After normalize | x:-0.574618 y:-0.409594 z:-0.577408 w:0.406534
+After conjugate | x:0.574618 y:0.409594 z:0.577408 w:0.406534
+
+
+After conjugate | x:0.574618 y:0.409594 z:0.577408 w:0.406534
+
+
+Start of AhrsUpdate | x:-0.574618 y:-0.409594 z:-0.577408 w:0.406534
+After integrate | x:-0.557884 y:-0.433228 z:-0.560636 w:0.430196
+After normalize | x:-0.557415 y:-0.432864 z:-0.560164 w:0.429833
+After conjugate | x:0.557415 y:0.432864 z:0.560164 w:0.429833
+
+
+After conjugate | x:0.557415 y:0.432864 z:0.560164 w:0.429833
+
+
+Start of AhrsUpdate | x:-0.557415 y:-0.432864 z:-0.560164 w:0.429833
+After integrate | x:-0.522311 y:-0.478355 z:-0.524981 w:0.475395
+After normalize | x:-0.520623 y:-0.47681 z:-0.523285 w:0.473859
+After conjugate | x:0.520623 y:0.47681 z:0.523285 w:0.473859
+
+
+After conjugate | x:0.520623 y:0.47681 z:0.523285 w:0.473859
+
+
+Start of AhrsUpdate | x:-0.520623 y:-0.47681 z:-0.523285 w:0.473859
+After integrate | x:-0.496868 y:-0.502894 z:-0.499479 w:0.500001
+After normalize | x:-0.496211 y:-0.502229 z:-0.498818 w:0.49934
+After conjugate | x:0.496211 y:0.502229 z:0.498818 w:0.49934
+
+
+After conjugate | x:0.496211 y:0.502229 z:0.498818 w:0.49934
+
+
+Start of AhrsUpdate | x:-0.496211 y:-0.502229 z:-0.498818 w:0.49934
+After integrate | x:-0.468991 y:-0.529261 z:-0.471544 w:0.526447
+After normalize | x:-0.468298 y:-0.528479 z:-0.470847 w:0.525669
+After conjugate | x:0.468298 y:0.528479 z:0.470847 w:0.525669
+
+
+After conjugate | x:0.468298 y:0.528479 z:0.470847 w:0.525669
+
+
+Start of AhrsUpdate | x:-0.468298 y:-0.528479 z:-0.470847 w:0.525669
+After integrate | x:-0.443724 y:-0.550356 z:-0.446226 w:0.547621
+After normalize | x:-0.443242 y:-0.549759 z:-0.445742 w:0.547026
+After conjugate | x:0.443242 y:0.549759 z:0.445742 w:0.547026
+
+
+After conjugate | x:0.443242 y:0.549759 z:0.445742 w:0.547026
+
+
+Start of AhrsUpdate | x:-0.443242 y:-0.549759 z:-0.445742 w:0.547026
+After integrate | x:-0.418725 y:-0.569611 z:-0.421179 w:0.566955
+After normalize | x:-0.418307 y:-0.569041 z:-0.420758 w:0.566388
+After conjugate | x:0.418307 y:0.569041 z:0.420758 w:0.566388
+
+
+After conjugate | x:0.418307 y:0.569041 z:0.420758 w:0.566388
+
+
+Start of AhrsUpdate | x:-0.418307 y:-0.569041 z:-0.420758 w:0.566388
+After integrate | x:-0.385174 y:-0.593494 z:-0.387565 w:0.59095
+After normalize | x:-0.384518 y:-0.592483 z:-0.386905 w:0.589943
+After conjugate | x:0.384518 y:0.592483 z:0.386905 w:0.589943
+
+
+After conjugate | x:0.384518 y:0.592483 z:0.386905 w:0.589943
+
+
+Start of AhrsUpdate | x:-0.384518 y:-0.592483 z:-0.386905 w:0.589943
+After integrate | x:-0.245733 y:-0.68287 z:-0.247872 w:0.680808
+After normalize | x:-0.239445 y:-0.665397 z:-0.24153 w:0.663388
+After conjugate | x:0.239445 y:0.665397 z:0.24153 w:0.663388
+
+
+After conjugate | x:0.239445 y:0.665397 z:0.24153 w:0.663388
+
+
+Start of AhrsUpdate | x:-0.239445 y:-0.665397 z:-0.24153 w:0.663388
+After integrate | x:-0.139932 y:-0.701314 z:-0.141817 w:0.699584
+After normalize | x:-0.138316 y:-0.693213 z:-0.140178 w:0.691503
+After conjugate | x:0.138316 y:0.693213 z:0.140178 w:0.691503
+
+
+After conjugate | x:0.138316 y:0.693213 z:0.140178 w:0.691503
+
+
+Start of AhrsUpdate | x:-0.138316 y:-0.693213 z:-0.140178 w:0.691503
+After integrate | x:0.0454243 y:-0.729862 z:0.043899 w:0.72883
+After normalize | x:0.043933 y:-0.705901 z:0.0424578 w:0.704903
+After conjugate | x:-0.043933 y:0.705901 z:-0.0424578 w:0.704903
+
+
+After conjugate | x:-0.043933 y:0.705901 z:-0.0424578 w:0.704903
+
+
+Start of AhrsUpdate | x:0.043933 y:-0.705901 z:0.0424578 w:0.704903
+After integrate | x:0.0720902 y:-0.704131 z:0.0706631 w:0.703221
+After normalize | x:0.0719507 y:-0.702768 z:0.0705263 w:0.70186
+After conjugate | x:-0.0719507 y:0.702768 z:-0.0705263 w:0.70186
+
+
+After conjugate | x:-0.0719507 y:0.702768 z:-0.0705263 w:0.70186
+
+
+Start of AhrsUpdate | x:0.0719507 y:-0.702768 z:0.0705263 w:0.70186
+After integrate | x:0.264968 y:-0.682736 z:0.263906 w:0.682699
+After normalize | x:0.255781 y:-0.659065 z:0.254756 w:0.659028
+After conjugate | x:-0.255781 y:0.659065 z:-0.254756 w:0.659028
+
+
+After conjugate | x:-0.255781 y:0.659065 z:-0.254756 w:0.659028
+
+
+Start of AhrsUpdate | x:0.255781 y:-0.659065 z:0.254756 w:0.659028
+After integrate | x:0.281396 y:-0.649095 z:0.280407 w:0.649141
+After normalize | x:0.28085 y:-0.647836 z:0.279863 w:0.647882
+After conjugate | x:-0.28085 y:0.647836 z:-0.279863 w:0.647882
+
+
+After conjugate | x:-0.28085 y:0.647836 z:-0.279863 w:0.647882
+
+
+Start of AhrsUpdate | x:0.28085 y:-0.647836 z:0.279863 w:0.647882
+After integrate | x:0.357907 y:-0.614278 z:0.35708 w:0.614678
+After normalize | x:0.355477 y:-0.610108 z:0.354655 w:0.610505
+After conjugate | x:-0.355477 y:0.610108 z:-0.354655 w:0.610505
+
+
+After conjugate | x:-0.355477 y:0.610108 z:-0.354655 w:0.610505
+
+
+Start of AhrsUpdate | x:0.355477 y:-0.610108 z:0.354655 w:0.610505
+After integrate | x:0.480715 y:-0.536898 z:0.480153 w:0.537842
+After normalize | x:0.471129 y:-0.526193 z:0.470578 w:0.527117
+After conjugate | x:-0.471129 y:0.526193 z:-0.470578 w:0.527117
+
+
+After conjugate | x:-0.471129 y:0.526193 z:-0.470578 w:0.527117
+
+
+Start of AhrsUpdate | x:0.471129 y:-0.526193 z:0.470578 w:0.527117
+After integrate | x:0.491923 y:-0.507545 z:0.491413 w:0.508547
+After normalize | x:0.491165 y:-0.506763 z:0.490655 w:0.507763
+After conjugate | x:-0.491165 y:0.506763 z:-0.490655 w:0.507763
+
+
+After conjugate | x:-0.491165 y:0.506763 z:-0.490655 w:0.507763
+
+
+Start of AhrsUpdate | x:0.491165 y:-0.506763 z:0.490655 w:0.507763
+After integrate | x:0.529112 y:-0.469897 z:0.528712 w:0.471075
+After normalize | x:0.52766 y:-0.468608 z:0.527262 w:0.469782
+After conjugate | x:-0.52766 y:0.468608 z:-0.527262 w:0.469782
+
+
+After conjugate | x:-0.52766 y:0.468608 z:-0.527262 w:0.469782
+
+
+Start of AhrsUpdate | x:0.52766 y:-0.468608 z:0.527262 w:0.469782
+After integrate | x:0.583183 y:-0.405966 z:0.582956 w:0.407395
+After normalize | x:0.579238 y:-0.40322 z:0.579012 w:0.404639
+After conjugate | x:-0.579238 y:0.40322 z:-0.579012 w:0.404639
+
+
+After conjugate | x:-0.579238 y:0.40322 z:-0.579012 w:0.404639
+
+
+Start of AhrsUpdate | x:0.579238 y:-0.40322 z:0.579012 w:0.404639
+After integrate | x:0.595256 y:-0.38018 z:0.595084 w:0.381671
+After normalize | x:0.594647 y:-0.379791 z:0.594475 w:0.381281
+After conjugate | x:-0.594647 y:0.379791 z:-0.594475 w:0.381281
+
+
+After conjugate | x:-0.594647 y:0.379791 z:-0.594475 w:0.381281
+
+
+Start of AhrsUpdate | x:0.594647 y:-0.379791 z:0.594475 w:0.381281
+After integrate | x:0.610628 y:-0.354734 z:0.610519 w:0.3563
+After normalize | x:0.610088 y:-0.354421 z:0.609979 w:0.355985
+After conjugate | x:-0.610088 y:0.354421 z:-0.609979 w:0.355985
+
+
+After conjugate | x:-0.610088 y:0.354421 z:-0.609979 w:0.355985
+
+
+Start of AhrsUpdate | x:0.610088 y:-0.354421 z:0.609979 w:0.355985
+After integrate | x:0.625009 y:-0.328705 z:0.624964 w:0.330341
+After normalize | x:0.624456 y:-0.328414 z:0.624411 w:0.330049
+After conjugate | x:-0.624456 y:0.328414 z:-0.624411 w:0.330049
+
+
+After conjugate | x:-0.624456 y:0.328414 z:-0.624411 w:0.330049
+
+
+Start of AhrsUpdate | x:0.624456 y:-0.328414 z:0.624411 w:0.330049
+After integrate | x:0.637951 y:-0.302727 z:0.637968 w:0.304427
+After normalize | x:0.637413 y:-0.302472 z:0.637431 w:0.304171
+After conjugate | x:-0.637413 y:0.302472 z:-0.637431 w:0.304171
+
+
+After conjugate | x:-0.637413 y:0.302472 z:-0.637431 w:0.304171
+
+
+Start of AhrsUpdate | x:0.637413 y:-0.302472 z:0.637431 w:0.304171
+After integrate | x:0.648972 y:-0.278091 z:0.649048 w:0.279847
+After normalize | x:0.6485 y:-0.277888 z:0.648575 w:0.279643
+After conjugate | x:-0.6485 y:0.277888 z:-0.648575 w:0.279643
+
+
+After conjugate | x:-0.6485 y:0.277888 z:-0.648575 w:0.279643
+
+
+Start of AhrsUpdate | x:0.6485 y:-0.277888 z:0.648575 w:0.279643
+After integrate | x:0.661363 y:-0.247847 z:0.661509 w:0.249666
+After normalize | x:0.660656 y:-0.247582 z:0.660801 w:0.249399
+After conjugate | x:-0.660656 y:0.247582 z:-0.660801 w:0.249399
+
+
+After conjugate | x:-0.660656 y:0.247582 z:-0.660801 w:0.249399
+
+
+Start of AhrsUpdate | x:0.660656 y:-0.247582 z:0.660801 w:0.249399
+After integrate | x:0.78733 y:0.0905966 z:0.78825 w:-0.0881286
+After normalize | x:0.702055 y:0.0807842 z:0.702876 w:-0.0785835
+After conjugate | x:-0.702055 y:-0.0807842 z:-0.702876 w:-0.0785835
+
+
+After conjugate | x:-0.702055 y:-0.0807842 z:-0.702876 w:-0.0785835
+
+
+Start of AhrsUpdate | x:0.702055 y:0.0807842 z:0.702876 w:-0.0785835
+After integrate | x:0.698927 y:0.108341 z:0.699753 w:-0.106138
+After normalize | x:0.69736 y:0.108098 z:0.698184 w:-0.1059
+After conjugate | x:-0.69736 y:-0.108098 z:-0.698184 w:-0.1059
+
+
+After conjugate | x:-0.69736 y:-0.108098 z:-0.698184 w:-0.1059
+
+
+Start of AhrsUpdate | x:0.69736 y:0.108098 z:0.698184 w:-0.1059
+After integrate | x:0.613126 y:0.654006 z:0.614966 w:-0.651988
+After normalize | x:0.482901 y:0.515098 z:0.484349 w:-0.513508
+After conjugate | x:-0.482901 y:-0.515098 z:-0.484349 w:-0.513508
+
+
+After conjugate | x:-0.482901 y:-0.515098 z:-0.484349 w:-0.513508
+
+
+Start of AhrsUpdate | x:0.482901 y:0.515098 z:0.484349 w:-0.513508
+After integrate | x:0.460235 y:0.536357 z:0.46172 w:-0.534843
+After normalize | x:0.459748 y:0.535789 z:0.46123 w:-0.534276
+After conjugate | x:-0.459748 y:-0.535789 z:-0.46123 w:-0.534276
+
+
+After conjugate | x:-0.459748 y:-0.535789 z:-0.46123 w:-0.534276
+
+
+Start of AhrsUpdate | x:0.459748 y:0.535789 z:0.46123 w:-0.534276
+After integrate | x:0.1078 y:0.837876 z:0.109823 w:-0.83755
+After normalize | x:0.0901374 y:0.700595 z:0.0918291 w:-0.700323
+After conjugate | x:-0.0901374 y:-0.700595 z:-0.0918291 w:-0.700323
+
+
+After conjugate | x:-0.0901374 y:-0.700595 z:-0.0918291 w:-0.700323
+
+
+Start of AhrsUpdate | x:0.0901374 y:0.700595 z:0.0918291 w:-0.700323
+After integrate | x:0.00397663 y:0.71168 z:0.00566938 w:-0.711621
+After normalize | x:0.00394558 y:0.706123 z:0.00562511 w:-0.706065
+After conjugate | x:-0.00394558 y:-0.706123 z:-0.00562511 w:-0.706065
+
+
+After conjugate | x:-0.00394558 y:-0.706123 z:-0.00562511 w:-0.706065
+
+
+Start of AhrsUpdate | x:0.00394558 y:0.706123 z:0.00562511 w:-0.706065
+After integrate | x:-0.529653 y:0.708979 z:-0.528097 w:-0.710441
+After normalize | x:-0.422482 y:0.565522 z:-0.42124 w:-0.566689
+After conjugate | x:0.422482 y:-0.565522 z:0.42124 w:-0.566689
+
+
+After conjugate | x:0.422482 y:-0.565522 z:0.42124 w:-0.566689
+
+
+Start of AhrsUpdate | x:-0.422482 y:0.565522 z:-0.42124 w:-0.566689
+After integrate | x:-0.444114 y:0.549355 z:-0.442916 w:-0.550583
+After normalize | x:-0.443731 y:0.548881 z:-0.442534 w:-0.550108
+After conjugate | x:0.443731 y:-0.548881 z:0.442534 w:-0.550108
+
+
+After conjugate | x:0.443731 y:-0.548881 z:0.442534 w:-0.550108
+
+
+Start of AhrsUpdate | x:-0.443731 y:0.548881 z:-0.442534 w:-0.550108
+After integrate | x:-0.612784 y:0.412143 z:-0.611971 w:-0.413875
+After normalize | x:-0.586443 y:0.394426 z:-0.585664 w:-0.396084
+After conjugate | x:0.586443 y:-0.394426 z:0.585664 w:-0.396084
+
+
+After conjugate | x:0.586443 y:-0.394426 z:0.585664 w:-0.396084
+
+
+Start of AhrsUpdate | x:-0.586443 y:0.394426 z:-0.585664 w:-0.396084
+After integrate | x:-0.605741 y:0.365777 z:-0.604993 w:-0.36746
+After normalize | x:-0.604209 y:0.364852 z:-0.603463 w:-0.36653
+After conjugate | x:0.604209 y:-0.364852 z:0.603463 w:-0.36653
+
+
+After conjugate | x:0.604209 y:-0.364852 z:0.603463 w:-0.36653
+
+
+Start of AhrsUpdate | x:-0.604209 y:0.364852 z:-0.603463 w:-0.36653
+After integrate | x:-0.663521 y:0.266619 z:-0.663036 w:-0.268459
+After normalize | x:-0.655215 y:0.263281 z:-0.654736 w:-0.265099
+After conjugate | x:0.655215 y:-0.263281 z:0.654736 w:-0.265099
+
+
+After conjugate | x:0.655215 y:-0.263281 z:0.654736 w:-0.265099
+
+
+Start of AhrsUpdate | x:-0.655215 y:0.263281 z:-0.654736 w:-0.265099
+After integrate | x:-0.664768 y:0.239527 z:-0.664338 w:-0.241364
+After normalize | x:-0.664012 y:0.239254 z:-0.663583 w:-0.24109
+After conjugate | x:0.664012 y:-0.239254 z:0.663583 w:-0.24109
+
+
+After conjugate | x:0.664012 y:-0.239254 z:0.663583 w:-0.24109
+
+
+Start of AhrsUpdate | x:-0.664012 y:0.239254 z:-0.663583 w:-0.24109
+After integrate | x:-0.713344 y:0.102343 z:-0.713278 w:-0.104307
+After normalize | x:-0.699181 y:0.100311 z:-0.699116 w:-0.102236
+After conjugate | x:0.699181 y:-0.100311 z:0.699116 w:-0.102236
+
+
+After conjugate | x:0.699181 y:-0.100311 z:0.699116 w:-0.102236
+
+
+Start of AhrsUpdate | x:-0.699181 y:0.100311 z:-0.699116 w:-0.102236
+After integrate | x:-0.703638 y:0.0693525 z:-0.703627 w:-0.0712823
+After normalize | x:-0.702417 y:0.0692322 z:-0.702406 w:-0.0711587
+After conjugate | x:0.702417 y:-0.0692322 z:0.702406 w:-0.0711587
+
+
+After conjugate | x:0.702417 y:-0.0692322 z:0.702406 w:-0.0711587
+
+
+Start of AhrsUpdate | x:-0.702417 y:0.0692322 z:-0.702406 w:-0.0711587
+After integrate | x:-0.785925 y:-0.7773 z:-0.788082 w:0.775247
+After normalize | x:-0.501904 y:-0.496396 z:-0.503281 w:0.495084
+After conjugate | x:0.501904 y:0.496396 z:0.503281 w:0.495084
+
+
+After conjugate | x:0.501904 y:0.496396 z:0.503281 w:0.495084
+
+
+Start of AhrsUpdate | x:-0.501904 y:-0.496396 z:-0.503281 w:0.495084
+After integrate | x:-0.474327 y:-0.524281 z:-0.475769 w:0.523049
+After normalize | x:-0.473573 y:-0.523448 z:-0.475013 w:0.522218
+After conjugate | x:0.473573 y:0.523448 z:0.475013 w:0.522218
+
+
+After conjugate | x:0.473573 y:0.523448 z:0.475013 w:0.522218
+
+
+Start of AhrsUpdate | x:-0.473573 y:-0.523448 z:-0.475013 w:0.522218
+After integrate | x:-0.344706 y:-0.640038 z:-0.346423 w:0.639182
+After normalize | x:-0.335051 y:-0.622112 z:-0.336721 w:0.62128
+After conjugate | x:0.335051 y:0.622112 z:0.336721 w:0.62128
+
+
+After conjugate | x:0.335051 y:0.622112 z:0.336721 w:0.62128
+
+
+Start of AhrsUpdate | x:-0.335051 y:-0.622112 z:-0.336721 w:0.62128
+After integrate | x:-0.3121 y:-0.634488 z:-0.313784 w:0.633696
+After normalize | x:-0.31157 y:-0.63341 z:-0.313251 w:0.632619
+After conjugate | x:0.31157 y:0.63341 z:0.313251 w:0.632619
+
+
+After conjugate | x:0.31157 y:0.63341 z:0.313251 w:0.632619
+
+
+Start of AhrsUpdate | x:-0.31157 y:-0.63341 z:-0.313251 w:0.632619
+After integrate | x:0.113174 y:-0.84232 z:0.111038 w:0.842731
+After normalize | x:0.0940442 y:-0.699942 z:0.0922688 w:0.700283
+After conjugate | x:-0.0940442 y:0.699942 z:-0.0922688 w:0.700283
+
+
+After conjugate | x:-0.0940442 y:0.699942 z:-0.0922688 w:0.700283
+
+
+Start of AhrsUpdate | x:0.0940442 y:-0.699942 z:0.0922688 w:0.700283
+After integrate | x:0.125969 y:-0.695659 z:0.124207 w:0.696068
+After normalize | x:0.125772 y:-0.694569 z:0.124013 w:0.694978
+After conjugate | x:-0.125772 y:0.694569 z:-0.124013 w:0.694978
+
+
+After conjugate | x:-0.125772 y:0.694569 z:-0.124013 w:0.694978
+
+
+Start of AhrsUpdate | x:0.125772 y:-0.694569 z:0.124013 w:0.694978
+After integrate | x:0.461926 y:-0.633672 z:0.460377 w:0.634984
+After normalize | x:0.416455 y:-0.571295 z:0.415058 w:0.572477
+After conjugate | x:-0.416455 y:0.571295 z:-0.415058 w:0.572477
+
+
+After conjugate | x:-0.416455 y:0.571295 z:-0.415058 w:0.572477
+
+
+Start of AhrsUpdate | x:0.416455 y:-0.571295 z:0.415058 w:0.572477
+After integrate | x:0.437845 y:-0.555729 z:0.436466 w:0.55693
+After normalize | x:0.436851 y:-0.554466 z:0.435475 w:0.555665
+After conjugate | x:-0.436851 y:0.554466 z:-0.435475 w:0.555665
+
+
+After conjugate | x:-0.436851 y:0.554466 z:-0.435475 w:0.555665
+
+
+Start of AhrsUpdate | x:0.436851 y:-0.554466 z:0.435475 w:0.555665
+After integrate | x:1.01606 y:-0.0981341 z:1.01596 w:0.100725
+After normalize | x:0.703404 y:-0.0679368 z:0.703334 w:0.0697302
+After conjugate | x:-0.703404 y:0.0679368 z:-0.703334 w:0.0697302
+
+
+After conjugate | x:-0.703404 y:0.0679368 z:-0.703334 w:0.0697302
+
+
+Start of AhrsUpdate | x:0.703404 y:-0.0679368 z:0.703334 w:0.0697302
+After integrate | x:0.707404 y:-0.0267531 z:0.707395 w:0.0285475
+After normalize | x:0.705413 y:-0.0266778 z:0.705404 w:0.0284671
+After conjugate | x:-0.705413 y:0.0266778 z:-0.705404 w:0.0284671
+
+
+After conjugate | x:-0.705413 y:0.0266778 z:-0.705404 w:0.0284671
+
+
+Start of AhrsUpdate | x:0.705413 y:-0.0266778 z:0.705404 w:0.0284671
+After integrate | x:0.706965 y:0.0143835 z:0.707063 w:-0.0125981
+After normalize | x:0.705733 y:0.0143585 z:0.705831 w:-0.0125762
+After conjugate | x:-0.705733 y:-0.0143585 z:-0.705831 w:-0.0125762
+
+
+After conjugate | x:-0.705733 y:-0.0143585 z:-0.705831 w:-0.0125762
+
+
+Start of AhrsUpdate | x:0.705733 y:0.0143585 z:0.705831 w:-0.0125762
+After integrate | x:0.702923 y:0.151987 z:0.703389 w:-0.150235
+After normalize | x:0.690397 y:0.149279 z:0.690855 w:-0.147558
+After conjugate | x:-0.690397 y:-0.149279 z:-0.690855 w:-0.147558
+
+
+After conjugate | x:-0.690397 y:-0.149279 z:-0.690855 w:-0.147558
+
+
+Start of AhrsUpdate | x:0.690397 y:0.149279 z:0.690855 w:-0.147558
+After integrate | x:0.661581 y:0.282743 z:0.662291 w:-0.2811
+After normalize | x:0.649564 y:0.277607 z:0.650261 w:-0.275994
+After conjugate | x:-0.649564 y:-0.277607 z:-0.650261 w:-0.275994
+
+
+After conjugate | x:-0.649564 y:-0.277607 z:-0.650261 w:-0.275994
+
+
+Start of AhrsUpdate | x:0.649564 y:0.277607 z:0.650261 w:-0.275994
+After integrate | x:0.632015 y:0.318697 z:0.632791 w:-0.317129
+After normalize | x:0.630342 y:0.317854 z:0.631116 w:-0.31629
+After conjugate | x:-0.630342 y:-0.317854 z:-0.631116 w:-0.31629
+
+
+After conjugate | x:-0.630342 y:-0.317854 z:-0.631116 w:-0.31629
+
+
+Start of AhrsUpdate | x:0.630342 y:0.317854 z:0.631116 w:-0.31629
+After integrate | x:0.170649 y:1.22929 z:0.173715 w:-1.22917
+After normalize | x:0.0971574 y:0.699882 z:0.0989031 w:-0.699815
+After conjugate | x:-0.0971574 y:-0.699882 z:-0.0989031 w:-0.699815
+
+
+After conjugate | x:-0.0971574 y:-0.699882 z:-0.0989031 w:-0.699815
+
+
+Start of AhrsUpdate | x:0.0971574 y:0.699882 z:0.0989031 w:-0.699815
+After integrate | x:0.00201778 y:0.713136 z:0.00378612 w:-0.713211
+After normalize | x:0.00199795 y:0.706128 z:0.00374891 w:-0.706203
+After conjugate | x:-0.00199795 y:-0.706128 z:-0.00374891 w:-0.706203
+
+
+After conjugate | x:-0.00199795 y:-0.706128 z:-0.00374891 w:-0.706203
+
+
+Start of AhrsUpdate | x:0.00199795 y:0.706128 z:0.00374891 w:-0.706203
+After integrate | x:-1.21243 y:0.70975 z:-1.21082 w:-0.712465
+After normalize | x:-0.609216 y:0.356631 z:-0.608406 w:-0.357995
+After conjugate | x:0.609216 y:-0.356631 z:0.608406 w:-0.357995
+
+
+After conjugate | x:0.609216 y:-0.356631 z:0.608406 w:-0.357995
+
+
+Start of AhrsUpdate | x:-0.609216 y:0.356631 z:-0.608406 w:-0.357995
+After integrate | x:-0.629424 y:0.322088 z:-0.628714 w:-0.323505
+After normalize | x:-0.628405 y:0.321566 z:-0.627696 w:-0.322981
+After conjugate | x:0.628405 y:-0.321566 z:0.627696 w:-0.322981
+
+
+After conjugate | x:0.628405 y:-0.321566 z:0.627696 w:-0.322981
+
+
+Start of AhrsUpdate | x:-0.628405 y:0.321566 z:-0.627696 w:-0.322981
+After integrate | x:-2.01245 y:-2.38432 z:-2.01891 w:2.37959
+After normalize | x:-0.456016 y:-0.540281 z:-0.45748 w:0.539209
+After conjugate | x:0.456016 y:0.540281 z:0.45748 w:0.539209
+
+
+After conjugate | x:0.456016 y:0.540281 z:0.45748 w:0.539209
+
+
+Start of AhrsUpdate | x:-0.456016 y:-0.540281 z:-0.45748 w:0.539209
+After integrate | x:-0.429194 y:-0.562961 z:-0.430674 w:0.561912
+After normalize | x:-0.427986 y:-0.561377 z:-0.429462 w:0.560331
+After conjugate | x:0.427986 y:0.561377 z:0.429462 w:0.560331
+
+
+After conjugate | x:0.427986 y:0.561377 z:0.429462 w:0.560331
+
+
+Start of AhrsUpdate | x:-0.427986 y:-0.561377 z:-0.429462 w:0.560331
+After integrate | x:-0.0937701 y:-0.816283 z:-0.0957412 w:0.816005
+After normalize | x:-0.0806465 y:-0.70204 z:-0.0823418 w:0.701802
+After conjugate | x:0.0806465 y:0.70204 z:0.0823418 w:0.701802
+
+
+After conjugate | x:0.0806465 y:0.70204 z:0.0823418 w:0.701802
+
+
+Start of AhrsUpdate | x:-0.0806465 y:-0.70204 z:-0.0823418 w:0.701802
+After integrate | x:-0.022206 y:-0.70878 z:-0.0238979 w:0.708633
+After normalize | x:-0.0221095 y:-0.705699 z:-0.023794 w:0.705553
+After conjugate | x:0.0221095 y:0.705699 z:0.023794 w:0.705553
+
+
+After conjugate | x:0.0221095 y:0.705699 z:0.023794 w:0.705553
+
+
+Start of AhrsUpdate | x:-0.0221095 y:-0.705699 z:-0.023794 w:0.705553
+After integrate | x:0.820704 y:-0.732131 z:0.819211 w:0.733955
+After normalize | x:0.526793 y:-0.46994 z:0.525835 w:0.471111
+After conjugate | x:-0.526793 y:0.46994 z:-0.525835 w:0.471111
+
+
+After conjugate | x:-0.526793 y:0.46994 z:-0.525835 w:0.471111
+
+
+Start of AhrsUpdate | x:0.526793 y:-0.46994 z:0.525835 w:0.471111
+After integrate | x:0.551972 y:-0.441704 z:0.551085 w:0.442939
+After normalize | x:0.551131 y:-0.44103 z:0.550244 w:0.442263
+After conjugate | x:-0.551131 y:0.44103 z:-0.550244 w:0.442263
+
+
+After conjugate | x:-0.551131 y:0.44103 z:-0.550244 w:0.442263
+
+
+Start of AhrsUpdate | x:0.551131 y:-0.44103 z:0.550244 w:0.442263
+After integrate | x:1.1379 y:0.292492 z:1.13882 w:-0.28975
+After normalize | x:0.683716 y:0.175746 z:0.684273 w:-0.174099
+After conjugate | x:-0.683716 y:-0.175746 z:-0.684273 w:-0.174099
+
+
+After conjugate | x:-0.683716 y:-0.175746 z:-0.684273 w:-0.174099
+
+
+Start of AhrsUpdate | x:0.683716 y:0.175746 z:0.684273 w:-0.174099
+After integrate | x:0.674116 y:0.213124 z:0.674751 w:-0.211496
+After normalize | x:0.673018 y:0.212776 z:0.673651 w:-0.211151
+After conjugate | x:-0.673018 y:-0.212776 z:-0.673651 w:-0.211151
+
+
+After conjugate | x:-0.673018 y:-0.212776 z:-0.673651 w:-0.211151
+
+
+Start of AhrsUpdate | x:0.673018 y:0.212776 z:0.673651 w:-0.211151
+After integrate | x:0.662163 y:0.247129 z:0.66287 w:-0.245529
+After normalize | x:0.661303 y:0.246808 z:0.662009 w:-0.24521
+After conjugate | x:-0.661303 y:-0.246808 z:-0.662009 w:-0.24521
+
+
+After conjugate | x:-0.661303 y:-0.246808 z:-0.662009 w:-0.24521
+
+
+Start of AhrsUpdate | x:0.661303 y:0.246808 z:0.662009 w:-0.24521
+After integrate | x:0.648761 y:0.280427 z:0.64954 w:-0.278857
+After normalize | x:0.647925 y:0.280066 z:0.648703 w:-0.278498
+After conjugate | x:-0.647925 y:-0.280066 z:-0.648703 w:-0.278498
+
+
+After conjugate | x:-0.647925 y:-0.280066 z:-0.648703 w:-0.278498
+
+
+Start of AhrsUpdate | x:0.647925 y:0.280066 z:0.648703 w:-0.278498
+After integrate | x:0.53034 y:0.552217 z:0.531695 w:-0.55092
+After normalize | x:0.489794 y:0.509998 z:0.491045 w:-0.5088
+After conjugate | x:-0.489794 y:-0.509998 z:-0.491045 w:-0.5088
+
+
+After conjugate | x:-0.489794 y:-0.509998 z:-0.491045 w:-0.5088
+
+
+Start of AhrsUpdate | x:0.489794 y:0.509998 z:0.491045 w:-0.5088
+After integrate | x:0.463069 y:0.535706 z:0.464337 w:-0.534535
+After normalize | x:0.46168 y:0.534099 z:0.462945 w:-0.532931
+After conjugate | x:-0.46168 y:-0.534099 z:-0.462945 w:-0.532931
+
+
+After conjugate | x:-0.46168 y:-0.534099 z:-0.462945 w:-0.532931
+
+
+Start of AhrsUpdate | x:0.46168 y:0.534099 z:0.462945 w:-0.532931
+After integrate | x:0.36083 y:0.621295 z:0.362259 w:-0.620373
+After normalize | x:0.354769 y:0.610859 z:0.356174 w:-0.609952
+After conjugate | x:-0.354769 y:-0.610859 z:-0.356174 w:-0.609952
+
+
+After conjugate | x:-0.354769 y:-0.610859 z:-0.356174 w:-0.609952
+
+
+Start of AhrsUpdate | x:0.354769 y:0.610859 z:0.356174 w:-0.609952
+After integrate | x:0.322252 y:0.629756 z:0.323683 w:-0.628913
+After normalize | x:0.321593 y:0.628468 z:0.323021 w:-0.627627
+After conjugate | x:-0.321593 y:-0.628468 z:-0.323021 w:-0.627627
+
+
+After conjugate | x:-0.321593 y:-0.628468 z:-0.323021 w:-0.627627
+
+
+Start of AhrsUpdate | x:0.321593 y:0.628468 z:0.323021 w:-0.627627
+After integrate | x:0.293079 y:0.643058 z:0.294533 w:-0.642289
+After normalize | x:0.292773 y:0.642388 z:0.294225 w:-0.641619
+After conjugate | x:-0.292773 y:-0.642388 z:-0.294225 w:-0.641619
+
+
+After conjugate | x:-0.292773 y:-0.642388 z:-0.294225 w:-0.641619
+
+
+Start of AhrsUpdate | x:0.292773 y:0.642388 z:0.294225 w:-0.641619
+After integrate | x:0.262046 y:0.65639 z:0.263524 w:-0.655699
+After normalize | x:0.261747 y:0.65564 z:0.263223 w:-0.65495
+After conjugate | x:-0.261747 y:-0.65564 z:-0.263223 w:-0.65495
+
+
+After conjugate | x:-0.261747 y:-0.65564 z:-0.263223 w:-0.65495
+
+
+Start of AhrsUpdate | x:0.261747 y:0.65564 z:0.263223 w:-0.65495
+After integrate | x:0.188884 y:0.684725 z:0.19041 w:-0.684217
+After normalize | x:0.187765 y:0.680669 z:0.189282 w:-0.680163
+After conjugate | x:-0.187765 y:-0.680669 z:-0.189282 w:-0.680163
+
+
+After conjugate | x:-0.187765 y:-0.680669 z:-0.189282 w:-0.680163
+
+
+Start of AhrsUpdate | x:0.187765 y:0.680669 z:0.189282 w:-0.680163
+After integrate | x:-0.00724687 y:0.734463 z:-0.00565223 w:-0.734412
+After normalize | x:-0.00697395 y:0.706803 z:-0.00543937 w:-0.706754
+After conjugate | x:0.00697395 y:-0.706803 z:0.00543937 w:-0.706754
+
+
+After conjugate | x:0.00697395 y:-0.706803 z:0.00543937 w:-0.706754
+
+
+Start of AhrsUpdate | x:-0.00697395 y:0.706803 z:-0.00543937 w:-0.706754
+After integrate | x:-0.0803817 y:0.706104 z:-0.0788591 w:-0.706164
+After normalize | x:-0.0798678 y:0.701589 z:-0.078355 w:-0.701649
+After conjugate | x:0.0798678 y:-0.701589 z:0.078355 w:-0.701649
+
+
+After conjugate | x:0.0798678 y:-0.701589 z:0.078355 w:-0.701649
+
+
+Start of AhrsUpdate | x:-0.0798678 y:0.701589 z:-0.078355 w:-0.701649
+After integrate | x:-0.114344 y:0.69766 z:-0.112848 w:-0.697801
+After normalize | x:-0.114181 y:0.696666 z:-0.112688 w:-0.696807
+After conjugate | x:0.114181 y:-0.696666 z:0.112688 w:-0.696807
+
+
+After conjugate | x:0.114181 y:-0.696666 z:0.112688 w:-0.696807
+
+
+Start of AhrsUpdate | x:-0.114181 y:0.696666 z:-0.112688 w:-0.696807
+After integrate | x:-0.147467 y:0.691203 z:-0.145994 w:-0.691428
+After normalize | x:-0.147299 y:0.690415 z:-0.145827 w:-0.690641
+After conjugate | x:0.147299 y:-0.690415 z:0.145827 w:-0.690641
+
+
+After conjugate | x:0.147299 y:-0.690415 z:0.145827 w:-0.690641
+
+
+Start of AhrsUpdate | x:-0.147299 y:0.690415 z:-0.145827 w:-0.690641
+After integrate | x:-0.185188 y:0.682323 z:-0.183743 w:-0.682644
+After normalize | x:-0.184909 y:0.681296 z:-0.183467 w:-0.681617
+After conjugate | x:0.184909 y:-0.681296 z:0.183467 w:-0.681617
+
+
+After conjugate | x:0.184909 y:-0.681296 z:0.183467 w:-0.681617
+
+
+Start of AhrsUpdate | x:-0.184909 y:0.681296 z:-0.183467 w:-0.681617
+After integrate | x:-0.219108 y:0.672006 z:-0.217694 w:-0.672413
+After normalize | x:-0.218832 y:0.671161 z:-0.217421 w:-0.671568
+After conjugate | x:0.218832 y:-0.671161 z:0.217421 w:-0.671568
+
+
+After conjugate | x:0.218832 y:-0.671161 z:0.217421 w:-0.671568
+
+
+Start of AhrsUpdate | x:-0.218832 y:0.671161 z:-0.217421 w:-0.671568
+After integrate | x:-0.249378 y:0.661193 z:-0.247995 w:-0.661678
+After normalize | x:-0.249121 y:0.66051 z:-0.247739 w:-0.660994
+After conjugate | x:0.249121 y:-0.66051 z:0.247739 w:-0.660994
+
+
+After conjugate | x:0.249121 y:-0.66051 z:0.247739 w:-0.660994
+
+
+Start of AhrsUpdate | x:-0.249121 y:0.66051 z:-0.247739 w:-0.660994
+After integrate | x:-0.315131 y:0.635595 z:-0.313819 w:-0.636245
+After normalize | x:-0.313614 y:0.632536 z:-0.312309 w:-0.633183
+After conjugate | x:0.313614 y:-0.632536 z:0.312309 w:-0.633183
+
+
+After conjugate | x:0.313614 y:-0.632536 z:0.312309 w:-0.633183
+
+
+Start of AhrsUpdate | x:-0.313614 y:0.632536 z:-0.312309 w:-0.633183
+After integrate | x:-1.49557 y:0.0463046 z:-1.49567 w:-0.0497206
+After normalize | x:-0.706626 y:0.021878 z:-0.706676 w:-0.023492
+After conjugate | x:0.706626 y:-0.021878 z:0.706676 w:-0.023492
+
+
+After conjugate | x:0.706626 y:-0.021878 z:0.706676 w:-0.023492
+
+
+Start of AhrsUpdate | x:-0.706626 y:0.021878 z:-0.706676 w:-0.023492
+After integrate | x:-0.714686 y:-0.233183 z:-0.714992 w:0.23155
+After normalize | x:-0.67227 y:-0.219344 z:-0.672558 w:0.217808
+After conjugate | x:0.67227 y:0.219344 z:0.672558 w:0.217808
+
+
+After conjugate | x:0.67227 y:0.219344 z:0.672558 w:0.217808
+
+
+Start of AhrsUpdate | x:-0.67227 y:-0.219344 z:-0.672558 w:0.217808
+After integrate | x:-0.661722 y:-0.251728 z:-0.662045 w:0.250217
+After normalize | x:-0.659924 y:-0.251044 z:-0.660246 w:0.249537
+After conjugate | x:0.659924 y:0.251044 z:0.660246 w:0.249537
+
+
+After conjugate | x:0.659924 y:0.251044 z:0.660246 w:0.249537
+
+
+Start of AhrsUpdate | x:-0.659924 y:-0.251044 z:-0.660246 w:0.249537
+After integrate | x:-0.646091 y:-0.287391 z:-0.646497 w:0.285931
+After normalize | x:-0.645081 y:-0.286942 z:-0.645486 w:0.285484
+After conjugate | x:0.645081 y:0.286942 z:0.645486 w:0.285484
+
+
+After conjugate | x:0.645081 y:0.286942 z:0.645486 w:0.285484
+
+
+Start of AhrsUpdate | x:-0.645081 y:-0.286942 z:-0.645486 w:0.285484
+After integrate | x:-0.624984 y:-0.332098 z:-0.625495 w:0.330708
+After normalize | x:-0.623478 y:-0.331298 z:-0.623988 w:0.329911
+After conjugate | x:0.623478 y:0.331298 z:0.623988 w:0.329911
+
+
+After conjugate | x:0.623478 y:0.331298 z:0.623988 w:0.329911
+
+
+Start of AhrsUpdate | x:-0.623478 y:-0.331298 z:-0.623988 w:0.329911
+After integrate | x:-0.518678 y:-0.528421 z:-0.519652 w:0.527356
+After normalize | x:-0.495217 y:-0.504519 z:-0.496146 w:0.503502
+After conjugate | x:0.495217 y:0.504519 z:0.496146 w:0.503502
+
+
+After conjugate | x:0.495217 y:0.504519 z:0.496146 w:0.503502
+
+
+Start of AhrsUpdate | x:-0.495217 y:-0.504519 z:-0.496146 w:0.503502
+After integrate | x:-0.394876 y:-0.603052 z:-0.395945 w:0.602196
+After normalize | x:-0.38703 y:-0.59107 z:-0.388078 w:0.590231
+After conjugate | x:0.38703 y:0.59107 z:0.388078 w:0.590231
+
+
+After conjugate | x:0.38703 y:0.59107 z:0.388078 w:0.590231
+
+
+Start of AhrsUpdate | x:-0.38703 y:-0.59107 z:-0.388078 w:0.590231
+After integrate | x:-0.317126 y:-0.636832 z:-0.318262 w:0.636146
+After normalize | x:-0.314775 y:-0.632112 z:-0.315903 w:0.631431
+After conjugate | x:0.314775 y:0.632112 z:0.315903 w:0.631431
+
+
+After conjugate | x:0.314775 y:0.632112 z:0.315903 w:0.631431
+
+
+Start of AhrsUpdate | x:-0.314775 y:-0.632112 z:-0.315903 w:0.631431
+After integrate | x:-0.249723 y:-0.664482 z:-0.250923 w:0.663965
+After normalize | x:-0.248387 y:-0.660929 z:-0.249582 w:0.660415
+After conjugate | x:0.248387 y:0.660929 z:0.249582 w:0.660415
+
+
+After conjugate | x:0.248387 y:0.660929 z:0.249582 w:0.660415
+
+
+Start of AhrsUpdate | x:-0.248387 y:-0.660929 z:-0.249582 w:0.660415
+After integrate | x:-0.208194 y:-0.676019 z:-0.209425 w:0.675607
+After normalize | x:-0.207777 y:-0.674666 z:-0.209006 w:0.674254
+After conjugate | x:0.207777 y:0.674666 z:0.209006 w:0.674254
+
+
+After conjugate | x:0.207777 y:0.674666 z:0.209006 w:0.674254
+
+
+Start of AhrsUpdate | x:-0.207777 y:-0.674666 z:-0.209006 w:0.674254
+After integrate | x:-0.0933569 y:-0.709853 z:-0.0946814 w:0.709743
+After normalize | x:-0.0920898 y:-0.700219 z:-0.0933964 w:0.70011
+After conjugate | x:0.0920898 y:0.700219 z:0.0933964 w:0.70011
+
+
+After conjugate | x:0.0920898 y:0.700219 z:0.0933964 w:0.70011
+
+

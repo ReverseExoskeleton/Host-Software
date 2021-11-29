@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Threading;
 
 public class Demo : MonoBehaviour {
   public bool isScanningDevices = false;
@@ -117,8 +118,8 @@ public class Demo : MonoBehaviour {
     if (isSubscribed) {
       BleApi.BLEData res = new BleApi.BLEData();
       while (BleApi.PollData(out res, false)) {
-        Logger.Debug($"Received data = {BitConverter.ToString(res.buf)}");
-        Logger.Debug($"Received data size = {res.size}");
+        Logger.Testing($"Received data = {BitConverter.ToString(res.buf)}");
+        Logger.Testing($"Received data size = {res.size}");
         subcribeText.text = BitConverter.ToString(res.buf, 0, res.size);
 
         _timeSinceLastPacketS += Time.deltaTime;
@@ -181,6 +182,7 @@ public class Demo : MonoBehaviour {
           deviceScanResultProto.transform.GetChild(0).GetComponent<Text>().color;
     }
     selectedDeviceId = data.name;
+    Logger.Testing($"Selected device id = {selectedDeviceId}");
     serviceScanButton.interactable = true;
   }
 
@@ -197,6 +199,7 @@ public class Demo : MonoBehaviour {
 
   public void SelectService(GameObject data) {
     selectedServiceId = serviceDropdown.options[serviceDropdown.value].text;
+    Logger.Testing($"Selected service id = {selectedServiceId}");
     characteristicScanButton.interactable = true;
   }
   public void StartCharacteristicScan() {
@@ -211,8 +214,10 @@ public class Demo : MonoBehaviour {
   }
 
   public void SelectCharacteristic(GameObject data) {
-    string name = characteristicDropdown.options[characteristicDropdown.value].text;
-    selectedCharacteristicId = characteristicNames[name];
+    //string name = characteristicDropdown.options[characteristicDropdown.value].text;
+    //selectedCharacteristicId = characteristicNames[name];
+    selectedCharacteristicId = "12345678-9012-3456-7890-123456789022";
+    Logger.Testing($"Selected characteristic id = {selectedCharacteristicId}");
     subscribeButton.interactable = true;
     writeButton.interactable = true;
   }
@@ -223,10 +228,11 @@ public class Demo : MonoBehaviour {
     isSubscribed = true;
   }
 
+
   public void Write() {
     byte[] payload = Encoding.ASCII.GetBytes(writeInput.text);
     BleApi.BLEData data = new BleApi.BLEData();
-    data.buf = new byte[512];
+    data.buf = new byte[4];
     data.size = (short)payload.Length;
     data.deviceId = selectedDeviceId;
     data.serviceUuid = selectedServiceId;
@@ -234,8 +240,15 @@ public class Demo : MonoBehaviour {
     for (int i = 0; i < payload.Length; i++)
       data.buf[i] = payload[i];
     // no error code available in non-blocking mode
-    BleApi.SendData(in data, false);
-    Debug.Log($"Sent data = {BitConverter.ToString(data.buf)}");
+    //BleApi.SendData(in data, false);
+    new Thread(() => {
+      //Thread.CurrentThread.IsBackground = true;
+      bool res = BleApi.SendData(in data, block: true);
+      BleApi.ErrorMessage buf;
+      BleApi.GetError(out buf);
+      Logger.Error($"Status: {buf.msg}.");
+      Debug.Log($"Sent data = {BitConverter.ToString(data.buf)}");
+    }).Start();
   }
 }
 
