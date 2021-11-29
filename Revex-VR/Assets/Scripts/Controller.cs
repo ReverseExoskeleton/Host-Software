@@ -118,17 +118,14 @@ public class Controller : MonoBehaviour {
   }
 
   private void UpdateTransforms() {
-    // TODO: Verify this with Matthew...
-    // --> If we have a tf parent structure like
-    //     headset -> IMU -> shoulder -> elbow -> wrist
-    //     then if we set the rotation of the IMU and we have a defined
-    //     static transform between IMU and shoulder given by the way
-    //     we set up the objects in the UI, then should this work?
-    imuTf.rotation = fusion.GetQuaternion();
-    Vector3 eulerAng = fusion.GetEulerAngles();
-    Logger.Testing($"IMU: roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
+    shoulderTf.rotation = fusion.GetQuaternion() * 
+                          Quaternion.Inverse(imuTf.localRotation);
+    Vector3 imuAng = fusion.GetEulerAngles();
+    Logger.Testing($"IMU: roll={imuAng.z}, pitch={imuAng.x}, yaw={imuAng.y}");
+    Vector3 shoulderAng = shoulderTf.eulerAngles;
+    Logger.Testing($@"IMU: roll={shoulderAng.z}, 
+                      pitch={shoulderAng.x}, yaw={shoulderAng.y}");
 
-    // TODO: Verify we want localEulerAngles and not eulerAngles
     elbowTf.localEulerAngles = new Vector3(elbowEma.Current(), 0, 0);
     Logger.Testing($"Elbow Angle (EMA) = {elbowEma.Current()}");
   }
