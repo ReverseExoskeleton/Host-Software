@@ -47,7 +47,7 @@ public class MadgwickDemoController : MonoBehaviour {
   private void UpdateTransforms() {
     cubeTf.rotation = fusion.GetQuaternion();
     Vector3 eulerAng = fusion.GetEulerAngles();
-    //Logger.Testing($"roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
+    Logger.Testing($"roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
   }
 
   private HapticFeedback GetHapticFeedback() {
