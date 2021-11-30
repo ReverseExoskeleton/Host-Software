@@ -4,6 +4,7 @@ using System.Collections.Generic;
 class CalibrationController : MonoBehaviour {
   // --------------- Communication ---------------
   public Tranceiver tranceiver;
+  bool connected = false;
 
   // --------------- Magnetometer Calibration ---------------
   private Vector3 _min = Vector3.positiveInfinity;
@@ -12,18 +13,20 @@ class CalibrationController : MonoBehaviour {
 
   void Start() {
     tranceiver = new SerialReader();
-    tranceiver.EstablishConnection();
   }
 
   void Update() {
-    List<SensorSample> samples;
-    if (!tranceiver.TryGetSensorData(out samples)) return;
+    if (!connected) {
+      connected = tranceiver.TryEstablishConnection();
+    } else {
+      List<SensorSample> samples;
+      if (!tranceiver.TryGetSensorData(out samples)) return;
 
-    foreach (SensorSample sample in samples) {
-      PrintMagnetometerBias(sample.Imu.MagField);
+      foreach (SensorSample sample in samples) {
+        PrintMagnetometerBias(sample.Imu.MagField);
+      }
     }
   }
-
 
   private void PrintMagnetometerBias(Vector3 rawMag) {
     Logger.Testing("----------------- Hard-Iron Bias -----------------");

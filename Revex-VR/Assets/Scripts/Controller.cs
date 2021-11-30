@@ -9,7 +9,6 @@ enum Status {
   ArmEstimation,
 }
 
-
 public class Controller : MonoBehaviour {
   private Status _status = Status.Connecting;
   // --------------- Communication ---------------
@@ -36,14 +35,14 @@ public class Controller : MonoBehaviour {
   void Start() {
     tranceiver = new SerialReader();
     fusion = new Madgwick();
-    tranceiver.EstablishConnection();
-    _status = Status.CalibrateShoulder;
   }
 
   void Update() {
-    if (!UpdateSensorData()) return;
-
     switch (_status) {
+      case Status.Connecting:
+        if (tranceiver.TryEstablishConnection())
+          _status = Status.CalibrateShoulder;
+        break;
       case Status.CalibrateShoulder:
         ShoulderCalibrate();
         break;
@@ -51,12 +50,12 @@ public class Controller : MonoBehaviour {
         ArmLengthCalibrate();
         break;
       case Status.ArmEstimation:
+        if (!UpdateSensorData()) return;
         UpdateTransforms();
         tranceiver.SendHapticFeedback(GetHapticFeedback());
         break;
       default:
-        Logger.Error("Unknown case in Controller::Update");
-        break;
+        throw new Exception("Unknown case in Controller::Update");
     }
   }
 

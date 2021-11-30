@@ -16,7 +16,7 @@ public class SerialReader : Tranceiver {
   private byte[] _curInputBuffer = new byte[0];
   private ConcurrentQueue<SensorSample> _sampleQueue =
                                          new ConcurrentQueue<SensorSample>();
-  private bool _waitingForDataStart = true;
+  private bool _dataStartReceived = false;
   private int _dataStartStrIdx = 0;
   private bool _isRunning = true;
   private bool _finished = false;
@@ -38,8 +38,8 @@ public class SerialReader : Tranceiver {
     StartReading();
   }
 
-  public override void EstablishConnection() {
-    while (_waitingForDataStart) Thread.Yield();
+  public override bool TryEstablishConnection() {
+    return _dataStartReceived; 
   }
 
   public override void CloseConnection() {
@@ -92,7 +92,7 @@ public class SerialReader : Tranceiver {
   }
 
   private void HandleSerialDataEvent(byte[] inputBuffer) {
-    if (_waitingForDataStart) {
+    if (!_dataStartReceived) {
       try {
         HandleDataStartString(inputBuffer);
       } catch (InvalidDataStartPacketException) {
@@ -127,7 +127,7 @@ public class SerialReader : Tranceiver {
     } while (i < inputStr.Length && _dataStartStrIdx < _DataStartString.Length);
 
     if (i == inputStr.Length && _dataStartStrIdx == _DataStartString.Length) {
-      _waitingForDataStart = false;
+      _dataStartReceived = true;
       Logger.Debug("Read through data start packet!!!");
     } else if (i < inputStr.Length) {
       throw new InvalidDataStartPacketException($@"Start data packet contains

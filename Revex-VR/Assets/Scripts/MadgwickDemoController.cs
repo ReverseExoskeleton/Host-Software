@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class MadgwickDemoController : MonoBehaviour {
   // --------------- Communication ---------------
+  bool connected = false;
   public Tranceiver tranceiver;
   private float _timeSinceLastPacketS = 0; // sec
 
@@ -13,16 +13,19 @@ public class MadgwickDemoController : MonoBehaviour {
   public Transform cubeTf;
 
   void Start() {
-    tranceiver = new SerialReader();
-    //tranceiver = new BleTranceiver();
+    //tranceiver = new SerialReader();
+    tranceiver = new BleTranceiver();
     fusion = new Madgwick();
-    tranceiver.EstablishConnection();
   }
 
   void Update() {
-    if (!UpdateSensorData()) return;
-    UpdateTransforms();
-    //tranceiver.SendHapticFeedback(GetHapticFeedback());
+    if (!connected) {
+      connected = tranceiver.TryEstablishConnection();
+    } else {
+      if (!UpdateSensorData()) return;
+      UpdateTransforms();
+      tranceiver.SendHapticFeedback(GetHapticFeedback());
+    }
   }
 
   private bool UpdateSensorData() {

@@ -5,7 +5,7 @@ public abstract class Tranceiver : IDisposable {
   // Track whether Dispose has been called.
   private bool disposed = false;
 
-  public abstract void EstablishConnection();
+  public abstract bool TryEstablishConnection();
 
   public abstract void CloseConnection();
 

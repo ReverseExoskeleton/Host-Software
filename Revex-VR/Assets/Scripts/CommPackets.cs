@@ -12,8 +12,18 @@ public readonly struct SensorSample {
   //   One 16-bit float.
   public float ElbowAngleDeg { get; }
   public const int ElbowAngNumBytes = 2;
-  private const int _ElbowAngRes = 1 << 12;
   public const int NumBytes = ImuSampleNumBytes + ElbowAngNumBytes;
+
+  // --------------- Elbow Angle Calculation --------------- 
+  private const float _ElbowMinDeg = 20;
+  private const float _ElbowMinAdc = 0;
+  private const float _ElbowMaxDeg = 180;
+  private const float _ElbowMaxAdc = 0;
+  private const float _ElbowEqnSlope = (_ElbowMaxDeg - _ElbowMinDeg) /
+                                       (_ElbowMaxAdc - _ElbowMinAdc);
+  private const float _ElbowEqnIntcpt = _ElbowMaxDeg - 
+                                        (_ElbowEqnSlope * _ElbowMaxAdc);
+  // -------------------------------------------------------
 
   // --------------- Scaling constants --------------- 
   // constant from getMagUT
@@ -40,9 +50,8 @@ public readonly struct SensorSample {
   }
 
   private static float GetElbowAngleFromBuffer(byte[] dataBuffer) {
-    // TODO: This may be very wrong. Update based on MCU pre-processing.
-    float raw = GetFloatFromTwoBytes(dataBuffer, offset: 0);
-    return (raw / _ElbowAngRes) * 360;
+    float elbowAdc = GetFloatFromTwoBytes(dataBuffer, offset: 0);
+    return (elbowAdc * _ElbowEqnSlope) + _ElbowEqnIntcpt;
   }
 
   private static float GetFloatFromTwoBytes(byte[] dataBuffer, int offset) {
