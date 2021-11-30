@@ -216,7 +216,7 @@ public class Demo : MonoBehaviour {
   public void SelectCharacteristic(GameObject data) {
     //string name = characteristicDropdown.options[characteristicDropdown.value].text;
     //selectedCharacteristicId = characteristicNames[name];
-    selectedCharacteristicId = "12345678-9012-3456-7890-123456789022";
+    selectedCharacteristicId = "12345678-9012-3456-7890-123456789011";
     Logger.Testing($"Selected characteristic id = {selectedCharacteristicId}");
     subscribeButton.interactable = true;
     writeButton.interactable = true;
@@ -232,7 +232,7 @@ public class Demo : MonoBehaviour {
   public void Write() {
     byte[] payload = Encoding.ASCII.GetBytes(writeInput.text);
     BleApi.BLEData data = new BleApi.BLEData();
-    data.buf = new byte[4];
+    data.buf = new byte[payload.Length];
     data.size = (short)payload.Length;
     data.deviceId = selectedDeviceId;
     data.serviceUuid = selectedServiceId;
