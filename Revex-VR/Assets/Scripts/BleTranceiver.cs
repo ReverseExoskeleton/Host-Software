@@ -125,6 +125,8 @@ public class BleTranceiver : Tranceiver {
   private CancellationTokenSource _readCts = new CancellationTokenSource();
   private ConcurrentQueue<SensorSample> _sampleQueue =
                                           new ConcurrentQueue<SensorSample>();
+  private bool _readThreadKilled = false;
+
   public BleTranceiver() {
     _characteristics = new Dictionary<string, CharacteristicInfo>{
       {"sensor", new CharacteristicInfo(
@@ -140,22 +142,27 @@ public class BleTranceiver : Tranceiver {
     // TODO(Issue 1): Catch and try to recover from thrown exceptions
     switch (_status) {
       case ConnectionStatus.SearchingDevices:
+        //Logger.Testing($"Searching for devices");
         if (ConnectToDevice())
           _status = ConnectionStatus.SearchingServices;
         break;
       case ConnectionStatus.SearchingServices:
+        //Logger.Testing($"Searching for services");
         if (ConnectToService())
           _status = ConnectionStatus.SearchingCharacteristics;
         break;
       case ConnectionStatus.SearchingCharacteristics:
+        //Logger.Testing($"Searching for characteristics");
         if (ConnectToCharacteristic())
           _status = ConnectionStatus.Subscribing;
         break;
       case ConnectionStatus.Subscribing:
+        Logger.Testing($"subscribing");
         Subscribe();
         _status = ConnectionStatus.CheckingSubscribeAttempts;
         break;
       case ConnectionStatus.CheckingSubscribeAttempts:
+        Logger.Testing($"checking for subscription");
         return CheckSubscribeStatus();
       default:
         throw new Exception(
@@ -165,10 +172,12 @@ public class BleTranceiver : Tranceiver {
   }
 
   public override void CloseConnection() {
+    Logger.Testing("Trying to close connection");
     _readCts.Cancel();
+    Thread.Sleep(1000); // 1 sec
+    Logger.Testing($"read thread killed = {_readThreadKilled}");
     Impl.Quit();
     Logger.Testing("We just closed BLE");
-    Thread.Sleep(1000); // 1 sec
     _readCts.Dispose();
   }
 
@@ -244,15 +253,16 @@ public class BleTranceiver : Tranceiver {
   }
 
   private bool ConnectToCharacteristic() {
-    Impl.Characteristic characteristic = new Impl.Characteristic();
     Impl.ScanStatus status;
 
     Impl.ScanCharacteristics(revexDeviceId, revexServiceId);
     foreach (KeyValuePair<string, CharacteristicInfo> characteristicInfo 
                                                       in _characteristics) {
+      Impl.Characteristic characteristic = new Impl.Characteristic();
       bool sensorCharacteristicFound = false;
       do {
         status = Impl.PollCharacteristic(out characteristic, block: false);
+        Logger.Testing($"characteristic = {characteristic.uuid}");
         if (characteristic.uuid != "") 
           Logger.Testing($"Revex characteristic = {characteristic.uuid}");
         if (characteristic.uuid == characteristicInfo.Value.Id) {
@@ -317,6 +327,7 @@ public class BleTranceiver : Tranceiver {
       }
       Thread.Sleep(90); // ms
     }
+    _readThreadKilled = true;
   }
 
   private static string GetStatus() {
