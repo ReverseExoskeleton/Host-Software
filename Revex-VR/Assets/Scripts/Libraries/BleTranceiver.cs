@@ -106,11 +106,14 @@ public class BleTranceiver : Tranceiver {
     public string Id { get; }
     public bool ShouldSubscribe { get; }
     public bool Subscribed { get; set; }
+    public uint ExpectedSize { get; }
 
-    public CharacteristicInfo(string id, bool shouldSubscribe) {
+    public CharacteristicInfo(string id, bool shouldSubscribe, 
+                                            uint expectedSize) {
       Id = id;
       ShouldSubscribe = shouldSubscribe;
       Subscribed = false;
+      ExpectedSize = shouldSubscribe ? expectedSize : 0;
     }
   }
 
@@ -118,6 +121,7 @@ public class BleTranceiver : Tranceiver {
   public readonly string revexServiceId = "{12345678-9012-3456-7890-1234567890ff}";
   public readonly string sensorCharacteristicId = "12345678-9012-3456-7890-123456789011";
   public readonly string hapticCharacteristicId = "12345678-9012-3456-7890-123456789022";
+  public readonly string sleepCharacteristicId = "12345678-9012-3456-7890-123456789033";
 
   private readonly string _OkStatus = "Ok";
   private ConnectionStatus _status = ConnectionStatus.SearchingDevices;
@@ -127,12 +131,19 @@ public class BleTranceiver : Tranceiver {
   private CancellationTokenSource _readCts = new CancellationTokenSource();
   private bool _readThreadKilled = false;
 
+  private const int _sleepStatusPacketNumBytes = 1;
+  private bool _sleepStatusPacketReceived = false;
+
   public BleTranceiver() {
     _characteristics = new Dictionary<string, CharacteristicInfo>{
-      {"sensor", new CharacteristicInfo(
-                        sensorCharacteristicId, shouldSubscribe: true) },
+      {"sensor", new CharacteristicInfo(sensorCharacteristicId, 
+                                        shouldSubscribe: true, 
+                                        expectedSize: SensorSample.NumBytes) },
       {"haptic", new CharacteristicInfo(
-                        hapticCharacteristicId, shouldSubscribe: false) },
+            hapticCharacteristicId, shouldSubscribe: false, expectedSize: 0) },
+      {"sleepStatus", new CharacteristicInfo(sleepCharacteristicId,
+                                   shouldSubscribe: false, // TODO: Update this once we add sleep characteristic
+                                   expectedSize: _sleepStatusPacketNumBytes) },
     };
 
     new Thread(ReadWorker).Start();
@@ -182,6 +193,14 @@ public class BleTranceiver : Tranceiver {
     samples = new List<SensorSample>();
     while (_sampleQueue.TryDequeue(out SensorSample smpl)) samples.Add(smpl);
     return samples.Count > 0;
+  }
+
+  public override bool WasSleepStatusChanged() {
+    if (_sleepStatusPacketReceived) {
+      _sleepStatusPacketReceived = false;
+      return true;
+    }
+    return false;
   }
 
   public override void SendHapticFeedback(HapticFeedback feedback) {
@@ -295,6 +314,7 @@ public class BleTranceiver : Tranceiver {
                                     {GetStatus()}.");
         }
         characteristic.Subscribed = true;
+        Logger.Debug($"Successfully subscribed to characteristic.");
       }).Start();
     }
   }
@@ -313,10 +333,22 @@ public class BleTranceiver : Tranceiver {
         if (GetStatus() != _OkStatus) {
           throw new BleException($"Ble.PollData failed: {GetStatus()}.");
         }
-        byte[] received = new byte[receivedData.size];
-        System.Buffer.BlockCopy(receivedData.buf, 0, received,
-                                0, receivedData.size);
-        _sampleQueue.Enqueue(new SensorSample(received));
+        Logger.Debug($"Successfully received rx packet.");
+
+        switch (receivedData.size) {
+          case SensorSample.NumBytes:
+            byte[] sampleBuffer = new byte[receivedData.size];
+            Buffer.BlockCopy(receivedData.buf, 0, sampleBuffer,
+                                          0, receivedData.size);
+            _sampleQueue.Enqueue(new SensorSample(sampleBuffer));
+            break;
+          case _sleepStatusPacketNumBytes:
+            _sleepStatusPacketReceived = true;
+            break;
+          default:
+            throw new InvalidRxPacket(
+                $"Unknown rx packet with size {receivedData.size}.");
+        }
       }
       Thread.Sleep(90); // ms
     }

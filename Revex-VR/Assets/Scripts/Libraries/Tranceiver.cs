@@ -11,6 +11,8 @@ public abstract class Tranceiver : IDisposable {
 
   public abstract bool TryGetSensorData(out List<SensorSample> samples);
 
+  public virtual bool WasSleepStatusChanged() { return false; }
+
   public abstract void SendHapticFeedback(HapticFeedback feedback);
 
   // Implement IDisposable.

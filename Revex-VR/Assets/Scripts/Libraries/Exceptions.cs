@@ -51,3 +51,10 @@ public class NotFoundException : Exception {
     base(message, inner) { }
 }
 
+public class InvalidRxPacket : Exception {
+  public InvalidRxPacket() { }
+  public InvalidRxPacket(string message) : base(message) { }
+  public InvalidRxPacket(string message, Exception inner) :
+    base(message, inner) { }
+}
+

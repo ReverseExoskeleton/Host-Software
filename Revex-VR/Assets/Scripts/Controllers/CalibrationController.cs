@@ -19,8 +19,8 @@ class CalibrationController : MonoBehaviour {
     if (!connected) {
       connected = tranceiver.TryEstablishConnection();
     } else {
-      List<SensorSample> samples;
-      if (!tranceiver.TryGetSensorData(out samples)) return;
+      List<SensorSample> samples = new List<SensorSample>();
+      if (tranceiver?.TryGetSensorData(out samples) == false) return;
 
       foreach (SensorSample sample in samples) {
         PrintMagnetometerBias(sample.Imu.MagField);

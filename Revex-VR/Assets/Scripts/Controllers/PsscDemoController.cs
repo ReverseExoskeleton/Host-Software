@@ -1,18 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
+public enum PsscDeviceStatus {
+  Asleep,
+  Connecting,
+  ArmEstimation,
+}
+
 public class PsscDemoController : MonoBehaviour {
+  // --------------- Scene ---------------
+  private PsscDeviceStatus _status = PsscDeviceStatus.Connecting;
+  private PsscSimulation _sim;
+
   // --------------- Communication ---------------
   public Tranceiver tranceiver;
   private float _timeSinceLastPacketS = 0; // sec
-  bool connected = false;
 
   // --------------- Arm Estimation ---------------
   public Madgwick fusion;
   public MovingAvg elbowEma = new MovingAvg();
 
-  // --------------- Scene ---------------
-  private PsscSimulation _sim;
 
   void Start() {
     _sim = GameObject.Find("Demo_Objects").GetComponent<PsscSimulation>();
@@ -21,12 +29,32 @@ public class PsscDemoController : MonoBehaviour {
   }
 
   void Update() {
-    if (!connected) {
-      connected = tranceiver.TryEstablishConnection();
-    } else {
-      if (!UpdateSensorData()) return;
-      UpdateTransforms();
-      tranceiver.SendHapticFeedback(GetHapticFeedback());
+    PsscDeviceStatus initialStatus = _status;
+    switch (_status) {
+      case PsscDeviceStatus.Asleep:
+        if (tranceiver.WasSleepStatusChanged()) 
+          _status = PsscDeviceStatus.ArmEstimation;
+        break;
+      case PsscDeviceStatus.Connecting:
+        if (tranceiver?.TryEstablishConnection() == true)
+          _status = PsscDeviceStatus.ArmEstimation;
+        break;
+      case PsscDeviceStatus.ArmEstimation:
+        if (tranceiver.WasSleepStatusChanged()) {
+          _status = PsscDeviceStatus.Asleep;
+          _timeSinceLastPacketS = 0;
+          break;
+        }
+
+        if (!UpdateSensorData()) return;
+        UpdateTransforms();
+        tranceiver?.SendHapticFeedback(GetHapticFeedback());
+        break;
+      default:
+        throw new Exception($"Unknown case {_status}.");
+    }
+    if (initialStatus != _status) {
+      _sim.DisplayStatus(_status);
     }
   }
 
@@ -35,6 +63,7 @@ public class PsscDemoController : MonoBehaviour {
 
     List<SensorSample> samples = new List<SensorSample>();
     if (tranceiver?.TryGetSensorData(out samples) == false) return false;
+    Debug.Log("After try get sensor data");
     float samplePeriod = _timeSinceLastPacketS / samples.Count;
     _timeSinceLastPacketS = 0;
 
@@ -50,11 +79,7 @@ public class PsscDemoController : MonoBehaviour {
 
   private void UpdateTransforms() {
     _sim.DisplayIMUQuat(fusion.GetQuaternion());
-    Vector3 eulerAng = fusion.GetEulerAngles();
-    Logger.Testing($"IMU: roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
-
     _sim.DisplayElbowAngle(elbowEma.Current());
-    Logger.Testing($"Elbow Angle (EMA) = {elbowEma.Current()}");
   }
 
   private HapticFeedback GetHapticFeedback() {

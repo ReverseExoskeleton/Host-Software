@@ -3,8 +3,8 @@
 // https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2008/4xssyw96(v=vs.90)?redirectedfrom=MSDN
 
 public static class Logger {
-  private static bool _EnableDebug = false;
-  private static bool _EnableTest = true;
+  private static bool _EnableDebug = true;
+  private static bool _EnableTest = false;
   private static bool _EnableWarn = true;
   private static bool _EnableError = true;
 

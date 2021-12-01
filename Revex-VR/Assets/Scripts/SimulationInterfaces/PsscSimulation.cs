@@ -1,12 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PsscSimulation : MonoBehaviour {
-  public enum deviceSleepStatus {
-    asleep,
-    awake
-  }
-
   [SerializeField]
   protected Text sleepStatusText;
   [SerializeField]
@@ -22,13 +18,22 @@ public class PsscSimulation : MonoBehaviour {
     DisplayElbowAngle(40f); // Display to 40 degrees on start
   }
 
-  public void DisplayStatus(deviceSleepStatus status) {
-    if (status == deviceSleepStatus.awake) {
-      sleepStatusText.text = "AWAKE";
-      sleepStatusText.color = Color.green;
-    } else {
-      sleepStatusText.text = "ASLEEP";
-      sleepStatusText.color = Color.red;
+  public void DisplayStatus(PsscDeviceStatus status) {
+    switch (status) {
+      case PsscDeviceStatus.Asleep:
+        sleepStatusText.text = "ASLEEP";
+        sleepStatusText.color = Color.red;
+        break;
+      case PsscDeviceStatus.Connecting:
+        sleepStatusText.text = "CONNECTING";
+        sleepStatusText.color = Color.yellow;
+        break;
+      case PsscDeviceStatus.ArmEstimation:
+        sleepStatusText.text = "ACTIVE";
+        sleepStatusText.color = Color.green;
+        break;
+      default:
+        throw new Exception($"Unknown case {status}.");
     }
   }
 

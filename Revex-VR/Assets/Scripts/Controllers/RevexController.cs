@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Status {
+enum DeviceStatus {
   Connecting,
   CalibrateShoulder,
   CalibrateArmLength,
   ArmEstimation,
 }
 
-public class Controller : MonoBehaviour {
-  private Status _status = Status.Connecting;
+public class RevexController : MonoBehaviour {
+  private DeviceStatus _status = DeviceStatus.Connecting;
   // --------------- Communication ---------------
   public Tranceiver tranceiver;
   private float _timeSinceLastPacketS = 0; // sec
@@ -39,24 +39,23 @@ public class Controller : MonoBehaviour {
 
   void Update() {
     switch (_status) {
-      case Status.Connecting:
+      case DeviceStatus.Connecting:
         if (tranceiver.TryEstablishConnection())
-          _status = Status.CalibrateShoulder;
+          _status = DeviceStatus.CalibrateShoulder;
         break;
-      case Status.CalibrateShoulder:
-        _status = Status.ArmEstimation; // TODO: Remove after final PSSC demo
+      case DeviceStatus.CalibrateShoulder:
         ShoulderCalibrate();
         break;
-      case Status.CalibrateArmLength:
+      case DeviceStatus.CalibrateArmLength:
         ArmLengthCalibrate();
         break;
-      case Status.ArmEstimation:
+      case DeviceStatus.ArmEstimation:
         if (!UpdateSensorData()) return;
         UpdateTransforms();
         tranceiver.SendHapticFeedback(GetHapticFeedback());
         break;
       default:
-        throw new Exception("Unknown case in Controller::Update");
+        throw new Exception($"Unknown case {_status}");
     }
   }
 
@@ -89,7 +88,7 @@ public class Controller : MonoBehaviour {
     if (userInDesiredPosition) {
       shoulderTf.position = new Vector3(
         controllerTf.position.x, controllerTf.position.y, headsetTf.position.z);
-      _status = Status.CalibrateArmLength;
+      _status = DeviceStatus.CalibrateArmLength;
     }
   }
 
@@ -115,7 +114,7 @@ public class Controller : MonoBehaviour {
     elbowTf.position = shoulderTf.position + new Vector3(upperArmLength, 0, 0);
     wristTf.position = elbowTf.position + new Vector3(forearmLength, 0, 0);
 
-    _status = Status.ArmEstimation;
+    _status = DeviceStatus.ArmEstimation;
   }
 
   private void UpdateTransforms() {

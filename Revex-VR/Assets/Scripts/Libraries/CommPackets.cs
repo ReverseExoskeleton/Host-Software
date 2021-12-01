@@ -37,9 +37,6 @@ public readonly struct SensorSample {
   // -------------------------------------------------
 
   public SensorSample(byte[] dataBuffer) {
-    Debug.Assert(dataBuffer.Length == NumBytes, 
-      $"SensorSample: Expected {NumBytes} but got {dataBuffer.Length}.");
-
     byte[] elbowAngBytes = new byte[ElbowAngNumBytes];
     byte[] imuBytes = new byte[ImuSampleNumBytes];
     System.Buffer.BlockCopy(dataBuffer, 0, elbowAngBytes, 0, ElbowAngNumBytes);

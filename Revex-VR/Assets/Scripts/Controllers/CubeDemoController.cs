@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MadgwickDemoController : MonoBehaviour {
+public class CubeDemoController : MonoBehaviour {
   // --------------- Communication ---------------
   bool connected = false;
   public Tranceiver tranceiver;
@@ -10,9 +10,8 @@ public class MadgwickDemoController : MonoBehaviour {
 
   // --------------- Arm Estimation ---------------
   public Madgwick fusion;
+  public Transform cubeTf;
 
-  // --------------- Scene ---------------
-  public CubeSimulation sim;
 
   void Start() {
     //tranceiver = new SerialReader();
@@ -47,7 +46,7 @@ public class MadgwickDemoController : MonoBehaviour {
   }
 
   private void UpdateTransforms() {
-    sim.SetCubeRotation(fusion.GetQuaternion());
+    cubeTf.rotation = fusion.GetQuaternion();
     Vector3 eulerAng = fusion.GetEulerAngles();
     Logger.Testing($"roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
   }
