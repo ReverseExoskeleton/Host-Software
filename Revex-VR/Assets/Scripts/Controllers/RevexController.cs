@@ -44,6 +44,7 @@ public class Controller : MonoBehaviour {
           _status = Status.CalibrateShoulder;
         break;
       case Status.CalibrateShoulder:
+        _status = Status.ArmEstimation; // TODO: Remove after final PSSC demo
         ShoulderCalibrate();
         break;
       case Status.CalibrateArmLength:
@@ -123,7 +124,7 @@ public class Controller : MonoBehaviour {
     Vector3 imuAng = fusion.GetEulerAngles();
     Logger.Testing($"IMU: roll={imuAng.z}, pitch={imuAng.x}, yaw={imuAng.y}");
     Vector3 shoulderAng = shoulderTf.eulerAngles;
-    Logger.Testing($@"IMU: roll={shoulderAng.z}, 
+    Logger.Testing($@"Shoulder: roll={shoulderAng.z}, 
                       pitch={shoulderAng.x}, yaw={shoulderAng.y}");
 
     elbowTf.localEulerAngles = new Vector3(elbowEma.Current(), 0, 0);

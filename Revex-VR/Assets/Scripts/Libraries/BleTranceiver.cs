@@ -122,11 +122,9 @@ public class BleTranceiver : Tranceiver {
   private readonly string _OkStatus = "Ok";
   private ConnectionStatus _status = ConnectionStatus.SearchingDevices;
   private Dictionary<string, CharacteristicInfo> _characteristics;
+  private CancellationTokenSource _readCts = new CancellationTokenSource();
   private ConcurrentQueue<SensorSample> _sampleQueue =
                                           new ConcurrentQueue<SensorSample>();
-  private CancellationTokenSource _readCts = new CancellationTokenSource();
-  private bool _readThreadKilled = false;
-
   public BleTranceiver() {
     _characteristics = new Dictionary<string, CharacteristicInfo>{
       {"sensor", new CharacteristicInfo(
@@ -135,7 +133,7 @@ public class BleTranceiver : Tranceiver {
                         hapticCharacteristicId, shouldSubscribe: false) },
     };
 
-    new Thread(ReadWorker).Start();
+    Thread readThread = new Thread(ReadWorker);
   }
 
   public override bool TryEstablishConnection() {
@@ -143,10 +141,7 @@ public class BleTranceiver : Tranceiver {
     switch (_status) {
       case ConnectionStatus.SearchingDevices:
         if (ConnectToDevice())
-          // TODO: If time allows, try to find out why we get stuck in
-          //       State.PROCESSING for service/charac scanning.
-          //_status = ConnectionStatus.SearchingServices;
-          _status = ConnectionStatus.Subscribing;
+          _status = ConnectionStatus.SearchingServices;
         break;
       case ConnectionStatus.SearchingServices:
         if (ConnectToService())
@@ -171,10 +166,9 @@ public class BleTranceiver : Tranceiver {
 
   public override void CloseConnection() {
     _readCts.Cancel();
-    Thread.Sleep(1000); // 1 sec
-    Debug.Assert(_readThreadKilled);
     Impl.Quit();
-    Logger.Debug("We just closed BLE");
+    Logger.Testing("We just closed BLE");
+    Thread.Sleep(1000); // 1 sec
     _readCts.Dispose();
   }
 
@@ -198,7 +192,7 @@ public class BleTranceiver : Tranceiver {
       if (GetStatus() != _OkStatus || !res) {
         throw new BleException($"Ble.SendData failed: {GetStatus()}.");
       }
-      Logger.Debug($"Sent haptic feedback packet.");
+      Logger.Testing($"Sent haptic feedback packet.");
     }).Start();
   }
 
@@ -211,7 +205,7 @@ public class BleTranceiver : Tranceiver {
     do {
       status = Impl.PollDevice(ref device, block: false);
       if (device.id == revexDeviceId) {
-        Logger.Debug($"Connecting to revex device with id {device.id}");
+        Logger.Testing($"Connecting to revex device with id {device.id}");
         revexDeviceFound = true;
         Impl.StopDeviceScan();
       }
@@ -234,7 +228,7 @@ public class BleTranceiver : Tranceiver {
     Impl.ScanServices(revexDeviceId);
     do {
       status = Impl.PollService(out service, block: false);
-      if (service.uuid != "") Logger.Debug($"Revex service = {service.uuid}");
+      if (service.uuid != "") Logger.Testing($"Revex service = {service.uuid}");
       if (service.uuid == revexServiceId) {
         revexServiceFound = true;
       }
@@ -250,17 +244,17 @@ public class BleTranceiver : Tranceiver {
   }
 
   private bool ConnectToCharacteristic() {
+    Impl.Characteristic characteristic = new Impl.Characteristic();
     Impl.ScanStatus status;
 
     Impl.ScanCharacteristics(revexDeviceId, revexServiceId);
     foreach (KeyValuePair<string, CharacteristicInfo> characteristicInfo 
                                                       in _characteristics) {
-      Impl.Characteristic characteristic = new Impl.Characteristic();
       bool sensorCharacteristicFound = false;
       do {
         status = Impl.PollCharacteristic(out characteristic, block: false);
         if (characteristic.uuid != "") 
-          Logger.Debug($"Revex characteristic = {characteristic.uuid}");
+          Logger.Testing($"Revex characteristic = {characteristic.uuid}");
         if (characteristic.uuid == characteristicInfo.Value.Id) {
           sensorCharacteristicFound = true;
         }
@@ -286,6 +280,7 @@ public class BleTranceiver : Tranceiver {
       if (!characteristic.ShouldSubscribe) continue;
 
       new Thread(() => {
+        Logger.Testing($"Trying to subscribe to char {characteristic.Id}");
         bool res = Impl.SubscribeCharacteristic(revexDeviceId, 
                                                 revexServiceId,
                                                 characteristic.Id,
@@ -313,14 +308,15 @@ public class BleTranceiver : Tranceiver {
         if (GetStatus() != _OkStatus) {
           throw new BleException($"Ble.PollData failed: {GetStatus()}.");
         }
-        byte[] received = new byte[receivedData.size];
-        System.Buffer.BlockCopy(receivedData.buf, 0, received,
-                                0, receivedData.size);
-        _sampleQueue.Enqueue(new SensorSample(received));
+        if (receivedData.size != SensorSample.NumBytes) {
+          throw new InvalidSensorPacketException($@"Sensor packet contained 
+             {receivedData.size} bytes. Expected {SensorSample.NumBytes}.");
+        }
+        Logger.Testing($"Received sensor packet.");
+        _sampleQueue.Enqueue(new SensorSample(receivedData.buf));
       }
       Thread.Sleep(90); // ms
     }
-    _readThreadKilled = true;
   }
 
   private static string GetStatus() {

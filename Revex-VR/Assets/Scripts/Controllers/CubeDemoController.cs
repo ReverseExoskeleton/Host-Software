@@ -10,7 +10,9 @@ public class MadgwickDemoController : MonoBehaviour {
 
   // --------------- Arm Estimation ---------------
   public Madgwick fusion;
-  public Transform cubeTf;
+
+  // --------------- Scene ---------------
+  public CubeSimulation sim;
 
   void Start() {
     //tranceiver = new SerialReader();
@@ -45,7 +47,7 @@ public class MadgwickDemoController : MonoBehaviour {
   }
 
   private void UpdateTransforms() {
-    cubeTf.rotation = fusion.GetQuaternion();
+    sim.SetCubeRotation(fusion.GetQuaternion());
     Vector3 eulerAng = fusion.GetEulerAngles();
     Logger.Testing($"roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
   }
