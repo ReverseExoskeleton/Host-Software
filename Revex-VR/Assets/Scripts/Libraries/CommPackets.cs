@@ -16,9 +16,9 @@ public readonly struct SensorSample {
 
   // --------------- Elbow Angle Calculation --------------- 
   private const float _ElbowMinDeg = 20;
-  private const float _ElbowMinAdc = 0;
+  private const float _ElbowMinAdc = 1190;
   private const float _ElbowMaxDeg = 180;
-  private const float _ElbowMaxAdc = 0;
+  private const float _ElbowMaxAdc = 3095;
   private const float _ElbowEqnSlope = (_ElbowMaxDeg - _ElbowMinDeg) /
                                        (_ElbowMaxAdc - _ElbowMinAdc);
   private const float _ElbowEqnIntcpt = _ElbowMaxDeg - 
@@ -52,6 +52,7 @@ public readonly struct SensorSample {
 
   private static float GetElbowAngleFromBuffer(byte[] dataBuffer) {
     float elbowAdc = GetFloatFromTwoBytes(dataBuffer, offset: 0);
+    Logger.Debug($"Elbow ADC value = {elbowAdc}");
     return (elbowAdc * _ElbowEqnSlope) + _ElbowEqnIntcpt;
   }
 

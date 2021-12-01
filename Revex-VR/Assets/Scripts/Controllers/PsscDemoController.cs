@@ -15,8 +15,7 @@ public class PsscDemoController : MonoBehaviour {
   private PsscSimulation _sim;
 
   void Start() {
-    //_sim = gameObject.AddComponent<PsscSimulation>() as PsscSimulation;
-    //tranceiver = new SerialReader();
+    _sim = GameObject.Find("Demo_Objects").GetComponent<PsscSimulation>();
     tranceiver = new BleTranceiver();
     fusion = new Madgwick();
   }

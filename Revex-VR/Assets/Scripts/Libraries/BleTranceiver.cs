@@ -143,10 +143,10 @@ public class BleTranceiver : Tranceiver {
     switch (_status) {
       case ConnectionStatus.SearchingDevices:
         if (ConnectToDevice())
+          _status = ConnectionStatus.Subscribing;
           // TODO: If time allows, try to find out why we get stuck in
           //       State.PROCESSING for service/charac scanning.
           //_status = ConnectionStatus.SearchingServices;
-          _status = ConnectionStatus.Subscribing;
         break;
       case ConnectionStatus.SearchingServices:
         if (ConnectToService())
@@ -174,7 +174,7 @@ public class BleTranceiver : Tranceiver {
     Thread.Sleep(1000); // 1 sec
     Debug.Assert(_readThreadKilled);
     Impl.Quit();
-    Logger.Debug("We just closed BLE");
+    Logger.Debug("Closed BLE services.");
     _readCts.Dispose();
   }
 
