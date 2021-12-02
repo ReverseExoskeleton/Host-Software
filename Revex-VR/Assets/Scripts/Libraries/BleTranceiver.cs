@@ -329,11 +329,11 @@ public class BleTranceiver : Tranceiver {
 
   private void ReadWorker() {
     while (!_readCts.IsCancellationRequested) {
-      if (Impl.PollData(out Impl.BLEData receivedData, block: false)) {
+      while (Impl.PollData(out Impl.BLEData receivedData, block: false)) {
+        Logger.Debug($"Received packet bytes = {BitConverter.ToString(receivedData.buf)}");
         if (GetStatus() != _OkStatus) {
           throw new BleException($"Ble.PollData failed: {GetStatus()}.");
         }
-        Logger.Debug($"Successfully received rx packet.");
 
         switch (receivedData.size) {
           case SensorSample.NumBytes:

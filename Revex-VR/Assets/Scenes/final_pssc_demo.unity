@@ -121,9 +121,9 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &207793568 stripped
+--- !u!4 &231760336 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6064780467616234252, guid: 626286409b7e65a4192e98905d5514e3,
+  m_CorrespondingSourceObject: {fileID: 5616347138274069733, guid: 626286409b7e65a4192e98905d5514e3,
     type: 3}
   m_PrefabInstance: {fileID: 6021432076786566570}
   m_PrefabAsset: {fileID: 0}
@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980a20e61b6d4e64785e702d8b928716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useBleTranceiver: 1
 --- !u!4 &1248127914
 Transform:
   m_ObjectHideFlags: 0
@@ -449,7 +450,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shoulderTf
       value: 
-      objectReference: {fileID: 207793568}
+      objectReference: {fileID: 231760336}
     - target: {fileID: 7783439288315952573, guid: 626286409b7e65a4192e98905d5514e3,
         type: 3}
       propertyPath: m_Name

@@ -13,9 +13,18 @@ public class PsscSimulation : MonoBehaviour {
   protected Transform shoulderTf;
   [SerializeField]
   protected Transform imuTf;
+  [SerializeField]
+  protected Slider freqSlider;
+  [SerializeField]
+  protected Slider dutySlider;
+  [SerializeField]
+  protected Text freqText;
+  [SerializeField]
+  protected Text dutyText;
 
   private void Start() {
     DisplayElbowAngle(40f); // Display to 40 degrees on start
+    DisplayStatus(PsscDeviceStatus.Connecting);
   }
 
   public void DisplayStatus(PsscDeviceStatus status) {
@@ -39,7 +48,7 @@ public class PsscSimulation : MonoBehaviour {
 
   public void DisplayElbowAngle(float angle) {
     angleText.text = angle.ToString() + "°";
-    elbowTf.localRotation = Quaternion.Euler(0f, 0f, angle);
+    elbowTf.localRotation = Quaternion.Euler(0f, 0f, 180 - angle);
   }
 
   public void DisplayIMUQuat(Quaternion imuRotation) {
@@ -47,6 +56,11 @@ public class PsscSimulation : MonoBehaviour {
   }
 
   public HapticFeedbackPercents GetHapticDutyCycleAndFreq() {
-    return new HapticFeedbackPercents(dutyCycle: 0, frequency: 0);
+    return new HapticFeedbackPercents(dutyCycle: dutySlider.value, frequency: freqSlider.value);
+  }
+
+  public void DisplayHapticFeedbackValues(int frequency, int dutyCycle) {
+    freqText.text = frequency.ToString() + " Hz";
+    dutyText.text = dutyCycle.ToString() + " %";
   }
 }

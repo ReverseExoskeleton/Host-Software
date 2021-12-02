@@ -15,6 +15,7 @@ public class PsscDemoController : MonoBehaviour {
 
   // --------------- Communication ---------------
   public Tranceiver tranceiver;
+  public bool useBleTranceiver = true;
   private float _timeSinceLastPacketS = 0; // sec
 
   // --------------- Arm Estimation ---------------
@@ -24,7 +25,11 @@ public class PsscDemoController : MonoBehaviour {
 
   void Start() {
     _sim = GameObject.Find("Demo_Objects").GetComponent<PsscSimulation>();
-    tranceiver = new BleTranceiver();
+    if (useBleTranceiver) {
+      tranceiver = new BleTranceiver();
+    } else {
+      tranceiver = new SerialReader();
+    }
     fusion = new Madgwick();
   }
 
@@ -83,8 +88,12 @@ public class PsscDemoController : MonoBehaviour {
   }
 
   private HapticFeedback GetHapticFeedback() {
-    HapticFeedbackPercents feedback = _sim.GetHapticDutyCycleAndFreq();
-    return new HapticFeedback(feedback.DutyCycle, feedback.Frequency);
+    HapticFeedbackPercents prcnt = _sim.GetHapticDutyCycleAndFreq();
+    HapticFeedback feedback = new HapticFeedback(prcnt.DutyCycle, 
+                                                 prcnt.Frequency);
+    _sim.DisplayHapticFeedbackValues(feedback.Frequency,
+                                     feedback.DutyCycle);
+    return feedback;
   }
 
   private void OnApplicationQuit() {

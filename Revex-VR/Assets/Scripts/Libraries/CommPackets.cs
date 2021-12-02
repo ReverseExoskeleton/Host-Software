@@ -15,10 +15,10 @@ public readonly struct SensorSample {
   public const int NumBytes = ImuSampleNumBytes + ElbowAngNumBytes;
 
   // --------------- Elbow Angle Calculation --------------- 
-  private const float _ElbowMinDeg = 20;
-  private const float _ElbowMinAdc = 1190;
+  private const float _ElbowMinDeg = 25;
+  private const float _ElbowMinAdc = 1194;
   private const float _ElbowMaxDeg = 180;
-  private const float _ElbowMaxAdc = 3095;
+  private const float _ElbowMaxAdc = 2594;
   private const float _ElbowEqnSlope = (_ElbowMaxDeg - _ElbowMinDeg) /
                                        (_ElbowMaxAdc - _ElbowMinAdc);
   private const float _ElbowEqnIntcpt = _ElbowMaxDeg - 
@@ -31,7 +31,7 @@ public readonly struct SensorSample {
   public const float MagScale = 1 / 0.15f; // LSB / uT
   // Arduino Library default setting gpm2 (ICM_20948_ACCEL_CONFIG_FS_SEL_e): https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary/blob/74d9c1e4103d2ca11d1645489108a152095d15e7/src/ICM_20948.cpp#L887
   public const float AccelScale = 16.384f; // LSB / mg   <-- gravity g's not grams
-  public const float AccelScaleG = 16384f; // LSB / g   <-- gravity g's not grams
+  public const float AccelScaleG = AccelScale * 1000; // LSB / g   <-- gravity g's not grams
   // Arduino Library default setting dps250 (ICM_20948_GYRO_CONFIG_1_FS_SEL_e): https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary/blob/74d9c1e4103d2ca11d1645489108a152095d15e7/src/ICM_20948.cpp#L888
   public const float GyroScale = 131f; // LSB / dps
   // -------------------------------------------------
@@ -55,6 +55,12 @@ public readonly struct SensorSample {
 
   private static float GetFloatFromTwoBytes(byte[] dataBuffer, int offset) {
     Debug.Assert(offset >= 0 && offset <= dataBuffer.Length - 2);
+
+    // Use Big Endian
+    byte msb = dataBuffer[offset + 1];
+    dataBuffer[offset + 1] = dataBuffer[offset];
+    dataBuffer[offset] = msb;
+
     short rawInt = BitConverter.ToInt16(dataBuffer, offset);
     return rawInt;
   }
@@ -86,22 +92,26 @@ public readonly struct SensorSample {
         float curFloat = GetFloatFromTwoBytes(dataBuffer, offset: i);
 
         if (i < _NumBytes / 3) {
+          Logger.Debug($"gyro int {i} = {curFloat}");
           dataArray[i / 2] = curFloat / GyroScale;
         } else if (_NumBytes / 3 <= i && i < 2 * _NumBytes / 3) {
+          Logger.Debug($"accel int {i} = {curFloat}");
           dataArray[i / 2] = curFloat / AccelScale;
         } else if (2 * _NumBytes / 3 <= i && i < _NumBytes) {
+          Logger.Debug($"mag int {i} = {curFloat}");
           dataArray[i / 2] = curFloat / MagScale;
         } else {
           throw new Exception("Packet range calculations were wrong. Oops.");
         }
       }
-      Logger.Debug($"Data array recovered = { String.Join(", ", dataArray) }");
       return dataArray;
     }
   }
 }
 
 public readonly struct HapticFeedback {
+  public int Frequency { get; }
+  public int DutyCycle { get; }
   public byte Payload { get; }
 
   private const int _DutyCycleBits = 5;
@@ -114,6 +124,9 @@ public readonly struct HapticFeedback {
     int frequency = (int)Math.Round(frequencyPercent * _FrequencyRes);
 
     Payload = (byte)((dutyCycle << _FrequencyBits) + frequency);
+
+    Frequency = (int)(frequency * (15f / 8) + 10);
+    DutyCycle = (int)(dutyCycle * (100f / 32));
   }
 }
 
