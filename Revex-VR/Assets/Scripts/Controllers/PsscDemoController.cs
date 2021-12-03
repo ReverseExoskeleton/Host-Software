@@ -22,10 +22,15 @@ public class PsscDemoController : MonoBehaviour {
   // --------------- Arm Estimation ---------------
   public Madgwick fusion;
   public MovingAvg elbowEma = new MovingAvg();
+  private Quaternion _ShoulderToImu;
   private Quaternion _bias = Quaternion.identity;
 
   void Start() {
     _sim = GameObject.Find("Demo_Objects").GetComponent<PsscSimulation>();
+    _ShoulderToImu = Quaternion.RotateTowards(_sim.shoulderTf.rotation,
+                                              _sim.imuTf.rotation,
+                                              float.MaxValue);
+
     if (useBleTranceiver) {
       tranceiver = new BleTranceiver();
     } else {
@@ -74,7 +79,7 @@ public class PsscDemoController : MonoBehaviour {
 
     List<SensorSample> samples = new List<SensorSample>();
     if (tranceiver?.TryGetSensorData(out samples) == false) return false;
-    Debug.Log("After try get sensor data");
+    Debug.Log("After try get sensor data");_sim.imuTf.localRotation
     float samplePeriod = _timeSinceLastPacketS / samples.Count;
     _timeSinceLastPacketS = 0;
 
@@ -94,19 +99,20 @@ public class PsscDemoController : MonoBehaviour {
     Logger.Warning("Calibrating");
 
     Quaternion desiredShoulderTf = Quaternion.Euler(0, 0, -90);
-    //Quaternion desiredImuTf = desiredShoulderTf * _sim.imuTf.localRotation;
+    Quaternion desiredImuTf = desiredShoulderTf * _ShoulderToImu;
     // bias += desired - actual
-    _bias = Quaternion.RotateTowards(fusion.GetQuaternion(), desiredShoulderTf, float.MaxValue);
+    _bias *= desiredImuTf * Quaternion.Inverse(fusion.GetQuaternion());
 
-    //_bias *= desiredShoulderTf * Quaternion.Inverse(fusion.GetQuaternion());
+    // ------ Matthew ------
+    // _bias = Quaternion.RotateTowards(fusion.GetQuaternion(), desiredShoulderTf, float.MaxValue);
+    // ---------------------
   }
 
   private void UpdateTransforms() {
     _sim.DisplayIMUQuat(
         fusion.GetQuaternion() *
-        _bias);
-        //_bias * 
-        //Quaternion.Inverse(_sim.imuTf.localRotation));
+        _bias *
+        Quaternion.Inverse(_ShoulderToImu));
     _sim.DisplayElbowAngle(elbowEma.Current());
   }
 
