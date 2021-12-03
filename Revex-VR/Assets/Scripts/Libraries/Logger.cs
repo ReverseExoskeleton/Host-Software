@@ -4,7 +4,7 @@
 
 public static class Logger {
   private static bool _EnableDebug = true;
-  private static bool _EnableTest = false;
+  private static bool _EnableTest = true;
   private static bool _EnableWarn = true;
   private static bool _EnableError = true;
 

@@ -6,6 +6,8 @@ using System.Threading;
 using UnityEngine;
 
 public class BleTranceiver : Tranceiver {
+  // This class and the corresponding DLL were taken from adabru's
+  // DLL for the UWP BLE API (See https://github.com/adabru/BleWinrtDll)
   public class Impl {
     public enum ScanStatus { PROCESSING, AVAILABLE, FINISHED };
 
@@ -100,6 +102,7 @@ public class BleTranceiver : Tranceiver {
     SearchingCharacteristics,
     Subscribing,
     CheckingSubscribeAttempts,
+    CheckingForAwake,
   }
 
   public class CharacteristicInfo {
@@ -131,8 +134,9 @@ public class BleTranceiver : Tranceiver {
   private CancellationTokenSource _readCts = new CancellationTokenSource();
   private bool _readThreadKilled = false;
 
-  private const int _sleepStatusPacketNumBytes = 1;
-  private bool _sleepStatusPacketReceived = false;
+  private const int _SleepStatusPacketNumBytes = 1;
+  private const byte _AwakeVal = 1;
+  private bool _deviceIsAwake = true; //false; TODO!!!!!!!!!!!!!!!!!
 
   public BleTranceiver() {
     _characteristics = new Dictionary<string, CharacteristicInfo>{
@@ -142,8 +146,8 @@ public class BleTranceiver : Tranceiver {
       {"haptic", new CharacteristicInfo(
             hapticCharacteristicId, shouldSubscribe: false, expectedSize: 0) },
       {"sleepStatus", new CharacteristicInfo(sleepCharacteristicId,
-                                   shouldSubscribe: false, // TODO: Update this once we add sleep characteristic
-                                   expectedSize: _sleepStatusPacketNumBytes) },
+                                   shouldSubscribe: false,//true,  TODO!!!!!!!!!!!!!!!!!
+                                   expectedSize: _SleepStatusPacketNumBytes) },
     };
 
     new Thread(ReadWorker).Start();
@@ -151,13 +155,14 @@ public class BleTranceiver : Tranceiver {
 
   public override bool TryEstablishConnection() {
     // TODO(Issue 1): Catch and try to recover from thrown exceptions
+    bool connectionEstablished = false;
     switch (_status) {
       case ConnectionStatus.SearchingDevices:
         if (ConnectToDevice())
           _status = ConnectionStatus.Subscribing;
-          // TODO: If time allows, try to find out why we get stuck in
-          //       State.PROCESSING for service/charac scanning.
-          //_status = ConnectionStatus.SearchingServices;
+        // TODO: If time allows, try to find out why we get stuck in
+        //       State.PROCESSING for service/charac scanning.
+        //_status = ConnectionStatus.SearchingServices;
         break;
       case ConnectionStatus.SearchingServices:
         if (ConnectToService())
@@ -172,12 +177,20 @@ public class BleTranceiver : Tranceiver {
         _status = ConnectionStatus.CheckingSubscribeAttempts;
         break;
       case ConnectionStatus.CheckingSubscribeAttempts:
-        return CheckSubscribeStatus();
+        // TODO: remove and replace with below !!!!!!!!!!!!!!!!!!!!!!
+        connectionEstablished = CheckSubscribeStatus();
+        break;
+      //  if (CheckSubscribeStatus())
+      //    _status = ConnectionStatus.CheckingForAwake;
+      //  break;
+      //case ConnectionStatus.CheckingForAwake:
+      //  connectionEstablished = DeviceIsAwake();
+      //  break;
       default:
         throw new Exception(
             "Unknown case in BleTranceiver::TryEstablishConnection");
     }
-    return false;
+    return connectionEstablished;
   }
 
   public override void CloseConnection() {
@@ -195,12 +208,8 @@ public class BleTranceiver : Tranceiver {
     return samples.Count > 0;
   }
 
-  public override bool WasSleepStatusChanged() {
-    if (_sleepStatusPacketReceived) {
-      _sleepStatusPacketReceived = false;
-      return true;
-    }
-    return false;
+  public override bool DeviceIsAwake() {
+    return _deviceIsAwake;
   }
 
   public override void SendHapticFeedback(HapticFeedback feedback) {
@@ -310,11 +319,14 @@ public class BleTranceiver : Tranceiver {
                                                 characteristic.Id,
                                                 block: true);
         if (GetStatus() != _OkStatus || !res) {
-          throw new BleException($@"Ble.SubscribeCharacteristic failed: 
-                                    {GetStatus()}.");
+          _status = ConnectionStatus.SearchingDevices;
+          Logger.Error($"Ble.SubscribeCharacteristic failed: {GetStatus()}");
+          //throw new BleException($@"Ble.SubscribeCharacteristic failed: 
+          //                          {GetStatus()}.");
+        } else {
+          characteristic.Subscribed = true;
+          Logger.Debug($"Successfully subscribed to characteristic.");
         }
-        characteristic.Subscribed = true;
-        Logger.Debug($"Successfully subscribed to characteristic.");
       }).Start();
     }
   }
@@ -342,12 +354,12 @@ public class BleTranceiver : Tranceiver {
                                           0, receivedData.size);
             _sampleQueue.Enqueue(new SensorSample(sampleBuffer));
             break;
-          case _sleepStatusPacketNumBytes:
-            _sleepStatusPacketReceived = true;
+          case _SleepStatusPacketNumBytes:
+            _deviceIsAwake = receivedData.buf[0] == _AwakeVal;
             break;
           default:
-            throw new InvalidRxPacket(
-                $"Unknown rx packet with size {receivedData.size}.");
+            Logger.Warning($"Unknown rx packet with size {receivedData.size}.");
+            break;
         }
       }
       Thread.Sleep(90); // ms

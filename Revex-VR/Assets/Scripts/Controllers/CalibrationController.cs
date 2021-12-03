@@ -5,6 +5,7 @@ class CalibrationController : MonoBehaviour {
   // --------------- Communication ---------------
   public Tranceiver tranceiver;
   bool connected = false;
+  public bool useBleTranceiver = true;
 
   // --------------- Magnetometer Calibration ---------------
   private Vector3 _min = Vector3.positiveInfinity;
@@ -12,7 +13,11 @@ class CalibrationController : MonoBehaviour {
 
 
   void Start() {
-    tranceiver = new SerialReader();
+    if (useBleTranceiver) {
+      tranceiver = new BleTranceiver();
+    } else {
+      tranceiver = new SerialReader();
+    }
   }
 
   void Update() {

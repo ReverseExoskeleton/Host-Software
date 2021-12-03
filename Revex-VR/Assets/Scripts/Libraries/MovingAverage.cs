@@ -1,7 +1,7 @@
 ﻿public class MovingAvg {
   private float _alpha;
   private float _state;
-  public MovingAvg(float alpha = 0.8F) {
+  public MovingAvg(float alpha = 1.0F) {
     _alpha = alpha; 
     _state = 0;
   }

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PsscDeviceStatus {
-  Asleep,
   Connecting,
   ArmEstimation,
+  Asleep,
 }
 
 public class PsscDemoController : MonoBehaviour {
   // --------------- Scene ---------------
   private PsscDeviceStatus _status = PsscDeviceStatus.Connecting;
+  private HapticFeedback _prevHapticFeedback = new HapticFeedback(-1, -1);
   private PsscSimulation _sim;
 
   // --------------- Communication ---------------
@@ -21,7 +22,7 @@ public class PsscDemoController : MonoBehaviour {
   // --------------- Arm Estimation ---------------
   public Madgwick fusion;
   public MovingAvg elbowEma = new MovingAvg();
-
+  private Quaternion _bias = Quaternion.identity;
 
   void Start() {
     _sim = GameObject.Find("Demo_Objects").GetComponent<PsscSimulation>();
@@ -37,7 +38,7 @@ public class PsscDemoController : MonoBehaviour {
     PsscDeviceStatus initialStatus = _status;
     switch (_status) {
       case PsscDeviceStatus.Asleep:
-        if (tranceiver.WasSleepStatusChanged()) 
+        if (tranceiver?.DeviceIsAwake() == true) 
           _status = PsscDeviceStatus.ArmEstimation;
         break;
       case PsscDeviceStatus.Connecting:
@@ -45,15 +46,20 @@ public class PsscDemoController : MonoBehaviour {
           _status = PsscDeviceStatus.ArmEstimation;
         break;
       case PsscDeviceStatus.ArmEstimation:
-        if (tranceiver.WasSleepStatusChanged()) {
+        if (tranceiver?.DeviceIsAwake() == false) {
           _status = PsscDeviceStatus.Asleep;
           _timeSinceLastPacketS = 0;
           break;
         }
 
         if (!UpdateSensorData()) return;
+        Recalibrate();
         UpdateTransforms();
-        tranceiver?.SendHapticFeedback(GetHapticFeedback());
+        HapticFeedback feedback = GetHapticFeedback();
+        if (feedback != _prevHapticFeedback) {
+          tranceiver?.SendHapticFeedback(feedback);
+          _prevHapticFeedback = feedback;
+        }
         break;
       default:
         throw new Exception($"Unknown case {_status}.");
@@ -82,8 +88,25 @@ public class PsscDemoController : MonoBehaviour {
     return true;
   }
 
+  private void Recalibrate() {
+    bool shouldRecalibrate = Input.GetKeyDown(KeyCode.C);
+    if (!shouldRecalibrate) return;
+    Logger.Warning("Calibrating");
+
+    Quaternion desiredShoulderTf = Quaternion.Euler(0, 0, -90);
+    //Quaternion desiredImuTf = desiredShoulderTf * _sim.imuTf.localRotation;
+    // bias += desired - actual
+    _bias = Quaternion.RotateTowards(fusion.GetQuaternion(), desiredShoulderTf, float.MaxValue);
+
+    //_bias *= desiredShoulderTf * Quaternion.Inverse(fusion.GetQuaternion());
+  }
+
   private void UpdateTransforms() {
-    _sim.DisplayIMUQuat(fusion.GetQuaternion());
+    _sim.DisplayIMUQuat(
+        fusion.GetQuaternion() *
+        _bias);
+        //_bias * 
+        //Quaternion.Inverse(_sim.imuTf.localRotation));
     _sim.DisplayElbowAngle(elbowEma.Current());
   }
 

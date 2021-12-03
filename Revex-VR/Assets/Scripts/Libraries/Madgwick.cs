@@ -5,7 +5,9 @@ using System.ComponentModel;
 using UnityEngine;
 
 public class Madgwick {
-  // dll api
+  // The source code that this DLL was generated from was adaapted from
+  // the official Madgwick filter implementation (See
+  // https://github.com/xioTechnologies/Fusion)
   public class Impl {
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
     public struct FusionVector3 {
@@ -195,10 +197,12 @@ public class Madgwick {
     _GyroSens = new Impl.FusionVector3(1 / SensorSample.GyroScale); // dps/LSB
   private readonly Impl.FusionVector3
     _AccelSens = new Impl.FusionVector3(1 / SensorSample.AccelScaleG); // g/LSB
-  private readonly Impl.FusionVector3
-    _HardIronBias = new Impl.FusionVector3(-43.2f, 27.75f, 27.75f); // uT
   //private readonly Impl.FusionVector3
-  //  _HardIronBias = new Impl.FusionVector3(100, 0, 0); // uT
+  //  _HardIronBias = new Impl.FusionVector3(-43.2f, 27.75f, 27.75f); // uT
+  //private readonly Impl.FusionVector3
+  //  _HardIronBias = new Impl.FusionVector3(-28.725f, 10.65f, 10.65f); // ut
+  private readonly Impl.FusionVector3
+    _HardIronBias = new Impl.FusionVector3(100, 0, 0); // purposefully disable mag correction  
 
   private const float _DesiredSamplePeriod = 0.01F; // sec
   private const float _StationaryThreshold = 8f; // dps

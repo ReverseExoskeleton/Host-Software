@@ -8,11 +8,11 @@ public class PsscSimulation : MonoBehaviour {
   [SerializeField]
   protected Text angleText;
   [SerializeField]
-  protected Transform elbowTf;
+  public Transform elbowTf;
   [SerializeField]
-  protected Transform shoulderTf;
+  public Transform shoulderTf;
   [SerializeField]
-  protected Transform imuTf;
+  public Transform imuTf;
   [SerializeField]
   protected Slider freqSlider;
   [SerializeField]
@@ -47,12 +47,12 @@ public class PsscSimulation : MonoBehaviour {
   }
 
   public void DisplayElbowAngle(float angle) {
-    angleText.text = angle.ToString() + "°";
+    angleText.text = angle.ToString("0") + "°";
     elbowTf.localRotation = Quaternion.Euler(0f, 0f, 180 - angle);
   }
 
-  public void DisplayIMUQuat(Quaternion imuRotation) {
-    shoulderTf.rotation = imuRotation * Quaternion.Inverse(imuTf.localRotation);
+  public void DisplayIMUQuat(Quaternion rotation) {
+    shoulderTf.rotation = rotation;
   }
 
   public HapticFeedbackPercents GetHapticDutyCycleAndFreq() {
