@@ -24,7 +24,7 @@ public class PsscSimulation : MonoBehaviour {
 
   private void Start() {
     DisplayElbowAngle(40f); // Display to 40 degrees on start
-    DisplayStatus(PsscDeviceStatus.Connecting);
+    DisplayStatus(PsscDeviceStatus.Asleep);
   }
 
   public void DisplayStatus(PsscDeviceStatus status) {

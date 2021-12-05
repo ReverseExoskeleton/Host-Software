@@ -131,12 +131,17 @@ public class BleTranceiver : Tranceiver {
   private Dictionary<string, CharacteristicInfo> _characteristics;
   private ConcurrentQueue<SensorSample> _sampleQueue =
                                           new ConcurrentQueue<SensorSample>();
+
+  private const uint _ReadWorkerSleepMs = 95;
+  private const uint _MaxSecondsBeforeSleep = 1;
+  private const uint _MaxMissedPacketsBeforeSleep = (uint)((float)
+                          _MaxSecondsBeforeSleep * 1000 / _ReadWorkerSleepMs);
+  private bool _deviceIsAwake = false;
+  private bool _finishedSubscribing = false;
+  private int _numMissedPackets = 0;
   private CancellationTokenSource _readCts = new CancellationTokenSource();
   private bool _readThreadKilled = false;
 
-  private const int _SleepStatusPacketNumBytes = 1;
-  private const byte _AwakeVal = 1;
-  private bool _deviceIsAwake = true; //false; TODO!!!!!!!!!!!!!!!!!
 
   public BleTranceiver() {
     _characteristics = new Dictionary<string, CharacteristicInfo>{
@@ -145,9 +150,6 @@ public class BleTranceiver : Tranceiver {
                                         expectedSize: SensorSample.NumBytes) },
       {"haptic", new CharacteristicInfo(
             hapticCharacteristicId, shouldSubscribe: false, expectedSize: 0) },
-      {"sleepStatus", new CharacteristicInfo(sleepCharacteristicId,
-                                   shouldSubscribe: false,//true,  TODO!!!!!!!!!!!!!!!!!
-                                   expectedSize: _SleepStatusPacketNumBytes) },
     };
 
     new Thread(ReadWorker).Start();
@@ -155,7 +157,6 @@ public class BleTranceiver : Tranceiver {
 
   public override bool TryEstablishConnection() {
     // TODO(Issue 1): Catch and try to recover from thrown exceptions
-    bool connectionEstablished = false;
     switch (_status) {
       case ConnectionStatus.SearchingDevices:
         if (ConnectToDevice())
@@ -177,20 +178,13 @@ public class BleTranceiver : Tranceiver {
         _status = ConnectionStatus.CheckingSubscribeAttempts;
         break;
       case ConnectionStatus.CheckingSubscribeAttempts:
-        // TODO: remove and replace with below !!!!!!!!!!!!!!!!!!!!!!
-        connectionEstablished = CheckSubscribeStatus();
+        _finishedSubscribing = CheckSubscribeStatus();
         break;
-      //  if (CheckSubscribeStatus())
-      //    _status = ConnectionStatus.CheckingForAwake;
-      //  break;
-      //case ConnectionStatus.CheckingForAwake:
-      //  connectionEstablished = DeviceIsAwake();
-      //  break;
       default:
         throw new Exception(
             "Unknown case in BleTranceiver::TryEstablishConnection");
     }
-    return connectionEstablished;
+    return _finishedSubscribing;
   }
 
   public override void CloseConnection() {
@@ -208,7 +202,8 @@ public class BleTranceiver : Tranceiver {
     return samples.Count > 0;
   }
 
-  public override bool DeviceIsAwake() {
+  public override bool DeviceIsAwake(bool forceDeviceSearch) {
+    if (forceDeviceSearch) ConnectToDevice();
     return _deviceIsAwake;
   }
 
@@ -238,7 +233,7 @@ public class BleTranceiver : Tranceiver {
     Impl.StartDeviceScan();
     do {
       status = Impl.PollDevice(ref device, block: false);
-      if (device.id == revexDeviceId) {
+      if (device.id == revexDeviceId && device.isConnectable) {
         Logger.Debug($"Connecting to revex device with id {device.id}");
         revexDeviceFound = true;
         Impl.StopDeviceScan();
@@ -251,6 +246,7 @@ public class BleTranceiver : Tranceiver {
       throw new NotFoundException(@"Device scan finished.
                                     Unable to find RevEx device.");
     }
+    _deviceIsAwake = revexDeviceFound;
     return revexDeviceFound;
   }
 
@@ -310,21 +306,22 @@ public class BleTranceiver : Tranceiver {
   }
 
   private void Subscribe() {
-    foreach (CharacteristicInfo characteristic in _characteristics.Values) {
-      if (!characteristic.ShouldSubscribe) continue;
+    Logger.Debug("Subscribing to characteristics");
+    foreach (KeyValuePair<string, CharacteristicInfo> characteristic
+                                                      in _characteristics) {
+      if (!characteristic.Value.ShouldSubscribe) continue;
 
       new Thread(() => {
         bool res = Impl.SubscribeCharacteristic(revexDeviceId,
                                                 revexServiceId,
-                                                characteristic.Id,
+                                                characteristic.Value.Id,
                                                 block: true);
         if (GetStatus() != _OkStatus || !res) {
           _status = ConnectionStatus.SearchingDevices;
-          Logger.Error($"Ble.SubscribeCharacteristic failed: {GetStatus()}");
-          //throw new BleException($@"Ble.SubscribeCharacteristic failed: 
-          //                          {GetStatus()}.");
+          Logger.Error(
+           $"Ble.Subscribe failed. Subscribe returned {(res ? "Success" : "Fail")} with error '{GetStatus()}'");
         } else {
-          characteristic.Subscribed = true;
+          characteristic.Value.Subscribed = true;
           Logger.Debug($"Successfully subscribed to characteristic.");
         }
       }).Start();
@@ -341,7 +338,11 @@ public class BleTranceiver : Tranceiver {
 
   private void ReadWorker() {
     while (!_readCts.IsCancellationRequested) {
+      bool receivedPacket = false;
       while (Impl.PollData(out Impl.BLEData receivedData, block: false)) {
+        _deviceIsAwake = true;
+        receivedPacket = true;
+
         Logger.Debug($"Received packet bytes = {BitConverter.ToString(receivedData.buf)}");
         if (GetStatus() != _OkStatus) {
           throw new BleException($"Ble.PollData failed: {GetStatus()}.");
@@ -354,17 +355,32 @@ public class BleTranceiver : Tranceiver {
                                           0, receivedData.size);
             _sampleQueue.Enqueue(new SensorSample(sampleBuffer));
             break;
-          case _SleepStatusPacketNumBytes:
-            _deviceIsAwake = receivedData.buf[0] == _AwakeVal;
-            break;
           default:
             Logger.Warning($"Unknown rx packet with size {receivedData.size}.");
             break;
         }
       }
-      Thread.Sleep(90); // ms
+      Thread.Sleep(95); // ms
+      UpdateSleepStatus(receivedPacket);
     }
     _readThreadKilled = true;
+  }
+  
+  private void UpdateSleepStatus(bool recievedPacket) {
+    if (_finishedSubscribing) {
+      if (recievedPacket) {
+        _numMissedPackets = 0;
+      } else {
+        _numMissedPackets += 1;
+      }
+
+      if (_numMissedPackets > _MaxMissedPacketsBeforeSleep) {
+        _numMissedPackets = 0;
+        _finishedSubscribing = false;
+        _deviceIsAwake = false;
+        _status = ConnectionStatus.SearchingDevices;
+      }
+    }
   }
 
   private static string GetStatus() {

@@ -10,7 +10,7 @@ public enum PsscDeviceStatus {
 
 public class PsscDemoController : MonoBehaviour {
   // --------------- Scene ---------------
-  private PsscDeviceStatus _status = PsscDeviceStatus.Connecting;
+  private PsscDeviceStatus _status = PsscDeviceStatus.Asleep;
   private HapticFeedback _prevHapticFeedback = new HapticFeedback(-1, -1);
   private PsscSimulation _sim;
 
@@ -40,18 +40,20 @@ public class PsscDemoController : MonoBehaviour {
   }
 
   void Update() {
+    if (tranceiver == null) return;
+
     PsscDeviceStatus initialStatus = _status;
     switch (_status) {
       case PsscDeviceStatus.Asleep:
-        if (tranceiver?.DeviceIsAwake() == true) 
-          _status = PsscDeviceStatus.ArmEstimation;
+        if (tranceiver.DeviceIsAwake(forceDeviceSearch: true)) 
+          _status = PsscDeviceStatus.Connecting;
         break;
       case PsscDeviceStatus.Connecting:
-        if (tranceiver?.TryEstablishConnection() == true)
+        if (tranceiver.TryEstablishConnection())
           _status = PsscDeviceStatus.ArmEstimation;
         break;
       case PsscDeviceStatus.ArmEstimation:
-        if (tranceiver?.DeviceIsAwake() == false) {
+        if (!tranceiver.DeviceIsAwake(forceDeviceSearch: false)) {
           _status = PsscDeviceStatus.Asleep;
           _timeSinceLastPacketS = 0;
           break;
@@ -60,9 +62,10 @@ public class PsscDemoController : MonoBehaviour {
         if (!UpdateSensorData()) return;
         Recalibrate();
         UpdateTransforms();
+
         HapticFeedback feedback = GetHapticFeedback();
         if (feedback != _prevHapticFeedback) {
-          tranceiver?.SendHapticFeedback(feedback);
+          tranceiver.SendHapticFeedback(feedback);
           _prevHapticFeedback = feedback;
         }
         break;
@@ -77,9 +80,7 @@ public class PsscDemoController : MonoBehaviour {
   private bool UpdateSensorData() {
     _timeSinceLastPacketS += Time.deltaTime;
 
-    List<SensorSample> samples = new List<SensorSample>();
-    if (tranceiver?.TryGetSensorData(out samples) == false) return false;
-    Debug.Log("After try get sensor data");_sim.imuTf.localRotation
+    if (!tranceiver.TryGetSensorData(out List<SensorSample> samples)) return false;
     float samplePeriod = _timeSinceLastPacketS / samples.Count;
     _timeSinceLastPacketS = 0;
 
@@ -94,7 +95,7 @@ public class PsscDemoController : MonoBehaviour {
   }
 
   private void Recalibrate() {
-    bool shouldRecalibrate = Input.GetKeyDown(KeyCode.C);
+    bool shouldRecalibrate = Input.GetKeyUp(KeyCode.C);
     if (!shouldRecalibrate) return;
     Logger.Warning("Calibrating");
 
@@ -102,17 +103,12 @@ public class PsscDemoController : MonoBehaviour {
     Quaternion desiredImuTf = desiredShoulderTf * _ShoulderToImu;
     // bias += desired - actual
     _bias *= desiredImuTf * Quaternion.Inverse(fusion.GetQuaternion());
-
-    // ------ Matthew ------
-    // _bias = Quaternion.RotateTowards(fusion.GetQuaternion(), desiredShoulderTf, float.MaxValue);
-    // ---------------------
   }
 
   private void UpdateTransforms() {
-    _sim.DisplayIMUQuat(
-        fusion.GetQuaternion() *
-        _bias *
-        Quaternion.Inverse(_ShoulderToImu));
+    _sim.DisplayIMUQuat(fusion.GetQuaternion() *
+                        _bias *
+                        Quaternion.Inverse(_ShoulderToImu));
     _sim.DisplayElbowAngle(elbowEma.Current());
   }
 
