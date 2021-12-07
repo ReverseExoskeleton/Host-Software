@@ -202,12 +202,12 @@ public class Madgwick {
   //private readonly Impl.FusionVector3
   //  _HardIronBias = new Impl.FusionVector3(-28.725f, 10.65f, 10.65f); // ut
   private readonly Impl.FusionVector3
-    _HardIronBias = new Impl.FusionVector3(100, 0, 0); // purposefully disable mag correction  
+    _HardIronBias = new Impl.FusionVector3(500, 0, 0); // purposefully disable mag correction  
 
   private const float _DesiredSamplePeriod = 0.01F; // sec
-  private const float _StationaryThreshold = 8f; // dps
+  private const float _StationaryThreshold = 3f; // dps
   private const float _Gain = 0.001f;
-  private const float _MinMagField = 0f; // uT
+  private const float _MinMagField = -70f; // uT
   private const float _MaxMagField = 70f; // uT
   private Impl.FusionBias _bias = new Impl.FusionBias();
   private Impl.FusionAhrs _ahrs = new Impl.FusionAhrs();
@@ -248,14 +248,24 @@ public class Madgwick {
     Logger.Debug($"calib mag: x={calibMag.x}, y={calibMag.y}, z={calibMag.z}");
     Logger.Debug($"------------------------------------- ");
 
+    calibGyro.x = Math.Abs(calibGyro.x) <= 1.5 ? 0 : calibGyro.x;
+    calibGyro.y = Math.Abs(calibGyro.y) <= 1.5 ? 0 : calibGyro.y;
+    calibGyro.z = Math.Abs(calibGyro.z) <= 1.5 ? 0 : calibGyro.z;
+
     // Update AHRS algorithm
     Impl.FusionAhrsUpdate(ref _ahrs, calibGyro, calibAccel, calibMag, samplePeriod);
   }
 
   public Quaternion GetQuaternion() {
-    Impl.FusionQuaternion q = Impl.FusionAhrsGetQuaternion(ref _ahrs);
+    Impl.FusionQuaternion fusionQ = Impl.FusionAhrsGetQuaternion(ref _ahrs);
+    Quaternion q = new Quaternion(fusionQ.x, fusionQ.y, fusionQ.z, fusionQ.w);
+    q.eulerAngles = new Vector3(q.eulerAngles.y, q.eulerAngles.z, q.eulerAngles.x);
+
+    Vector3 ea = q.eulerAngles;
+    Logger.Testing($"roll={ea.x}, pitch={ea.y}, yaw={ea.z}");
     // Flip z and y axis to work properly with Unity coordinate frame.
-    return new Quaternion(q.x, q.z, q.y, q.w);
+    //return new Quaternion(q.x, q.z, q.y, q.w);
+    return q;
   }
 
   public Vector3 GetEulerAngles() {

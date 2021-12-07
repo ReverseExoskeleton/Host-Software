@@ -73,6 +73,7 @@ public class PsscDemoController : MonoBehaviour {
         throw new Exception($"Unknown case {_status}.");
     }
     if (initialStatus != _status) {
+      Logger.Debug($"Status changed from {initialStatus} to {_status}.");
       _sim.DisplayStatus(_status);
     }
   }

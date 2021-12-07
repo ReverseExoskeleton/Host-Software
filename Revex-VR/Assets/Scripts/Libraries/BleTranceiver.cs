@@ -133,11 +133,12 @@ public class BleTranceiver : Tranceiver {
                                           new ConcurrentQueue<SensorSample>();
 
   private const uint _ReadWorkerSleepMs = 95;
-  private const uint _MaxSecondsBeforeSleep = 1;
+  private const uint _MaxSecondsBeforeSleep = 5;
   private const uint _MaxMissedPacketsBeforeSleep = (uint)((float)
                           _MaxSecondsBeforeSleep * 1000 / _ReadWorkerSleepMs);
   private bool _deviceIsAwake = false;
-  private bool _finishedSubscribing = false;
+  private bool _subscriptionComplete = false;
+  private bool _resetBle = false;
   private int _numMissedPackets = 0;
   private CancellationTokenSource _readCts = new CancellationTokenSource();
   private bool _readThreadKilled = false;
@@ -157,6 +158,12 @@ public class BleTranceiver : Tranceiver {
 
   public override bool TryEstablishConnection() {
     // TODO(Issue 1): Catch and try to recover from thrown exceptions
+    if (_resetBle) {
+      _status = ConnectionStatus.SearchingDevices;
+      _resetBle = false;
+      ResetConnection();
+    }
+
     switch (_status) {
       case ConnectionStatus.SearchingDevices:
         if (ConnectToDevice())
@@ -178,13 +185,18 @@ public class BleTranceiver : Tranceiver {
         _status = ConnectionStatus.CheckingSubscribeAttempts;
         break;
       case ConnectionStatus.CheckingSubscribeAttempts:
-        _finishedSubscribing = CheckSubscribeStatus();
+        _subscriptionComplete = CheckSubscribeStatus();
         break;
       default:
         throw new Exception(
             "Unknown case in BleTranceiver::TryEstablishConnection");
     }
-    return _finishedSubscribing;
+    return _subscriptionComplete;
+  }
+
+  public void ResetConnection() {
+    Impl.Quit();
+    Thread.Sleep(100); // ms 
   }
 
   public override void CloseConnection() {
@@ -318,12 +330,12 @@ public class BleTranceiver : Tranceiver {
                                                 characteristic.Value.Id,
                                                 block: true);
         if (GetStatus() != _OkStatus || !res) {
-          _status = ConnectionStatus.SearchingDevices;
           Logger.Error(
            $"Ble.Subscribe failed. Subscribe returned {(res ? "Success" : "Fail")} with error '{GetStatus()}'");
+          _resetBle = true;
         } else {
           characteristic.Value.Subscribed = true;
-          Logger.Debug($"Successfully subscribed to characteristic.");
+          Logger.Debug($"Successfully subscribed to {characteristic.Key} characteristic.");
         }
       }).Start();
     }
@@ -334,6 +346,7 @@ public class BleTranceiver : Tranceiver {
       if (!characteristic.ShouldSubscribe) continue;
       if (!characteristic.Subscribed) return false;
     }
+    Logger.Debug($"Successfully subscribed to all characteristics.");
     return true;
   }
 
@@ -368,7 +381,7 @@ public class BleTranceiver : Tranceiver {
   }
   
   private void UpdateSleepStatus(bool recievedPacket) {
-    if (_finishedSubscribing) {
+    if (_subscriptionComplete) {
       if (recievedPacket) {
         _numMissedPackets = 0;
       } else {
@@ -376,10 +389,11 @@ public class BleTranceiver : Tranceiver {
       }
 
       if (_numMissedPackets > _MaxMissedPacketsBeforeSleep) {
+        Logger.Debug($"Missed {_numMissedPackets}, going to sleep");
         _numMissedPackets = 0;
-        _finishedSubscribing = false;
         _deviceIsAwake = false;
-        _status = ConnectionStatus.SearchingDevices;
+        _subscriptionComplete = false;
+        _resetBle = true;
       }
     }
   }

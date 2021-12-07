@@ -94,7 +94,7 @@ public readonly struct SensorSample {
         if (i < _NumBytes / 3) {
           dataArray[i / 2] = curFloat / GyroScale;
         } else if (_NumBytes / 3 <= i && i < 2 * _NumBytes / 3) {
-          dataArray[i / 2] = curFloat / AccelScale;
+          dataArray[i / 2] = -curFloat / AccelScale;
         } else if (2 * _NumBytes / 3 <= i && i < _NumBytes) {
           dataArray[i / 2] = curFloat / MagScale;
         } else {
