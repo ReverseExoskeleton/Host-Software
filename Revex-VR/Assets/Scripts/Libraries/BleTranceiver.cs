@@ -120,7 +120,7 @@ public class BleTranceiver : Tranceiver {
     }
   }
 
-  public readonly string revexDeviceId = "BluetoothLE#BluetoothLE04:33:c2:80:5e:25-00:1e:c0:1d:42:8a";
+  public string revexDeviceId = "BluetoothLE#BluetoothLE04:33:c2:80:5e:25-00:1e:c0:1d:42:8a";
   public readonly string revexServiceId = "{12345678-9012-3456-7890-1234567890ff}";
   public readonly string sensorCharacteristicId = "12345678-9012-3456-7890-123456789011";
   public readonly string hapticCharacteristicId = "12345678-9012-3456-7890-123456789022";
@@ -233,6 +233,7 @@ public class BleTranceiver : Tranceiver {
     Impl.StartDeviceScan();
     do {
       status = Impl.PollDevice(ref device, block: false);
+      if (device.name == "RevEx") { revexDeviceId = device.id; }
       if (device.id == revexDeviceId && device.isConnectable) {
         Logger.Debug($"Connecting to revex device with id {device.id}");
         revexDeviceFound = true;
