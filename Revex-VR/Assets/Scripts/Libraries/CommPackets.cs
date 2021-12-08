@@ -122,7 +122,7 @@ public readonly struct HapticFeedback {
 
     Payload = (byte)((dutyCycle << _FrequencyBits) + frequency);
 
-    Frequency = (int)((frequency * 15f / _FrequencyRes) + 5);
+    Frequency = (int)((2 * frequency) + 5);
     DutyCycle = (int)(dutyCycle * (100f / _DutyCycleRes));
   }
 

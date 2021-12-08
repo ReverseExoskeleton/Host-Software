@@ -133,11 +133,11 @@ public class BleTranceiver : Tranceiver {
                                           new ConcurrentQueue<SensorSample>();
 
   private const uint _ReadWorkerSleepMs = 95;
-  private const uint _MaxSecondsBeforeSleep = 5;
+  private const uint _MaxSecondsBeforeSleep = 1;
   private const uint _MaxMissedPacketsBeforeSleep = (uint)((float)
                           _MaxSecondsBeforeSleep * 1000 / _ReadWorkerSleepMs);
   private bool _deviceIsAwake = false;
-  private bool _subscriptionComplete = false;
+  private bool _firstPacketReceived = false;
   private bool _resetBle = false;
   private int _numMissedPackets = 0;
   private CancellationTokenSource _readCts = new CancellationTokenSource();
@@ -159,11 +159,11 @@ public class BleTranceiver : Tranceiver {
   public override bool TryEstablishConnection() {
     // TODO(Issue 1): Catch and try to recover from thrown exceptions
     if (_resetBle) {
-      _status = ConnectionStatus.SearchingDevices;
       _resetBle = false;
       ResetConnection();
     }
 
+    bool subscriptionComplete = false;
     switch (_status) {
       case ConnectionStatus.SearchingDevices:
         if (ConnectToDevice())
@@ -185,17 +185,18 @@ public class BleTranceiver : Tranceiver {
         _status = ConnectionStatus.CheckingSubscribeAttempts;
         break;
       case ConnectionStatus.CheckingSubscribeAttempts:
-        _subscriptionComplete = CheckSubscribeStatus();
+        subscriptionComplete = CheckSubscribeStatus();
         break;
       default:
         throw new Exception(
             "Unknown case in BleTranceiver::TryEstablishConnection");
     }
-    return _subscriptionComplete;
+    return subscriptionComplete;
   }
 
   public void ResetConnection() {
     Impl.Quit();
+    _status = ConnectionStatus.SearchingDevices;
     Thread.Sleep(100); // ms 
   }
 
@@ -354,7 +355,7 @@ public class BleTranceiver : Tranceiver {
     while (!_readCts.IsCancellationRequested) {
       bool receivedPacket = false;
       while (Impl.PollData(out Impl.BLEData receivedData, block: false)) {
-        _deviceIsAwake = true;
+        _firstPacketReceived = true;
         receivedPacket = true;
 
         Logger.Debug($"Received packet bytes = {BitConverter.ToString(receivedData.buf)}");
@@ -381,7 +382,7 @@ public class BleTranceiver : Tranceiver {
   }
   
   private void UpdateSleepStatus(bool recievedPacket) {
-    if (_subscriptionComplete) {
+    if (_firstPacketReceived) {
       if (recievedPacket) {
         _numMissedPackets = 0;
       } else {
@@ -392,8 +393,11 @@ public class BleTranceiver : Tranceiver {
         Logger.Debug($"Missed {_numMissedPackets}, going to sleep");
         _numMissedPackets = 0;
         _deviceIsAwake = false;
-        _subscriptionComplete = false;
-        _resetBle = true;
+        _firstPacketReceived = false;
+        foreach (CharacteristicInfo characteristic in _characteristics.Values) {
+          if (characteristic.ShouldSubscribe) characteristic.Subscribed = false;
+        }
+        ResetConnection();
       }
     }
   }
