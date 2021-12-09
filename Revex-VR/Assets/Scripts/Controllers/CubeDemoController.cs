@@ -4,28 +4,71 @@ using UnityEngine;
 
 public class CubeDemoController : MonoBehaviour {
   // --------------- Communication ---------------
-  bool connected = false;
+  private PsscDeviceStatus _status = PsscDeviceStatus.Asleep;
   public Tranceiver tranceiver;
+  public bool useBleTranceiver = true;
   private float _timeSinceLastPacketS = 0; // sec
 
   // --------------- Arm Estimation ---------------
   public Madgwick fusion;
+  //public Mahony fusion;
+  //private float startTime;
+  //private bool biasSet = false;
+  //private Quaternion bias = Quaternion.identity;
+  //private Quaternion desired;
   public Transform cubeTf;
 
-
   void Start() {
-    //tranceiver = new SerialReader();
-    tranceiver = new BleTranceiver();
-    fusion = new Madgwick();
+    if (useBleTranceiver) {
+      tranceiver = new BleTranceiver();
+    } else {
+      tranceiver = new SerialReader();
+    }
+    fusion = new Madgwick(Quaternion.identity);
+    //fusion = new Mahony(0.01f, 1f);
+
+    //startTime = Time.time;
+    //desired = cubeTf.rotation;
   }
 
   void Update() {
-    if (!connected) {
-      connected = tranceiver.TryEstablishConnection();
-    } else {
-      if (!UpdateSensorData()) return;
-      UpdateTransforms();
-      tranceiver.SendHapticFeedback(GetHapticFeedback());
+    if (tranceiver == null) return;
+
+    if (Input.GetKeyDown(KeyCode.Space)) {
+      Logger.Warning("Correcting for bias");
+      //biasSet = true;
+      //bias = Quaternion.Inverse(fusion.GetQuaternion());
+      Quaternion bias_deg = Quaternion.Euler(0, 90, 0);
+      fusion = new Madgwick(Quaternion.identity);
+    }
+
+    PsscDeviceStatus initialStatus = _status;
+    switch (_status) {
+      case PsscDeviceStatus.Asleep:
+        if (tranceiver.DeviceIsAwake(forceDeviceSearch: true)) 
+          _status = PsscDeviceStatus.Connecting;
+        break;
+      case PsscDeviceStatus.Connecting:
+        if (tranceiver.TryEstablishConnection())
+          _status = PsscDeviceStatus.ArmEstimation;
+        break;
+      case PsscDeviceStatus.ArmEstimation:
+        if (!tranceiver.DeviceIsAwake(forceDeviceSearch: false)) {
+          _status = PsscDeviceStatus.Asleep;
+          _timeSinceLastPacketS = 0;
+          break;
+        }
+
+        if (!UpdateSensorData()) return;
+        UpdateTransforms();
+
+        break;
+      default:
+        throw new Exception($"Unknown case {_status}.");
+    }
+
+    if (initialStatus != _status) {
+      Logger.Debug($"Status changed from {initialStatus} to {_status}.");
     }
   }
 
@@ -35,25 +78,29 @@ public class CubeDemoController : MonoBehaviour {
     List<SensorSample> samples = new List<SensorSample>();
     if (tranceiver?.TryGetSensorData(out samples) == false) return false;
     float samplePeriod = _timeSinceLastPacketS / samples.Count;
+    //fusion.SamplePeriod = samplePeriod;
     _timeSinceLastPacketS = 0;
 
     foreach (SensorSample sample in samples) {
       fusion.AhrsUpdate(sample.Imu.AngVel, sample.Imu.LinAccel,
                         sample.Imu.MagField, samplePeriod);
+      //fusion.Update(sample.Imu.AngVel.x * Mathf.Deg2Rad,
+      //  sample.Imu.AngVel.y * Mathf.Deg2Rad, sample.Imu.AngVel.z * Mathf.Deg2Rad,
+      //        sample.Imu.LinAccel.x, sample.Imu.LinAccel.y, sample.Imu.LinAccel.z,
+      //        sample.Imu.MagField.x + 26.025f, sample.Imu.MagField.y - 12.825f,
+      //        sample.Imu.MagField.z - 12.825f);
     }
 
     return true;
   }
 
   private void UpdateTransforms() {
-    cubeTf.rotation = fusion.GetQuaternion();
+    cubeTf.rotation = fusion.GetQuaternion();//* bias;
+    //cubeTf.rotation *= Quaternion.AngleAxis(-90f, cubeTf.forward);
     Vector3 eulerAng = fusion.GetEulerAngles();
+    //float[] q = fusion.Quaternion;
+    //cubeTf.rotation = new Quaternion(q[3], q[0], q[1], q[2]) * Quaternion.Inverse(bias);
     Logger.Testing($"roll={eulerAng.z}, pitch={eulerAng.x}, yaw={eulerAng.y}");
-  }
-
-  private HapticFeedback GetHapticFeedback() {
-    // TODO: Come back to after VR simulation is complete.
-    return new HapticFeedback(dutyCyclePercent:0, frequencyPercent:0);
   }
 
   private void OnApplicationQuit() {

@@ -56,7 +56,7 @@ public readonly struct SensorSample {
   private static float GetFloatFromTwoBytes(byte[] dataBuffer, int offset) {
     Debug.Assert(offset >= 0 && offset <= dataBuffer.Length - 2);
 
-    // Use Big Endian
+    // MCU uses Big Endian
     byte msb = dataBuffer[offset + 1];
     dataBuffer[offset + 1] = dataBuffer[offset];
     dataBuffer[offset] = msb;
@@ -94,7 +94,7 @@ public readonly struct SensorSample {
         if (i < _NumBytes / 3) {
           dataArray[i / 2] = curFloat / GyroScale;
         } else if (_NumBytes / 3 <= i && i < 2 * _NumBytes / 3) {
-          dataArray[i / 2] = -curFloat / AccelScale;
+          dataArray[i / 2] = curFloat / AccelScale;
         } else if (2 * _NumBytes / 3 <= i && i < _NumBytes) {
           dataArray[i / 2] = curFloat / MagScale;
         } else {

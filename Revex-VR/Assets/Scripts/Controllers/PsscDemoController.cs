@@ -36,7 +36,7 @@ public class PsscDemoController : MonoBehaviour {
     } else {
       tranceiver = new SerialReader();
     }
-    fusion = new Madgwick();
+    fusion = new Madgwick(Quaternion.identity);
   }
 
   void Update() {
@@ -107,9 +107,10 @@ public class PsscDemoController : MonoBehaviour {
   }
 
   private void UpdateTransforms() {
-    _sim.DisplayIMUQuat(fusion.GetQuaternion() *
-                        _bias *
-                        Quaternion.Inverse(_ShoulderToImu));
+    _sim.DisplayIMUQuat(fusion.GetQuaternion());
+    //_sim.DisplayIMUQuat(fusion.GetQuaternion() *
+    //                    _bias *
+    //                    Quaternion.Inverse(_ShoulderToImu));
     _sim.DisplayElbowAngle(elbowEma.Current());
   }
 

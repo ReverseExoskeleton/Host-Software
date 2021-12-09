@@ -355,6 +355,7 @@ public class BleTranceiver : Tranceiver {
     while (!_readCts.IsCancellationRequested) {
       bool receivedPacket = false;
       while (Impl.PollData(out Impl.BLEData receivedData, block: false)) {
+        if (!_firstPacketReceived) Logger.Debug("Received first packet");
         _firstPacketReceived = true;
         receivedPacket = true;
 
@@ -386,6 +387,7 @@ public class BleTranceiver : Tranceiver {
       if (recievedPacket) {
         _numMissedPackets = 0;
       } else {
+        Logger.Debug($"Num missed packets = {_numMissedPackets }");
         _numMissedPackets += 1;
       }
 
