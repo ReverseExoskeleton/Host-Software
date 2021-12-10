@@ -32,13 +32,16 @@ public readonly struct SensorSample {
 
   // -------------- Battery Voltage Calculation ------------
   private const float _BatteryMaxAdc = 4096;
-  private const float _BatteryMaxVoltage = 3.3f;
+  private const float _BatteryRefVoltage = 1.8f;
+  private const float _BatteryMaxVoltage = 3.7f;
+  private const float _BatteryVoltageDivisor = 47f / 147f;
+  private const float _BatteryMaxRef = _BatteryMaxVoltage * _BatteryVoltageDivisor;
   // -------------------------------------------------------
 
-  // --------------- Scaling constants --------------- 
-  // constant from getMagUT
-  // Arduino Library: https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary/blob/74d9c1e4103d2ca11d1645489108a152095d15e7/src/ICM_20948.cpp#L163
-  public const float MagScale = 1 / 0.15f; // LSB / uT
+    // --------------- Scaling constants --------------- 
+    // constant from getMagUT
+    // Arduino Library: https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary/blob/74d9c1e4103d2ca11d1645489108a152095d15e7/src/ICM_20948.cpp#L163
+    public const float MagScale = 1 / 0.15f; // LSB / uT
   // Arduino Library default setting gpm2 (ICM_20948_ACCEL_CONFIG_FS_SEL_e): https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary/blob/74d9c1e4103d2ca11d1645489108a152095d15e7/src/ICM_20948.cpp#L887
   public const float AccelScale = 8.192f; // LSB / mg   <-- gravity g's not grams
   public const float AccelScaleG = AccelScale * 1000; // LSB / g   <-- gravity g's not grams
@@ -53,8 +56,8 @@ public readonly struct SensorSample {
     System.Buffer.BlockCopy(dataBuffer, 0, elbowAngBytes, 0, ElbowAngNumBytes);
     System.Buffer.BlockCopy(dataBuffer, ElbowAngNumBytes, batteryBytes, 
                             0, BatteryNumBytes);
-    System.Buffer.BlockCopy(dataBuffer, BatteryNumBytes, imuBytes,
-                            0, ImuSampleNumBytes);
+    System.Buffer.BlockCopy(dataBuffer, ElbowAngNumBytes + BatteryNumBytes,
+                             imuBytes, 0, ImuSampleNumBytes);
 
     ElbowAngleDeg = GetElbowAngleFromBuffer(elbowAngBytes);
     BatteryVoltage = GetBatteryVoltageFromBuffer(batteryBytes);
@@ -70,7 +73,7 @@ public readonly struct SensorSample {
   private static float GetBatteryVoltageFromBuffer(byte[] dataBuffer) {
     float batteryAdc = GetFloatFromTwoBytes(dataBuffer, offset: 0);
     Logger.Debug($"Battery ADC value = {batteryAdc}");
-    return (batteryAdc / _BatteryMaxAdc) * _BatteryMaxVoltage;
+    return (batteryAdc / _BatteryMaxAdc) * _BatteryRefVoltage / _BatteryVoltageDivisor;
   }
 
   private static float GetFloatFromTwoBytes(byte[] dataBuffer, int offset) {

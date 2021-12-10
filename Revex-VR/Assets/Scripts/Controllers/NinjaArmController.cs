@@ -99,6 +99,7 @@ public class NinjaArmController : MonoBehaviour
             UpdateElbowAngle(sample.ElbowAngleDeg);
 
             batteryVoltage = sample.BatteryVoltage; // Do something with this ...
+            Debug.Log(batteryVoltage);
         }
 
         return true;
