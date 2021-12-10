@@ -141,4 +141,9 @@ public class NinjaArmController : MonoBehaviour
     {
         fruitsHit.Add(fruit);
     }
+
+    public void ClearFruitsHit()
+    {
+        fruitsHit.Clear();
+    }
 }

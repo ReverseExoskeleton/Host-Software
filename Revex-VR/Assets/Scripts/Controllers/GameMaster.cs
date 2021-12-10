@@ -19,6 +19,7 @@ public class GameMaster : MonoBehaviour
     public UIController uiControl;
     public NinjaArmController armControl;
 
+    public GameObject fruitAccelerator;
     public GameObject[] fruitChoices;
 
     private GameState currentState = GameState.init;
@@ -63,36 +64,38 @@ public class GameMaster : MonoBehaviour
 
     private void CheckFruits()
     {
-        List<GameObject> toRemove = new List<GameObject>();
+        List<GameObject> fallen = new List<GameObject>();
 
         foreach (GameObject g in fruits)
         {
             if (g.transform.position.y <= -1f)
             {
-                toRemove.Add(g);
+                fallen.Add(g);
             }
-        }
-
-        foreach (GameObject g in armControl.fruitsHit)
-        {
-            toRemove.Add(g);
         }
 
         // Delete any uneeded fruits
-        foreach (GameObject g in toRemove)
+        foreach (GameObject g in fallen)
         {
-            if (fruits.Find(x => g))
-            {
-                fruits.Remove(g);
-            }
-            else if (armControl.fruitsHit.Find(x => g))
-            {
-                armControl.fruitsHit.Remove(g); // Pop this one
-            }
-
-            
-            Destroy(g, .1f);
+            fruits.Remove(g);
+            Destroy(g);
         }
+        
+        foreach (GameObject g in armControl.fruitsHit)
+        {
+            fruits.Remove(g);
+            PopFruit(g);
+            Destroy(g, .05f);
+        }
+        armControl.ClearFruitsHit();
+    }
+
+    private void PopFruit(GameObject fruit)
+    {
+        GameObject emitter = Instantiate(fruitAccelerator);
+        emitter.transform.position = fruit.transform.position + fruit.GetComponent<Rigidbody>().velocity * .05f;
+        
+        Destroy(emitter, 1f);
     }
 
     private GameObject createRandomFruit()
@@ -116,10 +119,10 @@ public class GameMaster : MonoBehaviour
         init_pos.y = .05f;  // Standard starting height
 
         // Calculate final intersection point
-        float radius = Random.Range(.6f, 1.25f);
-        float angle = Random.Range(20f, 160f);
-        //Vector3 finalLanding = new Vector3(radius * Mathf.Cos(angle * Mathf.Deg2Rad), .05f, radius * Mathf.Sin(angle * Mathf.Deg2Rad));
-        Vector3 finalLanding = GameObject.Find("HITTHIS").transform.position;
+        float radius = Random.Range(.7f, 1.05f);
+        float angle = Random.Range(30f, 150f);
+        Vector3 finalLanding = new Vector3(radius * Mathf.Cos(angle * Mathf.Deg2Rad), .05f, radius * Mathf.Sin(angle * Mathf.Deg2Rad));
+        //Vector3 finalLanding = GameObject.Find("HITTHIS").transform.position;
 
         // If it's too short switch sides
         float minDistanceThreshold = 0.4f;

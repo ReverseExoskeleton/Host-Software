@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiControl: {fileID: 0}
   armControl: {fileID: 0}
+  fruitAccelerator: {fileID: 9059738238227338368, guid: 24d1945af400aa940a6d0a12fabd1dff,
+    type: 3}
   fruitChoices:
   - {fileID: 7712939054033608217, guid: 99df6c54d4884e6489afb7dc89647800, type: 3}
   - {fileID: 2331035857157668750, guid: 649a75f9247366b4893c9f177070ca90, type: 3}
