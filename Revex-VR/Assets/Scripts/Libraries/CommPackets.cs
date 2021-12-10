@@ -3,16 +3,21 @@ using UnityEngine;
 
 
 public readonly struct SensorSample {
-  // IMU Data + Elbow Angle
-  // IMU:
-  //   Nine DOF, each with 16-bit precision.
-  public ImuSample Imu { get; }
-  public const int ImuSampleNumBytes = 2 * 9; 
+  // Elbow Angle + Battery Voltage + IMU Data
   // Elbow Angle:
   //   One 16-bit float.
   public float ElbowAngleDeg { get; }
+  // Battery Voltage:
+  //   One 16-bit float.
+  public float BatteryVoltage { get; }
+  // IMU:
+  //   Nine DOF, each with 16-bit precision.
+  public ImuSample Imu { get; }
+
+  public const int ImuSampleNumBytes = 2 * 9; 
   public const int ElbowAngNumBytes = 2;
-  public const int NumBytes = ImuSampleNumBytes + ElbowAngNumBytes;
+  public const int BatteryNumBytes = 2;
+  public const int NumBytes = ImuSampleNumBytes + ElbowAngNumBytes + BatteryNumBytes;
 
   // --------------- Elbow Angle Calculation --------------- 
   private const float _ElbowMinDeg = 90;
@@ -23,6 +28,11 @@ public readonly struct SensorSample {
                                        (_ElbowMaxAdc - _ElbowMinAdc);
   private const float _ElbowEqnIntcpt = _ElbowMaxDeg - 
                                         (_ElbowEqnSlope * _ElbowMaxAdc);
+  // -------------------------------------------------------
+
+  // -------------- Battery Voltage Calculation ------------
+  private const float _BatteryMaxAdc = 4096;
+  private const float _BatteryMaxVoltage = 3.3f;
   // -------------------------------------------------------
 
   // --------------- Scaling constants --------------- 
@@ -38,19 +48,29 @@ public readonly struct SensorSample {
 
   public SensorSample(byte[] dataBuffer) {
     byte[] elbowAngBytes = new byte[ElbowAngNumBytes];
+    byte[] batteryBytes = new byte[BatteryNumBytes];
     byte[] imuBytes = new byte[ImuSampleNumBytes];
     System.Buffer.BlockCopy(dataBuffer, 0, elbowAngBytes, 0, ElbowAngNumBytes);
-    System.Buffer.BlockCopy(dataBuffer, ElbowAngNumBytes, imuBytes,
+    System.Buffer.BlockCopy(dataBuffer, ElbowAngNumBytes, batteryBytes, 
+                            0, BatteryNumBytes);
+    System.Buffer.BlockCopy(dataBuffer, BatteryNumBytes, imuBytes,
                             0, ImuSampleNumBytes);
 
-    Imu = new ImuSample(imuBytes);
     ElbowAngleDeg = GetElbowAngleFromBuffer(elbowAngBytes);
+    BatteryVoltage = GetBatteryVoltageFromBuffer(batteryBytes);
+    Imu = new ImuSample(imuBytes);
   }
 
   private static float GetElbowAngleFromBuffer(byte[] dataBuffer) {
     float elbowAdc = GetFloatFromTwoBytes(dataBuffer, offset: 0);
     Logger.Debug($"Elbow ADC value = {elbowAdc}");
     return (elbowAdc * _ElbowEqnSlope) + _ElbowEqnIntcpt;
+  }
+
+  private static float GetBatteryVoltageFromBuffer(byte[] dataBuffer) {
+    float batteryAdc = GetFloatFromTwoBytes(dataBuffer, offset: 0);
+    Logger.Debug($"Battery ADC value = {batteryAdc}");
+    return (batteryAdc / _BatteryMaxAdc) * _BatteryMaxVoltage;
   }
 
   private static float GetFloatFromTwoBytes(byte[] dataBuffer, int offset) {

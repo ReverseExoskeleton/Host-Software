@@ -8,6 +8,8 @@ public class NinjaArmController : MonoBehaviour
     public Transform shoulder;
     public Transform elbow;
 
+    // -------------------- Game --------------------
+    public float batteryVoltage = 0;
     public List<GameObject> fruitsHit = new List<GameObject>();
 
     private Vector3 shoulderStart;
@@ -19,11 +21,6 @@ public class NinjaArmController : MonoBehaviour
 
     // --------------- Arm Estimation ---------------
     public Madgwick fusion;
-    //public Mahony fusion;
-    //private float startTime;
-    //private bool biasSet = false;
-    //private Quaternion bias = Quaternion.identity;
-    //private Quaternion desired;
 
     void Start()
     {
@@ -38,10 +35,6 @@ public class NinjaArmController : MonoBehaviour
             tranceiver = new SerialReader();
         }
         fusion = new Madgwick(Quaternion.identity);
-        //fusion = new Mahony(0.01f, 1f);
-
-        //startTime = Time.time;
-        //desired = cubeTf.rotation;
     }
 
     void Update()
@@ -51,8 +44,6 @@ public class NinjaArmController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Logger.Warning("Correcting for bias");
-            //biasSet = true;
-            //bias = Quaternion.Inverse(fusion.GetQuaternion());
             Quaternion bias_deg = Quaternion.Euler(0, 90, 0);
             fusion = new Madgwick(Quaternion.identity);
         }
@@ -106,11 +97,8 @@ public class NinjaArmController : MonoBehaviour
                               sample.Imu.MagField, samplePeriod);
 
             UpdateElbowAngle(sample.ElbowAngleDeg);
-            //fusion.Update(sample.Imu.AngVel.x * Mathf.Deg2Rad,
-            //  sample.Imu.AngVel.y * Mathf.Deg2Rad, sample.Imu.AngVel.z * Mathf.Deg2Rad,
-            //        sample.Imu.LinAccel.x, sample.Imu.LinAccel.y, sample.Imu.LinAccel.z,
-            //        sample.Imu.MagField.x + 26.025f, sample.Imu.MagField.y - 12.825f,
-            //        sample.Imu.MagField.z - 12.825f);
+
+            batteryVoltage = sample.BatteryVoltage; // Do something with this ...
         }
 
         return true;
