@@ -20,7 +20,6 @@ public class NinjaArmController : MonoBehaviour
     public Transform elbow;
 
     // -------------------- Game --------------------
-    public float batteryVoltage = 0;
     public List<GameObject> fruitsHit = new List<GameObject>();
 
 
@@ -87,7 +86,7 @@ public class NinjaArmController : MonoBehaviour
         _timeSinceLastPacketS += Time.deltaTime;
 
         List<SensorSample> samples = new List<SensorSample>();
-        if (tranceiver?.TryGetSensorData(out samples) == false) return false;
+        if (!tranceiver.TryGetSensorData(out samples)) return false;
         float samplePeriod = _timeSinceLastPacketS / samples.Count;
         //fusion.SamplePeriod = samplePeriod;
         _timeSinceLastPacketS = 0;
@@ -97,9 +96,8 @@ public class NinjaArmController : MonoBehaviour
             fusion.AhrsUpdate(sample.Imu.AngVel, sample.Imu.LinAccel,
                               sample.Imu.MagField, samplePeriod);
             elbowEma.Update(sample.ElbowAngleDeg);
-
-            batteryVoltage = sample.BatteryVoltage; // Do something with this ...
         }
+
 
         return true;
     }
@@ -110,6 +108,9 @@ public class NinjaArmController : MonoBehaviour
         imu.position += shoulderStart - shoulder.position;  // Make it rotate around the shoulder
 
         elbow.localRotation = Quaternion.Euler(0f, 0f, 180f - elbowEma.Current());
+
+        float batteryVoltage = tranceiver.GetLastBatteryVoltage(); // Do something with this
+        Logger.Testing($"Battery voltage = {batteryVoltage }V");
     }
 
     private void OnApplicationQuit()

@@ -11,6 +11,10 @@ public abstract class Tranceiver : IDisposable {
 
   public abstract bool TryGetSensorData(out List<SensorSample> samples);
 
+  public virtual float GetLastBatteryVoltage() {
+    return -1f;
+  }
+
   public virtual bool DeviceIsAwake(bool forceDeviceSearch) { return true; }
 
   public abstract void SendHapticFeedback(HapticFeedback feedback);

@@ -2,22 +2,32 @@
 using UnityEngine;
 
 
+public class Utils { 
+  public static float GetFloatFromTwoBytes(byte[] dataBuffer, int offset) {
+    Debug.Assert(offset >= 0 && offset <= dataBuffer.Length - 2);
+
+    // MCU uses Big Endian
+    byte msb = dataBuffer[offset + 1];
+    dataBuffer[offset + 1] = dataBuffer[offset];
+    dataBuffer[offset] = msb;
+
+    short rawInt = BitConverter.ToInt16(dataBuffer, offset);
+    return rawInt;
+  }
+}
+
 public readonly struct SensorSample {
-  // Elbow Angle + Battery Voltage + IMU Data
+  // Elbow Angle + IMU Data
   // Elbow Angle:
   //   One 16-bit float.
   public float ElbowAngleDeg { get; }
-  // Battery Voltage:
-  //   One 16-bit float.
-  public float BatteryVoltage { get; }
   // IMU:
   //   Nine DOF, each with 16-bit precision.
   public ImuSample Imu { get; }
 
   public const int ImuSampleNumBytes = 2 * 9; 
   public const int ElbowAngNumBytes = 2;
-  public const int BatteryNumBytes = 2;
-  public const int NumBytes = ImuSampleNumBytes + ElbowAngNumBytes + BatteryNumBytes;
+  public const int NumBytes = ImuSampleNumBytes + ElbowAngNumBytes;
 
   // --------------- Elbow Angle Calculation --------------- 
   private const float _ElbowMinDeg = 90;
@@ -30,18 +40,10 @@ public readonly struct SensorSample {
                                         (_ElbowEqnSlope * _ElbowMaxAdc);
   // -------------------------------------------------------
 
-  // -------------- Battery Voltage Calculation ------------
-  private const float _BatteryMaxAdc = 4096;
-  private const float _BatteryRefVoltage = 1.8f;
-  private const float _BatteryMaxVoltage = 3.7f;
-  private const float _BatteryVoltageDivisor = 47f / 147f;
-  private const float _BatteryMaxRef = _BatteryMaxVoltage * _BatteryVoltageDivisor;
-  // -------------------------------------------------------
-
-    // --------------- Scaling constants --------------- 
-    // constant from getMagUT
-    // Arduino Library: https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary/blob/74d9c1e4103d2ca11d1645489108a152095d15e7/src/ICM_20948.cpp#L163
-    public const float MagScale = 1 / 0.15f; // LSB / uT
+  // --------------- Scaling constants --------------- 
+  // constant from getMagUT
+  // Arduino Library: https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary/blob/74d9c1e4103d2ca11d1645489108a152095d15e7/src/ICM_20948.cpp#L163
+  public const float MagScale = 1 / 0.15f; // LSB / uT
   // Arduino Library default setting gpm2 (ICM_20948_ACCEL_CONFIG_FS_SEL_e): https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary/blob/74d9c1e4103d2ca11d1645489108a152095d15e7/src/ICM_20948.cpp#L887
   public const float AccelScale = 8.192f; // LSB / mg   <-- gravity g's not grams
   public const float AccelScaleG = AccelScale * 1000; // LSB / g   <-- gravity g's not grams
@@ -51,41 +53,19 @@ public readonly struct SensorSample {
 
   public SensorSample(byte[] dataBuffer) {
     byte[] elbowAngBytes = new byte[ElbowAngNumBytes];
-    byte[] batteryBytes = new byte[BatteryNumBytes];
     byte[] imuBytes = new byte[ImuSampleNumBytes];
     System.Buffer.BlockCopy(dataBuffer, 0, elbowAngBytes, 0, ElbowAngNumBytes);
-    System.Buffer.BlockCopy(dataBuffer, ElbowAngNumBytes, batteryBytes, 
-                            0, BatteryNumBytes);
-    System.Buffer.BlockCopy(dataBuffer, ElbowAngNumBytes + BatteryNumBytes,
+    System.Buffer.BlockCopy(dataBuffer, ElbowAngNumBytes,
                              imuBytes, 0, ImuSampleNumBytes);
 
     ElbowAngleDeg = GetElbowAngleFromBuffer(elbowAngBytes);
-    BatteryVoltage = GetBatteryVoltageFromBuffer(batteryBytes);
     Imu = new ImuSample(imuBytes);
   }
 
   private static float GetElbowAngleFromBuffer(byte[] dataBuffer) {
-    float elbowAdc = GetFloatFromTwoBytes(dataBuffer, offset: 0);
+    float elbowAdc = Utils.GetFloatFromTwoBytes(dataBuffer, offset: 0);
     Logger.Debug($"Elbow ADC value = {elbowAdc}");
     return (elbowAdc * _ElbowEqnSlope) + _ElbowEqnIntcpt;
-  }
-
-  private static float GetBatteryVoltageFromBuffer(byte[] dataBuffer) {
-    float batteryAdc = GetFloatFromTwoBytes(dataBuffer, offset: 0);
-    Logger.Debug($"Battery ADC value = {batteryAdc}");
-    return (batteryAdc / _BatteryMaxAdc) * _BatteryRefVoltage / _BatteryVoltageDivisor;
-  }
-
-  private static float GetFloatFromTwoBytes(byte[] dataBuffer, int offset) {
-    Debug.Assert(offset >= 0 && offset <= dataBuffer.Length - 2);
-
-    // MCU uses Big Endian
-    byte msb = dataBuffer[offset + 1];
-    dataBuffer[offset + 1] = dataBuffer[offset];
-    dataBuffer[offset] = msb;
-
-    short rawInt = BitConverter.ToInt16(dataBuffer, offset);
-    return rawInt;
   }
 
   public readonly struct ImuSample {
@@ -112,7 +92,7 @@ public readonly struct SensorSample {
       float[] dataArray = new float[dataBuffer.Length / 2];
 
       for (int i = 0; i < dataBuffer.Length; i += 2) {
-        float curFloat = GetFloatFromTwoBytes(dataBuffer, offset: i);
+        float curFloat = Utils.GetFloatFromTwoBytes(dataBuffer, offset: i);
 
         if (i < _NumBytes / 3) {
           dataArray[i / 2] = curFloat / GyroScale;
@@ -162,6 +142,23 @@ public readonly struct HapticFeedback {
   }
   public override int GetHashCode() {
     return Payload.GetHashCode();
+  }
+}
+
+public class BatteryVoltage {
+  public const int NumBytes = 2;
+  // -------------- Battery Voltage Calculation ------------
+  private const float _BatteryMaxAdc = 4096;
+  private const float _BatteryRefVoltage = 1.8f;
+  private const float _BatteryMaxVoltage = 3.7f;
+  private const float _BatteryVoltageDivisor = 47f / 147f;
+  private const float _BatteryMaxRef = _BatteryMaxVoltage * _BatteryVoltageDivisor;
+  // -------------------------------------------------------
+
+  public static float Value(byte[] dataBuffer) {
+    float batteryAdc = Utils.GetFloatFromTwoBytes(dataBuffer, offset: 0);
+    Logger.Debug($"Battery ADC value = {batteryAdc}");
+    return (batteryAdc / _BatteryMaxAdc) * _BatteryRefVoltage / _BatteryVoltageDivisor;
   }
 }
 

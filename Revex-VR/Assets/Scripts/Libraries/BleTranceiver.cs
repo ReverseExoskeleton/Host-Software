@@ -124,13 +124,14 @@ public class BleTranceiver : Tranceiver {
   public readonly string revexServiceId = "{12345678-9012-3456-7890-1234567890ff}";
   public readonly string sensorCharacteristicId = "12345678-9012-3456-7890-123456789011";
   public readonly string hapticCharacteristicId = "12345678-9012-3456-7890-123456789022";
-  public readonly string sleepCharacteristicId = "12345678-9012-3456-7890-123456789033";
+  public readonly string batteryCharacteristicId = "12345678-9012-3456-7890-123456789033";
 
   private readonly string _OkStatus = "Ok";
   private ConnectionStatus _status = ConnectionStatus.SearchingDevices;
   private Dictionary<string, CharacteristicInfo> _characteristics;
   private ConcurrentQueue<SensorSample> _sampleQueue =
                                           new ConcurrentQueue<SensorSample>();
+  private float batteryVoltage = -1f;
 
   private const uint _ReadWorkerSleepMs = 95;
   private const uint _MaxSecondsBeforeSleep = 1;
@@ -151,6 +152,9 @@ public class BleTranceiver : Tranceiver {
                                         expectedSize: SensorSample.NumBytes) },
       {"haptic", new CharacteristicInfo(
             hapticCharacteristicId, shouldSubscribe: false, expectedSize: 0) },
+      {"battery", new CharacteristicInfo(batteryCharacteristicId, 
+                                        shouldSubscribe: true, 
+                                        expectedSize: BatteryVoltage.NumBytes) },
     };
 
     new Thread(ReadWorker).Start();
@@ -213,6 +217,10 @@ public class BleTranceiver : Tranceiver {
     samples = new List<SensorSample>();
     while (_sampleQueue.TryDequeue(out SensorSample smpl)) samples.Add(smpl);
     return samples.Count > 0;
+  }
+
+  public override float GetLastBatteryVoltage() {
+    return batteryVoltage;
   }
 
   public override bool DeviceIsAwake(bool forceDeviceSearch) {
@@ -370,6 +378,11 @@ public class BleTranceiver : Tranceiver {
             Buffer.BlockCopy(receivedData.buf, 0, sampleBuffer,
                                           0, receivedData.size);
             _sampleQueue.Enqueue(new SensorSample(sampleBuffer));
+            break;
+          case BatteryVoltage.NumBytes:
+            byte[] buffer = new byte[receivedData.size];
+            Buffer.BlockCopy(receivedData.buf, 0, buffer, 0, receivedData.size);
+            batteryVoltage = BatteryVoltage.Value(buffer);
             break;
           default:
             Logger.Warning($"Unknown rx packet with size {receivedData.size}.");
