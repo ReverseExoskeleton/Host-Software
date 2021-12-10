@@ -24,20 +24,20 @@ public class PsscSimulation : MonoBehaviour {
 
   private void Start() {
     DisplayElbowAngle(40f); // Display to 40 degrees on start
-    DisplayStatus(PsscDeviceStatus.Asleep);
+    DisplayStatus(DeviceStatus.Asleep);
   }
 
-  public void DisplayStatus(PsscDeviceStatus status) {
+  public void DisplayStatus(DeviceStatus status) {
     switch (status) {
-      case PsscDeviceStatus.Asleep:
+      case DeviceStatus.Asleep:
         sleepStatusText.text = "ASLEEP";
         sleepStatusText.color = Color.red;
         break;
-      case PsscDeviceStatus.Connecting:
+      case DeviceStatus.Connecting:
         sleepStatusText.text = "CONNECTING";
         sleepStatusText.color = Color.yellow;
         break;
-      case PsscDeviceStatus.ArmEstimation:
+      case DeviceStatus.ArmEstimation:
         sleepStatusText.text = "ACTIVE";
         sleepStatusText.color = Color.green;
         break;

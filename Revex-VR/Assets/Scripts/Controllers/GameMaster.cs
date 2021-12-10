@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameMaster : MonoBehaviour
@@ -16,12 +17,19 @@ public class GameMaster : MonoBehaviour
         ended               // Game has ended, leads back to start menu
     }
 
+    public enum GameMode {
+        easy,
+    }
+
     public UIController uiControl;
     public NinjaArmController armControl;
 
     public GameObject[] fruitChoices;
+    public int userScore;
 
     private GameState currentState = GameState.init;
+    private GameState prevState = (GameState)(-1);
+    private GameMode gameMode;
 
     private List<GameObject> fruits = new List<GameObject>();
     private Ray leftEdge, rightEdge;
@@ -41,25 +49,97 @@ public class GameMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentState == GameState.connectingRevEx)
+        if (armControl.status != DeviceStatus.ArmEstimation) {
+            currentState = GameState.connectingRevEx;
+        }
+
+        switch (currentState)
         {
-            if (armControl._status == PsscDeviceStatus.ArmEstimation)   // We have succesfully connected
-            {
-                currentState = GameState.needsCalibrate;    // Always assume we calibrate on reconnect
+            case GameState.connectingRevEx:
+                if (armControl.status != DeviceStatus.ArmEstimation) break;
+                // We have succesfully connected
                 uiControl.ShowMessage("RevEx device connected!");
                 uiControl.DisplayConnect(false);
-            }
+
+                // Always calibrate on reconnect
+                currentState = GameState.needsCalibrate; 
+                break;
+            case GameState.needsCalibrate:
+                uiControl.ShowMessage("Please face away from the monitor.");
+                if (!Input.GetKeyDown(KeyCode.Space)) break;
+                armControl.Recalibrate();
+
+                if (prevState == GameState.startMenu || prevState == GameState.paused) {
+                  currentState = prevState;
+                  break;
+                }
+                throw new System.Exception("Called recalibrate from unknown state");
+            case GameState.startMenu:
+                uiControl.DisplayStartMenu(true);
+                break;
+            case GameState.playStart:
+                uiControl.DisplayStartMenu(false);
+                uiControl.DisplayGameModeSelect(true);
+                break;
+            case GameState.paused:
+                uiControl.DisplayPauseMenu(true);
+                break;
+            case GameState.playing:
+                // Temp
+                if (Input.GetKeyDown(KeyCode.F)) {
+                  //DeleteFirstFruit(); // Just to cycle thru
+                  fruits.Add(createRandomFruit());
+                }
+
+                CheckFruits();
+
+                // Update the score, keep track of hitting bombs, update time...
+
+                if (false) // bombs OR time runs out
+                {
+                    // Probably some fruit cleanup function
+                    currentState = GameState.ended;
+                }
+                break;
+            case GameState.ended:
+                uiControl.DisplayHighScores(true, userScore);
+                // Returns to `startMenu` state via `BackToStartMenu`
+                break;
+            default:
+                throw new System.Exception($"Unknown case {currentState}.");
         }
 
-        // Temp
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            //DeleteFirstFruit(); // Just to cycle thru
-            fruits.Add(createRandomFruit());
+        // Exit game
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+        #if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
         }
-
-        CheckFruits();
     }
+
+    public void Recalibrate() {
+        prevState = currentState;
+        currentState = GameState.needsCalibrate;
+    }
+
+    public void BackToStartMenu() {
+        if (currentState == GameState.ended) {
+            uiControl.DisplayHighScores(false);
+        } else if (currentState == GameState.paused) {
+            uiControl.DisplayPauseMenu(false);
+        }
+        currentState = GameState.startMenu;
+        
+    }
+
+    public void SelectGameMode(GameMode mode) {
+        gameMode = mode;
+        uiControl.DisplayGameModeSelect(false);
+        currentState = GameState.playing;
+    }
+
 
     private void CheckFruits()
     {

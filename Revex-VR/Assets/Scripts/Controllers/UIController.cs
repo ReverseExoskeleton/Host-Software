@@ -21,6 +21,8 @@ public class UIController : MonoBehaviour
     private float msgStart;
     private bool msgDisplayed = false;
 
+    private const int NoNewUserScore = -1;
+
     private void Start()
     {
         // Setup messages
@@ -88,5 +90,36 @@ public class UIController : MonoBehaviour
 
         displayConnecting = enabled;
 
+    }
+
+    public void DisplayStartMenu(bool enabled) {
+        // ... some other stuff
+
+        DisplayHighScores(enabled);
+
+        // ... some other stuff
+    }
+
+    public void DisplayPauseMenu(bool enabled) {
+    }
+
+    public void DisplayGameModeSelect(bool enabled) {
+
+    }
+
+    public void DisplayHighScores(bool enabled, int userScore = NoNewUserScore) {
+      if (userScore != NoNewUserScore) {
+        // Get user name ...
+        //HighScores.AddNew(userName, userScore);
+      }
+
+      // Populate the high score board on the screen 
+      //HighScores.GiveMeTheScores();
+      //...
+
+      if (userScore != NoNewUserScore) {
+        // More scores??
+        // Also text box below board showing how shit they are (ranking)
+      }
     }
 }
