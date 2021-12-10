@@ -7,19 +7,22 @@ using UnityEngine;
 class Scores {
   private Dictionary<string, int> _scores;
 
-  private string _path = Application.dataPath + "/scores/scores.rec";
+  private string _dir;
+  private string _path;
   private FileStream _fs;
   private BinaryFormatter _fmttr = new BinaryFormatter();
 
-  public Scores() {
+  public Scores(string datapath) {
+    _dir = datapath + "/scores";
+    _path = datapath + "/scores/scores.rec";
     ReadFromFile();
   }
-​
+
   public bool WriteToFile() {
     bool success = false;
-​
-    _fs = File.Create(_path);
-​
+    
+    _fs = File.OpenWrite(_path);
+
     try {
       _fmttr.Serialize(_fs, _scores);
       success = true;
@@ -27,15 +30,18 @@ class Scores {
       Debug.LogError("Error writing serialized scores to file!");
       Debug.LogError(e.Message);
     }
-​
+    
     _fs.Close();
     return success;
   }
-​
+    
   public void ReadFromFile() {
+    if (!Directory.Exists(_dir)) {
+      Directory.CreateDirectory(_dir);
+    }
     if (!File.Exists(_path)) {
-      _fs = File.Create(_path);
       _scores = new Dictionary<string, int>();
+      return;
     }
 
     _fs = File.OpenRead(_path);
@@ -62,6 +68,9 @@ class Scores {
   }
 
   public Dictionary<string, int> GetTopScores(int numScores) {
+    //if (_scores.Count <= 10) {
+    //  return _scores;
+    //}
     return _scores.OrderByDescending(pair => pair.Value).Take(numScores)
                .ToDictionary(pair => pair.Key, pair => pair.Value);
   }

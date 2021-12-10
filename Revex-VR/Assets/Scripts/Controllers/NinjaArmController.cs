@@ -22,6 +22,8 @@ public class NinjaArmController : MonoBehaviour
     // -------------------- Game --------------------
     public List<GameObject> fruitsHit = new List<GameObject>();
 
+    HapticFeedback _feedback;
+    float _hapticBurstEndTime;
 
     void Start()
     {
@@ -61,8 +63,19 @@ public class NinjaArmController : MonoBehaviour
                     break;
                 }
 
+                if (_feedback.DutyCycle != 0)
+                {
+                    if (Time.time > _hapticBurstEndTime)
+                    {
+                        _feedback = new HapticFeedback(0, 0);
+                        tranceiver.SendHapticFeedback(_feedback);
+                    }
+
+                }
+
                 if (!UpdateSensorData()) return;
                 UpdateTransforms();
+
 
                 break;
             default:
@@ -100,6 +113,13 @@ public class NinjaArmController : MonoBehaviour
 
 
         return true;
+    }
+
+    public void HapticBurst(float burstPeriodS, float dutyCyclePrcnt, float frequencyPrcnt)
+    {
+        _feedback = new HapticFeedback(dutyCyclePrcnt, frequencyPrcnt);
+        tranceiver.SendHapticFeedback(_feedback);
+        _hapticBurstEndTime = Time.time + burstPeriodS;
     }
 
     private void UpdateTransforms()

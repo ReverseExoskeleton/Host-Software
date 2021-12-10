@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
@@ -26,10 +27,11 @@ public class GameMaster : MonoBehaviour
     private Ray leftEdge, rightEdge;
 
     public int userScore;
-    private Scores allScores = new Scores();
+    private Scores allScores;
 
     public float roundLength = 60f;
 
+    private float nextFruit;
     private float roundStart;
     private bool started = false;
     private GameState currentState = GameState.init;
@@ -43,8 +45,11 @@ public class GameMaster : MonoBehaviour
         leftEdge = mainCam.ScreenPointToRay(new Vector3(0f, mainCam.pixelHeight / 2f));
         rightEdge = mainCam.ScreenPointToRay(new Vector3(mainCam.pixelWidth, mainCam.pixelHeight / 2f));
 
+        allScores = new Scores(Application.dataPath);
+
         currentState = GameState.connectingRevEx;   // We are now waiting for revex
         uiControl.DisplayConnect(true);
+        uiControl.DisplayHighScores(true, allScores.GetTopScores(10), false);
     }
 
     // Update is called once per frame
@@ -91,6 +96,12 @@ public class GameMaster : MonoBehaviour
                     CheckFruits();
 
                     uiControl.UpdateTimer(roundStart + roundLength - Time.time);
+                    
+                    if (Time.time >= nextFruit)
+                    {
+                        fruits.Add(createRandomFruit());
+                        nextFruit = Time.time + Random.Range(1f, 2f);
+                    }
 
                     if (Time.time - roundStart >= roundLength)
                     {
@@ -103,7 +114,7 @@ public class GameMaster : MonoBehaviour
                         uiControl.DisplayScore(false);
                         uiControl.DisplayTimer(false);
                     }
-
+                    
                     uiControl.UpdateScore(userScore);
                 }
                 else
@@ -111,6 +122,7 @@ public class GameMaster : MonoBehaviour
                     if (Time.time > roundStart)
                     {
                         started = true;
+                        nextFruit = Time.time + .5f;
                         audioController.PlaySound(AudioController.SoundType.roundStart);
                         uiControl.UpdateTimer(roundLength);
                         uiControl.UpdateScore(0);
@@ -130,9 +142,8 @@ public class GameMaster : MonoBehaviour
             case GameState.ended:
                 if (!uiControl.GetHighscoresOpen())
                 {
-                    //uiControl.DisplayHighScores(true, userScore); get user score
+                    uiControl.DisplayHighScores(true, allScores.GetTopScores(10), true);
                 }
-                // Note: Returns to `startMenu` state via `BackToStartMenu`
                 break;
             default:
                 throw new System.Exception($"Unknown case {currentState}.");
@@ -150,18 +161,18 @@ public class GameMaster : MonoBehaviour
 
     public void Recalibrate() {
         audioController.PlaySound(AudioController.SoundType.thump);
-        prevState = currentState;
-        currentState = GameState.needsCalibrate;
+        armControl.Recalibrate();
     }
 
     public void BackToStartMenu() {
         audioController.PlayMainMusic();
         if (currentState == GameState.ended) {
-            uiControl.DisplayHighScores(false, null);
+            uiControl.DisplayHighScores(false, null, true);
         } else if (currentState == GameState.paused) {
             uiControl.DisplayPauseMenu(false);
         }
         currentState = GameState.startMenu;
+        uiControl.DisplayHighScores(true, allScores.GetTopScores(10), false);
     }
 
     public void ResumeGame() {
@@ -169,7 +180,14 @@ public class GameMaster : MonoBehaviour
         currentState = GameState.playing;
     }
 
+    public void AddNewHighscore(GameObject textfield)
+    {
+        allScores.AddScore(textfield.GetComponent<InputField>().text, userScore);
+        uiControl.AddToScoreboard(textfield.GetComponent<InputField>().text + "  |  " + userScore);
+    }
+
     public void StartGame() {
+        userScore = 0;
         audioController.StopMainMusic();
         audioController.PlaySound(AudioController.SoundType.thump);
         uiControl.DisplayStartMenu(false);
@@ -224,6 +242,7 @@ public class GameMaster : MonoBehaviour
         emitter.transform.position = fruit.transform.position + fruit.GetComponent<Rigidbody>().velocity * .05f;
         audioController.PlaySound(AudioController.SoundType.squish);
         userScore++;
+        armControl.HapticBurst(burstPeriodS: .5f, dutyCyclePrcnt: 0.75f, frequencyPrcnt: 0.75f);
 
         Destroy(emitter, 1f);
     }
@@ -251,8 +270,8 @@ public class GameMaster : MonoBehaviour
         // Calculate final intersection point
         float radius = Random.Range(.7f, 1.05f);
         float angle = Random.Range(30f, 150f);
-        //Vector3 finalLanding = new Vector3(radius * Mathf.Cos(angle * Mathf.Deg2Rad), .05f, radius * Mathf.Sin(angle * Mathf.Deg2Rad));
-        Vector3 finalLanding = GameObject.Find("HITTHIS").transform.position;
+        Vector3 finalLanding = new Vector3(radius * Mathf.Cos(angle * Mathf.Deg2Rad), .05f, radius * Mathf.Sin(angle * Mathf.Deg2Rad));
+        //Vector3 finalLanding = GameObject.Find("HITTHIS").transform.position;
 
         // If it's too short switch sides
         float minDistanceThreshold = 0.4f;

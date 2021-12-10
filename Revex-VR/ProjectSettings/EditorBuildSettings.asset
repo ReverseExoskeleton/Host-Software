@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/fruint_freaking_ninja.unity
+    guid: 03664d4864a219d4b96e1ba8fa69ac86
   m_configObjects: {}

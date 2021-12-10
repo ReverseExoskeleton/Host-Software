@@ -32,6 +32,8 @@ public class UIController : MonoBehaviour
     private Transform highscoresTf;
     private Transform highscoreContainer;
     [SerializeField]
+    private Transform highscoreInputTf;
+    [SerializeField]
     private GameObject playerHighscorePrefab;
 
     private List<string> messages = new List<string>();
@@ -97,6 +99,12 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void AddToScoreboard(string entry)
+    {
+        GameObject obj = Instantiate(playerHighscorePrefab, highscoreContainer);
+        obj.GetComponentInChildren<Text>().text = entry;
+    }
+
     public void ShowMessage(string message)
     {
         messages.Add(message);
@@ -145,8 +153,17 @@ public class UIController : MonoBehaviour
     public void DisplayPauseMenu(bool enabled) {
     }
 
-    public void DisplayHighScores(bool enabled, Dictionary<string, int> scores) {
+    public void DisplayHighScores(bool enabled, Dictionary<string, int> scores, bool includeInput) {
+        if (highscoreContainer == null)
+        {
+            highscoreContainer = highscoresTf.Find("Panel").Find("List");
+        }
+
         highscoresTf.gameObject.SetActive(enabled);
+        if (includeInput)
+        {
+            highscoreInputTf.gameObject.SetActive(enabled);
+        }
         
         foreach (Transform t in highscoreContainer.GetComponentInChildren<Transform>())
         {
@@ -160,9 +177,8 @@ public class UIController : MonoBehaviour
         {
             foreach (string pName in scores.Keys)
             {
-                GameObject obj = Instantiate(playerHighscorePrefab, highscoreContainer);
                 scores.TryGetValue(pName, out int score);
-                obj.GetComponentInChildren<Text>().text = pName + "|" + score;
+                AddToScoreboard(pName + "  |  " + score);
             }
         }
     }
