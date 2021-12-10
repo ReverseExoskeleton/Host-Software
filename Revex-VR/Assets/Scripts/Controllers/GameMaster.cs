@@ -11,18 +11,14 @@ public class GameMaster : MonoBehaviour
         connectingRevEx,    // Waiting for revex device
         needsCalibrate,     // Need to calibrate for the first time
         startMenu,          // Now in start menu
-        gameModeSelect,     // Play has been selected, now select mode
         paused,             // Player can pause with menu options
         playing,            // Currently playing the game
         ended               // Game has ended, leads back to start menu
     }
 
-    public enum GameMode {
-        easy,
-    }
-
     public UIController uiControl;
     public NinjaArmController armControl;
+    public AudioController audioController;
 
     public GameObject fruitAccelerator;
     public GameObject[] fruitChoices;
@@ -31,9 +27,12 @@ public class GameMaster : MonoBehaviour
 
     public int userScore;
 
+    public float roundLength = 60f;
+
+    private float roundStart;
+    private bool started = false;
     private GameState currentState = GameState.init;
     private GameState prevState = (GameState)(-1);
-    private GameMode gameMode;
 
     // Start is called before the first frame update
     void Start()
@@ -50,9 +49,9 @@ public class GameMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (armControl.status != DeviceStatus.ArmEstimation) {
-            currentState = GameState.connectingRevEx;
-        }
+        //if (armControl.status != DeviceStatus.ArmEstimation) {
+        //    currentState = GameState.connectingRevEx;
+        //}
 
         switch (currentState)
         {
@@ -80,32 +79,51 @@ public class GameMaster : MonoBehaviour
                 // Note: Goes to  `needsCalibration` or `playStart` via
                 //       `Recalibrate` or `GameModeSelectMenu`, respectively
                 break;
-            case GameState.gameModeSelect:
-                uiControl.DisplayStartMenu(false);
-                uiControl.DisplayGameModeSelect(true);
-                // Note: Goes to `playing` state via `SelectGameMode`
-                break;
             case GameState.paused:
                 uiControl.DisplayPauseMenu(true);
                 // Note: Goes to `startMenu` or `playing` state via
                 //       `BackToStartMenu` or `ResumeGame`, respectively
                 break;
             case GameState.playing:
-                // ------------------ Temporary --------------------
-                if (Input.GetKeyDown(KeyCode.F)) {
-                  //DeleteFirstFruit(); // Just to cycle thru
-                  fruits.Add(createRandomFruit());
-                }
-                // -------------------------------------------------
-
-                CheckFruits();
-
-                // TODO: Update the score, keep track of hitting bombs, update time...
-
-                if (false) // TODO: bombs OR time runs out
+                if (started)
                 {
-                    // TODO: Probably some fruit cleanup function
-                    currentState = GameState.ended;
+                    CheckFruits();
+
+                    uiControl.UpdateTimer(roundStart + roundLength - Time.time);
+
+                    if (Time.time - roundStart >= roundLength)
+                    {
+                        started = false;
+                        CleanupFruits();
+                        uiControl.UpdateTimer(0f);
+                        currentState = GameState.ended;
+                        audioController.PlaySound(AudioController.SoundType.gameOver);
+
+                        uiControl.DisplayScore(false);
+                        uiControl.DisplayTimer(false);
+                    }
+
+                    uiControl.UpdateScore(userScore);
+                }
+                else
+                {
+                    if (Time.time > roundStart)
+                    {
+                        started = true;
+                        audioController.PlaySound(AudioController.SoundType.roundStart);
+                        uiControl.UpdateTimer(roundLength);
+                        uiControl.UpdateScore(0);
+                        uiControl.DisplayScore(true);
+                    }
+                    else
+                    {
+                        uiControl.UpdateTimer(Time.time - roundStart);
+                    }
+                }
+                
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    fruits.Add(createRandomFruit());
                 }
                 break;
             case GameState.ended:
@@ -127,36 +145,46 @@ public class GameMaster : MonoBehaviour
     }
 
     public void Recalibrate() {
+        audioController.PlaySound(AudioController.SoundType.thump);
         prevState = currentState;
         currentState = GameState.needsCalibrate;
     }
 
     public void BackToStartMenu() {
+        audioController.PlayMainMusic();
         if (currentState == GameState.ended) {
             uiControl.DisplayHighScores(false);
         } else if (currentState == GameState.paused) {
             uiControl.DisplayPauseMenu(false);
         }
         currentState = GameState.startMenu;
-        
     }
 
-    public void ResumeGame(GameMode mode) {
+    public void ResumeGame() {
         uiControl.DisplayPauseMenu(false);
         currentState = GameState.playing;
     }
 
-    public void GameModeSelectMenu() {
-        uiControl.DisplayGameModeSelect(true);
-        currentState = GameState.gameModeSelect;
-    }
-
-    public void StartGame(GameMode mode) {
-        gameMode = mode;
-        uiControl.DisplayGameModeSelect(false);
+    public void StartGame() {
+        audioController.StopMainMusic();
+        audioController.PlaySound(AudioController.SoundType.thump);
+        uiControl.DisplayStartMenu(false);
         currentState = GameState.playing;
+
+        roundStart = Time.time + 3f;
+        started = false;
+        uiControl.DisplayTimer(true);
+        uiControl.UpdateTimer(Time.time - roundStart);
     }
 
+    private void CleanupFruits()
+    {
+        foreach (GameObject g in fruits)
+        {
+            Destroy(g);
+        }
+        fruits.Clear();
+    }
 
     private void CheckFruits()
     {
@@ -190,7 +218,9 @@ public class GameMaster : MonoBehaviour
     {
         GameObject emitter = Instantiate(fruitAccelerator);
         emitter.transform.position = fruit.transform.position + fruit.GetComponent<Rigidbody>().velocity * .05f;
-        
+        audioController.PlaySound(AudioController.SoundType.squish);
+        userScore++;
+
         Destroy(emitter, 1f);
     }
 
@@ -217,8 +247,8 @@ public class GameMaster : MonoBehaviour
         // Calculate final intersection point
         float radius = Random.Range(.7f, 1.05f);
         float angle = Random.Range(30f, 150f);
-        Vector3 finalLanding = new Vector3(radius * Mathf.Cos(angle * Mathf.Deg2Rad), .05f, radius * Mathf.Sin(angle * Mathf.Deg2Rad));
-        //Vector3 finalLanding = GameObject.Find("HITTHIS").transform.position;
+        //Vector3 finalLanding = new Vector3(radius * Mathf.Cos(angle * Mathf.Deg2Rad), .05f, radius * Mathf.Sin(angle * Mathf.Deg2Rad));
+        Vector3 finalLanding = GameObject.Find("HITTHIS").transform.position;
 
         // If it's too short switch sides
         float minDistanceThreshold = 0.4f;

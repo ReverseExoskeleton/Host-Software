@@ -17,6 +17,17 @@ public class UIController : MonoBehaviour
     private bool displayConnecting;
     private float conStart;
 
+    [SerializeField]
+    private Transform startTf;
+
+    [SerializeField]
+    private Transform timerTf;
+    private Text timerText;
+
+    [SerializeField]
+    private Transform scoreTf;
+    private Text scoreText;
+
     private List<string> messages = new List<string>();
     private float msgStart;
     private bool msgDisplayed = false;
@@ -31,6 +42,12 @@ public class UIController : MonoBehaviour
 
         // Setup connecting
         circleTf = connectingTf.Find("Img");
+
+        // Setup timer
+        timerText = timerTf.GetComponentInChildren<Text>();
+
+        // Setup timer
+        scoreText = scoreTf.GetComponentInChildren<Text>();
     }
 
     private void Update()
@@ -92,8 +109,30 @@ public class UIController : MonoBehaviour
 
     }
 
+    public void DisplayTimer(bool enabled)
+    {
+        timerTf.gameObject.SetActive(enabled);
+    }
+
+    public void UpdateTimer(float time)
+    {
+        timerText.text = time.ToString("0.0");
+    }
+
+    public void DisplayScore(bool enabled)
+    {
+        scoreTf.gameObject.SetActive(enabled);
+    }
+
+    public void UpdateScore(int score)
+    {
+        scoreText.text = "Score: " + score;
+    }
+
     public void DisplayStartMenu(bool enabled) {
         // ... some other stuff
+
+        startTf.gameObject.SetActive(enabled);
 
         DisplayHighScores(enabled);
 
