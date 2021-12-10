@@ -97,10 +97,15 @@ public class AudioController : MonoBehaviour
 
     public void PlaySound(SoundType type)
     {
-        PlaySound(type, camPos);
+        PlaySound(type, camPos, 0f);
     }
 
-    public void PlaySound(SoundType type, Vector3 position)
+    public void PlaySound(SoundType type, float delay)
+    {
+        PlaySound(type, camPos, delay);
+    }
+
+    public void PlaySound(SoundType type, Vector3 position, float delay)
     {
         AudioClip clip = null;
 
@@ -138,8 +143,8 @@ public class AudioController : MonoBehaviour
         GameObject newObj = Instantiate(audioSourcePrefab, camPos, Quaternion.identity);
         AudioSource source = newObj.GetComponent<AudioSource>();
         source.clip = clip;
-        source.Play();
-        Destroy(newObj, clip.length + .5f);
+        source.PlayDelayed(delay);
+        Destroy(newObj, clip.length + .5f + delay);
     }
 
     public void PlayMainMusic()

@@ -68,10 +68,10 @@ public class GameMaster : MonoBehaviour
                 uiControl.DisplayConnect(false);
 
                 // Always calibrate on reconnect
+                uiControl.ShowMessage("Please face away from the monitor.");
                 currentState = GameState.needsCalibrate; 
                 break;
             case GameState.needsCalibrate:
-                uiControl.ShowMessage("Please face away from the monitor.");
                 if (!Input.GetKeyDown(KeyCode.Space)) break;
                 armControl.Recalibrate();
 
@@ -113,6 +113,23 @@ public class GameMaster : MonoBehaviour
 
                         uiControl.DisplayScore(false);
                         uiControl.DisplayTimer(false);
+
+                        if (userScore >= 15)
+                        {
+                            audioController.PlaySound(AudioController.SoundType.positive, 2f);
+                        }
+                        if (userScore >= 30)
+                        {
+                            audioController.PlaySound(AudioController.SoundType.ninja, 4f);
+                        }
+                        if (userScore >= 40)
+                        {
+                            audioController.PlaySound(AudioController.SoundType.samurai, 6f);
+                        }
+                        if (userScore >= 45)
+                        {
+                            audioController.PlaySound(AudioController.SoundType.weird, 8f);
+                        }
                     }
                     
                     uiControl.UpdateScore(userScore);
@@ -147,6 +164,11 @@ public class GameMaster : MonoBehaviour
                 break;
             default:
                 throw new System.Exception($"Unknown case {currentState}.");
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            audioController.PlaySound(AudioController.SoundType.positive, 2f);
         }
 
         // Exit game
@@ -197,6 +219,7 @@ public class GameMaster : MonoBehaviour
         started = false;
         uiControl.DisplayTimer(true);
         uiControl.UpdateTimer(Time.time - roundStart);
+        uiControl.DisplayHighScores(false, allScores.GetTopScores(10), true);
     }
 
     private void CleanupFruits()

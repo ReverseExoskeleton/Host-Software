@@ -110,6 +110,10 @@ public class UIController : MonoBehaviour
         messages.Add(message);
     }
 
+    public void ClearMessageQueue()
+    {
+        messages.Clear();
+    }
     public void DisplayConnect(bool enabled)
     {
         if (enabled && !displayConnecting)
