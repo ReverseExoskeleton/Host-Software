@@ -26,6 +26,7 @@ public class GameMaster : MonoBehaviour
     private Ray leftEdge, rightEdge;
 
     public int userScore;
+    private Scores allScores = new Scores();
 
     public float roundLength = 60f;
 
@@ -274,5 +275,10 @@ public class GameMaster : MonoBehaviour
         g.GetComponent<Rigidbody>().velocity = init_vel;
 
         return g;
+    }
+
+    private void OnApplicationQuit()
+    {
+        allScores.WriteToFile();
     }
 }
