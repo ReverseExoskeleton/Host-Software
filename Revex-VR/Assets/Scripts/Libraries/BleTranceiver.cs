@@ -153,7 +153,7 @@ public class BleTranceiver : Tranceiver {
       {"haptic", new CharacteristicInfo(
             hapticCharacteristicId, shouldSubscribe: false, expectedSize: 0) },
       {"battery", new CharacteristicInfo(batteryCharacteristicId, 
-                                        shouldSubscribe: true, 
+                                        shouldSubscribe: false, // TODO: Flip if MCU fixes issues.
                                         expectedSize: BatteryVoltage.NumBytes) },
     };
 
@@ -374,12 +374,14 @@ public class BleTranceiver : Tranceiver {
 
         switch (receivedData.size) {
           case SensorSample.NumBytes:
+            Logger.Debug("Received sensor packet.");
             byte[] sampleBuffer = new byte[receivedData.size];
             Buffer.BlockCopy(receivedData.buf, 0, sampleBuffer,
                                           0, receivedData.size);
             _sampleQueue.Enqueue(new SensorSample(sampleBuffer));
             break;
           case BatteryVoltage.NumBytes:
+            Logger.Debug("Received battery packet.");
             byte[] buffer = new byte[receivedData.size];
             Buffer.BlockCopy(receivedData.buf, 0, buffer, 0, receivedData.size);
             batteryVoltage = BatteryVoltage.Value(buffer);
