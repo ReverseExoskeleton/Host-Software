@@ -127,7 +127,10 @@ public class GameMaster : MonoBehaviour
                 }
                 break;
             case GameState.ended:
-                uiControl.DisplayHighScores(true, userScore);
+                if (!uiControl.GetHighscoresOpen())
+                {
+                    //uiControl.DisplayHighScores(true, userScore); get user score
+                }
                 // Note: Returns to `startMenu` state via `BackToStartMenu`
                 break;
             default:
@@ -153,7 +156,7 @@ public class GameMaster : MonoBehaviour
     public void BackToStartMenu() {
         audioController.PlayMainMusic();
         if (currentState == GameState.ended) {
-            uiControl.DisplayHighScores(false);
+            uiControl.DisplayHighScores(false, null);
         } else if (currentState == GameState.paused) {
             uiControl.DisplayPauseMenu(false);
         }

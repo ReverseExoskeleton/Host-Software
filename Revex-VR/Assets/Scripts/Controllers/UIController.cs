@@ -28,6 +28,12 @@ public class UIController : MonoBehaviour
     private Transform scoreTf;
     private Text scoreText;
 
+    [SerializeField]
+    private Transform highscoresTf;
+    private Transform highscoreContainer;
+    [SerializeField]
+    private GameObject playerHighscorePrefab;
+
     private List<string> messages = new List<string>();
     private float msgStart;
     private bool msgDisplayed = false;
@@ -48,6 +54,9 @@ public class UIController : MonoBehaviour
 
         // Setup timer
         scoreText = scoreTf.GetComponentInChildren<Text>();
+
+        // Setup highscores
+        highscoreContainer = highscoresTf.Find("Panel").Find("List");
     }
 
     private void Update()
@@ -130,35 +139,41 @@ public class UIController : MonoBehaviour
     }
 
     public void DisplayStartMenu(bool enabled) {
-        // ... some other stuff
-
         startTf.gameObject.SetActive(enabled);
-
-        DisplayHighScores(enabled);
-
-        // ... some other stuff
     }
 
     public void DisplayPauseMenu(bool enabled) {
     }
 
-    public void DisplayGameModeSelect(bool enabled) {
+    public void DisplayHighScores(bool enabled, Dictionary<string, int> scores) {
+        highscoresTf.gameObject.SetActive(enabled);
+        
+        foreach (Transform t in highscoreContainer.GetComponentInChildren<Transform>())
+        {
+            if (t != highscoresTf)
+            {
+                Destroy(t.gameObject);
+            }
+        }
 
+        if (enabled)
+        {
+            foreach (string pName in scores.Keys)
+            {
+                GameObject obj = Instantiate(playerHighscorePrefab, highscoreContainer);
+                scores.TryGetValue(pName, out int score);
+                obj.GetComponentInChildren<Text>().text = pName + "|" + score;
+            }
+        }
     }
 
-    public void DisplayHighScores(bool enabled, int userScore = NoNewUserScore) {
-      if (userScore != NoNewUserScore) {
-        // Get user name ...
-        //HighScores.AddNew(userName, userScore);
-      }
+    public bool GetHighscoresOpen()
+    {
+        return highscoresTf.gameObject.activeSelf;
+    }
 
-      // Populate the high score board on the screen 
-      //HighScores.GiveMeTheScores();
-      //...
-
-      if (userScore != NoNewUserScore) {
-        // More scores??
-        // Also text box below board showing how shit they are (ranking)
-      }
+    public void CloseHighscores()
+    {
+        highscoresTf.gameObject.SetActive(false);
     }
 }
