@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class NinjaArmController : MonoBehaviour
 {
+    // --------------- Communication ---------------
+    public DeviceStatus status = DeviceStatus.Asleep;
+    public Tranceiver tranceiver;
+    public bool useBleTranceiver = true;
+    private float _timeSinceLastPacketS = 0; // sec
+
+    // --------------- Arm Estimation ---------------
+    public Madgwick fusion;
+    public MovingAvg elbowEma = new MovingAvg();
+
+    private Vector3 shoulderStart;
     public Transform imu;
     public Transform shoulder;
     public Transform elbow;
@@ -12,15 +23,6 @@ public class NinjaArmController : MonoBehaviour
     public float batteryVoltage = 0;
     public List<GameObject> fruitsHit = new List<GameObject>();
 
-    private Vector3 shoulderStart;
-
-    public PsscDeviceStatus _status = PsscDeviceStatus.Asleep;
-    public Tranceiver tranceiver;
-    public bool useBleTranceiver = true;
-    private float _timeSinceLastPacketS = 0; // sec
-
-    // --------------- Arm Estimation ---------------
-    public Madgwick fusion;
 
     void Start()
     {
@@ -41,28 +43,21 @@ public class NinjaArmController : MonoBehaviour
     {
         if (tranceiver == null) return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        DeviceStatus initialStatus = status;
+        switch (status)
         {
-            Logger.Warning("Correcting for bias");
-            Quaternion bias_deg = Quaternion.Euler(0, 90, 0);
-            fusion = new Madgwick(Quaternion.identity);
-        }
-
-        PsscDeviceStatus initialStatus = _status;
-        switch (_status)
-        {
-            case PsscDeviceStatus.Asleep:
+            case DeviceStatus.Asleep:
                 if (tranceiver.DeviceIsAwake(forceDeviceSearch: true))
-                    _status = PsscDeviceStatus.Connecting;
+                    status = DeviceStatus.Connecting;
                 break;
-            case PsscDeviceStatus.Connecting:
+            case DeviceStatus.Connecting:
                 if (tranceiver.TryEstablishConnection())
-                    _status = PsscDeviceStatus.ArmEstimation;
+                    status = DeviceStatus.ArmEstimation;
                 break;
-            case PsscDeviceStatus.ArmEstimation:
+            case DeviceStatus.ArmEstimation:
                 if (!tranceiver.DeviceIsAwake(forceDeviceSearch: false))
                 {
-                    _status = PsscDeviceStatus.Asleep;
+                    status = DeviceStatus.Asleep;
                     _timeSinceLastPacketS = 0;
                     break;
                 }
@@ -72,16 +67,22 @@ public class NinjaArmController : MonoBehaviour
 
                 break;
             default:
-                throw new Exception($"Unknown case {_status}.");
+                throw new Exception($"Unknown case {status}.");
         }
 
-        if (initialStatus != _status)
+        if (initialStatus != status)
         {
-            Logger.Debug($"Status changed from {initialStatus} to {_status}.");
+            Logger.Debug($"Status changed from {initialStatus} to {status}.");
         }
     }
 
-    private bool UpdateSensorData()
+    public void Recalibrate() {
+        Logger.Debug("Recalibrating");
+        Quaternion bias_deg = Quaternion.Euler(0, 90, 0);
+        fusion = new Madgwick(Quaternion.identity);
+    }
+
+  private bool UpdateSensorData()
     {
         _timeSinceLastPacketS += Time.deltaTime;
 
@@ -95,11 +96,9 @@ public class NinjaArmController : MonoBehaviour
         {
             fusion.AhrsUpdate(sample.Imu.AngVel, sample.Imu.LinAccel,
                               sample.Imu.MagField, samplePeriod);
-
-            UpdateElbowAngle(sample.ElbowAngleDeg);
+            elbowEma.Update(sample.ElbowAngleDeg);
 
             batteryVoltage = sample.BatteryVoltage; // Do something with this ...
-            Debug.Log(batteryVoltage);
         }
 
         return true;
@@ -107,23 +106,15 @@ public class NinjaArmController : MonoBehaviour
 
     private void UpdateTransforms()
     {
-        UpdateRotation(fusion.GetQuaternion());
+        imu.rotation = fusion.GetQuaternion();
+        imu.position += shoulderStart - shoulder.position;  // Make it rotate around the shoulder
+
+        elbow.localRotation = Quaternion.Euler(0f, 0f, 180f - elbowEma.Current());
     }
 
     private void OnApplicationQuit()
     {
         tranceiver?.Dispose();
-    }
-
-    public void UpdateRotation(Quaternion imuRot)
-    {
-        imu.rotation = imuRot;
-        imu.position += shoulderStart - shoulder.position;  // Make it rotate around the shoulder
-    }
-
-    public void UpdateElbowAngle(float angle)
-    {
-        elbow.localRotation = Quaternion.Euler(0f, 0f, 180f - angle);
     }
 
     public void AddFruitHit(GameObject fruit)

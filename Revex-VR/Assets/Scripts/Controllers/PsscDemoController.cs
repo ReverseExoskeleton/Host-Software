@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PsscDeviceStatus {
+public enum DeviceStatus {
   Connecting,
   ArmEstimation,
   Asleep,
@@ -10,7 +10,7 @@ public enum PsscDeviceStatus {
 
 public class PsscDemoController : MonoBehaviour {
   // --------------- Scene ---------------
-  private PsscDeviceStatus _status = PsscDeviceStatus.Asleep;
+  private DeviceStatus _status = DeviceStatus.Asleep;
   private HapticFeedback _prevHapticFeedback = new HapticFeedback(-1, -1);
   private PsscSimulation _sim;
 
@@ -42,19 +42,19 @@ public class PsscDemoController : MonoBehaviour {
   void Update() {
     if (tranceiver == null) return;
 
-    PsscDeviceStatus initialStatus = _status;
+    DeviceStatus initialStatus = _status;
     switch (_status) {
-      case PsscDeviceStatus.Asleep:
+      case DeviceStatus.Asleep:
         if (tranceiver.DeviceIsAwake(forceDeviceSearch: true)) 
-          _status = PsscDeviceStatus.Connecting;
+          _status = DeviceStatus.Connecting;
         break;
-      case PsscDeviceStatus.Connecting:
+      case DeviceStatus.Connecting:
         if (tranceiver.TryEstablishConnection())
-          _status = PsscDeviceStatus.ArmEstimation;
+          _status = DeviceStatus.ArmEstimation;
         break;
-      case PsscDeviceStatus.ArmEstimation:
+      case DeviceStatus.ArmEstimation:
         if (!tranceiver.DeviceIsAwake(forceDeviceSearch: false)) {
-          _status = PsscDeviceStatus.Asleep;
+          _status = DeviceStatus.Asleep;
           _timeSinceLastPacketS = 0;
           break;
         }
