@@ -16,6 +16,7 @@ class Scores {
     _dir = datapath + "/scores";
     _path = datapath + "/scores/scores.rec";
     ReadFromFile();
+    WriteScoresToTextFile();
   }
 
   public bool WriteToFile() {
@@ -74,5 +75,19 @@ class Scores {
     return _scores.OrderByDescending(pair => pair.Value).Take(numScores)
                .ToDictionary(pair => pair.Key, pair => pair.Value);
   }
+  
+    public void WriteScoresToTextFile()
+    {
+        string scoreFile = "";
+        
+        int count = 1;
+        foreach (string key in GetTopScores(1000).Keys)
+        {
+            _scores.TryGetValue(key, out int scr);
+            scoreFile += count + ". " + key + ": " + scr + "\n";
+            count++;
+        }
 
+        File.WriteAllText(_dir + "/scores.txt", scoreFile);
+    }
 }
