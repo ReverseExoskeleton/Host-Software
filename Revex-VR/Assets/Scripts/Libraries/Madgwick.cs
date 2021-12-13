@@ -140,8 +140,7 @@ public class Madgwick {
 
     [DllImport("MadgwickDll.dll", EntryPoint = "FusionAhrsInitialise", CharSet = CharSet.Unicode)]
     public static extern void FusionAhrsInitialise(ref FusionAhrs fusionAhrs,
-                                                   float gain,
-                                                   FusionQuaternion initial);
+                                                   float gain);
 
     [DllImport("MadgwickDll.dll", EntryPoint = "FusionAhrsSetMagneticField", CharSet = CharSet.Unicode)]
     public static extern void FusionAhrsSetMagneticField(ref FusionAhrs fusionAhrs,
@@ -153,6 +152,13 @@ public class Madgwick {
                                                FusionVector3 gyroscope,
                                                FusionVector3 accelerometer,
                                                FusionVector3 magnetometer,
+                                               float samplePeriod);
+
+    [DllImport("MadgwickDll.dll", EntryPoint = "FusionAhrsUpdateWithoutMagnetometer", CharSet = CharSet.Unicode)]
+    public static extern void FusionAhrsUpdateWithoutMagnetometer(
+                                               ref FusionAhrs fusionAhrs,
+                                               FusionVector3 gyroscope,
+                                               FusionVector3 accelerometer,
                                                float samplePeriod);
 
     [DllImport("MadgwickDll.dll", EntryPoint = "FusionAhrsIsInitialising", CharSet = CharSet.Unicode)]
@@ -222,11 +228,11 @@ public class Madgwick {
   private Impl.FusionBias _bias = new Impl.FusionBias();
   private Impl.FusionAhrs _ahrs = new Impl.FusionAhrs();
 
-  public Madgwick(Quaternion initial) {
+  public Madgwick() {
     // Initialise gyroscope bias correction algorithm
     Impl.FusionBiasInitialise(ref _bias, _StationaryThreshold, _DesiredSamplePeriod);
     // Initialise AHRS algorithm
-    Impl.FusionAhrsInitialise(ref _ahrs, _Gain, new Impl.FusionQuaternion(initial));
+    Impl.FusionAhrsInitialise(ref _ahrs, _Gain);
     // Set optional magnetic field limits
     Impl.FusionAhrsSetMagneticField(ref _ahrs, _MinMagField, _MaxMagField);
   }
@@ -259,12 +265,12 @@ public class Madgwick {
     Logger.Debug($"calib mag: x={calibMag.x}, y={calibMag.y}, z={calibMag.z}");
     Logger.Debug($"------------------------------------- ");
 
-    //calibGyro.x = Math.Abs(calibGyro.x) <= 1.5 ? 0 : calibGyro.x;
-    //calibGyro.y = Math.Abs(calibGyro.y) <= 1.5 ? 0 : calibGyro.y;
-    //calibGyro.z = Math.Abs(calibGyro.z) <= 1.5 ? 0 : calibGyro.z;
-
     // Update AHRS algorithm
     Impl.FusionAhrsUpdate(ref _ahrs, calibGyro, calibAccel, calibMag, samplePeriod);
+  }
+
+  public void SetYaw(float yaw) {
+    Impl.FusionAhrsSetYaw(ref _ahrs, yaw);
   }
 
   public Quaternion GetQuaternion() {

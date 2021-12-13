@@ -24,7 +24,7 @@ public class CubeDemoController : MonoBehaviour {
     } else {
       tranceiver = new SerialReader();
     }
-    fusion = new Madgwick(Quaternion.identity);
+    fusion = new Madgwick();
     //fusion = new Mahony(0.01f, 1f);
 
     //startTime = Time.time;
@@ -39,7 +39,7 @@ public class CubeDemoController : MonoBehaviour {
       //biasSet = true;
       //bias = Quaternion.Inverse(fusion.GetQuaternion());
       Quaternion bias_deg = Quaternion.Euler(0, 90, 0);
-      fusion = new Madgwick(Quaternion.identity);
+      fusion = new Madgwick();
     }
 
     DeviceStatus initialStatus = _status;

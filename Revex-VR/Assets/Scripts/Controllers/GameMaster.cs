@@ -73,7 +73,7 @@ public class GameMaster : MonoBehaviour
                 break;
             case GameState.needsCalibrate:
                 if (!Input.GetKeyDown(KeyCode.Space)) break;
-                armControl.Recalibrate();
+                Recalibrate();
 
                 if (prevState == GameState.startMenu || prevState == GameState.paused) {
                   currentState = prevState;
@@ -183,7 +183,7 @@ public class GameMaster : MonoBehaviour
 
     public void Recalibrate() {
         audioController.PlaySound(AudioController.SoundType.thump);
-        armControl.Recalibrate();
+        armControl.Recalibrate(yaw: 0);
     }
 
     public void BackToStartMenu() {

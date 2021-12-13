@@ -36,7 +36,7 @@ public class PsscDemoController : MonoBehaviour {
     } else {
       tranceiver = new SerialReader();
     }
-    fusion = new Madgwick(Quaternion.identity);
+    fusion = new Madgwick();
   }
 
   void Update() {

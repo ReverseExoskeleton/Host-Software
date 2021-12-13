@@ -37,7 +37,7 @@ public class NinjaArmController : MonoBehaviour
         {
             tranceiver = new SerialReader();
         }
-        fusion = new Madgwick(Quaternion.identity);
+        fusion = new Madgwick();
     }
 
     void Update()
@@ -88,10 +88,9 @@ public class NinjaArmController : MonoBehaviour
         }
     }
 
-    public void Recalibrate() {
+    public void Recalibrate(float yaw) {
         Logger.Debug("Recalibrating");
-        Quaternion bias_deg = Quaternion.Euler(0, 90, 0);
-        fusion = new Madgwick(Quaternion.identity);
+        fusion.SetYaw(yaw);
     }
 
   private bool UpdateSensorData()
