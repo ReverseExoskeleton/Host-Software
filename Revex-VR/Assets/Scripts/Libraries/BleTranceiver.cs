@@ -120,24 +120,26 @@ public class BleTranceiver : Tranceiver {
     }
   }
 
-  public readonly string revexDeviceId = "BluetoothLE#BluetoothLE04:33:c2:80:5e:25-00:1e:c0:1d:42:8a";
+  public string revexDeviceId = "BluetoothLE#BluetoothLE04:33:c2:80:5e:25-00:1e:c0:1d:42:8a";
   public readonly string revexServiceId = "{12345678-9012-3456-7890-1234567890ff}";
   public readonly string sensorCharacteristicId = "12345678-9012-3456-7890-123456789011";
   public readonly string hapticCharacteristicId = "12345678-9012-3456-7890-123456789022";
-  public readonly string sleepCharacteristicId = "12345678-9012-3456-7890-123456789033";
+  public readonly string batteryCharacteristicId = "12345678-9012-3456-7890-123456789033";
 
   private readonly string _OkStatus = "Ok";
   private ConnectionStatus _status = ConnectionStatus.SearchingDevices;
   private Dictionary<string, CharacteristicInfo> _characteristics;
   private ConcurrentQueue<SensorSample> _sampleQueue =
                                           new ConcurrentQueue<SensorSample>();
+  private float batteryVoltage = -1f;
 
   private const uint _ReadWorkerSleepMs = 95;
   private const uint _MaxSecondsBeforeSleep = 1;
   private const uint _MaxMissedPacketsBeforeSleep = (uint)((float)
                           _MaxSecondsBeforeSleep * 1000 / _ReadWorkerSleepMs);
   private bool _deviceIsAwake = false;
-  private bool _finishedSubscribing = false;
+  private bool _firstPacketReceived = false;
+  private bool _resetBle = false;
   private int _numMissedPackets = 0;
   private CancellationTokenSource _readCts = new CancellationTokenSource();
   private bool _readThreadKilled = false;
@@ -150,6 +152,9 @@ public class BleTranceiver : Tranceiver {
                                         expectedSize: SensorSample.NumBytes) },
       {"haptic", new CharacteristicInfo(
             hapticCharacteristicId, shouldSubscribe: false, expectedSize: 0) },
+      {"battery", new CharacteristicInfo(batteryCharacteristicId, 
+                                        shouldSubscribe: false,//true, 
+                                        expectedSize: BatteryVoltage.NumBytes) },
     };
 
     new Thread(ReadWorker).Start();
@@ -157,6 +162,12 @@ public class BleTranceiver : Tranceiver {
 
   public override bool TryEstablishConnection() {
     // TODO(Issue 1): Catch and try to recover from thrown exceptions
+    if (_resetBle) {
+      _resetBle = false;
+      ResetConnection();
+    }
+
+    bool subscriptionComplete = false;
     switch (_status) {
       case ConnectionStatus.SearchingDevices:
         if (ConnectToDevice())
@@ -178,13 +189,19 @@ public class BleTranceiver : Tranceiver {
         _status = ConnectionStatus.CheckingSubscribeAttempts;
         break;
       case ConnectionStatus.CheckingSubscribeAttempts:
-        _finishedSubscribing = CheckSubscribeStatus();
+        subscriptionComplete = CheckSubscribeStatus();
         break;
       default:
         throw new Exception(
             "Unknown case in BleTranceiver::TryEstablishConnection");
     }
-    return _finishedSubscribing;
+    return subscriptionComplete;
+  }
+
+  public void ResetConnection() {
+    Impl.Quit();
+    _status = ConnectionStatus.SearchingDevices;
+    Thread.Sleep(100); // ms 
   }
 
   public override void CloseConnection() {
@@ -200,6 +217,10 @@ public class BleTranceiver : Tranceiver {
     samples = new List<SensorSample>();
     while (_sampleQueue.TryDequeue(out SensorSample smpl)) samples.Add(smpl);
     return samples.Count > 0;
+  }
+
+  public override float GetLastBatteryVoltage() {
+    return batteryVoltage;
   }
 
   public override bool DeviceIsAwake(bool forceDeviceSearch) {
@@ -233,6 +254,7 @@ public class BleTranceiver : Tranceiver {
     Impl.StartDeviceScan();
     do {
       status = Impl.PollDevice(ref device, block: false);
+      if (device.name == "RevEx") { revexDeviceId = device.id; }
       if (device.id == revexDeviceId && device.isConnectable) {
         Logger.Debug($"Connecting to revex device with id {device.id}");
         revexDeviceFound = true;
@@ -317,12 +339,12 @@ public class BleTranceiver : Tranceiver {
                                                 characteristic.Value.Id,
                                                 block: true);
         if (GetStatus() != _OkStatus || !res) {
-          _status = ConnectionStatus.SearchingDevices;
           Logger.Error(
            $"Ble.Subscribe failed. Subscribe returned {(res ? "Success" : "Fail")} with error '{GetStatus()}'");
+          _resetBle = true;
         } else {
           characteristic.Value.Subscribed = true;
-          Logger.Debug($"Successfully subscribed to characteristic.");
+          Logger.Debug($"Successfully subscribed to {characteristic.Key} characteristic.");
         }
       }).Start();
     }
@@ -333,6 +355,7 @@ public class BleTranceiver : Tranceiver {
       if (!characteristic.ShouldSubscribe) continue;
       if (!characteristic.Subscribed) return false;
     }
+    Logger.Debug($"Successfully subscribed to all characteristics.");
     return true;
   }
 
@@ -340,7 +363,8 @@ public class BleTranceiver : Tranceiver {
     while (!_readCts.IsCancellationRequested) {
       bool receivedPacket = false;
       while (Impl.PollData(out Impl.BLEData receivedData, block: false)) {
-        _deviceIsAwake = true;
+        if (!_firstPacketReceived) Logger.Debug("Received first packet");
+        _firstPacketReceived = true;
         receivedPacket = true;
 
         Logger.Debug($"Received packet bytes = {BitConverter.ToString(receivedData.buf)}");
@@ -350,10 +374,17 @@ public class BleTranceiver : Tranceiver {
 
         switch (receivedData.size) {
           case SensorSample.NumBytes:
+            Logger.Debug("Received sensor packet.");
             byte[] sampleBuffer = new byte[receivedData.size];
             Buffer.BlockCopy(receivedData.buf, 0, sampleBuffer,
                                           0, receivedData.size);
             _sampleQueue.Enqueue(new SensorSample(sampleBuffer));
+            break;
+          case BatteryVoltage.NumBytes:
+            Logger.Warning("Received battery packet.");
+            byte[] buffer = new byte[receivedData.size];
+            Buffer.BlockCopy(receivedData.buf, 0, buffer, 0, receivedData.size);
+            batteryVoltage = BatteryVoltage.Value(buffer);
             break;
           default:
             Logger.Warning($"Unknown rx packet with size {receivedData.size}.");
@@ -367,18 +398,23 @@ public class BleTranceiver : Tranceiver {
   }
   
   private void UpdateSleepStatus(bool recievedPacket) {
-    if (_finishedSubscribing) {
+    if (_firstPacketReceived) {
       if (recievedPacket) {
         _numMissedPackets = 0;
       } else {
+        Logger.Debug($"Num missed packets = {_numMissedPackets }");
         _numMissedPackets += 1;
       }
 
       if (_numMissedPackets > _MaxMissedPacketsBeforeSleep) {
+        Logger.Debug($"Missed {_numMissedPackets}, going to sleep");
         _numMissedPackets = 0;
-        _finishedSubscribing = false;
         _deviceIsAwake = false;
-        _status = ConnectionStatus.SearchingDevices;
+        _firstPacketReceived = false;
+        foreach (CharacteristicInfo characteristic in _characteristics.Values) {
+          if (characteristic.ShouldSubscribe) characteristic.Subscribed = false;
+        }
+        ResetConnection();
       }
     }
   }

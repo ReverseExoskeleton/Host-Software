@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7610515222408227226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5945024754076831354}
+  - component: {fileID: 3874387897465056224}
+  m_Layer: 0
+  m_Name: Master Game Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5945024754076831354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610515222408227226}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3874387897465056224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610515222408227226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce5c12c4f534da42b3fc76871a3e2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiControl: {fileID: 0}
+  armControl: {fileID: 0}
+  fruitAccelerator: {fileID: 9059738238227338368, guid: 24d1945af400aa940a6d0a12fabd1dff,
+    type: 3}
+  fruitChoices:
+  - {fileID: 7712939054033608217, guid: 99df6c54d4884e6489afb7dc89647800, type: 3}
+  - {fileID: 2331035857157668750, guid: 649a75f9247366b4893c9f177070ca90, type: 3}
+  - {fileID: 2005381999319732095, guid: 0f4956a6e4ea9c149a93beaf0427a47e, type: 3}
+  - {fileID: 5527514525285667302, guid: c82c2151c3220154f98923943da4b056, type: 3}
+  - {fileID: 8945683080795596755, guid: 216f81bca4f127c4ca82ad8d7907672c, type: 3}
+  - {fileID: 5147522780557767205, guid: 98cbdc42599acd54f99411ed2d46b573, type: 3}

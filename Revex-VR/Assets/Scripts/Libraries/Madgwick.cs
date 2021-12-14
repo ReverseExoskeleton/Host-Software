@@ -58,6 +58,14 @@ public class Madgwick {
       public float y;
       [MarshalAs(UnmanagedType.R4)]
       public float z;
+
+      public FusionQuaternion(Quaternion q) {
+        w = q.w;
+        x = q.x;
+        y = q.y;
+        z = q.z;
+      }
+
     };
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
@@ -132,7 +140,8 @@ public class Madgwick {
 
     [DllImport("MadgwickDll.dll", EntryPoint = "FusionAhrsInitialise", CharSet = CharSet.Unicode)]
     public static extern void FusionAhrsInitialise(ref FusionAhrs fusionAhrs,
-                                                   float gain);
+                                                   float gain,
+                                                   FusionQuaternion initial);
 
     [DllImport("MadgwickDll.dll", EntryPoint = "FusionAhrsSetMagneticField", CharSet = CharSet.Unicode)]
     public static extern void FusionAhrsSetMagneticField(ref FusionAhrs fusionAhrs,
@@ -198,25 +207,26 @@ public class Madgwick {
   private readonly Impl.FusionVector3
     _AccelSens = new Impl.FusionVector3(1 / SensorSample.AccelScaleG); // g/LSB
   //private readonly Impl.FusionVector3
-  //  _HardIronBias = new Impl.FusionVector3(-43.2f, 27.75f, 27.75f); // uT
+  //  _HardIronBias = new Impl.FusionVector3(-26.025f, 12.825f, 12.825f); // uT
   //private readonly Impl.FusionVector3
   //  _HardIronBias = new Impl.FusionVector3(-28.725f, 10.65f, 10.65f); // ut
   private readonly Impl.FusionVector3
-    _HardIronBias = new Impl.FusionVector3(100, 0, 0); // purposefully disable mag correction  
+    _HardIronBias = new Impl.FusionVector3(500, 0, 0); // purposefully disable mag correction  
 
   private const float _DesiredSamplePeriod = 0.01F; // sec
-  private const float _StationaryThreshold = 8f; // dps
-  private const float _Gain = 0.001f;
+  private const float _StationaryThreshold = 2f; // dps
+  //private const float _Gain = 0.001f;
+  private const float _Gain = 1f;
   private const float _MinMagField = 0f; // uT
   private const float _MaxMagField = 70f; // uT
   private Impl.FusionBias _bias = new Impl.FusionBias();
   private Impl.FusionAhrs _ahrs = new Impl.FusionAhrs();
 
-  public Madgwick() {
+  public Madgwick(Quaternion initial) {
     // Initialise gyroscope bias correction algorithm
     Impl.FusionBiasInitialise(ref _bias, _StationaryThreshold, _DesiredSamplePeriod);
     // Initialise AHRS algorithm
-    Impl.FusionAhrsInitialise(ref _ahrs, _Gain);
+    Impl.FusionAhrsInitialise(ref _ahrs, _Gain, new Impl.FusionQuaternion(initial));
     // Set optional magnetic field limits
     Impl.FusionAhrsSetMagneticField(ref _ahrs, _MinMagField, _MaxMagField);
   }
@@ -238,6 +248,7 @@ public class Madgwick {
 
     _bias.samplePeriod = samplePeriod;
     Impl.FusionVector3 calibGyro = Impl.FusionBiasUpdate(ref _bias, rawGyro);
+    //Impl.FusionVector3 calibGyro = rawGyro;
     Impl.FusionVector3 calibAccel = rawAccel / _Vec1k; // g
     Impl.FusionVector3 calibMag = Impl.FusionCalibrationMagnetic(
         rawMag, Impl.FUSION_ROTATION_MATRIX_IDENTITY(), _HardIronBias);
@@ -248,14 +259,25 @@ public class Madgwick {
     Logger.Debug($"calib mag: x={calibMag.x}, y={calibMag.y}, z={calibMag.z}");
     Logger.Debug($"------------------------------------- ");
 
+    //calibGyro.x = Math.Abs(calibGyro.x) <= 1.5 ? 0 : calibGyro.x;
+    //calibGyro.y = Math.Abs(calibGyro.y) <= 1.5 ? 0 : calibGyro.y;
+    //calibGyro.z = Math.Abs(calibGyro.z) <= 1.5 ? 0 : calibGyro.z;
+
     // Update AHRS algorithm
     Impl.FusionAhrsUpdate(ref _ahrs, calibGyro, calibAccel, calibMag, samplePeriod);
   }
 
   public Quaternion GetQuaternion() {
-    Impl.FusionQuaternion q = Impl.FusionAhrsGetQuaternion(ref _ahrs);
-    // Flip z and y axis to work properly with Unity coordinate frame.
-    return new Quaternion(q.x, q.z, q.y, q.w);
+    Impl.FusionQuaternion fusionQ = Impl.FusionAhrsGetQuaternion(ref _ahrs);
+    Quaternion q = new Quaternion(fusionQ.x, fusionQ.z, fusionQ.y, fusionQ.w);
+    //q.eulerAngles = new Vector3(q.eulerAngles.x, q.eulerAngles.y, -q.eulerAngles.z);
+    //q = new Quaternion(-q.x, -q.z, -q.y, q.w);
+
+    //Vector3 ea = q.eulerAngles;
+    //Logger.Testing($"roll={ea.x}, pitch={ea.y}, yaw={ea.z}");
+    //// Flip z and y axis to work properly with Unity coordinate frame.
+    ////return new Quaternion(q.x, q.z, q.y, q.w);
+    return q;
   }
 
   public Vector3 GetEulerAngles() {

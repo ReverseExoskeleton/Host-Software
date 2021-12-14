@@ -2,15 +2,30 @@
 using UnityEngine;
 
 
+public class Utils { 
+  public static float GetFloatFromTwoBytes(byte[] dataBuffer, int offset) {
+    Debug.Assert(offset >= 0 && offset <= dataBuffer.Length - 2);
+
+    // MCU uses Big Endian
+    byte msb = dataBuffer[offset + 1];
+    dataBuffer[offset + 1] = dataBuffer[offset];
+    dataBuffer[offset] = msb;
+
+    short rawInt = BitConverter.ToInt16(dataBuffer, offset);
+    return rawInt;
+  }
+}
+
 public readonly struct SensorSample {
-  // IMU Data + Elbow Angle
-  // IMU:
-  //   Nine DOF, each with 16-bit precision.
-  public ImuSample Imu { get; }
-  public const int ImuSampleNumBytes = 2 * 9; 
+  // Elbow Angle + IMU Data
   // Elbow Angle:
   //   One 16-bit float.
   public float ElbowAngleDeg { get; }
+  // IMU:
+  //   Nine DOF, each with 16-bit precision.
+  public ImuSample Imu { get; }
+
+  public const int ImuSampleNumBytes = 2 * 9; 
   public const int ElbowAngNumBytes = 2;
   public const int NumBytes = ImuSampleNumBytes + ElbowAngNumBytes;
 
@@ -40,29 +55,17 @@ public readonly struct SensorSample {
     byte[] elbowAngBytes = new byte[ElbowAngNumBytes];
     byte[] imuBytes = new byte[ImuSampleNumBytes];
     System.Buffer.BlockCopy(dataBuffer, 0, elbowAngBytes, 0, ElbowAngNumBytes);
-    System.Buffer.BlockCopy(dataBuffer, ElbowAngNumBytes, imuBytes,
-                            0, ImuSampleNumBytes);
+    System.Buffer.BlockCopy(dataBuffer, ElbowAngNumBytes,
+                             imuBytes, 0, ImuSampleNumBytes);
 
-    Imu = new ImuSample(imuBytes);
     ElbowAngleDeg = GetElbowAngleFromBuffer(elbowAngBytes);
+    Imu = new ImuSample(imuBytes);
   }
 
   private static float GetElbowAngleFromBuffer(byte[] dataBuffer) {
-    float elbowAdc = GetFloatFromTwoBytes(dataBuffer, offset: 0);
+    float elbowAdc = Utils.GetFloatFromTwoBytes(dataBuffer, offset: 0);
     Logger.Debug($"Elbow ADC value = {elbowAdc}");
     return (elbowAdc * _ElbowEqnSlope) + _ElbowEqnIntcpt;
-  }
-
-  private static float GetFloatFromTwoBytes(byte[] dataBuffer, int offset) {
-    Debug.Assert(offset >= 0 && offset <= dataBuffer.Length - 2);
-
-    // Use Big Endian
-    byte msb = dataBuffer[offset + 1];
-    dataBuffer[offset + 1] = dataBuffer[offset];
-    dataBuffer[offset] = msb;
-
-    short rawInt = BitConverter.ToInt16(dataBuffer, offset);
-    return rawInt;
   }
 
   public readonly struct ImuSample {
@@ -89,7 +92,7 @@ public readonly struct SensorSample {
       float[] dataArray = new float[dataBuffer.Length / 2];
 
       for (int i = 0; i < dataBuffer.Length; i += 2) {
-        float curFloat = GetFloatFromTwoBytes(dataBuffer, offset: i);
+        float curFloat = Utils.GetFloatFromTwoBytes(dataBuffer, offset: i);
 
         if (i < _NumBytes / 3) {
           dataArray[i / 2] = curFloat / GyroScale;
@@ -122,7 +125,7 @@ public readonly struct HapticFeedback {
 
     Payload = (byte)((dutyCycle << _FrequencyBits) + frequency);
 
-    Frequency = (int)((frequency * 15f / _FrequencyRes) + 5);
+    Frequency = (int)((2 * frequency) + 5);
     DutyCycle = (int)(dutyCycle * (100f / _DutyCycleRes));
   }
 
@@ -139,6 +142,23 @@ public readonly struct HapticFeedback {
   }
   public override int GetHashCode() {
     return Payload.GetHashCode();
+  }
+}
+
+public class BatteryVoltage {
+  public const int NumBytes = 2;
+  // -------------- Battery Voltage Calculation ------------
+  private const float _BatteryMaxAdc = 4096;
+  private const float _BatteryRefVoltage = 1.8f;
+  private const float _BatteryMaxVoltage = 3.7f;
+  private const float _BatteryVoltageDivisor = 47f / 147f;
+  private const float _BatteryMaxRef = _BatteryMaxVoltage * _BatteryVoltageDivisor;
+  // -------------------------------------------------------
+
+  public static float Value(byte[] dataBuffer) {
+    float batteryAdc = Utils.GetFloatFromTwoBytes(dataBuffer, offset: 0);
+    Logger.Debug($"Battery ADC value = {batteryAdc}");
+    return (batteryAdc / _BatteryMaxAdc) * _BatteryRefVoltage / _BatteryVoltageDivisor;
   }
 }
 
